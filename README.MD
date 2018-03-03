@@ -1,4 +1,4 @@
-#Refugee Scotland Festival website project
+# Refugee Scotland Festival website project
 
 Designed and developed by Code Your Future students.
 
