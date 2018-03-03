@@ -1,0 +1,10 @@
+node_modules/**
+**/akismet
+**/gutenberg
+**/simply-show-hooks
+**/UpDevTools
+**/twentyfifteen
+**/twentyseventeen
+**/twentysixteen
+plugins/hello.php
+**/faqs_cpt
