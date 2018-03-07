@@ -1,15 +1,15 @@
 <?php
 namespace yohannes\EventsFunctionality\src\views;
 
-	$current_num_events = wp_count_posts('cm_event')->publish;
+	$current_num_events = wp_count_posts('event_cpt')->publish;
 ?>
 
 <fieldset class="inline-edit-col-right"> <!-- TODO make translatable -->
     <div class="inline-edit-col">
         <span class="title">Event Order</span>
-        <input type="hidden" name="cm_event_noncename" id="cm_event_noncename" value="<?php echo wp_create_nonce('cm_event_order'); ?>" />
+        <input type="hidden" name="event_cpt_noncename" id="event_cpt_noncename" value="<?php echo wp_create_nonce('event_cpt_order'); ?>" />
 
-		 <select id="_cm_event_order" name="_cm_event_order" class=""> <!-- The selected attribute is set with javascript -->
+		 <select id="_event_cpt_order" name="_event_cpt_order" class=""> <!-- The selected attribute is set with javascript -->
 		  <option value="not set">Select order...</option>
 		  <option value="hidden">Don't show</option>
 		  <option value="10000">Bottom of the list</option>

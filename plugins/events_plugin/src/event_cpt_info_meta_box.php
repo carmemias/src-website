@@ -31,6 +31,6 @@ function render_shortcode_info_view(){
 	// Noncename needed to verify where the data originated
 	//echo '<input type="hidden" name="shortcode_info_noncename" value="' . wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
 	
- 	require_once plugin_dir_path(__FILE__).'views/cm_event_info_admin_view.php';
+ 	require_once plugin_dir_path(__FILE__).'views/event_cpt_info_admin_view.php';
 }
 ?>
