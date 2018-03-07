@@ -225,77 +225,77 @@ function event_cpt_bulk_updated_messages( $bulk_messages, $bulk_counts ) {
 /***********************************/
 
 // see http://shibashake.com/wordpress-theme/expand-the-wordpress-quick-edit-menu
-// add_filter('manage_cm_event_posts_columns', __NAMESPACE__ .'\cm_event_add_custom_columns');
+ add_filter('manage_event_cpt_posts_columns', __NAMESPACE__ .'\event_cpt_add_custom_columns');
 /*
 * Add a new column for Event order in the Events List table.
 */
-// function cm_event_add_custom_columns($columns) {
-// 	//remove Date column from its default position
-// 	$date = $columns['date'];
-// 	unset($columns['date']);
+function event_cpt_add_custom_columns($columns) {
+	//remove Date column from its default position
+	$date = $columns['date'];
+	unset($columns['date']);
 
-//     $columns['cm_event_order'] = 'Order';
-// 	$columns['cm_event-category'] = 'Category';
+    $columns['event_cpt_area'] = 'Area';
+	$columns['event_cpt_type'] = 'Type';
 
-//     //Add the Date column again to the end of the table
-// 	$columns['date'] = $date;
+    //Add the Date column again to the end of the table
+	$columns['date'] = $date;
 
-//     return $columns;
-// }
+    return $columns;
+}
 
-// add_action( 'manage_posts_custom_column' , __NAMESPACE__ .'\cm_event_custom_columns', 10, 2 );
+add_action( 'manage_posts_custom_column' , __NAMESPACE__ .'\event_cpt_custom_columns', 10, 2 );
 /*
 * Display the metaboxes value in the Post List table
 * See https://github.com/bamadesigner/manage-wordpress-posts-using-bulk-edit-and-quick-edit/blob/master/manage_wordpress_posts_using_bulk_edit_and_quick_edit.php line 169
 */
-// function cm_event_custom_columns( $column, $post_id ) {
-// 	switch ( $column ) {
-// 		case 'cm_event_order':
-// 			echo '<div id="cm_event_order-' . $post_id . '">' . get_post_meta( $post_id, '_cm_event_order', true ) . '</div>';
-// 			break;
-// 		case 'cm_event-category':
-// 			$terms = get_the_terms( $post_id, 'event-category' );
-// 			$terms_list = '';
-// 			if($terms) {
-// 				foreach ( $terms as $term ) {$terms_list = $terms_list.$term->name.'</br>';}
-// 			} else {
-// 				$terms_list = 'not yet set </br>';
-// 			}
-// 			echo '<div id="cm_event-category-' . $post_id . '">' . $terms_list . '</div>';
-// 			break;
-// 	}
-// }
+function event_cpt_custom_columns( $column, $post_id ) {
+	switch ( $column ) {
+		case 'event_cpt_area':
+			echo '<div id="event_cpt_area-' . $post_id . '">' . get_post_meta( $post_id, '_event_cpt_area', true ) . '</div>';
+			break;
+		case 'event_cpt_type':
+			$terms = get_the_terms( $post_id, 'event-type' );
+			$terms_list = '';
+			if($terms) {
+				foreach ( $terms as $term ) {$terms_list = $terms_list.$term->name.'</br>';}
+			} else {
+				$terms_list = 'not yet set </br>';
+			}
+			echo '<div id="event_cpt_type-' . $post_id . '">' . $terms_list . '</div>';
+			break;
+	}
+}
 
 
-// add_filter( 'manage_edit-cm_event_sortable_columns', __NAMESPACE__ .'\cm_event_order_sortable_column' );
+ add_filter( 'manage_edit-event_cpt_sortable_columns', __NAMESPACE__ .'\event_cpt_area_sortable_column' );
 // /*
 // * Make new Post Priority column sortable
 // */
 
-// function cm_event_order_sortable_column( $columns ) {
+function event_cpt_area_sortable_column( $columns ) {
 
-// 	$columns['cm_event_order'] = 'cm_event_order';
+	$columns['event_cpt_area'] = 'event_cpt_area';
 
-//     return $columns;
-// }
+    return $columns;
+}
 
 
 
-// add_action( 'pre_get_posts', __NAMESPACE__ .'\cm_event_order_orderby_backend' );
-// /*
-// * Priority sorting instructions for the backend only (front end is set in home.php)
-// */
-// function cm_event_order_orderby_backend( $query ) {
-//     if( ! is_admin() )
-//         return;
+ add_action( 'pre_get_posts', __NAMESPACE__ .'\event_cpt_area_orderby_backend' );
+/*
+* Priority sorting instructions for the backend only (front end is set in home.php)
+*/
+function event_cpt_area_orderby_backend( $query ) {
+    if( ! is_admin() )
+        return;
 
-//     $orderby = $query->get( 'orderby');
+    $orderby = $query->get( 'orderby');
 
-//     if( 'cm_event_order' == $orderby ) {
-// 		$query->set('meta_key','_cm_event_order');
-//         $query->set('orderby','meta_value_num');
-//     }
-// }
+    if( 'event_cpt_area' == $orderby ) {
+		$query->set('meta_key','_event_cpt_area');
+        $query->set('orderby','meta_value_num');
+    }
+}
 
 /***********************************/
 /*         QUICK EDIT MENU         */
