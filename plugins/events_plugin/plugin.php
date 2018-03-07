@@ -2,7 +2,7 @@
 /**
  * Event Functionality Custom Post Type.
  *
- * @package     yohannes\EventFunctionality
+ * @package     yohannes\EventsFunctionality
  * @author      yohannes
  * @copyright   2018 Code your future
  * @license     GPL-2.0+
@@ -19,7 +19,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-namespace yohannes\EventFunctionality;
+namespace yohannes\EventsFunctionality;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Access denied.' );
