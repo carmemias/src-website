@@ -102,51 +102,51 @@ function get_all_post_type_features($post_type = 'post', $excluded_features = ar
 add_filter( 'post_updated_messages',  __NAMESPACE__ . '\event_cpt_updated_messages' );
 
 /*
-* cm_event metabox
+* event_cpt metabox
 */
-// function cm_events_add_meta_box(){
-// 		add_meta_box( 'cm_event_meta', 'Event order', __NAMESPACE__.'\render_cm_event_metabox', 'cm_event', 'side', 'default' );
-// }
+function events_cpt_add_meta_box(){
+		add_meta_box( 'event_cpt_meta', 'Event Area', __NAMESPACE__.'\render_event_cpt_metabox', 'event_cpt', 'side', 'default' );
+}
 
-// function render_cm_event_metabox(){
-// 	global $post;
+function render_event_cpt_metabox(){
+	global $post;
 
-// 	// Noncename needed to verify where the data originated
-// 	echo '<input type="hidden" name="cm_event_noncename" value="' . wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
+	// Noncename needed to verify where the data originated
+	echo '<input type="hidden" name="event_cpt_noncename" value="' . wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
 
-//  	require_once plugin_dir_path(__FILE__).'views/cm_event_meta_admin_view.php';
-// }
+ 	require_once plugin_dir_path(__FILE__).'views/event_cpt_meta_admin_view.php';
+}
 
-// function save_cm_event_meta($post_id, $post){
-// 	if ( ! isset( $_POST['cm_event_noncename'] ) ) { return; }
-// 	// verify this came from the our screen and with proper authorization, because save_post can be triggered at other times
-// 	if( !wp_verify_nonce( $_POST['cm_event_noncename'], plugin_basename(__FILE__) ) ) {
-// 						return $post->ID;}
+function save_event_cpt_meta($post_id, $post){
+	if ( ! isset( $_POST['event_cpt_noncename'] ) ) { return; }
+	// verify this came from the our screen and with proper authorization, because save_post can be triggered at other times
+	if( !wp_verify_nonce( $_POST['event_cpt_noncename'], plugin_basename(__FILE__) ) ) {
+						return $post->ID;}
 
-// 	// is the user allowed to edit the post or page?
-// 	if( ! current_user_can( 'edit_post', $post->ID )){
-// 						return $post->ID;}
+	// is the user allowed to edit the post or page?
+	if( ! current_user_can( 'edit_post', $post->ID )){
+						return $post->ID;}
 
-// 	// ok, we're authenticated: we need to find and save the data. We'll put it into an array to make it easier to loop through
-// 	$event_meta['_cm_event_order'] = $_POST['_cm_event_order'];
+	// ok, we're authenticated: we need to find and save the data. We'll put it into an array to make it easier to loop through
+	$event_meta['_event_cpt_area'] = $_POST['_event_cpt_area'];
 
-// 	// Add values of $events_meta as custom fields
-// 	foreach ($event_meta as $key => $value) { // Cycle through the $classes_meta array!
-// 		if( $post->post_type == 'revision' ) return; // Don't store custom data twice
+	// Add values of $events_meta as custom fields
+	foreach ($event_meta as $key => $value) { // Cycle through the $classes_meta array!
+		if( $post->post_type == 'revision' ) return; // Don't store custom data twice
 
-// 		$value = implode(',', (array)$value); // If $value is an array, make it a CSV (unlikely)
+		$value = implode(',', (array)$value); // If $value is an array, make it a CSV (unlikely)
 
-// 		if(get_post_meta($post->ID, $key, FALSE)) { // If the custom field already has a value
-// 		     update_post_meta($post->ID, $key, $value);
-// 		} else { // If the custom field doesn't have a value
-// 		     add_post_meta($post->ID, $key, $value);
-// 		}
+		if(get_post_meta($post->ID, $key, FALSE)) { // If the custom field already has a value
+		     update_post_meta($post->ID, $key, $value);
+		} else { // If the custom field doesn't have a value
+		     add_post_meta($post->ID, $key, $value);
+		}
 
-// 		if(!$value) delete_post_meta($post->ID, $key); // Delete if blank
-// 	}
-// }
+		if(!$value) delete_post_meta($post->ID, $key); // Delete if blank
+	}
+}
 
-// add_action('save_post', __NAMESPACE__.'\save_cm_event_meta', 1, 2);
+add_action('save_post', __NAMESPACE__.'\save_event_cpt_meta', 1, 2);
 
 
 /**
