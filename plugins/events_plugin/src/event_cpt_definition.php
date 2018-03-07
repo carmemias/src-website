@@ -11,7 +11,7 @@
 
 namespace yohannes\EventsFunctionality\src;
 
-add_action( 'init', __NAMESPACE__ . '\event_cpt' );
+add_action( 'init', __NAMESPACE__ . '\event_cpt_functionality' );
 /**
  * Register CPT `event_event`
  * See http://web-profile.net/wordpress/docs/custom-post-types/
