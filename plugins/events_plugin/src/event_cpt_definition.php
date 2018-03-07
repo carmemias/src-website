@@ -54,8 +54,8 @@ function event_cpt_functionality() { //see https://codex.wordpress.org/Function_
 		'menu_icon'   => 'dashicons-images-alt2',
 		'menu_position' => 20,
 		'supports' => $features, #see line 21
-		'taxonomies' => array('event-type')
-		// 'register_meta_box_cb' => __NAMESPACE__.'\cm_events_add_meta_box'
+		'taxonomies' => array('event-type'),
+		'register_meta_box_cb' => __NAMESPACE__.'\events_cpt_add_meta_box'
 	));
 
 	register_taxonomy('event-type', 'event_cpt', array(
@@ -180,7 +180,7 @@ function event_cpt_updated_messages( $messages ) {
 		10 => __( 'Event draft updated.', 'events-functionality' )
 	);
 
-	if ( $post_type_object->publicly_queryable && 'cm_event' === $post_type ) {
+	if ( $post_type_object->publicly_queryable && 'event_cpt' === $post_type ) {
 		$permalink = get_permalink( $post->ID );
 
 		$view_link = sprintf( ' <a href="%s">%s</a>', esc_url( $permalink ), __( 'View Event', 'events-functionality' ) );
