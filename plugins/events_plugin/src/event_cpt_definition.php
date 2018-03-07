@@ -58,7 +58,7 @@ function event_cpt_functionality() { //see https://codex.wordpress.org/Function_
 		// 'register_meta_box_cb' => __NAMESPACE__.'\cm_events_add_meta_box'
 	));
 
-	register_taxonomy('event-type', 'cm_event', array(
+	register_taxonomy('event-type', 'event_cpt', array(
 		'hierarchical' => true,
 		'show_in_nav_menus' => false,
 		'labels' => array(
@@ -75,7 +75,7 @@ function event_cpt_functionality() { //see https://codex.wordpress.org/Function_
 			'add_or_remove_items' => __('Add or remove Event types'),
 			'choose_from_most_used' => __('Choose from most used Event types'),
 		)
-	) ); //categories will be set as "children classes" and "teacher training"
+	) ); 
 }
 
 /**
