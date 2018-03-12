@@ -114,7 +114,8 @@ function render_event_cpt_metabox(){
 	// Noncename needed to verify where the data originated
 	echo '<input type="hidden" name="event_cpt_noncename" value="' . wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
 
- 	require_once plugin_dir_path(__FILE__).'views/event_cpt_meta_area_view.php';
+	 require_once plugin_dir_path(__FILE__).'views/event_cpt_meta_area_view.php';
+	 require plugin_dir_path( __FILE__ ) . 'includes/custom-meta-boxes.php';
 }
 
 function save_event_cpt_meta($post_id, $post){
