@@ -302,23 +302,23 @@ function event_cpt_area_orderby_backend( $query ) {
 /*         QUICK EDIT MENU         */
 /***********************************/
 
-// add_action('quick_edit_custom_box',  __NAMESPACE__ .'\cm_event_add_metabox_to_quick_edit', 10, 2);
+// add_action('quick_edit_custom_box',  __NAMESPACE__ .'\event_cpt_add_metabox_to_quick_edit', 10, 2);
 // /*
 // * Add Priority and Highlighted metaboxes to Quick Edit Menu
 // */
-// function cm_event_add_metabox_to_quick_edit($column_name, $post_type) {
-//     if ( !in_array( $column_name, array( 'cm_event_order') ) )
+// function event_cpt_add_metabox_to_quick_edit($column_name, $post_type) {
+//     if ( !in_array( $column_name, array( 'event_cpt_order') ) )
 //         return;
 
-// 	require_once plugin_dir_path(__FILE__).'views/cm_event_order_meta_quick_edit_view.php';
+// 	require_once plugin_dir_path(__FILE__).'views/event_cpt_order_meta_quick_edit_view.php';
 // }
 
 
-// add_action('save_post', __NAMESPACE__ .'\cm_event_save_metabox_quick_edit_data', 1, 2);
+// add_action('save_post', __NAMESPACE__ .'\event_cpt_save_metabox_quick_edit_data', 1, 2);
 //  /*
 //  * Save new Event order value, attributed through the Quick Edit menu.
 //  */
-// function cm_event_save_metabox_quick_edit_data($post_id, $post) {
+// function event_cpt_save_metabox_quick_edit_data($post_id, $post) {
 // 	//not to be run for new events.
 // 	if (function_exists('get_current_screen')){
 // 		$current_screen = get_current_screen(); //was clashing with other plugins without this
@@ -330,7 +330,7 @@ function event_cpt_area_orderby_backend( $query ) {
 // 	}
 
 // 	$post_type = get_post_type( $post );
-//     if ( !( 'cm_event' == $post_type) )
+//     if ( !( 'event_cpt' == $post_type) )
 //         return;
 //     // verify if this is an auto save routine. If it is our form has not been submitted, so we dont want
 //     // to do anything
@@ -342,7 +342,7 @@ function event_cpt_area_orderby_backend( $query ) {
 //         return $post_id;
 
 // 	 // ok, we're authenticated: we need to find and save the data. We'll put it into an array to make it easier to loop through
-// 		$event_meta['_cm_event_order'] = $_POST['_cm_event_order'];
+// 		$event_meta['_event_cpt_order'] = $_POST['_event_cpt_order'];
 
 // 	// Add value as custom fields
 // 	foreach ($event_meta as $key => $value) { // Cycle through the array
@@ -360,26 +360,26 @@ function event_cpt_area_orderby_backend( $query ) {
 // 	}
 // }
 
-// add_action('admin_notices', __NAMESPACE__.'\cm_events_admin_notice');
+// add_action('admin_notices', __NAMESPACE__.'\eventscpt__admin_notice');
 // /*
 // * Show a warning notice in the Event Edit page if the Event's current order value is higher than the number of EventS.
 // */
-// function cm_events_admin_notice(){
+// function eventscpt__admin_notice(){
 //     global $pagenow;
 // 	global $post;
 
-// 	//this notice should not even be attempted in admin sections other than cm_event edit.
-// 	if( ('post.php'!=$pagenow) || ($post->post_type != 'cm_event') ){
+// 	//this notice should not even be attempted in admin sections other than event cpt_edit.
+// 	if( ('post.php'!=$pagenow) || ($post->post_type != 'event'cpt_) ){
 // 		return;
 // 	}
 
-// 	$cm_event_order = get_post_meta($post->ID, '_cm_event_order', true);
-// 	$current_num_events = wp_count_posts('cm_event')->publish;
-// 	$display_warning = isset($cm_event_order) && ($cm_event_order != '10000') && (intval($cm_event_order)>intval($current_num_events));
+// 	$event_cpt_order = get_post_meta($post->ID, '_event_cpt_order', true);
+// 	$current_num_events = wp_count_posts('event_cpt')->publish;
+// 	$display_warning = isset($event_cpt_order) && ($event_cpt_order != '10000') && (intval($event_cpt_order)>intval($current_num_events));
 
 //     if( $display_warning ) {		//TODO make translatable
 //          echo '<div class="notice notice-warning is-dismissible">
-//              <p>This Event\'s current order is '.$cm_event_order.' but there are only '.$current_num_events.' published Events. The Event will still show work but its order value will not be listed in the dropdown list further down this page.</p>
+//              <p>This Event\'s current order is '.$event_cpt_order.' but there are only '.$current_num_events.' published Events. The Event will still show work but its order value will not be listed in the dropdown list further down this page.</p>
 //          </div>';
 //     }
 // }
@@ -389,9 +389,9 @@ function event_cpt_area_orderby_backend( $query ) {
 * Enqueue javascript for the Events Quick Edit functionality
 * See https://github.com/bamadesigner/manage-wordpress-posts-using-bulk-edit-and-quick-edit/blob/master/manage_wordpress_posts_using_bulk_edit_and_quick_edit.php AND https://developer.wordpress.org/reference/functions/wp_enqueue_script/*/
 
-// add_action( 'admin_print_scripts-edit.php', __NAMESPACE__ . '\cm_event_metabox_enqueue_admin_scripts' );
+// add_action( 'admin_print_scripts-edit.php', __NAMESPACE__ . '\event_cpt_metabox_enqueue_admin_scripts' );
 
-// function cm_event_metabox_enqueue_admin_scripts() {
-// 	wp_register_script( 'cm_event_populate_metabox_scripts', Event_FUNCTIONALITY_URL . '/src/assets/js/cm_event_metabox_populate_quick_edit.js', array( 'jquery', 'inline-edit-post' ), false, false );
-// 	wp_enqueue_script( 'cm_event_populate_metabox_scripts' );
+// function event_cpt_metabox_enqueue_admin_scripts() {
+// 	wp_register_script( 'event_cpt_populate_metabox_scripts', Event_FUNCTIONALITY_URL . '/src/assets/js/event_cpt_metabox_populate_quick_edit.js', array( 'jquery', 'inline-edit-post' ), false, false );
+// 	wp_enqueue_script( 'event_cpt_populate_metabox_scripts' );
 // 	}

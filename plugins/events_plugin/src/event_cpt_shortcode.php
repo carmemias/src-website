@@ -15,7 +15,7 @@ namespace yohannes\EventsFunctionality\src;
 /*
 * Enqueue javascript and stylesheet files used by the shortcode view
 */
-function cm_events_shortcode_enqueue_scripts(){
+function events_cpt_shortcode_enqueue_scripts(){
 	wp_register_style('events_shortcode_style', Event_FUNCTIONALITY_URL . '/src/assets/css/events_shortcode_style.css');
 	wp_register_script('events_shortcode_script', Event_FUNCTIONALITY_URL . '/src/assets/js/events_shortcode_script.js');
 	
@@ -23,13 +23,13 @@ function cm_events_shortcode_enqueue_scripts(){
 	wp_enqueue_style( 'events_shortcode_style' );
 	wp_enqueue_script( 'events_shortcode_script' );
 }
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\cm_events_shortcode_enqueue_scripts');	
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\events_cpt_shortcode_enqueue_scripts');	
 
 
 //[events category="category-slug|category name"] category attrib value not case sensitive
-function cm_events_shortcode_handler( $atts ){
+function events_cpt_shortcode_handler( $atts ){
 	$results_array = [];
-	$cm_event_categories = [];
+	$event_cpt_categories = [];
 	$output_string = '';
 	
 	//the default value for category
@@ -54,31 +54,31 @@ function cm_events_shortcode_handler( $atts ){
 		} 
 		
 		//finds the category object, returns an array with a single object
-		$cm_event_categories = get_terms( array( 'taxonomy' => 'event-category', 'include' => $category_ID));
+		$event_cpt_categories = get_terms( array( 'taxonomy' => 'event-category', 'include' => $category_ID));
 		
 	} else {
 		
 		//no arguments have been set by the Editor, so all Events will be listed grouped by category and in the order specified.
- 	    $cm_event_categories = get_terms( array( 'taxonomy' => 'event-category', 'hide_empty' => false ) );
+ 	    $event_cpt_categories = get_terms( array( 'taxonomy' => 'event-category', 'hide_empty' => false ) );
 		
 	} 
 	
-	if ( ! empty( $cm_event_categories ) && ! is_wp_error( $cm_event_categories ) ){
-		foreach ( $cm_event_categories as $category_obj ) {
+	if ( ! empty( $event_cpt_categories ) && ! is_wp_error( $event_cpt_categories ) ){
+		foreach ( $event_cpt_categories as $category_obj ) {
 			$single_result_obj=[];
 				
-			$cm_event_args = array ('post_type' => 'cm_event',
+			$event_cpt_args = array ('post_type' => 'event_cpt',
  						 	'post_status' => 'publish',
 							'event-category' => $category_obj->slug,
 							 'order' => 'ASC',
 							 'orderby' => 'meta_value_num',
-							 'meta_key' => '_cm_event_order',
+							 'meta_key' => '_event_cpt_order',
 							 'posts_per_page' => -1);	
 	
-			$cm_events = get_posts( $cm_event_args ); //returns an array
+			$events_cpt = get_posts( $event_cpt_args ); //returns an array
 			
 			//create a $result array combining the event-category and the corresponding events
-			$single_result_obj = [ 'category' => $category_obj,'questions' => $cm_events ];
+			$single_result_obj = [ 'category' => $category_obj,'questions' => $events_cpt ];
 	
 			//$results_array = [['category' => $category_obj,'questions' => $questions]]
 			array_push($results_array,$single_result_obj);
@@ -102,11 +102,11 @@ function cm_events_shortcode_handler( $atts ){
 			$question_ID = $question->ID;
 			$question_title = get_the_title($question_ID);
 			$answer = apply_filters( 'the_content', get_the_content() );
-			$question_order = get_post_meta( get_the_ID(), '_cm_event_order', true );
+			$question_order = get_post_meta( get_the_ID(), '_event_cpt_order', true );
 			
 	    	if(( $question_order != 'hidden' ) && ( $question_order != 'not set' )){
 				
-				$output_substring .= '<article id="post-' . $question_ID . '" class="post-' . $question_ID . ' cm_event type-cm_event status-publish hentry event-category-' . $category_slug . '" >';
+				$output_substring .= '<article id="post-' . $question_ID . '" class="post-' . $question_ID . ' event_cpt type-event_cpt status-publish hentry event-category-' . $category_slug . '" >';
 				$output_substring .= '<header class="entry-header" role="tab" id="heading-' . $question_ID . '">';
 				$output_substring .= '<h3 class="entry-title"><a role="button" class="collapsed" data-parent="#accordion" href="#collapse-'. $question_ID .'" aria-expanded="false" aria-controls="collapse-'. $question_ID .'">';
 				$output_substring .= $question_title;
@@ -133,6 +133,6 @@ function cm_events_shortcode_handler( $atts ){
 	 
   }
 
-add_shortcode( 'events', __NAMESPACE__ . '\cm_events_shortcode_handler');
+add_shortcode( 'events', __NAMESPACE__ . '\events_cpt_shortcode_handler');
 
 ?>

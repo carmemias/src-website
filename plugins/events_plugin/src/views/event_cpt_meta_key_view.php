@@ -1,4 +1,5 @@
 <?php
+namespace yohannes\EventsFunctionality\src\views;
 /**
  * Custom meta boxes for this plugin.
  *
@@ -23,7 +24,7 @@ add_action( 'add_meta_boxes_event', 'event_add_meta_boxes' );
  *
  * @param post $post The post object
  */
-function event_build_meta_box( $post ){
+ function event_build_meta_box( $post ){
 	// make sure the form request comes from WordPress
 	wp_nonce_field( basename( __FILE__ ), 'event_meta_box_nonce' );
 	// retrieve the _event_key_event current value
