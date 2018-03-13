@@ -23,7 +23,9 @@ function event_cpt_functionality() { //see https://codex.wordpress.org/Function_
 		'custom-fields',
 		'revisions',
 		'author',
-		'post-formats'
+		'post-formats',
+		'comments',
+		'excerpt'
 	));
 
 	register_post_type( 'event_cpt', array(
