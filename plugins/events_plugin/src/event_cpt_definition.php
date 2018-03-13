@@ -110,7 +110,7 @@ function events_cpt_add_meta_box(){
 	add_meta_box( 'event_cpt_location_meta', 'Event Location', __NAMESPACE__.'\render_event_cpt_location_meta', 'event_cpt', 'normal', 'default' );
 	add_meta_box( 'event_cpt_organizer_meta', 'Event Organizer', __NAMESPACE__.'\render_event_cpt_organizer_meta', 'event_cpt', 'normal', 'default' );	
 	add_meta_box( 'event_cpt_key_event_meta', 'Key Event', __NAMESPACE__.'\render_event_cpt_key_event_meta', 'event_cpt', 'side', 'low' );
-	add_meta_box( 'event_cpt_strand_event_meta', 'Key Event', __NAMESPACE__.'\render_event_cpt_strand_event_meta', 'event_cpt', 'side', 'default' );	
+	add_meta_box( 'event_cpt_strand_event_meta', 'Strand Event', __NAMESPACE__.'\render_event_cpt_strand_event_meta', 'event_cpt', 'side', 'default' );	
 }
 
 function render_event_cpt_location_meta(){
@@ -289,6 +289,7 @@ function event_cpt_add_custom_columns($columns) {
 
     $columns['event_cpt_area'] = 'Area';
 	$columns['event_cpt_type'] = 'Type';
+	$columns['event_cpt_strand_event'] = 'Strand';
 
     //Add the Date column again to the end of the table
 	$columns['date'] = $date;
@@ -306,6 +307,9 @@ function event_cpt_custom_columns( $column, $post_id ) {
 		case 'event_cpt_area':
 			echo '<div id="event_cpt_area-' . $post_id . '">' . get_post_meta( $post_id, '_event_cpt_area', true ) . '</div>';
 			break;
+		case 'event_cpt_strand_event':
+			echo '<div id="event_cpt_strand_event-' . $post_id . '">' . get_post_meta( $post_id, '_event_cpt_strand_event', true ) . '</div>';
+			break;
 		case 'event_cpt_type':
 			$terms = get_the_terms( $post_id, 'event-type' );
 			$terms_list = '';
@@ -321,6 +325,8 @@ function event_cpt_custom_columns( $column, $post_id ) {
 
 
  add_filter( 'manage_edit-event_cpt_sortable_columns', __NAMESPACE__ .'\event_cpt_area_sortable_column' );
+ add_filter( 'manage_edit-event_cpt_sortable_columns', __NAMESPACE__ .'\event_cpt_strand_sortable_column' );
+
 // /*
 // * Make new Post Priority column sortable
 // */
@@ -331,10 +337,16 @@ function event_cpt_area_sortable_column( $columns ) {
 
     return $columns;
 }
+function event_cpt_strand_sortable_column( $columns ) {
 
+	$columns['event_cpt_strand'] = 'event_cpt_strand';
+
+    return $columns;
+}
 
 
  add_action( 'pre_get_posts', __NAMESPACE__ .'\event_cpt_area_orderby_backend' );
+ add_action( 'pre_get_posts', __NAMESPACE__ .'\event_cpt_strand_orderby_backend' );
 /*
 * Priority sorting instructions for the backend only (front end is set in home.php)
 */
@@ -346,6 +358,17 @@ function event_cpt_area_orderby_backend( $query ) {
 
     if( 'event_cpt_area' == $orderby ) {
 		$query->set('meta_key','_event_cpt_area');
+        $query->set('orderby','meta_value_num');
+    }
+}
+function event_cpt_strand_orderby_backend( $query ) {
+    if( ! is_admin() )
+        return;
+
+    $orderby = $query->get( 'orderby');
+
+    if( 'event_cpt_strand' == $orderby ) {
+		$query->set('meta_key','_event_cpt_strand');
         $query->set('orderby','meta_value_num');
     }
 }
