@@ -28,15 +28,15 @@ namespace yohannes\EventsFunctionality\src\views;
     <tr>
 		<td>
 			<label>Organizer's Website </label>
-			 <input type="text" size="100" name="_event_cpt_organizer_website" placeholder="website url https:// ....." value="<?php echo $_event_cpt_organizer_website; ?>"><br>
+			 <input type="url" size="100" name="_event_cpt_organizer_website" placeholder="website url https:// ....." value="<?php echo $_event_cpt_organizer_website; ?>"><br>
 		</td><!-- venue address -->
 	</tr>
     <tr>
         <td>
              <label>Social Media </label><br>
-			 <input type="text" size="50" name="_event_cpt_organizer_facebook" placeholder="Facebook..." value="<?php echo $_event_cpt_organizer_facebook; ?>"><br>
-			 <input type="text" size="50" name="_event_cpt_organizer_twitter" placeholder="Twitter..." value="<?php echo $_event_cpt_organizer_twitter; ?>"><br>
-             <input type="text" size="50" name="_event_cpt_organizer_instagram" placeholder="Instagram..." value="<?php echo $_event_cpt_organizer_instagram; ?>"><br>
+			 <label>Facebook</label><input type="url" size="50" name="_event_cpt_organizer_facebook" placeholder="Facebook url..." value="<?php echo $_event_cpt_organizer_facebook; ?>"><br>
+			 <label>Twitter</label><input type="url" size="50" name="_event_cpt_organizer_twitter" placeholder="Twitter url..." value="<?php echo $_event_cpt_organizer_twitter; ?>"><br>
+             <label>Instagram</label><input type="url" size="50" name="_event_cpt_organizer_instagram" placeholder="Instagram url..." value="<?php echo $_event_cpt_organizer_instagram; ?>"><br>
 		</td><!-- venue address -->
 	</tr>
 
