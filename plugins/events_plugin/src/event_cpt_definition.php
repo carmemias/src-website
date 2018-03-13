@@ -107,22 +107,32 @@ add_filter( 'post_updated_messages',  __NAMESPACE__ . '\event_cpt_updated_messag
 * event_cpt metabox
 */
 function events_cpt_add_meta_box(){
-		add_meta_box( 'event_cpt_location_meta', 'Event Location', __NAMESPACE__.'\render_event_cpt_location_meta', 'event_cpt', 'normal', 'default' );
+	add_meta_box( 'event_cpt_location_meta', 'Event Location', __NAMESPACE__.'\render_event_cpt_location_meta', 'event_cpt', 'normal', 'default' );
+	add_meta_box( 'event_cpt_organizer_meta', 'Event Organizer', __NAMESPACE__.'\render_event_cpt_organizer_meta', 'event_cpt', 'normal', 'default' );	
 }
 
 function render_event_cpt_location_meta(){
 	global $post;
 
 	// Noncename needed to verify where the data originated
-	echo '<input type="hidden" name="event_cpt_noncename" value="' . wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
+	echo '<input type="hidden" name="event_cpt_location_noncename" value="' . wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
 
 	require_once plugin_dir_path(__FILE__).'views/event_cpt_location_meta_view.php';
 }
 
+function render_event_cpt_organizer_meta(){
+	global $post;
+
+	// Noncename needed to verify where the data originated
+	echo '<input type="hidden" name="event_cpt_organizer_noncename" value="' . wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
+
+	require_once plugin_dir_path(__FILE__).'views/event_cpt_organizer_meta_view.php';
+}
+
 function save_event_cpt_meta($post_id, $post){
-	if ( ! isset( $_POST['event_cpt_noncename'] ) ) { return; }
+	if ( ! isset( $_POST['event_cpt_location_noncename'],$_POST['event_cpt_organizer_noncename'] ) ) { return; }
 	// verify this came from the our screen and with proper authorization, because save_post can be triggered at other times
-	if( !wp_verify_nonce( $_POST['event_cpt_noncename'], plugin_basename(__FILE__) ) ) {
+	if( !wp_verify_nonce( $_POST['event_cpt_location_noncename'], plugin_basename(__FILE__) ) || !wp_verify_nonce( $_POST['event_cpt_organizer_noncename'], plugin_basename(__FILE__) )) {
 						return $post->ID;}
 
 	// is the user allowed to edit the post or page?
@@ -131,6 +141,21 @@ function save_event_cpt_meta($post_id, $post){
 
 	// ok, we're authenticated: we need to find and save the data. We'll put it into an array to make it easier to loop through
 	$event_meta['_event_cpt_area'] = $_POST['_event_cpt_area'];
+	$event_meta['_event_cpt_venue'] = $_POST['_event_cpt_venue'];
+	$event_meta['_event_cpt_address_line_1'] = $_POST['_event_cpt_address_line_1'];
+	$event_meta['_event_cpt_address_line_2'] = $_POST['_event_cpt_address_line_2'];
+	$event_meta['_event_cpt_address_town_city'] = $_POST['_event_cpt_address_town_city'];
+	$event_meta['_event_cpt_address_county'] = $_POST['_event_cpt_address_county'];
+	$event_meta['_event_cpt_address_postcode'] = $_POST['_event_cpt_address_postcode'];
+
+	$event_meta['_event_cpt_main_organizer'] = $_POST['_event_cpt_main_organizer'];
+	$event_meta['_event_cpt_other_organizer'] = $_POST['_event_cpt_other_organizer'];
+	$event_meta['_event_cpt_organizer_website'] = $_POST['_event_cpt_organizer_website'];
+	$event_meta['_event_cpt_organizer_facebook'] = $_POST['_event_cpt_organizer_facebook'];
+	$event_meta['_event_cpt_organizer_twitter'] = $_POST['_event_cpt_organizer_twitter'];
+	$event_meta['_event_cpt_organizer_instagram'] = $_POST['_event_cpt_organizer_instagram'];
+
+	
 
 	// Add values of $events_meta as custom fields
 	foreach ($event_meta as $key => $value) { // Cycle through the $classes_meta array!
