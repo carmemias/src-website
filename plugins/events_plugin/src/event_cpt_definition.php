@@ -28,9 +28,9 @@ function event_cpt_functionality() { //see https://codex.wordpress.org/Function_
 
 	register_post_type( 'event_cpt', array(
 		'labels'  => array(
-				'name' => __( 'Events', 'Events CPT general name' , 'events-functionality'),
-				'singular_name' => __( 'Event', 'Events CPT singular name' , 'events-functionality'),
-				'all_items' => __('All Events'),
+			'name' => __( 'Events', 'Events CPT general name' , 'events-functionality'),
+			'singular_name' => __( 'Event', 'Events CPT singular name' , 'events-functionality'),
+			'all_items' => __('All Events'),
  		    'add_new_item' => __('Add New Event', 'events-functionality'),
  		    'edit_item' => __('Edit Event', 'events-functionality'),
  		    'new_item' => __('New Event', 'events-functionality'),
@@ -105,17 +105,16 @@ add_filter( 'post_updated_messages',  __NAMESPACE__ . '\event_cpt_updated_messag
 * event_cpt metabox
 */
 function events_cpt_add_meta_box(){
-		add_meta_box( 'event_cpt_meta', 'Event Area', __NAMESPACE__.'\render_event_cpt_metabox', 'event_cpt', 'side', 'default' );
+		add_meta_box( 'event_cpt_location_meta', 'Event Location', __NAMESPACE__.'\render_event_cpt_location_meta', 'event_cpt', 'normal', 'default' );
 }
 
-function render_event_cpt_metabox(){
+function render_event_cpt_location_meta(){
 	global $post;
 
 	// Noncename needed to verify where the data originated
 	echo '<input type="hidden" name="event_cpt_noncename" value="' . wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
 
-	require_once plugin_dir_path(__FILE__).'views/event_cpt_meta_area_view.php';
-	require plugin_dir_path( __FILE__ ) . 'views/event_cpt_meta_key_view.php';
+	require_once plugin_dir_path(__FILE__).'views/event_cpt_location_meta_view.php';
 }
 
 function save_event_cpt_meta($post_id, $post){
