@@ -38,15 +38,8 @@ namespace yohannes\EventsFunctionality\src\views;
 			 <input type="text" name="_event_cpt_address_county" placeholder="County..." value="<?php echo $_event_cpt_address_county ?>"><br> -->
 			 <label>Postcode: </label>
 			 <input type="text" name="_event_cpt_address_postcode" placeholder="Postcode..." value="<?php echo $_event_cpt_address_postcode; ?>">	 
-		</td><!-- venue address -->
-	</tr>
-	<tr>
-		<td>Type the Event's area name:</td>
-	</tr>
-	<tr style="border-bottom: 1px solid #eee;">
-		<td>
 			<label>Event Area:</label>
-			 <input type="text" name="_event_cpt_area" placeholder="Area name ..." value="<?php echo $_event_cpt_area; ?>">
-		</td><!-- event area -->
+			 <input type="text" name="_event_cpt_area" placeholder="City / Town ..." value="<?php echo $_event_cpt_area; ?>">
+		</td><!-- venue address -->
 	</tr>
 </table>

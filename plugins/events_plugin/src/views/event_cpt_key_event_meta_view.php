@@ -15,7 +15,7 @@ namespace yohannes\EventsFunctionality\src\views;
 		<tr>
 		
 			<td>
-			<label><?php _e( 'Key Event?', 'event_cpt' ); ?></label>
+			<label><?php _e( 'Key Event?', 'event_cpt' ); ?></label><br>
 				<input type="radio" name="_event_cpt_key_event" value="0" <?php checked( $_event_cpt_key_event, '0' ); ?> /> Yes<br />
 				<input type="radio" name="_event_cpt_key_event" value="1" <?php checked( $_event_cpt_key_event, '1' ); ?> /> No
 			</td>
