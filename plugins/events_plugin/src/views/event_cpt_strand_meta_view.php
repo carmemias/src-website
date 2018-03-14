@@ -14,7 +14,7 @@ namespace yohannes\EventsFunctionality\src\views;
 
     <tr>
         <td>
-        <label><?php _e( 'strand Event?', 'event_cpt' ); ?></label><br>
+        <label><?php _e( 'Strand Event?', 'event_cpt' ); ?></label><br>
             <input type="radio" name="_event_cpt_strand_event" value="0" <?php checked( $_event_cpt_strand_event, '0' ); ?> /> Open Program<br />
             <input type="radio" name="_event_cpt_strand_event" value="1" <?php checked( $_event_cpt_strand_event, '1' ); ?> /> Creative Communities
         </td>
