@@ -111,6 +111,7 @@ function events_cpt_add_meta_box(){
 	add_meta_box( 'event_cpt_organizer_meta', 'Event Organizer', __NAMESPACE__.'\render_event_cpt_organizer_meta', 'event_cpt', 'normal', 'default' );	
 	add_meta_box( 'event_cpt_key_event_meta', 'Key Event', __NAMESPACE__.'\render_event_cpt_key_event_meta', 'event_cpt', 'side', 'low' );
 	add_meta_box( 'event_cpt_strand_event_meta', 'Strand Event', __NAMESPACE__.'\render_event_cpt_strand_event_meta', 'event_cpt', 'side', 'default' );	
+	add_meta_box( 'event_cpt_price_event_meta', 'Event Price', __NAMESPACE__.'\render_event_cpt_price_event_meta', 'event_cpt', 'side', 'default' );
 }
 
 function render_event_cpt_location_meta(){
@@ -146,16 +147,26 @@ function render_event_cpt_strand_event_meta(){
 
 	require_once plugin_dir_path(__FILE__).'views/event_cpt_strand_meta_view.php';
 }
+function render_event_cpt_price_event_meta(){
+	global $post;
+
+	// Noncename needed to verify where the data originated
+	echo '<input type="hidden" name="event_cpt_price_event_noncename" value="' . wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
+
+	require_once plugin_dir_path(__FILE__).'views/event_cpt_price_meta_view.php';
+}
 
 function save_event_cpt_meta($post_id, $post){
 	if ( ! isset( $_POST['event_cpt_location_noncename'],
 	$_POST['event_cpt_organizer_noncename'],
 	$_POST['event_cpt_key_event_noncename'],
+	$_POST['event_cpt_price_event_noncename'],
 	$_POST['event_cpt_strand_event_noncename'] ) ) { return; }
 	// verify this came from the our screen and with proper authorization, because save_post can be triggered at other times
 	if( !wp_verify_nonce( $_POST['event_cpt_location_noncename'], 
 	plugin_basename(__FILE__) ) || !wp_verify_nonce( $_POST['event_cpt_organizer_noncename'], 
-	plugin_basename(__FILE__) ) || !wp_verify_nonce( $_POST['event_cpt_key_event_noncename'], 
+	plugin_basename(__FILE__) ) || !wp_verify_nonce( $_POST['event_cpt_key_event_noncename'],
+	plugin_basename(__FILE__) ) || !wp_verify_nonce( $_POST['event_cpt_price_event_noncename'], 
 	plugin_basename(__FILE__) ) || !wp_verify_nonce( $_POST['event_cpt_strand_event_noncename'],
 	plugin_basename(__FILE__) )) {
 						return $post->ID;}
@@ -173,6 +184,7 @@ function save_event_cpt_meta($post_id, $post){
 	// $event_meta['_event_cpt_address_town_city'] = $_POST['_event_cpt_address_town_city'];
 	// $event_meta['_event_cpt_address_county'] = $_POST['_event_cpt_address_county'];
 	$event_meta['_event_cpt_strand_event'] = $_POST['_event_cpt_strand_event'];
+	$event_meta['_event_cpt_price_event'] = $_POST['_event_cpt_price_event'];
 
 	$event_meta['_event_cpt_main_organizer'] = $_POST['_event_cpt_main_organizer'];
 	$event_meta['_event_cpt_other_organizer'] = $_POST['_event_cpt_other_organizer'];

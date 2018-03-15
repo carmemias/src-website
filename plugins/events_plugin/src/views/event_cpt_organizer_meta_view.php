@@ -21,7 +21,11 @@ namespace yohannes\EventsFunctionality\src\views;
 		<td>
 			<label>Main Organizer Name:</label>
              <input type="text" size="50" name="_event_cpt_main_organizer" placeholder="Organizer Name ..." value="<?php echo $_event_cpt_main_organizer; ?>"><br>
-             <label>Other Organizer Name:</label>
+             <label>Organizer Name:</label>
+             <input type="text" size="50" name="_event_cpt_other_organizer" placeholder="Organizer Name ..." value="<?php echo $_event_cpt_other_organizer; ?>"><br>
+			 <label>Organizer Name:</label>
+             <input type="text" size="50" name="_event_cpt_other_organizer" placeholder="Organizer Name ..." value="<?php echo $_event_cpt_other_organizer; ?>"><br>
+			 <label>Organizer Name:</label>
              <input type="text" size="50" name="_event_cpt_other_organizer" placeholder="Organizer Name ..." value="<?php echo $_event_cpt_other_organizer; ?>">
 		</td><!-- organizer name -->
 	</tr>
