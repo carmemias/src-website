@@ -15,7 +15,7 @@ namespace yohannes\EventsFunctionality\src\views;
     <tr>
         <td>
         <label><?php _e( 'Event Price?', 'event_cpt' ); ?></label><br>
-            <input type="text" name="_event_cpt_price_event" value="£" <?php checked( $_event_cpt_price_event, '£' ); ?> />
+            <span>£</span><input type="number" min="0.00" step="0.01" max="500" name="_event_cpt_price_event" placeholder="£" value="<?php echo $_event_cpt_price_event; ?>" />
         </td>
     </tr>
 </table>

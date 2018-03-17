@@ -16,7 +16,8 @@ namespace yohannes\EventsFunctionality\src;
 * Enqueue javascript and stylesheet files used by the shortcode view
 */
 function events_cpt_shortcode_enqueue_scripts(){
-	wp_register_style('events_shortcode_style', Event_FUNCTIONALITY_URL . '/src/assets/css/events_shortcode_style.css');
+	wp_register_style('events_shortcode_sty
+	le', Event_FUNCTIONALITY_URL . '/src/assets/css/events_shortcode_style.css');
 	wp_register_script('events_shortcode_script', Event_FUNCTIONALITY_URL . '/src/assets/js/events_shortcode_script.js');
 	
 	//OPTIMIZE this currently loads the script and style on all pages. It could be improved by loading themonly if a shortcut is present

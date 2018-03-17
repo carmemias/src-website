@@ -17,7 +17,7 @@ add_action( 'init', __NAMESPACE__ . '\event_cpt_functionality' );
  * See http://web-profile.net/wordpress/docs/custom-post-types/
  * See https://codex.wordpress.org/Function_Reference/register_post_type
  */
-function event_cpt_functionality() { //see https://codex.wordpress.org/Function_Reference/post_type_supports
+ function event_cpt_functionality() { //see https://codex.wordpress.org/Function_Reference/post_type_supports
 	$features = get_all_post_type_features('post', array( #list of excluded features. See lines 59 and 88
 		'trackbacks',
 		'custom-fields',
@@ -113,7 +113,20 @@ function events_cpt_add_meta_box(){
 	add_meta_box( 'event_cpt_strand_event_meta', 'Strand Event', __NAMESPACE__.'\render_event_cpt_strand_event_meta', 'event_cpt', 'side', 'default' );	
 	add_meta_box( 'event_cpt_price_event_meta', 'Event Price', __NAMESPACE__.'\render_event_cpt_price_event_meta', 'event_cpt', 'side', 'default' );
 }
-
+function event_cpt_enqueue_logo_script() {
+	/*
+	 * I recommend to add additional conditions just to not to load the scipts on each page
+	 * like:
+	 * if ( !in_array('post-new.php','post.php') ) return;
+	 */
+	if ( ! did_action( 'wp_enqueue_media' ) ) {
+		wp_enqueue_media();
+	}
+ 
+ 	wp_enqueue_script( 'eventlogoscript' , EVENT_FUNCTIONALITY_URL .'/src/views/upload_event_logo.js', array('jquery'), null, true );
+}
+ 
+add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\event_cpt_enqueue_logo_script' );
 function render_event_cpt_location_meta(){
 	global $post;
 
@@ -185,6 +198,12 @@ function save_event_cpt_meta($post_id, $post){
 	// $event_meta['_event_cpt_address_county'] = $_POST['_event_cpt_address_county'];
 	$event_meta['_event_cpt_strand_event'] = $_POST['_event_cpt_strand_event'];
 	$event_meta['_event_cpt_price_event'] = $_POST['_event_cpt_price_event'];
+	$event_meta['_event_cpt_key_event'] = $_POST['_event_cpt_key_event'];
+	
+	$event_meta['_event_cpt_logo1_event'] = $_POST['_event_cpt_logo1_event'];
+	$event_meta['_event_cpt_logo2_event'] = $_POST['_event_cpt_logo2_event'];
+	$event_meta['_event_cpt_logo3_event'] = $_POST['_event_cpt_logo3_event'];
+	$event_meta['_event_cpt_logo4_event'] = $_POST['_event_cpt_logo4_event'];
 
 	$event_meta['_event_cpt_main_organizer'] = $_POST['_event_cpt_main_organizer'];
 	$event_meta['_event_cpt_other_organizer'] = $_POST['_event_cpt_other_organizer'];
