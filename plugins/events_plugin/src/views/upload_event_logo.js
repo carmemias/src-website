@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('[name="_event_cpt_key_event"]').click(function(){
-	var value = $(this).val();
-      if (value=="0"){
+	var value = $(this).val().parseInt(10);
+      if (!value){
 		$('.logoRow').hide();
 	  }else
 	  $('.logoRow').show();
