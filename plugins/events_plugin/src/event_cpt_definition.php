@@ -111,7 +111,7 @@ function events_cpt_add_meta_box(){
 	add_meta_box( 'event_cpt_organizer_meta', 'Event Organizer', __NAMESPACE__.'\render_event_cpt_organizer_meta', 'event_cpt', 'normal', 'default' );	
 	add_meta_box( 'event_cpt_key_event_meta', 'Key Event', __NAMESPACE__.'\render_event_cpt_key_event_meta', 'event_cpt', 'side', 'low' );
 	add_meta_box( 'event_cpt_strand_event_meta', 'Strand Event', __NAMESPACE__.'\render_event_cpt_strand_event_meta', 'event_cpt', 'side', 'default' );	
-	add_meta_box( 'event_cpt_time_event_meta', 'Event time', __NAMESPACE__.'\render_event_cpt_time_event_meta', 'event_cpt', 'side', 'default' );
+	add_meta_box( 'event_cpt_dateTime_event_meta', 'Event date and time', __NAMESPACE__.'\render_event_cpt_dateTime_event_meta', 'event_cpt', 'side', 'default' );
 	add_meta_box( 'event_cpt_price_event_meta', 'Event Price', __NAMESPACE__.'\render_event_cpt_price_event_meta', 'event_cpt', 'side', 'default' );
 }
 function event_cpt_enqueue_logo_script() {
@@ -169,7 +169,7 @@ function render_event_cpt_price_event_meta(){
 
 	require_once plugin_dir_path(__FILE__).'views/event_cpt_price_meta_view.php';
 }
-function render_event_cpt_time_event_meta(){
+function render_event_cpt_dateTime_event_meta(){
 	global $post;
 
 	// Noncename needed to verify where the data originated
@@ -210,7 +210,9 @@ function save_event_cpt_meta($post_id, $post){
 	$event_meta['_event_cpt_strand_event'] = $_POST['_event_cpt_strand_event'];
 	$event_meta['_event_cpt_price_event'] = $_POST['_event_cpt_price_event'];
 	$event_meta['_event_cpt_key_event'] = (int) $_POST['_event_cpt_key_event'];
-	$event_meta['_event_cpt_time_event'] = sanitize_text_field($_POST['_event_cpt_time_event']);
+	$event_meta['_event_cpt_startTime_event'] = $_POST['_event_cpt_startTime_event'];
+	$event_meta['_event_cpt_endTime_event'] = $_POST['_event_cpt_endTime_event'];
+	$event_meta['_event_cpt_date_event'] = $_POST['_event_cpt_date_event'];
 	
 	$event_meta['_event_cpt_logo1_event'] = $_POST['_event_cpt_logo1_event'];
 	$event_meta['_event_cpt_logo2_event'] = $_POST['_event_cpt_logo2_event'];

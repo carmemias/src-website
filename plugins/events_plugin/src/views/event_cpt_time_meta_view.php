@@ -5,6 +5,7 @@ namespace yohannes\EventsFunctionality\src\views;
 	// Get the data if its already been entered
     $_event_cpt_startTime_event = get_post_meta($post->ID, '_event_cpt_startTime_event', true);
     $_event_cpt_endTime_event = get_post_meta($post->ID, '_event_cpt_endTime_event', true);
+    $_event_cpt_date_event = get_post_meta($post->ID, '_event_cpt_date_event', true);
     
 
 ?>
@@ -16,9 +17,10 @@ namespace yohannes\EventsFunctionality\src\views;
 
     <tr>
         <td>
-        <label><?php _e( 'Event time?', 'event_cpt' ); ?></label><br>
-           <input type="text"  name="_event_cpt_startTime_event" placeholder="insert start time" value="<?php echo $_event_cpt_startTime_event; ?>" />
-           <input type="text"  name="_event_cpt_endTime_event" placeholder="insert end time" value="<?php echo $_event_cpt_endTime_event; ?>" />
+        <label><?php _e( 'Event Date and Time?', 'event_cpt' ); ?></label><br>
+        <label>Date</label><input type="date"  name="_event_cpt_date_event" value="<?php echo $_event_cpt_date_event; ?>" /><br>
+           <label>Start</label><input type="time"  name="_event_cpt_startTime_event" value="<?php echo $_event_cpt_startTime_event; ?>" /><br>
+           <label>Finish</label><input type="time"  name="_event_cpt_endTime_event" value="<?php echo $_event_cpt_endTime_event; ?>" />
         </td>
     </tr>
 </table>
