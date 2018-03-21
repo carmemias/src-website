@@ -202,9 +202,9 @@ function save_event_cpt_meta($post_id, $post){
 	// ok, we're authenticated: we need to find and save the data. We'll put it into an array to make it easier to loop through
 	$event_meta['_event_cpt_area'] = sanitize_text_field($_POST['_event_cpt_area']);
 	$event_meta['_event_cpt_venue'] = sanitize_text_field($_POST['_event_cpt_venue']);
-	$event_meta['_event_cpt_address_line_1'] = $_POST['_event_cpt_address_line_1'];
-	$event_meta['_event_cpt_address_line_2'] = $_POST['_event_cpt_address_line_2'];
-	$event_meta['_event_cpt_address_postcode'] = $_POST['_event_cpt_address_postcode'];
+	$event_meta['_event_cpt_address_line_1'] = sanitize_text_field($_POST['_event_cpt_address_line_1']);
+	$event_meta['_event_cpt_address_line_2'] = sanitize_text_field($_POST['_event_cpt_address_line_2']);
+	$event_meta['_event_cpt_address_postcode'] = sanitize_text_field($_POST['_event_cpt_address_postcode']);
 	// $event_meta['_event_cpt_address_town_city'] = $_POST['_event_cpt_address_town_city'];
 	// $event_meta['_event_cpt_address_county'] = $_POST['_event_cpt_address_county'];
 	$event_meta['_event_cpt_strand_event'] = $_POST['_event_cpt_strand_event'];
@@ -222,9 +222,9 @@ function save_event_cpt_meta($post_id, $post){
 	$event_meta['_event_cpt_main_organizer'] = sanitize_text_field($_POST['_event_cpt_main_organizer']);
 	$event_meta['_event_cpt_other_organizer'] = sanitize_text_field($_POST['_event_cpt_other_organizer']);
 	$event_meta['_event_cpt_organizer_website'] = sanitize_text_field($_POST['_event_cpt_organizer_website']);
-	$event_meta['_event_cpt_organizer_facebook'] = $_POST['_event_cpt_organizer_facebook'];
-	$event_meta['_event_cpt_organizer_twitter'] = $_POST['_event_cpt_organizer_twitter'];
-	$event_meta['_event_cpt_organizer_instagram'] = $_POST['_event_cpt_organizer_instagram'];
+	$event_meta['_event_cpt_organizer_facebook'] = esc_url_raw($_POST['_event_cpt_organizer_facebook']);
+	$event_meta['_event_cpt_organizer_twitter'] = esc_url_raw($_POST['_event_cpt_organizer_twitter']);
+	$event_meta['_event_cpt_organizer_instagram'] = esc_url_raw($_POST['_event_cpt_organizer_instagram']);
 
 	
 
