@@ -15,116 +15,81 @@ namespace yohannes\EventsFunctionality\src;
 /*
 * Enqueue javascript and stylesheet files used by the shortcode view
 */
-function events_cpt_shortcode_enqueue_scripts(){
-	wp_register_style('events_shortcode_sty
-	le', Event_FUNCTIONALITY_URL . '/src/assets/css/events_shortcode_style.css');
-	wp_register_script('events_shortcode_script', Event_FUNCTIONALITY_URL . '/src/assets/js/events_shortcode_script.js');
+// function events_cpt_shortcode_enqueue_scripts(){
+// 	wp_register_style('events_shortcode_style', Event_FUNCTIONALITY_URL . '/src/assets/css/events_shortcode_style.css');
+// 	wp_register_script('events_shortcode_script', Event_FUNCTIONALITY_URL . '/src/assets/js/events_shortcode_script.js');
 	
-	//OPTIMIZE this currently loads the script and style on all pages. It could be improved by loading themonly if a shortcut is present
-	wp_enqueue_style( 'events_shortcode_style' );
-	wp_enqueue_script( 'events_shortcode_script' );
-}
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\events_cpt_shortcode_enqueue_scripts');	
+// 	//OPTIMIZE this currently loads the script and style on all pages. It could be improved by loading themonly if a shortcut is present
+// 	wp_enqueue_style( 'events_shortcode_style' );
+// 	wp_enqueue_script( 'events_shortcode_script' );
+// }
+// add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\events_cpt_shortcode_enqueue_scripts');	
 
 
-//[events category="category-slug|category name"] category attrib value not case sensitive
+//[events type="type-slug|type name"] type attrib value not case sensitive
 function events_cpt_shortcode_handler( $atts ){
 	$results_array = [];
-	$event_cpt_categories = [];
+	$event_cpt_types = [];
 	$output_string = '';
 	
-	//the default value for category
+	//the default value for type
 	$a = shortcode_atts( array(
-	        'category' => ''
+	        'type' => ''
 	    ), $atts );
 	
-	//find category/ies
-	if( ('' != $a['category']) ){
+	//find type/s
+	if( ('' != $a['type']) ){
 		
-		//the category attribute has been set
-		//does this category exist?
-		$category_ID = term_exists($a['category'],'event-category');
-		if( is_array($category_ID) ){ $category_ID = array_shift($category_ID);}
+		//the type attribute has been set
+		//does this type exist?
+		$type_ID = term_exists($a['type'],'event-type');
+		if( is_array($type_ID) ){ $type_ID = array_shift($type_ID);}
 		
-		//if the category doesn't exist, return error message
-		if( ( 0==$category_ID ) || ( null==$category_ID ) ) {
+		//if the type doesn't exist, return error message
+		if( ( 0==$type_ID ) || ( null==$type_ID ) ) {
 			
 			//TODO make translatable
-			return '<p>The selected category does not exist.</p>';
+			return '<p>The selected event type does not exist.</p>';
 			
 		} 
 		
-		//finds the category object, returns an array with a single object
-		$event_cpt_categories = get_terms( array( 'taxonomy' => 'event-category', 'include' => $category_ID));
+		//finds the type object, returns an array with a single object
+		//$event_cpt_types = get_terms( array( 'taxonomy' => 'event-type', 'include' => $type_ID));
+
+		$event_cpt_args = array ('post_type' => 'event_cpt',
+ 						 	'post_status' => 'publish',
+							'event-type' => $a['type'],
+							 'order' => 'ASC',
+							//  'orderby' => 'meta_value',
+							 'posts_per_page' => -1);	
 		
 	} else {
 		
-		//no arguments have been set by the Editor, so all Events will be listed grouped by category and in the order specified.
- 	    $event_cpt_categories = get_terms( array( 'taxonomy' => 'event-category', 'hide_empty' => false ) );
+		//no arguments have been set by the Editor, so all Events will be listed grouped by type and in the order specified.
+		 //$event_cpt_types = get_terms( array( 'taxonomy' => 'event-type', 'hide_empty' => false ) );
+		 
+		 $event_cpt_args = array ('post_type' => 'event_cpt',
+ 						 	'post_status' => 'publish',
+							 'order' => 'ASC',
+							//  'orderby' => 'meta_value',
+							 'posts_per_page' => -1);	
 		
 	} 
 	
-	if ( ! empty( $event_cpt_categories ) && ! is_wp_error( $event_cpt_categories ) ){
-		foreach ( $event_cpt_categories as $category_obj ) {
-			$single_result_obj=[];
-				
-			$event_cpt_args = array ('post_type' => 'event_cpt',
- 						 	'post_status' => 'publish',
-							'event-category' => $category_obj->slug,
-							 'order' => 'ASC',
-							 'orderby' => 'meta_value_num',
-							 'meta_key' => '_event_cpt_order',
-							 'posts_per_page' => -1);	
 	
-			$events_cpt = get_posts( $event_cpt_args ); //returns an array
-			
-			//create a $result array combining the event-category and the corresponding events
-			$single_result_obj = [ 'category' => $category_obj,'questions' => $events_cpt ];
 	
-			//$results_array = [['category' => $category_obj,'questions' => $questions]]
-			array_push($results_array,$single_result_obj);
-		}//end foreach
-	}//end if !empty...
+	$events_cpt = get_posts( $event_cpt_args ); //returns an array
 	
 	//now we have the data, we can build the view
 	
-	foreach ( $results_array as $single_result ) {
-		$category_name = $single_result['category']->name;
-		$category_slug = $single_result['category']->slug;
-		$questions = $single_result['questions'];
+	foreach ( $events_cpt as $single_event ) {
+		$event_name = $single_event['type']->name;
+		$event_slug = $single_event['type']->slug;
+		$event_description = apply_filters( 'the_content', get_the_content() );
 		
-		$output_string .= '<h2 class="category-title">' . $category_name . '</h3>';
+		$output_string .= '<h2 class="type-title">' . $event_name . '</h3>';
 		$output_string .= '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
-		
-		foreach ( $questions as $question ) : setup_postdata( $GLOBALS['post'] =& $question ); 
-			//TODO write behaviour for when there are no public questions for a particular category yet.
-			
-			$output_substring = '';
-			$question_ID = $question->ID;
-			$question_title = get_the_title($question_ID);
-			$answer = apply_filters( 'the_content', get_the_content() );
-			$question_order = get_post_meta( get_the_ID(), '_event_cpt_order', true );
-			
-	    	if(( $question_order != 'hidden' ) && ( $question_order != 'not set' )){
-				
-				$output_substring .= '<article id="post-' . $question_ID . '" class="post-' . $question_ID . ' event_cpt type-event_cpt status-publish hentry event-category-' . $category_slug . '" >';
-				$output_substring .= '<header class="entry-header" role="tab" id="heading-' . $question_ID . '">';
-				$output_substring .= '<h3 class="entry-title"><a role="button" class="collapsed" data-parent="#accordion" href="#collapse-'. $question_ID .'" aria-expanded="false" aria-controls="collapse-'. $question_ID .'">';
-				$output_substring .= $question_title;
-				$output_substring .= '<span class="dashicons dashicons-arrow-down-alt2" aria-hidden="true" role="img"></span></a></h3>';
-				$output_substring .= '</header><!-- .entry-header -->';
-				$output_substring .= '<div class="entry-content collapse" role="tabpanel" aria-labelledby="heading-' . $question_ID . '" id="collapse-' . $question_ID . '">';
-				$output_substring .= $answer;
-				$output_substring .= '</div --><!-- .entry-content -->';
-				$output_substring .= '</article><!-- #post-' . $question_ID . ' -->';
- 
-			} //end if $question_order
-			
-			$output_string .= $output_substring;
-			
-		endforeach; //foreach questions array within single_result 
-		
-		$output_string .= '</div><!-- accordion -->';
+		$output_string .= $event_description;
 		
 	 } //foreach $results_array 
 	 

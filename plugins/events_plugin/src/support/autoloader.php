@@ -23,8 +23,8 @@ function autoload_files( $src_root_dir ) {
 
 	$filenames = array(
 		 'event_cpt_definition',
-		 'event_cpt_meta_boxes'
-		//  'event_cpt_shortcode',
+		 'event_cpt_meta_boxes',
+		 //'event_cpt_shortcode'
 		//  'event_cpt_info_meta_box'
 	);
 

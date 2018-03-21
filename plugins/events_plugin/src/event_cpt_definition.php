@@ -44,8 +44,11 @@ add_action( 'init', __NAMESPACE__ . '\event_cpt_functionality' );
  		    'view_items' => __('View Events', 'events-functionality'),
  		    'search_items' => __('Search Event', 'events-functionality'),
  		    'not_found' => __( 'No Events found.', 'events-functionality' ),
- 		   	'not_found_in_trash' => __( 'No Events found in Trash.', 'events-functionality' )
+			'not_found_in_trash' => __( 'No Events found in Trash.', 'events-functionality' ),
 		),
+		'show_in_rest'    => true,
+		'rest_base'    => 'events',
+		'rest_controller_class' => 'WP_REST_Posts_Controller',
 		'public' => true,
 		'show_ui' => true,
 		'has_archive' => true, #this means it'll have an "index/loop" page
