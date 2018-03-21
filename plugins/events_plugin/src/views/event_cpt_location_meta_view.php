@@ -29,9 +29,9 @@ namespace yohannes\EventsFunctionality\src\views;
 	 <tr>
 		<td>
 			<label>Address Line 1: </label>
-			 <input type="text" size="100" name="_event_cpt_address_line_1" placeholder="Address line 1..." value="<?php echo $_event_cpt_address_line_1; ?>"><br>
+			 <input type="text" size="50" name="_event_cpt_address_line_1" placeholder="Address line 1..." value="<?php echo $_event_cpt_address_line_1; ?>"><br>
 			 <label>Address Line 2: </label>
-			 <input type="text" size="100" name="_event_cpt_address_line_2" placeholder="Address line 2..." value="<?php echo $_event_cpt_address_line_2; ?>"><br>
+			 <input type="text" size="50" name="_event_cpt_address_line_2" placeholder="Address line 2..." value="<?php echo $_event_cpt_address_line_2; ?>"><br>
 			 <!-- <label>Town/city </label>
 			 <input type="text" name="_event_cpt_address_town_city" placeholder="Town / City..." value="<?php echo $_event_cpt_address_town_city; ?>"><br>
 			 <label>County: </label>

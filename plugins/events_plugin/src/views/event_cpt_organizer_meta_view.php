@@ -32,7 +32,7 @@ namespace yohannes\EventsFunctionality\src\views;
     <tr>
 		<td>
 			<label>Organizer's Website </label>
-			 <input type="url" size="100" name="_event_cpt_organizer_website" placeholder="website url https:// ....." value="<?php echo $_event_cpt_organizer_website; ?>"><br>
+			 <input type="url" size="50" name="_event_cpt_organizer_website" placeholder="website url https:// ....." value="<?php echo $_event_cpt_organizer_website; ?>"><br>
 		</td><!-- venue address -->
 	</tr>
     <tr>
