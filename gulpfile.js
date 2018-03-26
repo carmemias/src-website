@@ -1,21 +1,30 @@
 'use strict';
 
 var gulp = require( 'gulp' ),
-    sass = require( 'gulp-sass' );
+    sass = require( 'gulp-sass' ),
+    paths = {
+      css: {
+        all: 'themes/src-project/sass/**/*.scss',
+        src: 'themes/src-project/sass/style.scss',
+        dest: 'themes/src-project/'
+      }
+    };
 
 gulp.task( 'styles', function(){
 
-  return gulp.src( 'themes/rsfestival-theme/assets/sass/style.scss' )
+  return gulp.src( paths.css.src )
     .pipe( sass({
       errLogToConsole: true,
-      outputStyle: 'expanded'
+      outputStyle: 'compressed'
     }) )
-    .pipe( gulp.dest( 'themes/rsfestival-theme/' ));
+    .pipe( gulp.dest( paths.css.dest ));
 
 });
 
 gulp.task( 'watch', function(){
 
-  gulp.watch( 'themes/rsfestival-theme/assets/sass/**/*.scss', ['styles'] );
+  gulp.watch( paths.css.all, ['styles'] );
 
 } );
+
+gulp.task( 'default', ['watch']);

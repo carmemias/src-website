@@ -1,0 +1,8 @@
+.site-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  padding:20px;
+  @include box-shadow();
+}

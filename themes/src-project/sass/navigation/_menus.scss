@@ -1,0 +1,158 @@
+/* Main Navigation */
+.main-navigation {
+	align-self: flex-end;
+	clear: both;
+	display: block;
+	//float: left;
+	width: 70%;/*100%;*/
+	display:flex;
+	justify-content:center;
+	flex-wrap: wrap;
+
+	ul {
+		display: none;
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+
+		ul {
+			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			float: left;
+			position: absolute;
+			top: 100%;
+			left: -999em;
+			z-index: 99999;
+
+			ul {
+				left: -999em;
+				top: 0;
+			}
+
+			li {
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+			}
+
+			a {
+				width: 200px;
+			}
+
+			:hover > a,
+			.focus > a {
+			}
+
+			a:hover,
+			a.focus {
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+		}
+	}
+
+	li {
+		float: left;
+		position: relative;
+
+		&:hover > a,
+		&.focus > a {
+		}
+	}
+
+	a {
+		display: block;
+		text-decoration: none;
+		padding: 10px 20px;
+		font-weight: bold;
+		color: $color__menu-item;
+	}
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
+		color: $color__current-menu-item;
+	}
+}
+
+/* Mobile menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
+	}
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 1.5em;
+		overflow: hidden;
+	}
+
+	.nav-previous {
+		float: left;
+		width: 50%;
+	}
+
+	.nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+	}
+}
+
+/* Social Navigation */
+
+
+.social-navigation {
+	font-size: 16px;
+	font-size: 1rem;
+	margin-bottom: 1em;
+
+	ul {
+		list-style: none;
+		margin-bottom: 0;
+		margin-left: 0;
+	}
+
+	li {
+		display: inline;
+	}
+
+	a {
+		background-color: #767676;
+		-webkit-border-radius: 40px;
+		border-radius: 40px;
+		color: #fff;
+		display: inline-block;
+		height: 40px;
+		margin: 0 1em 0.5em 0;
+		text-align: center;
+		width: 40px;
+	}
+
+	a:hover, a:focus {
+		background-color: #333;
+	}
+
+	.icon {
+		height: 16px;
+		top: 12px;
+		width: 16px;
+		vertical-align: top;
+	}
+}

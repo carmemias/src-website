@@ -1,0 +1,29 @@
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+
+  padding-bottom:20px;
+  text-align: center;
+  background-color: $color__background-footer;
+  color: $color__site-footer;
+
+  .widget-area {
+    background-color: $color__background-widgets;
+    color: $color__widgets;
+  }
+
+  a {
+    color: $color__site-footer;
+    text-decoration: none;
+  }
+}
+
+.site-info {
+  @include font-size(0.75);
+}
