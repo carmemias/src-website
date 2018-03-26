@@ -39,6 +39,8 @@ function events_cpt_shortcode_handler( $atts ){
 	
 	//find type/s
 	if( ('' != $a['type']) ){
+		//finds the type object, returns an array with a single object
+		// $event_cpt_types = get_terms( array( 'taxonomy' => 'event-type', 'hide_empty' => false ) );
 		
 		//the type attribute has been set
 		//does this type exist?
@@ -53,26 +55,56 @@ function events_cpt_shortcode_handler( $atts ){
 			
 		} 
 		
-		//finds the type object, returns an array with a single object
-		//$event_cpt_types = get_terms( array( 'taxonomy' => 'event-type', 'include' => $type_ID));
-
-		$event_cpt_args = array ('post_type' => 'event_cpt',
+		// $event_cpt_args = array ('post_type' => 'event_cpt',
+ 		// 				 	'post_status' => 'publish',
+		// 					'event-type' => $a['type'],
+		// 					 'order' => 'ASC',
+		// 					//  'orderby' => 'meta_value',
+		// 					 'posts_per_page' => -1);	
+		$event_cpt_args = array (
+			 'post_type' => 'event_cpt',
  						 	'post_status' => 'publish',
-							'event-type' => $a['type'],
 							 'order' => 'ASC',
 							//  'orderby' => 'meta_value',
-							 'posts_per_page' => -1);	
-		
+							 'posts_per_page' => -1,
+							 'event-type'         => $type_ID,
+						    //  'category_name'    => '',
+							//  'orderby'          => 'date',
+							//  'include'          => '',
+							//  'exclude'          => '',
+							//  'meta_key'         => '',
+							//  'meta_value'       => '',
+							//  'post_mime_type'   => '',
+							//  'post_parent'      => '',
+							//  'author'	   => '',
+							//  'author_name'	   => '',
+							//  'suppress_filters' => true 
+						);
 	} else {
 		
 		//no arguments have been set by the Editor, so all Events will be listed grouped by type and in the order specified.
 		 //$event_cpt_types = get_terms( array( 'taxonomy' => 'event-type', 'hide_empty' => false ) );
 		 
-		 $event_cpt_args = array ('post_type' => 'event_cpt',
+		 $event_cpt_args = array (
+			 'post_type' => 'event_cpt',
  						 	'post_status' => 'publish',
 							 'order' => 'ASC',
 							//  'orderby' => 'meta_value',
-							 'posts_per_page' => -1);	
+							 'posts_per_page' => -1,
+							//  'category'         => '',
+							//  'category_name'    => '',
+							//  'orderby'          => 'date',
+							//  'include'          => '',
+							//  'exclude'          => '',
+							//  'meta_key'         => '',
+							//  'meta_value'       => '',
+							//  'post_mime_type'   => '',
+							//  'post_parent'      => '',
+							//  'author'	   => '',
+							//  'author_name'	   => '',
+							//  'suppress_filters' => true 
+						);
+
 		
 	} 
 	
@@ -83,13 +115,15 @@ function events_cpt_shortcode_handler( $atts ){
 	//now we have the data, we can build the view
 	
 	foreach ( $events_cpt as $single_event ) {
-		$event_name = $single_event['type']->name;
-		$event_slug = $single_event['type']->slug;
-		$event_description = apply_filters( 'the_content', get_the_content() );
+		$event_id = $single_event->ID;
+		$event_name = get_the_title($event_id);
+		// $event_name = $single_event['type']->name;
+		//$event_slug = $single_event['type']->slug;
+		//$event_description = apply_filters( 'the_content', get_the_content() );
 		
-		$output_string .= '<h2 class="type-title">' . $event_name . '</h3>';
-		$output_string .= '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
-		$output_string .= $event_description;
+		$output_string .= '<h2 class="type-title">' . $event_name . '</h2>';
+		//$output_string .= '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
+		//$output_string .= $event_description;
 		
 	 } //foreach $results_array 
 	 
