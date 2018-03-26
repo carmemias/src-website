@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    $('[name="_event_cpt_key_event"]').click(function(){
+    $('input[name="_event_cpt_key_event"]').click(function(){
+      console.log("wow");
 	var value = $(this).val();
       if (value=="0"){
 		$('.logoRow').hide();
