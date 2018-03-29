@@ -116,12 +116,11 @@
 }
 
 /* Social Navigation */
-
-
 .social-navigation {
 	font-size: 16px;
 	font-size: 1rem;
 	margin-bottom: 1em;
+	padding-top:20px;
 
 	ul {
 		list-style: none;
@@ -135,8 +134,8 @@
 
 	a {
 		background-color: #767676;
-		-webkit-border-radius: 40px;
-		border-radius: 40px;
+		-webkit-border-radius: 4px;
+		border-radius: 4px;
 		color: #fff;
 		display: inline-block;
 		height: 40px;
@@ -145,14 +144,28 @@
 		width: 40px;
 	}
 
+	a[href*="twitter"] {
+		background-color:$color__background-twitter;
+	}
+
+	a[href*="facebook"] {
+		background-color:$color__background-facebook;
+	}
+
+	a[href*="mailto"] {
+		background-color:$color__background-email;
+	}
+
 	a:hover, a:focus {
 		background-color: #333;
 	}
 
 	.icon {
-		height: 16px;
-		top: 12px;
-		width: 16px;
+		margin-top:9px;
+		height: 22px;
+		width:22px;
+		top: 20px;
 		vertical-align: top;
+		fill:$color__fill-icon;
 	}
 }

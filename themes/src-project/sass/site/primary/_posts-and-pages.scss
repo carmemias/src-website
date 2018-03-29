@@ -1,6 +1,6 @@
 #page, .site {
 	position: relative;
-	height: 100vh;
+	height: 100%;
 }
 
 .sticky {
@@ -19,6 +19,10 @@
 .entry-content,
 .entry-summary {
 	margin: 1.5em 0 0;
+}
+
+#content {
+	padding-bottom:150px;
 }
 
 .page-links {
