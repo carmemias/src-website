@@ -3,7 +3,7 @@
  * SVG icons related functions and filters
  * From TwentySeventeen theme
  * @package WordPress
- * @subpackage src_project
+ * @subpackage src-project
  * @since 1.0
  */
 
@@ -11,6 +11,7 @@
  * Add SVG definitions to the footer.
  */
 function src_project_include_svg_icons() {
+
 	// Define SVG sprite file.
 	$svg_icons = get_parent_theme_file_path( '/images/svg-icons.svg' );
 
@@ -34,14 +35,15 @@ add_action( 'wp_footer', 'src_project_include_svg_icons', 9999 );
  * @return string SVG markup.
  */
 function src_project_get_svg( $args = array() ) {
+	echo '<script>console.log("in icon-functions.php line 38. Args[theme_location] is: '.$args->theme_location.'");</script>';
 	// Make sure $args are an array.
 	if ( empty( $args ) ) {
-		return __( 'Please define default parameters in the form of an array.', 'src_project' );
+		return __( 'Please define default parameters in the form of an array.', 'src-project' );
 	}
 
 	// Define an icon.
 	if ( false === array_key_exists( 'icon', $args ) ) {
-		return __( 'Please define an SVG icon filename.', 'src_project' );
+		return __( 'Please define an SVG icon filename.', 'src-project' );
 	}
 
 	// Set defaults.
@@ -126,6 +128,7 @@ function src_project_get_svg( $args = array() ) {
 function src_project_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	// Get supported social icons.
 	$social_icons = src_project_social_links_icons();
+	echo '<script>console.log("in icon-functions.php line 131. Args[theme_location] is: '.$args->theme_location.'");</script>';
 
 	// Change SVG icon inside social links menu if there is supported URL.
 	if ( 'social' === $args->theme_location ) {
@@ -150,7 +153,7 @@ add_filter( 'walker_nav_menu_start_el', 'src_project_nav_menu_social_icons', 10,
  * @return string  $title The menu item's title with dropdown icon.
  */
 function src_project_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
-	if ( 'top' === $args->theme_location ) {
+	if ( 'menu-1' === $args->theme_location ) {
 		foreach ( $item->classes as $value ) {
 			if ( 'menu-item-has-children' === $value || 'page_item_has_children' === $value ) {
 				$title = $title . src_project_get_svg( array( 'icon' => 'angle-down' ) );
