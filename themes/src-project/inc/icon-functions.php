@@ -35,7 +35,6 @@ add_action( 'wp_footer', 'src_project_include_svg_icons', 9999 );
  * @return string SVG markup.
  */
 function src_project_get_svg( $args = array() ) {
-	echo '<script>console.log("in icon-functions.php line 38. Args[theme_location] is: '.$args->theme_location.'");</script>';
 	// Make sure $args are an array.
 	if ( empty( $args ) ) {
 		return __( 'Please define default parameters in the form of an array.', 'src-project' );
@@ -128,7 +127,6 @@ function src_project_get_svg( $args = array() ) {
 function src_project_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	// Get supported social icons.
 	$social_icons = src_project_social_links_icons();
-	echo '<script>console.log("in icon-functions.php line 131. Args[theme_location] is: '.$args->theme_location.'");</script>';
 
 	// Change SVG icon inside social links menu if there is supported URL.
 	if ( 'social' === $args->theme_location ) {
