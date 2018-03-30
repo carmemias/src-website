@@ -27,7 +27,8 @@ function events_cpt_shortcode_handler( $atts ){
 	$a = shortcode_atts( array(
 	        'type' => '',
 					'area' => '',
-					'date' => ''
+					'date' => '',
+					'year' => ''
 	    ), $atts );
 
 	//no arguments have been set by the Editor, so all Events will be listed. Ordered by _event_cpt_date_event (ASC), _event_cpt_startTime_event (ASC) and post_title (ASC)
@@ -40,7 +41,7 @@ function events_cpt_shortcode_handler( $atts ){
 			'relation' => 'AND',
 			'event_date' => array(
 				'key' => '_event_cpt_date_event',
-				'compare' => 'EXISTS'
+				'compare' => 'BETWEEN'
 			),
 			'event_area' => array(
 				'key' => '_event_cpt_area',
@@ -90,12 +91,19 @@ function events_cpt_shortcode_handler( $atts ){
 		$event_cpt_args['meta_query']['event_area']['value'] = $event_area;
 	} //by area
 	
+	
 	//find date (event date)
 	if( ('' != $a['date']) ){
 		$event_date = $a['date'];
-		$event_cpt_args['meta_query']['event_date']['value'] = $event_date;
+		$event_cpt_args['meta_query']['event_date']['value'] = array($event_date, $event_date);
 	} //by date
-
+	
+	//find year (event year)
+	if( ('' != $a['year']) ){
+		$event_year = $a['year'];
+		$event_cpt_args['meta_query']['event_date']['value'] = array($event_year.'-01-01', $event_year.'-12-31');
+	} //by year
+	
 	$events_cpt = get_posts( $event_cpt_args ); //returns an array
 		if(count($events_cpt)==0){
 			return __('<p>There are no events to display.</p>', 'events-functionality' );
