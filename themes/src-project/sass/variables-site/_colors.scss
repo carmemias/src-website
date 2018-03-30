@@ -14,7 +14,7 @@ $color__background-email: #00A7F2;
 $color__site-title: #AD006D;
 $color__site-description: #FFF;
 $color__text-screen: #21759b;
-$color__text-input: #666;
+$color__text-input: #ffff;
 $color__text-input-focus: #111;
 $color__link: royalblue;
 $color__link-visited: purple;
@@ -24,11 +24,16 @@ $color__current-menu-item: #42D1B1;
 $color__text-main: #404040;
 $color__widgets: #666;
 $color__site-footer: #FFF;
+$color__placeholder: #AD006D;;
 
-$color__border-button: #ccc #ccc #bbb;
-$color__border-button-hover: #ccc #bbb #aaa;
-$color__border-button-focus: #aaa #bbb #bbb;
-$color__border-input: #ccc;
+
+$color__border-button: #AD006D #ccc #bbb;
+$color__button-hover: #42D1B1;
+$color__button-focus: #42D1B1;
+$color__border-button-hover: #42D1B1 #bbb #aaa;
+$color__border-button-focus: #42D1B1 #bbb #bbb;
+$color__border-input: #AD006D;
+$color__background-input: #AD006D;
 $color__border-abbr: #666;
 
 $color__fill-icon: #FFF;

@@ -37,6 +37,24 @@
     padding: 10px;
   } 
 
+  #es_txt_button {
+    background-color: $color__background-input;
+    font-size: 16px;
+    color: $color__text-input;
+    margin-left: 5px;
+  }
+
+  #es_txt_button:hover {
+    background-color: $color__button-hover;
+  }
+
+  label,  {
+    color: $color__placeholder;
+  }
+  
+}
+.widget-title {
+  color: $color__placeholder;
 }
 
 .site-info {
