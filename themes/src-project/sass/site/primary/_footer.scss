@@ -22,8 +22,25 @@
     color: $color__site-footer;
     text-decoration: none;
   }
+
+  #footer-secondary{
+    display:  flex;
+    justify-content: center;
+  }
+
+  form.es_widget_form {
+    display: flex !important;
+    align-items: baseline;
+  }
+
+  .es_textbox {
+    padding: 10px;
+  } 
+
 }
 
 .site-info {
   @include font-size(0.75);
 }
+
+
