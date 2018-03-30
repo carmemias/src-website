@@ -124,6 +124,15 @@ function src_project_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Header', 'src-project' ),
+		'id'            => 'header',
+		'description'   => esc_html__( 'Add widgets here.', 'src-project' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'    => '<span class="screen-reader-text">',
+		'after_title'     => '</span>' . '<button id="searchIcon">'. src_project_get_svg( array( 'icon' => 'chain' ) ) . '</button>',
+	) );
 }
 add_action( 'widgets_init', 'src_project_widgets_init' );
 
@@ -134,6 +143,8 @@ function src_project_scripts() {
 	wp_enqueue_style( 'src-project-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'src-project-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'src-project-search', get_template_directory_uri() . '/js/searchButton.js', array('jquery'), null, true );
 
 	wp_enqueue_script( 'src-project-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 

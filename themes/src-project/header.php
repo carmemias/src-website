@@ -39,6 +39,12 @@
 			) );
 			?>
 		</nav><!-- #site-navigation -->
+		<?php if ( is_active_sidebar( 'header' ) ) { ?>
+
+	<?php dynamic_sidebar( 'header' ); ?>
+<!-- #secondary -->
+
+<?php } ?>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
