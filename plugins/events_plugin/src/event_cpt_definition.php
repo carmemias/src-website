@@ -66,6 +66,9 @@ add_action( 'init', __NAMESPACE__ . '\event_cpt_functionality' );
 	register_taxonomy('event-type', 'event_cpt', array(
 		'hierarchical' => true,
 		'show_in_nav_menus' => false,
+		'show_in_rest' => true,
+		'rest_base' => 'eventtypes',
+		'rest_control_class' => 'WP_REST_Terms_Controller',
 		'labels' => array(
 			'name' => __('Event types'),
 			'singular_name' => __('Event type'),

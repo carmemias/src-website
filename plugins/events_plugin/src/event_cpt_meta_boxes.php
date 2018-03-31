@@ -156,19 +156,21 @@ function save_event_cpt_meta($post_id, $post){
 
 add_action('save_post', __NAMESPACE__.'\save_event_cpt_meta', 1, 2);
 
-add_action( 'rest_api_init', __NAMESPACE__ . '\events_cpt_add_metaboxes_to_rest');
+
 /*
 * Add metaboxes to cpt’s REST endpoints
 */
 function events_cpt_add_metaboxes_to_rest(){
-  register_rest_field( 'events_cpt', 'social_links', array(
-    'get_callback' => __NAMESPACE__ . '\get_events_cpt_meta',
-    'schema' => null
-  ));
+	// echo('<script>console.log("what is it")</script>');
+	register_rest_field( 'event_cpt', 'extra_meta', array(
+		'get_callback' => __NAMESPACE__ . '\get_events_cpt_meta',
+		'schema' => null
+	));
 }
 
 function get_events_cpt_meta($object){
-  $post_id = $object[‘id’];
-
- return get_post_meta($post_id);
+	$post_id = $object['id'];
+	return get_post_meta($post_id);
 }
+
+add_action( 'rest_api_init', __NAMESPACE__ . '\events_cpt_add_metaboxes_to_rest');

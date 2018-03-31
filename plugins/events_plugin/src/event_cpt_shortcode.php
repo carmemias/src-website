@@ -15,15 +15,16 @@ namespace yohannes\EventsFunctionality\src;
 * Enqueue javascript and stylesheet files used by the shortcode view
 */
  function events_cpt_shortcode_enqueue_scripts(){
+	 wp_enqueue_script( 'shortcodescript' , EVENT_FUNCTIONALITY_URL .'/src/assets/js/events_shortcode_script.js', array('wp-api'), null, true );
+
  }
-// add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\events_cpt_shortcode_enqueue_scripts');
+ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\events_cpt_shortcode_enqueue_scripts');
 
 
 //[events type='type-slug' area='town name' date=''] type attrib value not case sensitive
 function events_cpt_shortcode_handler( $atts ){
 	$output_string = '';
-	
-	//the default values for type, area and date
+	//the default values for type, area, date and year
 	$a = shortcode_atts( array(
 	        'type' => '',
 					'area' => '',
@@ -115,9 +116,11 @@ function events_cpt_shortcode_handler( $atts ){
 		$event_date = $single_event->_event_cpt_date_event;
 		$event_start_time = $single_event->_event_cpt_startTime_event;
 		$event_area = $single_event->_event_cpt_area;
-		//$event_description = apply_filters( 'the_content', get_the_content() );
+	    $event_description = apply_filters( 'the_content', get_the_content() );
+		//finished time, full address, price, organizer social media and website, featured image 
 		
 		$output_string .= '<h2 class="type-title">' . $event_name . '</h2>';
+		$output_string .= '<div class="event-discription">' . $event_description . '</div>';
 		$output_string .= '<p>Date: '.$event_date.' | Start Time: '.$event_start_time.' | Area: '.$event_area.'</p>';
 		//$output_string .= $event_description;
 
