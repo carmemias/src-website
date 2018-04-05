@@ -130,7 +130,9 @@ function save_event_cpt_meta($post_id, $post){
 	$event_meta['_event_cpt_logo4_event'] = $_POST['_event_cpt_logo4_event'];
 
 	$event_meta['_event_cpt_main_organizer'] = sanitize_text_field($_POST['_event_cpt_main_organizer']);
-	$event_meta['_event_cpt_other_organizer'] = sanitize_text_field($_POST['_event_cpt_other_organizer']);
+	$event_meta['_event_cpt_other_organizer_1'] = sanitize_text_field($_POST['_event_cpt_other_organizer_1']);
+  	$event_meta['_event_cpt_other_organizer_2'] = sanitize_text_field($_POST['_event_cpt_other_organizer_2']);
+  	$event_meta['_event_cpt_other_organizer_3'] = sanitize_text_field($_POST['_event_cpt_other_organizer_3']);
 	$event_meta['_event_cpt_organizer_website'] = sanitize_text_field($_POST['_event_cpt_organizer_website']);
 	$event_meta['_event_cpt_organizer_facebook'] = esc_url_raw($_POST['_event_cpt_organizer_facebook']);
 	$event_meta['_event_cpt_organizer_twitter'] = esc_url_raw($_POST['_event_cpt_organizer_twitter']);
