@@ -111,7 +111,7 @@ function events_cpt_shortcode_handler( $atts ){
 			return __('<p>There are no events to display.</p>', 'events-functionality' );
 		}
 	//now we have the data, we can build the view
-
+	$output_string .= '<div id="programme">';
 	//now we have the data, we can build the view
     foreach ( $events_cpt as $single_event ) {
     //get the data
@@ -187,8 +187,9 @@ function events_cpt_shortcode_handler( $atts ){
     $output_string .= '</div><!-- right-column -->';
         //$output_string .= $event_description;
     $output_string .= '</section>';
-     } //foreach
-	
+	 } //foreach
+	 
+	$output_string .= '</div><!-- programme -->';
 	return $output_string;
 	
 	 wp_reset_postdata();

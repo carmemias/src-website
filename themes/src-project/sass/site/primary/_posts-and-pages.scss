@@ -32,6 +32,7 @@
 }
 
 body:not(.home) .site-main {
+
 	padding: 3em;
 	padding-bottom: 16em;
 
@@ -52,10 +53,20 @@ body:not(.home) .site-main {
 		margin-left: 2rem;
 	}
 
+	#programme {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.filters {
+		margin: 2rem;
+	}
+
 	.event-entry{
 		display: flex;
 		flex-direction: row;
-		align-items: center;
+		max-width: 50%;
 
 		.left-column, .right-column{
 			padding: 1rem;
@@ -65,9 +76,5 @@ body:not(.home) .site-main {
 		h2, p {
 			margin: 0;
 		}
-	}
-
-	.filters {
-		margin: 2rem;
 	}
 }
