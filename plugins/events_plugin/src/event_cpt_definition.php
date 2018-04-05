@@ -25,7 +25,7 @@ add_action( 'init', __NAMESPACE__ . '\event_cpt_functionality' );
 		'author',
 		'post-formats',
 		'comments',
-		'excerpt'
+		//'excerpt'
 	));
 
 	register_post_type( 'event_cpt', array(
@@ -83,7 +83,7 @@ add_action( 'init', __NAMESPACE__ . '\event_cpt_functionality' );
 			'add_or_remove_items' => __('Add or remove Event types'),
 			'choose_from_most_used' => __('Choose from most used Event types'),
 		)
-	) ); 
+	) );
 }
 
 /**
