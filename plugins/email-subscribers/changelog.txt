@@ -4,6 +4,19 @@ Author		: Icegram
 Author URI	: https://www.icegram.com/
 License		: GPLv3
 
+************************************************************Version 3.4.11************************************************************
+
+* Fix: Special characters in the post title showing as html entities when using {{POSTTITLE}} keyword [due to `get_the_title($post)`]
+* Fix: 'Oops.. Unexpected error occurred 0.' in Email Subscribers - Group Selector form when subscriber status is unconfirmed or unsubscribed
+
+************************************************************Version 3.4.10************************************************************
+
+* New: Improvements in the subscribe form
+* New: Improvements in the form submission process
+* Fix: Prevent spam signups
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
+
 ************************************************************Version 3.4.9************************************************************
 
 * New: Show Viewed email count from total sent emails in Delivery Reports

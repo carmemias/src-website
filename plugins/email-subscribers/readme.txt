@@ -1,11 +1,11 @@
 === Email Subscribers & Newsletters ===
-Contributors: icegram, niravmehta, Mansi Shah, akash123dhawade, sandhyam, storeapps, Tarun.Parswani, ravioza
+Contributors: icegram, niravmehta, Mansi Shah, sandhyam, storeapps, akash123dhawade, Tarun.Parswani, ravioza
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CPTHCDC382KVA
 Author URI: https://www.icegram.com/
 Tags: email marketing, email newsletter form, email signup, email widget, newsletter, newsletter signup, subscribe, subscription form, bulk emails, signup form, list builder, lead generation
 Requires at least: 3.4
-Tested up to: 4.9.4
-Stable tag: 3.4.9
+Tested up to: 4.9.5
+Stable tag: 3.4.11
 License: GPLv3
 License URI: http://www.gnu.org/licenses
 
@@ -287,7 +287,7 @@ Refer [here](https://www.icegram.com/documentation/es-css-help/).
 
 Refer [here](https://www.icegram.com/documentation/es-faq/).
 
-= 25. How to add group selection in front end subscription box =
+= 25. How to allow user to select the group when subscribing via subscribe form? =
 
 Use our free plugin [Email Subscribers - Group Selector](https://wordpress.org/plugins/email-subscribers-advanced-form/).
 
@@ -316,6 +316,19 @@ Use our free plugin [Email Subscribers - Group Selector](https://wordpress.org/p
 11. Admin page - Delivery Report of emails i.e. email sent, opened, viewed status, viewed date
 
 == Changelog ==
+
+= 3.4.11 (05.04.2018) =
+
+* Fix: Special characters in the post title showing as html entities when using {{POSTTITLE}} keyword [due to `get_the_title($post)`]
+* Fix: 'Oops.. Unexpected error occurred 0.' in Email Subscribers - Group Selector form when subscriber status is unconfirmed or unsubscribed
+
+= 3.4.10 (03.04.2018) =
+
+* New: Improvements in the subscribe form
+* New: Improvements in the form submission process
+* Fix: Prevent spam signups
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
 
 = 3.4.9 (27.03.2018) =
 
@@ -736,6 +749,19 @@ Use our free plugin [Email Subscribers - Group Selector](https://wordpress.org/p
 For the changelog of earlier versions, please refer to the separate [changelog.txt](https://plugins.svn.wordpress.org/email-subscribers/trunk/changelog.txt) file.
 
 == Upgrade Notice ==
+
+= 3.4.11 (05.04.2018) =
+
+* Fix: Special characters in the post title showing as html entities when using {{POSTTITLE}} keyword [due to `get_the_title($post)`]
+* Fix: 'Oops.. Unexpected error occurred 0.' in Email Subscribers - Group Selector form when subscriber status is unconfirmed or unsubscribed
+
+= 3.4.10 (03.04.2018) =
+
+* New: Improvements in the subscribe form
+* New: Improvements in the form submission process
+* Fix: Prevent spam signups
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
 
 = 3.4.9 (27.03.2018) =
 

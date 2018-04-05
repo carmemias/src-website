@@ -24,10 +24,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	// Form submitted, check the data
-	if (isset($_POST['es_form_submit']) && $_POST['es_form_submit'] == 'yes') {
+	if ( isset($_POST['es_form_submit']) && $_POST['es_form_submit'] == 'yes' && !empty( $_POST['es-subscribe'] ) ) {
 
 		// Just security thingy that wordpress offers us
-		check_admin_referer('es_form_add');
+		if ( $form['es_nonce'] == '' ) {
+			$form['es_nonce'] = $_POST['es-subscribe'];
+		}
 
 		$form['es_email_status'] = isset($_POST['es_email_status']) ? $_POST['es_email_status'] : '';
 		$form['es_email_name'] = isset($_POST['es_email_name']) ? $_POST['es_email_name'] : '';
@@ -57,10 +59,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$es_errors[] = __( 'Error: Special characters ([\'^$%&*()}{@#~?><>,|=_+\"]) are not allowed in the group name.', ES_TDOMAIN );
 				$es_error_found = TRUE;
 			}
-		}
-
-		if ( $form['es_nonce'] == '' ) {
-			$form['es_nonce'] = wp_create_nonce( 'es-subscribe' );
 		}
 
 		//	No errors found, we can add this Group to the table
@@ -188,7 +186,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<p style="padding-top:5px;">
 				<input type="submit" class="button-primary" value="<?php echo __( 'Add Subscriber', ES_TDOMAIN ); ?>" />
 			</p>
-			<?php wp_nonce_field('es_form_add'); ?>
+			<?php wp_nonce_field( 'es-subscribe', 'es-subscribe' ); ?>
 		</form>
 	</div>
 </div>

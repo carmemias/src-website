@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Email Subscribers & Newsletters 3.4.9\n"
+"Project-Id-Version: Email Subscribers & Newsletters 3.4.11\n"
 "Report-Msgid-Bugs-To: https://www.icegram.com/contact/\n"
 "POT-Creation-Date: 2017-07-26 12:00:36+00:00\n"
-"PO-Revision-Date: Tue Mar 27 2018 14:44:15 GMT+0530 (IST)\n"
+"PO-Revision-Date: Thu Apr 05 2018 12:12:42 GMT+0530 (IST)\n"
 "Last-Translator: admin <mansi.shah@appsmagnet.com>\n"
 "Language-Team: Icegram <hello@icegram.com>Language:\n"
 "Language: Norwegian (Bokmål)\n"
@@ -199,7 +199,7 @@ msgid "Email subscribers easily integrates with another <b>free</b> plugin "
 msgstr ""
 
 #: ../classes/es-register.php:168 ../classes/es-register.php:169 ../classes/es-
-#: register.php:795 ../classes/es-register.php:796 ../classes/es-register.php:801
+#: register.php:797 ../classes/es-register.php:798 ../classes/es-register.php:803
 msgid "Templates"
 msgstr ""
 
@@ -215,78 +215,94 @@ msgctxt "notification-enhanced-select"
 msgid "Please select notification mail subject. Use templates menu to create new."
 msgstr ""
 
-#: ../classes/es-register.php:745
+#: ../classes/es-register.php:263
+msgctxt "widget-enhanced-select"
+msgid ""
+"Your subscription was successful! Kindly check your mailbox and confirm your "
+"subscription. If you can't see the email within a few minutes, check the "
+"spam folder."
+msgstr ""
+
+#: ../classes/es-register.php:281
+msgctxt "widget-page-enhanced-select"
+msgid ""
+"Your subscription was successful! Kindly check your mailbox and confirm your "
+"subscription. If you can't see the email within a few minutes, check the "
+"spam folder."
+msgstr ""
+
+#: ../classes/es-register.php:747
 msgid ""
 "<b>Want readymade email templates?</b> Also want to <b>clean your "
 "subscribers list?</b> Come check our Pro plan."
 msgstr ""
 
-#: ../classes/es-register.php:746
+#: ../classes/es-register.php:748
 msgid "Check Pro plan&nbsp;&nbsp;"
 msgstr ""
 
-#: ../classes/es-register.php:746
+#: ../classes/es-register.php:748
 msgid "Not interested."
 msgstr ""
 
-#: ../classes/es-register.php:786
+#: ../classes/es-register.php:788
 #, php-format
 msgid "Email Subscribers version: <strong>%s</strong>"
 msgstr ""
 
-#: ../classes/es-register.php:797 ../classes/es-register.php:798
+#: ../classes/es-register.php:799 ../classes/es-register.php:800
 msgid "Add new Template"
 msgstr ""
 
-#: ../classes/es-register.php:799
+#: ../classes/es-register.php:801
 msgid "Edit Templates"
 msgstr ""
 
-#: ../classes/es-register.php:800
+#: ../classes/es-register.php:802
 msgid "New Templates"
 msgstr ""
 
-#: ../classes/es-register.php:802
+#: ../classes/es-register.php:804
 msgid "View Templates"
 msgstr ""
 
-#: ../classes/es-register.php:803
+#: ../classes/es-register.php:805
 msgid "Search Templates"
 msgstr ""
 
-#: ../classes/es-register.php:804
+#: ../classes/es-register.php:806
 msgid "No Templates found"
 msgstr ""
 
-#: ../classes/es-register.php:805
+#: ../classes/es-register.php:807
 msgid "No Templates found in Trash"
 msgstr ""
 
-#: ../classes/es-register.php:808
+#: ../classes/es-register.php:810
 msgid "Thumbnail (For Visual Representation only)"
 msgstr ""
 
-#: ../classes/es-register.php:809
+#: ../classes/es-register.php:811
 msgid "Set thumbnail"
 msgstr ""
 
-#: ../classes/es-register.php:846
+#: ../classes/es-register.php:848
 msgid "Template Type"
 msgstr ""
 
-#: ../classes/es-register.php:912
+#: ../classes/es-register.php:914
 msgid "Available Keyword for Post Notification: {{POSTTITLE}}"
 msgstr ""
 
-#: ../classes/es-register.php:915
+#: ../classes/es-register.php:917
 msgid "Select your Email Template Type"
 msgstr ""
 
-#: ../classes/es-register.php:965
+#: ../classes/es-register.php:967
 msgid "Preview Template"
 msgstr ""
 
-#: ../classes/es-register.php:979
+#: ../classes/es-register.php:981
 #, php-format
 msgid ""
 "%s for Post Notification: {{NAME}}, {{EMAIL}}, {{DATE}}, {{POSTTITLE}}, "
@@ -294,7 +310,7 @@ msgid ""
 "WITHTITLE}}, {{POSTLINK-ONLY}}, {{POSTFULL}}"
 msgstr ""
 
-#: ../classes/es-register.php:980
+#: ../classes/es-register.php:982
 #, php-format
 msgid "<br/><br/>%s for Newsletter: {{NAME}}, {{EMAIL}}"
 msgstr ""
@@ -324,8 +340,8 @@ msgstr "Legg til varsel"
 #: ./sentmail/sentmail-preview.php:28 ../sentmail/sentmail-show.php:94 ..
 #: sentmail/deliverreport-show.php:61 ../subscribers/view-subscriber-import.php:
 #: 149 ../subscribers/view-subscriber-show.php:247 ../subscribers/view-subscriber-
-#: export.php:51 ../subscribers/view-subscriber-add.php:120 ../subscribers/view-
-#: subscriber-edit.php:114 ../subscribers/view-subscriber-sync.php:92 ..
+#: export.php:51 ../subscribers/view-subscriber-add.php:118 ../subscribers/view-
+#: subscriber-edit.php:113 ../subscribers/view-subscriber-sync.php:92 ..
 #: templates/template-preview.php:32 ../sendmail/sendmail.php:94
 msgid "Help"
 msgstr "Hjelp"
@@ -337,7 +353,7 @@ msgstr "Velg abonnent gruppe"
 #: ../notification/notification-add.php:125 ../notification/notification-add.php:
 #: 149 ../notification/notification-edit.php:136 ../notification/notification-
 #: edit.php:169 ../subscribers/view-subscriber-import.php:193 ../subscribers/view-
-#: subscriber-add.php:168 ../subscribers/view-subscriber-edit.php:163 ..
+#: subscriber-add.php:166 ../subscribers/view-subscriber-edit.php:162 ..
 #: subscribers/view-subscriber-sync.php:119 ../sendmail/sendmail.php:111 ..
 #: sendmail/sendmail.php:138 ../sendmail/sendmail.php:152
 msgid "Select"
@@ -399,7 +415,7 @@ msgid "Disable email notification"
 msgstr "Deaktivere e-postvarsling"
 
 #: ../notification/notification-add.php:254 ../notification/notification-edit.php:
-#: 291 ../subscribers/view-subscriber-edit.php:192
+#: 291 ../subscribers/view-subscriber-edit.php:191
 msgid "Save"
 msgstr "Lagre"
 
@@ -598,8 +614,8 @@ msgstr "Dobbel Opt in"
 
 #: ../settings/settings-edit.php:110 ../subscribers/view-subscriber-import.php:
 #: 181 ../subscribers/view-subscriber-show.php:326 ../subscribers/view-subscriber-
-#: show.php:356 ../subscribers/view-subscriber-add.php:157 ../subscribers/view-
-#: subscriber-edit.php:151
+#: show.php:356 ../subscribers/view-subscriber-add.php:155 ../subscribers/view-
+#: subscriber-edit.php:150
 msgid "Single Opt In"
 msgstr "Enkel Opt in"
 
@@ -615,7 +631,7 @@ msgstr "Full størrelse"
 msgid "Medium Size"
 msgstr "Middel størrelse"
 
-#: ../settings/settings-edit.php:123 ../classes/es-register.php:847
+#: ../settings/settings-edit.php:123 ../classes/es-register.php:849
 msgid "Thumbnail"
 msgstr "Miniatyrbilde"
 
@@ -642,12 +658,12 @@ msgstr ""
 "til JA."
 
 #: ../settings/settings-edit.php:142 ../settings/settings-edit.php:217 ..
-#: subscribers/view-subscriber-sync.php:107 ../classes/es-register.php:1117
+#: subscribers/view-subscriber-sync.php:107 ../classes/es-register.php:1121
 msgid "YES"
 msgstr "JA"
 
 #: ../settings/settings-edit.php:143 ../settings/settings-edit.php:218 ..
-#: subscribers/view-subscriber-sync.php:106 ../classes/es-register.php:1118
+#: subscribers/view-subscriber-sync.php:106 ../classes/es-register.php:1122
 msgid "NO"
 msgstr "NEI"
 
@@ -980,7 +996,7 @@ msgid "View Reports"
 msgstr "Vis Rapporter"
 
 #: ../sentmail/sentmail-show.php:108 ../sentmail/sentmail-show.php:121 ..
-#: classes/es-register.php:895
+#: classes/es-register.php:897
 msgid "Preview"
 msgstr "Forhåndsvis"
 
@@ -1099,20 +1115,20 @@ msgstr "Importere e-postadresser"
 
 #: ../subscribers/view-subscriber-import.php:146 ../subscribers/view-subscriber-
 #: show.php:243 ../subscribers/view-subscriber-export.php:48 ../subscribers/view-
-#: subscriber-add.php:116 ../subscribers/view-subscriber-edit.php:110 ..
+#: subscriber-add.php:114 ../subscribers/view-subscriber-edit.php:109 ..
 #: subscribers/view-subscriber-sync.php:89
 msgid "Add New Subscriber"
 msgstr "Legg til en ny abonnement"
 
 #: ../subscribers/view-subscriber-import.php:147 ../subscribers/view-subscriber-
-#: show.php:245 ../subscribers/view-subscriber-add.php:118 ../subscribers/view-
-#: subscriber-edit.php:112 ../subscribers/view-subscriber-sync.php:91
+#: show.php:245 ../subscribers/view-subscriber-add.php:116 ../subscribers/view-
+#: subscriber-edit.php:111 ../subscribers/view-subscriber-sync.php:91
 msgid "Export"
 msgstr "Eksporter"
 
 #: ../subscribers/view-subscriber-import.php:148 ../subscribers/view-subscriber-
 #: show.php:246 ../subscribers/view-subscriber-export.php:50 ../subscribers/view-
-#: subscriber-add.php:119 ../subscribers/view-subscriber-edit.php:113 ..
+#: subscriber-add.php:117 ../subscribers/view-subscriber-edit.php:112 ..
 #: subscribers/view-subscriber-sync.php:143
 msgid "Sync"
 msgstr "Synk"
@@ -1135,19 +1151,19 @@ msgstr "Velg abonnenter e-post status"
 
 #: ../subscribers/view-subscriber-import.php:178 ../subscribers/view-subscriber-
 #: show.php:323 ../subscribers/view-subscriber-show.php:353 ../subscribers/view-
-#: subscriber-add.php:154 ../subscribers/view-subscriber-edit.php:148
+#: subscriber-add.php:152 ../subscribers/view-subscriber-edit.php:147
 msgid "Confirmed"
 msgstr "Bekreftet"
 
 #: ../subscribers/view-subscriber-import.php:179 ../subscribers/view-subscriber-
 #: show.php:324 ../subscribers/view-subscriber-show.php:354 ../subscribers/view-
-#: subscriber-add.php:155 ../subscribers/view-subscriber-edit.php:149
+#: subscriber-add.php:153 ../subscribers/view-subscriber-edit.php:148
 msgid "Unconfirmed"
 msgstr "Ubekreftet"
 
 #: ../subscribers/view-subscriber-import.php:180 ../subscribers/view-subscriber-
 #: show.php:325 ../subscribers/view-subscriber-show.php:355 ../subscribers/view-
-#: subscriber-add.php:156 ../subscribers/view-subscriber-edit.php:150
+#: subscriber-add.php:154 ../subscribers/view-subscriber-edit.php:149
 msgid "Unsubscribed"
 msgstr "Abonnementet er avsluttet"
 
@@ -1156,13 +1172,13 @@ msgid "Select (or) Create Group for Subscribers"
 msgstr "Velge (eller) opprette gruppe for abonnenter"
 
 #: ../subscribers/view-subscriber-import.php:205 ../subscribers/view-subscriber-
-#: add.php:180
+#: add.php:178
 msgid "(or)"
 msgstr "(eller)"
 
 #: ../subscribers/view-subscriber-import.php:213 ../subscribers/view-subscriber-
 #: show.php:244 ../subscribers/view-subscriber-export.php:49 ../subscribers/view-
-#: subscriber-add.php:117 ../subscribers/view-subscriber-edit.php:111 ..
+#: subscriber-add.php:115 ../subscribers/view-subscriber-edit.php:110 ..
 #: subscribers/view-subscriber-sync.php:90
 msgid "Import"
 msgstr "Importer"
@@ -1228,7 +1244,7 @@ msgstr "Aktive abonnenter: %s"
 msgid "Email Address"
 msgstr "E-post adresse"
 
-#: ../subscribers/view-subscriber-show.php:289 ../classes/es-register.php:1059 ..
+#: ../subscribers/view-subscriber-show.php:289 ../classes/es-register.php:1061 ..
 #: classes/es-loadwidget.php:28
 msgid "Name"
 msgstr "Navn"
@@ -1366,16 +1382,16 @@ msgstr "5"
 msgid "Commented Authors"
 msgstr "Kommenterte forfattere"
 
-#: ../subscribers/view-subscriber-add.php:37 ../subscribers/view-subscriber-edit.
-#: php:55
+#: ../subscribers/view-subscriber-add.php:39 ../subscribers/view-subscriber-edit.
+#: php:54
 msgid "Please enter subscriber email address."
 msgstr "Angi abonnent e-postadresse."
 
-#: ../subscribers/view-subscriber-add.php:50
+#: ../subscribers/view-subscriber-add.php:52
 msgid "Please select or create your group for this email."
 msgstr "Velg eller Opprett gruppen for denne email."
 
-#: ../subscribers/view-subscriber-add.php:57
+#: ../subscribers/view-subscriber-add.php:59
 msgid ""
 "Error: Special characters (['^$%&*()}{@#~?><>,|=_+\\\"]) are not allowed in "
 "the group name."
@@ -1383,67 +1399,67 @@ msgstr ""
 "Feil: Spesialtegn (['^ $% & * ()} {@# ~? > <>, | = _ + \\ \"]) er ikke tillatt "
 "i gruppenavnet."
 
-#: ../subscribers/view-subscriber-add.php:71
+#: ../subscribers/view-subscriber-add.php:69
 msgid "Subscriber has been saved."
 msgstr "Abonnenten er lagret."
 
-#: ../subscribers/view-subscriber-add.php:73
+#: ../subscribers/view-subscriber-add.php:71
 msgid "Subscriber already exists."
 msgstr "Abonnent finnes allerede."
 
-#: ../subscribers/view-subscriber-add.php:76
+#: ../subscribers/view-subscriber-add.php:74
 msgid "Invalid Email."
 msgstr "Ugyldig e-postadresse."
 
-#: ../subscribers/view-subscriber-add.php:129
+#: ../subscribers/view-subscriber-add.php:127
 msgid "Enter Subscriber's Full name"
 msgstr "Angi abonnentens fulle navn"
 
-#: ../subscribers/view-subscriber-add.php:139
+#: ../subscribers/view-subscriber-add.php:137
 msgid "Enter Subscriber's Email Address"
 msgstr "Angi abonnent e-postadresse"
 
-#: ../subscribers/view-subscriber-add.php:149
+#: ../subscribers/view-subscriber-add.php:147
 msgid "Select Subscriber's Status"
 msgstr "Velg abonnent Status"
 
-#: ../subscribers/view-subscriber-add.php:164
+#: ../subscribers/view-subscriber-add.php:162
 msgid "Select (or) Create Group for Subscriber"
 msgstr "Velge (eller) opprette gruppe for abonnent"
 
-#: ../subscribers/view-subscriber-add.php:189
+#: ../subscribers/view-subscriber-add.php:187
 msgid "Add Subscriber"
 msgstr "Legg til abonnent"
 
-#: ../subscribers/view-subscriber-edit.php:65
+#: ../subscribers/view-subscriber-edit.php:64
 msgid "Error: Special characters are not allowed in the group name."
 msgstr "Feil: Spesialtegn er ikke tillatt i gruppenavnet."
 
-#: ../subscribers/view-subscriber-edit.php:75
+#: ../subscribers/view-subscriber-edit.php:74
 msgid "Subscriber details updated."
 msgstr "Abonnent informasjon oppdatert."
 
-#: ../subscribers/view-subscriber-edit.php:77
+#: ../subscribers/view-subscriber-edit.php:76
 msgid "Subscriber already exists for this group."
 msgstr "Abonnent finnes allerede for denne gruppen."
 
-#: ../subscribers/view-subscriber-edit.php:109
+#: ../subscribers/view-subscriber-edit.php:108
 msgid "Edit Subscriber"
 msgstr "Rediger abonnent"
 
-#: ../subscribers/view-subscriber-edit.php:123
+#: ../subscribers/view-subscriber-edit.php:122
 msgid "Subscriber's Full Name"
 msgstr "Angi abonnentens fulle navn"
 
-#: ../subscribers/view-subscriber-edit.php:133
+#: ../subscribers/view-subscriber-edit.php:132
 msgid "Subscriber's Email Address"
 msgstr "Abonnentens e-postadresse"
 
-#: ../subscribers/view-subscriber-edit.php:143
+#: ../subscribers/view-subscriber-edit.php:142
 msgid "Update Subscriber's Status"
 msgstr "Oppdater abonnentstatus"
 
-#: ../subscribers/view-subscriber-edit.php:158
+#: ../subscribers/view-subscriber-edit.php:157
 msgid "Update Subscriber's Group"
 msgstr "Oppdater abonnent gruppe"
 
@@ -1488,7 +1504,7 @@ msgstr "Velkommen til Email Subscribers!"
 msgid "Get more help and tips..."
 msgstr "Få mer hjelp og tips ..."
 
-#: ../help/help.php:196 ../classes/es-register.php:1069 ../classes/es-loadwidget.
+#: ../help/help.php:196 ../classes/es-register.php:1071 ../classes/es-loadwidget.
 #: php:38
 msgid "Subscribe"
 msgstr "Abonner"
@@ -1909,7 +1925,7 @@ msgid "<span style=\"color:#993399;\">Immediately</span>"
 msgstr "<span style=\"color:#993399;\">Umiddelbart</span>"
 
 #: ../classes/es-register.php:162 ../classes/es-register.php:163 ../classes/es-
-#: register.php:807
+#: register.php:809
 msgid "Email Subscribers"
 msgstr "Email Subscribers"
 
@@ -2057,17 +2073,6 @@ msgctxt "widget-enhanced-select"
 msgid "Successfully Subscribed."
 msgstr "Du er nå abonnent."
 
-#: ../classes/es-register.php:263
-msgctxt "widget-enhanced-select"
-msgid ""
-"Your subscription was successful! Within a few minutes, kindly check the "
-"mail in your mailbox and confirm your subscription. If you can't see the "
-"mail in your mailbox, please check your spam folder."
-msgstr ""
-"Abonnementet er vellykket! Innen få minutter, vennligst sjekk e-posten i "
-"postkassen din og bekrefte abonnementet. Hvis du ikke ser e-post i "
-"postboksen, kan du sjekke spam-mappen."
-
 #: ../classes/es-register.php:264
 msgctxt "widget-enhanced-select"
 msgid "Email Address already exists!"
@@ -2093,68 +2098,57 @@ msgctxt "widget-enhanced-select"
 msgid "There was a problem with the request"
 msgstr "Det oppstod et problem med forespørselen"
 
-#: ../classes/es-register.php:275
+#: ../classes/es-register.php:276
 msgctxt "widget-page-enhanced-select"
 msgid "Please enter email address"
 msgstr "Vennligst skriv e-postadresse"
 
-#: ../classes/es-register.php:276
+#: ../classes/es-register.php:277
 msgctxt "widget-page-enhanced-select"
 msgid "Please provide a valid email address"
 msgstr "Vennligst oppgi en gyldig e-post adresse"
 
-#: ../classes/es-register.php:277
+#: ../classes/es-register.php:278
 msgctxt "widget-page-enhanced-select"
 msgid "loading..."
 msgstr "﻿laster…"
 
-#: ../classes/es-register.php:278
+#: ../classes/es-register.php:279
 msgctxt "widget-page-enhanced-select"
 msgid "Cannot create XMLHTTP instance"
 msgstr "Kan ikke opprette XMLHTTP forekomst"
 
-#: ../classes/es-register.php:279
+#: ../classes/es-register.php:280
 msgctxt "widget-page-enhanced-select"
 msgid "Successfully Subscribed."
 msgstr "Du er nå abonnent."
 
-#: ../classes/es-register.php:280
-msgctxt "widget-page-enhanced-select"
-msgid ""
-"Your subscription was successful! Within a few minutes, kindly check the "
-"mail in your mailbox and confirm your subscription. If you can't see the "
-"mail in your mailbox, please check your spam folder."
-msgstr ""
-"Abonnementet er vellykket! Innen få minutter, vennligst sjekk e-posten i "
-"postkassen din og bekrefte abonnementet. Hvis du ikke ser e-post i "
-"postboksen, kan du sjekke spam-mappen."
-
-#: ../classes/es-register.php:281
+#: ../classes/es-register.php:282
 msgctxt "widget-page-enhanced-select"
 msgid "Email Address already exists!"
 msgstr "Epostadressen finnes allerede!"
 
-#: ../classes/es-register.php:282
+#: ../classes/es-register.php:283
 msgctxt "widget-page-enhanced-select"
 msgid "Oops.. Unexpected error occurred."
 msgstr "Oops... Det oppstod en uventet feil."
 
-#: ../classes/es-register.php:283
+#: ../classes/es-register.php:284
 msgctxt "widget-page-enhanced-select"
 msgid "Invalid email address"
 msgstr "Ugyldig e-postadresse"
 
-#: ../classes/es-register.php:284
+#: ../classes/es-register.php:285
 msgctxt "widget-page-enhanced-select"
 msgid "Please try after some time"
 msgstr "Prøv på nytt senere"
 
-#: ../classes/es-register.php:285
+#: ../classes/es-register.php:286
 msgctxt "widget-page-enhanced-select"
 msgid "There was a problem with the request"
 msgstr "Det oppstod et problem med forespørselen"
 
-#: ../classes/es-register.php:772
+#: ../classes/es-register.php:774
 msgid ""
 "If you like <strong>Email Subscribers</strong>, please consider leaving us a "
 "<a target=\"_blank\" href=\"https://wordpress.org/support/plugin/email-"
@@ -2166,34 +2160,34 @@ msgstr ""
 "subscribers/reviews/?filter=5#new-post\">★★★★★</a> en vurdering. En stor takk "
 "fra Icegram!"
 
-#: ../classes/es-register.php:917
+#: ../classes/es-register.php:919
 msgid "Newsletter"
 msgstr "Nyhetsbrev"
 
-#: ../classes/es-register.php:918
+#: ../classes/es-register.php:920
 msgid "Post Notification"
 msgstr "Varsel"
 
-#: ../classes/es-register.php:979 ../classes/es-register.php:980
+#: ../classes/es-register.php:981 ../classes/es-register.php:982
 msgid "Available Keywords"
 msgstr "Tilgjengelige søkeord"
 
-#: ../classes/es-register.php:1064 ../classes/es-loadwidget.php:33
+#: ../classes/es-register.php:1066 ../classes/es-loadwidget.php:33
 msgid "Email *"
 msgstr "E-post *"
 
-#: ../classes/es-register.php:1107
+#: ../classes/es-register.php:1111
 msgid "Widget Title"
 msgstr "Widget tittel"
 
-#: ../classes/es-register.php:1111
+#: ../classes/es-register.php:1115
 msgid "Short description about subscription form"
 msgstr "Kort beskrivelse av ditt abonnement skjema"
 
-#: ../classes/es-register.php:1115
+#: ../classes/es-register.php:1119
 msgid "Display Name Field"
 msgstr "Vis Navnefelt"
 
-#: ../classes/es-register.php:1122
+#: ../classes/es-register.php:1126
 msgid "Subscriber Group"
 msgstr "Abonnent gruppe"
