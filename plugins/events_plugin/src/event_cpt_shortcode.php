@@ -15,9 +15,10 @@ namespace yohannes\EventsFunctionality\src;
 * Enqueue javascript and stylesheet files used by the shortcode view
 */
  function events_cpt_shortcode_enqueue_scripts(){
-	 wp_enqueue_script( 'shortcodescript' , EVENT_FUNCTIONALITY_URL .'/src/assets/js/events_shortcode_script.js', array('wp-api'), null, true );
-	 wp_enqueue_style( 'shortcodestyle' , EVENT_FUNCTIONALITY_URL .'/src/assets/css/events_shortcode_style.css');
-
+   if( is_a( $post, 'WP_Post' ) && has_shortcode($post->post_content, 'events')){
+	    wp_enqueue_script( 'shortcodescript' , EVENT_FUNCTIONALITY_URL .'/src/assets/js/events_shortcode_script.js', array('wp-api'), null, true );
+	    wp_enqueue_style( 'shortcodestyle' , EVENT_FUNCTIONALITY_URL .'/src/assets/css/events_shortcode_style.css');
+   }
  }
  add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\events_cpt_shortcode_enqueue_scripts');
 
