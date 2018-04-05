@@ -116,15 +116,17 @@ function events_cpt_shortcode_handler( $atts ){
   $output_string .= '<div id="programme">';
 	//now we have the data, we can build the view
     foreach ( $events_cpt as $single_event ) {
+    setup_postdata($single_event);
     //get the data
     $event_id = $single_event->ID;
-    $event_name = $single_event->post_title;
+    $event_name = get_the_title($event_id);
     $event_types = get_the_terms( $event_id, 'event-type' );
     $event_types_string = '';
-    $event_image = get_the_post_thumbnail( $event_id, 'medium' );
+    $event_image = get_the_post_thumbnail( $event_id, 'thumbnail' );
     $event_description = '';
     //$event_description = apply_filters( 'the_content', get_the_content() );
-    //$event_excerpt = get_the_excerpt( $post->ID );
+
+    $event_excerpt = get_the_excerpt( $event_id );
     $event_date = date('l, j F', strtotime($single_event->_event_cpt_date_event));
     $event_start_time = $single_event->_event_cpt_startTime_event;
     $event_end_time = $single_event->_event_cpt_endTime_event;
@@ -167,8 +169,9 @@ function events_cpt_shortcode_handler( $atts ){
     $output_string .= '<div class="right-column">';
     $output_string .= ' <h2 class="type-title"><a href="'.esc_url_raw($event_post_url).'" alt="Read more about '.$event_name.'">' . $event_name . '</a></h2>';
     $output_string .= ' <div class="entry-meta">'.$event_types_string.'</div>';
-    //$output_string .= $event_excerpt;
-    //$output_string .= $event_description;
+    $output_string .= '<div class="event-excerpt">';
+    if(''!=$event_excerpt){$output_string .= $event_excerpt;} else {$output_string .= 'No excerpt yet.';}
+    $output_string .= '</div>';//$output_string .= $event_description;
     $output_string .= '<p class="organisers">Organised by: '.$event_organiser_main.'.';
     if( $event_organiser_other_1 || $event_organiser_other_2 || $event_organiser_other_3 ){
       $other_organisers = array();
@@ -205,5 +208,21 @@ function events_cpt_shortcode_handler( $atts ){
   }
 
 add_shortcode( 'events', __NAMESPACE__ . '\events_cpt_shortcode_handler');
+
+/*
+* remove [...] from the end of the excerpt
+*/
+function custom_excerpt_more( $more ) {
+	return '';
+}
+add_filter( 'excerpt_more', __NAMESPACE__.'\custom_excerpt_more' );
+
+/*
+* Limit the excerpt to 20 words
+*/
+function custom_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length',  __NAMESPACE__.'\custom_excerpt_length', 999 );
 
 ?>
