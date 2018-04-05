@@ -15,10 +15,12 @@ app.init = function() {
   const events = new wp.api.collections.Events();
   events.fetch({ data: { _embed: true } }).done(data => {
     data["events"] = events;
+    console.log(data);
     data.forEach(event => {
       let slug = event._embedded["wp:term"][0][0].slug;
       types[slug] = event._embedded["wp:term"][0][0].name;
       let areaName = event.extra_meta["_event_cpt_area"][0];
+      let date = event.extra_meta["_event_cpt_date_event"][0];
       if(areas.indexOf(areaName) == -1){
         areas.push(areaName);
       };
@@ -26,6 +28,7 @@ app.init = function() {
     });
     renderDropDown(types);
     renderDropDownArea(areas);
+    renderDropDownDate();
   });
 };
 
@@ -66,6 +69,19 @@ let formElement = document.getElementsByClassName("filters")[0];
   formElement.appendChild(selectAreaElement);
   }
 
+function renderDropDownDate(){
+  let formElement = document.getElementsByClassName("filters")[0];
+
+  let selectDateElement = document.createElement('input');
+  selectDateElement.setAttribute('type', 'date');
+  selectDateElement.setAttribute("data-date-inline-picker", true);
+  selectDateElement.setAttribute('min', "2018-06-01");
+  selectDateElement.setAttribute("max", "2018-06-30");
+  formElement.appendChild(selectDateElement);
+}
+
+{/* <input type="date" data-date-inline-picker="true" />; */}
+{/* <input type="date" name="bday" min="2014-05-11" max="2014-05-20"> */}
 
 wp.api.loadPromise.done(() => {
   app.init();
