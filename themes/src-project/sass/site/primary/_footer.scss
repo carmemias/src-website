@@ -22,8 +22,48 @@
     color: $color__site-footer;
     text-decoration: none;
   }
+
+  #footer-secondary{
+    display:  flex;
+    justify-content: center;
+  }
+
+  form.es_widget_form {
+    display: flex !important;
+    align-items: baseline;
+  }
+
+  .es_textbox {
+    padding: 10px;
+  } 
+
+  #es_txt_button {
+    background-color: $color__background-input;
+    font-size: 16px;
+    color: $color__text-input;
+    margin-left: 5px;
+  }
+
+  #es_txt_button:hover {
+    background-color: $color__button-hover;
+  }
+
+  label,  {
+    color: $color__placeholder;
+  }
+  
+}
+.widget-title {
+  color: $color__placeholder;
 }
 
 .site-info {
   @include font-size(0.75);
+}
+
+
+@media only screen and (max-width: 640px) {
+  form.es_widget_form {
+    flex-direction: column;
+  }
 }

@@ -6,10 +6,50 @@
   padding:20px;
   @include box-shadow();
 
-  .widget-area {
-    display:none;
+  .widget {
+    align-self: flex-end;
+    margin: 0;
+    display: none;
     width:100%;
     text-align: right;
     padding-top:20px;
+
+    &.widget-show {
+      display: block !important;
+    }
+    
+    .search-field {
+      float: left;
+      width: 90%;
+    }
+    
+    input.search-submit{
+      width: 8%;
+      font-size: 15px;  
+      margin-left: 5px;
+      background-color: $color__background-input;
+      color: $color__text-input;
+
+    }
+
+     input.search-submit:hover, input.search-submit:focus{
+      background-color: $color__button-hover;
+    }
+    label {
+      color: $color__placeholder;
+    }
   }
+
+} 
+
+svg.icon {
+  width: 25px !important;
+  height: 25px !important;
+  fill: $color__menu-item;
+
+  .active-search & {
+    fill: $color__current-menu-item;
+  }
+
 }
+

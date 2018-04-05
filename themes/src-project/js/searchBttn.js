@@ -4,31 +4,30 @@
 * Behaviour: 	Changes word "Search" for svg icon-search
 * 						On click, toggle the search widget section
 */
-(function(){
+(function () {
 
   document.addEventListener("DOMContentLoaded", searchBehaviour);
 
-  function searchBehaviour(){
+  function searchBehaviour() {
 
     let container, menu, links, lastItem;
 
-    container = document.getElementById( 'site-navigation' );
-	   if ( ! container ) {
-		     return;
-	      }
+    container = document.getElementById('site-navigation');
+    if (!container) {
+      return;
+    }
 
-    menu = container.getElementsByTagName( 'ul' )[0];
+    menu = container.getElementsByTagName('ul')[0];
 
-    links    = menu.getElementsByTagName( 'a' );
+    links = menu.getElementsByTagName('a');
 
-    lastItem = links[links.length-1];
+    lastItem = links[links.length - 1];
 
-    if( lastItem.innerHTML === 'Search' ){
-      lastItem.classList.add('search-bttn');
-      console.log('Search link found');
+
+    if (lastItem.innerHTML === 'Search' || 'search') {
       let spanEl = document.createElement('span'),
-          svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
-          useEl = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+        svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+        useEl = document.createElementNS('http://www.w3.org/2000/svg', 'use');
 
       spanEl.innerHTML = 'Search';
       spanEl.classList.add('screen-reader-text');
@@ -46,6 +45,27 @@
 
       lastItem.appendChild(svgEl);
 
+      lastItem.classList.add('search-bttn');
+      lastItem.addEventListener('click', toggleSearchForm);
+    }
+
+    function toggleSearchForm() {
+      var widgetSearch = document.getElementsByClassName('widget_search')[0];
+
+      if (!widgetSearch) {
+        return;
+      }
+
+      if (widgetSearch.classList.contains('widget-show')) {
+        widgetSearch.classList.remove("widget-show");
+      } else {
+        widgetSearch.classList.add("widget-show");
+      }
+      if (lastItem.classList.contains('active-search')) {
+        lastItem.classList.remove("active-search");
+      } else {
+        lastItem.classList.add("active-search");
+      }
     }
   }
 
