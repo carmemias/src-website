@@ -51,4 +51,14 @@ body:not(.home) .site-main {
 	.entry-title {
 		margin-left: 2rem;
 	}
+
+	.event-entry{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		.left-column, .right-column{
+			padding: 1rem;
+		}
+	}
 }

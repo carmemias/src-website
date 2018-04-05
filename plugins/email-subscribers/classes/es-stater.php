@@ -5,6 +5,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+require_once(ES_DIR.'job'.DIRECTORY_SEPARATOR.'es-subscribe.php');
+
 require_once(ES_DIR.'classes'.DIRECTORY_SEPARATOR.'es-register.php');
 require_once(ES_DIR.'classes'.DIRECTORY_SEPARATOR.'es-intermediate.php');
 require_once(ES_DIR.'classes'.DIRECTORY_SEPARATOR.'es-common.php');

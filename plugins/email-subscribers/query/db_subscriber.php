@@ -78,7 +78,15 @@ class es_cls_dbquery {
 		global $wpdb;
 
 		// Security
-		if ( empty ( $data['es_nonce'] ) || !wp_verify_nonce( $data['es_nonce'], 'es-subscribe' ) ) {
+		if ( array_key_exists( 'es_nonce', $data ) ) {
+			if ( empty ( $data['es_nonce'] ) || ! wp_verify_nonce( $data['es_nonce'], 'es-subscribe' ) ) {
+				return "invalid";
+			}
+		} elseif ( array_key_exists( 'es_af_nonce', $data ) ) {
+			if ( empty ( $data['es_af_nonce'] ) || ! wp_verify_nonce( $data['es_af_nonce'], 'es_af_form_subscribers' ) ) {
+				return "invalid";
+			}
+		} else {
 			return "invalid";
 		}
 
@@ -273,7 +281,7 @@ class es_cls_dbquery {
 
 		$sSql = "SELECT * FROM `".$wpdb->prefix."es_emaillist` where es_email_mail='".$data["es_email_mail"]."' and es_email_group='".trim($data["es_email_group"])."'";
 		$arrRes = $wpdb->get_results($sSql, ARRAY_A);
-		
+
 		if ( !empty( $arrRes ) && count($arrRes) > 0 ) {
 			if( $arrRes[0]['es_email_status'] == "Confirmed" || $arrRes[0]['es_email_status'] == "Single Opt In" ) {
 				return "ext";
@@ -284,7 +292,11 @@ class es_cls_dbquery {
 				$form['es_email_group'] = sanitize_text_field(esc_attr($data["es_email_group"]));
 				$form['es_email_status'] = sanitize_text_field(esc_attr($data["es_email_status"]));
 				$form['es_email_id'] = $arrRes[0]["es_email_id"];
-				$form['es_nonce'] = wp_create_nonce( 'es-subscribe' );
+				if ( array_key_exists( 'es_nonce', $data ) ) {
+					$form['es_nonce'] = $data['es_nonce'];
+				} elseif ( array_key_exists( 'es_af_nonce', $data ) ) {
+					$form['es_af_nonce'] = $data['es_af_nonce'];
+				}
 				$action = es_cls_dbquery::es_view_subscriber_ins($form, $action = "update");
 				return $action;
 			}
