@@ -59,6 +59,15 @@ body:not(.home) .site-main {
 
 		.left-column, .right-column{
 			padding: 1rem;
+			align-self: start;
 		}
+
+		h2, p {
+			margin: 0;
+		}
+	}
+
+	.filters {
+		margin: 2rem;
 	}
 }
