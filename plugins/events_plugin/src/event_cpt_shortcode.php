@@ -16,6 +16,7 @@ namespace yohannes\EventsFunctionality\src;
 */
  function events_cpt_shortcode_enqueue_scripts(){
 	 wp_enqueue_script( 'shortcodescript' , EVENT_FUNCTIONALITY_URL .'/src/assets/js/events_shortcode_script.js', array('wp-api'), null, true );
+	 wp_enqueue_style( 'shortcodestyle' , EVENT_FUNCTIONALITY_URL .'/src/assets/css/events_shortcode_style.css');
 
  }
  add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\events_cpt_shortcode_enqueue_scripts');
@@ -111,20 +112,82 @@ function events_cpt_shortcode_handler( $atts ){
 		}
 	//now we have the data, we can build the view
 
-	foreach ( $events_cpt as $single_event ) {
-		$event_name = $single_event->post_title;
-		$event_date = $single_event->_event_cpt_date_event;
-		$event_start_time = $single_event->_event_cpt_startTime_event;
-		$event_area = $single_event->_event_cpt_area;
-	    $event_description = apply_filters( 'the_content', get_the_content() );
-		//finished time, full address, price, organizer social media and website, featured image 
-		
-		$output_string .= '<h2 class="type-title">' . $event_name . '</h2>';
-		$output_string .= '<div class="event-discription">' . $event_description . '</div>';
-		$output_string .= '<p>Date: '.$event_date.' | Start Time: '.$event_start_time.' | Area: '.$event_area.'</p>';
-		//$output_string .= $event_description;
-
-	} //foreach
+	//now we have the data, we can build the view
+    foreach ( $events_cpt as $single_event ) {
+    //get the data
+    $event_id = $single_event->ID;
+        $event_name = $single_event->post_title;
+    $event_types = get_the_terms( $event_id, 'event-type' );
+    $event_types_string = '';
+    $event_image = get_the_post_thumbnail( $event_id, 'medium' );
+    $event_description = '';
+    //$event_description = apply_filters( 'the_content', get_the_content() );
+    //$event_excerpt = get_the_excerpt( $post->ID );
+    $event_date = date('l, j F', strtotime($single_event->_event_cpt_date_event));
+    $event_start_time = $single_event->_event_cpt_startTime_event;
+    $event_end_time = $single_event->_event_cpt_endTime_event;
+    $event_organiser_main = $single_event->_event_cpt_main_organizer;
+    $event_organiser_other_1 = $single_event->_event_cpt_other_organizer_1;
+    $event_organiser_other_2 = $single_event->_event_cpt_other_organizer_2;
+    $event_organiser_other_3 = $single_event->_event_cpt_other_organizer_3;
+    $event_organiser_website = $single_event->_event_cpt_organizer_website;
+    $event_organiser_facebook = $single_event->_event_cpt_organizer_facebook;
+    $event_organiser_twitter = $single_event->_event_cpt_organizer_twitter;
+    $event_organiser_instagram = $single_event->_event_cpt_organizer_instagram;
+    $event_venue = $single_event->_event_cpt_venue;
+    $event_address_line_1 = $single_event->_event_cpt_address_line_1;
+    $event_address_line_2 = $single_event->_event_cpt_address_line_2;
+    $event_postcode = $single_event->_event_cpt_address_postcode;
+        $event_area = $single_event->_event_cpt_area;
+    $event_price = $single_event->_event_cpt_price_event;
+    if ( $event_types && !is_wp_error( $event_types ) ) {
+        $event_types_array = array();
+        foreach ( $event_types as $event_type ) {
+            $event_types_array[] = $event_type->name;
+        }
+        $event_types_string = join( " | ", $event_types_array );
+        }
+    //output the event
+    $output_string .= '<section id="event-'.$event_id.'" class="event-entry">';
+    $output_string .= '<div class="left-column">';
+    $output_string .= $event_image;
+    $output_string .= '<div class="links">';
+    if( '' != $event_organiser_website ){$output_string .= '<a href="'.esc_attr($event_organiser_website).'" target="_blank" rel="noopener"><span class="screen-reader-text">Website</span><svg class="icon icon-chain" aria-hidden="true" role="img"><use href="#icon-chain" xlink:href="#icon-chain"></use></svg></a>';}
+    if( '' != $event_organiser_facebook ){$output_string .= '<a href="'.esc_attr($event_organiser_facebook).'" target="_blank" rel="noopener"><span class="screen-reader-text">Facebook</span><svg class="icon icon-facebook" aria-hidden="true" role="img"><use href="#icon-facebook" xlink:href="#icon-facebook"></use></svg></a>';}
+    if( '' != $event_organiser_twitter ){$output_string .= '<a href="'.esc_attr($event_organiser_twitter).'" target="_blank" rel="noopener"><span class="screen-reader-text">Twitter</span><svg class="icon icon-twitter" aria-hidden="true" role="img"><use href="#icon-twitter" xlink:href="#icon-twitter"></use></svg></a>';}
+    if( '' != $event_organiser_instagram ){$output_string .= '<a href="'.esc_attr($event_organiser_instagram).'" target="_blank" rel="noopener"><span class="screen-reader-text">Instagram</span><svg class="icon icon-instagram" aria-hidden="true" role="img"><use href="#icon-instagram" xlink:href="#icon-instagram"></use></svg></a>';}
+    $output_string .= '</div><!-- links -->';
+    $output_string .= '</div><!-- left-column -->';
+    $output_string .= '<div class="right-column">';
+    $output_string .= ' <h2 class="type-title">' . $event_name . '</h2>';
+    $output_string .= ' <div class="entry-meta">'.$event_types_string.'</div>';
+    //$output_string .= $event_excerpt;
+    //$output_string .= $event_description;
+    $output_string .= '<p class="organisers">Organised by: '.$event_organiser_main.'.';
+    if( $event_organiser_other_1 || $event_organiser_other_2 || $event_organiser_other_3 ){
+      $other_organisers = array();
+      if($event_organiser_other_1){array_push($other_organisers,$event_organiser_other_1);}
+      if($event_organiser_other_2){array_push($other_organisers,$event_organiser_other_2);}
+      if($event_organiser_other_3){array_push($other_organisers,$event_organiser_other_3);}
+      $output_string .= ' In partnership with: '. $other_organisers[0];
+      if(2 === count($other_organisers)){
+        $output_string .= ' and '.$event_organiser_other_2.'.';
+      }
+      if(3 === count($other_organisers)){
+        $output_string .= ', '.$event_organiser_other_2.' and '.$event_organiser_other_3.'.';
+      }
+    }
+    $output_string .= '</p><!-- organisers -->';
+    $output_string .= ' <p class="date">'.$event_date.' from '.$event_start_time.' to '.$event_end_time.'</p>';
+    $output_string .= ' <p class="location">'.$event_venue;
+    if($event_address_line_1){$output_string .= ', '.$event_address_line_1;}
+    if($event_address_line_2){$output_string .= ', '.$event_address_line_2;}
+    $output_string .= ', '.$event_area.' '.$event_postcode.'</p>';
+    $output_string .= '<p class="price">'.$event_price.'</p>';
+    $output_string .= '</div><!-- right-column -->';
+        //$output_string .= $event_description;
+    $output_string .= '</section>';
+     } //foreach
 	
 	return $output_string;
 	
