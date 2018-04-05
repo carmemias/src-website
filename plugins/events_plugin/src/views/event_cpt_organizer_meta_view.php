@@ -4,9 +4,9 @@ namespace yohannes\EventsFunctionality\src\views;
 	//$custom = get_post_custom($post->ID);
 	// Get the data if its already been entered
     $_event_cpt_main_organizer = get_post_meta($post->ID, '_event_cpt_main_organizer', true);
-	$_event_cpt_other_organizer_1 = get_post_meta($post->ID, '_event_cpt_other_organizer_1', true);
-	$_event_cpt_other_organizer_2 = get_post_meta($post->ID, '_event_cpt_other_organizer_2', true);
-	$_event_cpt_other_organizer_3 = get_post_meta($post->ID, '_event_cpt_other_organizer_3', true);
+    $_event_cpt_other_organizer_1 = get_post_meta($post->ID, '_event_cpt_other_organizer_1', true);
+    $_event_cpt_other_organizer_2 = get_post_meta($post->ID, '_event_cpt_other_organizer_2', true);
+    $_event_cpt_other_organizer_3 = get_post_meta($post->ID, '_event_cpt_other_organizer_3', true);
     $_event_cpt_organizer_website = get_post_meta($post->ID, '_event_cpt_organizer_website', true);
     $_event_cpt_organizer_facebook = get_post_meta($post->ID, '_event_cpt_organizer_facebook', true);
     $_event_cpt_organizer_twitter = get_post_meta($post->ID, '_event_cpt_organizer_twitter', true);
@@ -23,7 +23,7 @@ namespace yohannes\EventsFunctionality\src\views;
 		<td>
 			<label>Main Organizer Name:</label>
              <input type="text" size="50" name="_event_cpt_main_organizer" placeholder="Organizer Name ..." value="<?php echo $_event_cpt_main_organizer; ?>"><br>
-             <label>Organizer Name:</label>
+              		<label>Organizer Name:</label>
              <input type="text" size="50" name="_event_cpt_other_organizer_1" placeholder="Organizer Name ..." value="<?php echo $_event_cpt_other_organizer_1; ?>"><br>
 			 <label>Organizer Name:</label>
              <input type="text" size="50" name="_event_cpt_other_organizer_2" placeholder="Organizer Name ..." value="<?php echo $_event_cpt_other_organizer_2; ?>"><br>
