@@ -111,7 +111,7 @@ function events_cpt_shortcode_handler( $atts ){
 			return __('<p>There are no events to display.</p>', 'events-functionality' );
 		}
 
-  $output_string = '<div id="programme">';
+  $output_string .= '<div id="programme">';
 	//now we have the data, we can build the view
     foreach ( $events_cpt as $single_event ) {
     //get the data
@@ -139,7 +139,7 @@ function events_cpt_shortcode_handler( $atts ){
     $event_address_line_2 = $single_event->_event_cpt_address_line_2;
     $event_postcode = $single_event->_event_cpt_address_postcode;
     $event_area = $single_event->_event_cpt_area;
-    $event_price = $single_event->_event_cpt_price_event;
+    $event_price = money_format('%i', floatval($single_event->_event_cpt_price_event));
 
     //if more than 1 event type, join them.
     if ( $event_types && !is_wp_error( $event_types ) ) {
@@ -149,8 +149,6 @@ function events_cpt_shortcode_handler( $atts ){
         }
         $event_types_string = join( " | ", $event_types_array );
         }
-
-    setlocale(LC_MONETARY, 'en_GB');
 
     //output the event
     $output_string .= '<section id="event-'.$event_id.'" class="event-entry">';
@@ -188,13 +186,15 @@ function events_cpt_shortcode_handler( $atts ){
     if($event_address_line_1){$output_string .= ', '.$event_address_line_1;}
     if($event_address_line_2){$output_string .= ', '.$event_address_line_2;}
     $output_string .= ', '.$event_area.' '.$event_postcode.'</p>';
-    $output_string .= '<p class="price">'.$event_price.'</p>';
+    $output_string .= '<p class="price">';
+    if('0.00' != $event_price){$output_string .= '£'.$event_price;}else{$output_string .= 'FREE';};
+    $output_string .= '</p>';
     $output_string .= '</div><!-- right-column -->';
         //$output_string .= $event_description;
     $output_string .= '</section>';
      } //foreach
 
-  $output_string = '</div><!-- programme -->';
+  $output_string .= '</div><!-- programme -->';
 	return $output_string;
 
 	 wp_reset_postdata();
