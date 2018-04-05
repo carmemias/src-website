@@ -11,37 +11,37 @@
 
 ?>
 
-	</div><!-- #content -->
+    </div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
-		<?php if ( is_active_sidebar( 'footer-1' ) ) { ?>
+    <footer id="colophon" class="site-footer">
+        <?php if ( is_active_sidebar( 'footer-1' ) ) { ?>
 
-			<aside id="footer-secondary" class="widget-area">
-				<?php dynamic_sidebar( 'footer-1' ); ?>
-			</aside><!-- #secondary -->
+            <aside id="footer-secondary" class="widget-area">
+                <?php dynamic_sidebar( 'footer-1' ); ?>
+            </aside><!-- #secondary -->
 
-		<?php } ?>
+        <?php } ?>
 
-		<nav id="social-navigation" class="social-navigation">
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'social',
-				'menu_class'     => 'social-links-menu',
-				'depth'          => 1,
-				'link_before'    => '<span class="screen-reader-text">',
-				'link_after'     => '</span>',
-		) );
-			?>
-		</nav><!-- #site-navigation -->
+        <nav id="social-navigation" class="social-navigation">
+            <?php
+            wp_nav_menu( array(
+                'theme_location' => 'social',
+                'menu_class'     => 'social-links-menu',
+                'depth'          => 1,
+                'link_before'    => '<span class="screen-reader-text">',
+                'link_after'     => '</span>',
+        ) );
+            ?>
+        </nav><!-- #site-navigation -->
 
-		<div class="site-info">
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'src-project' ), 'Refugee Scotland Festival', '<a href="https://codeyourfuture.io">Code Your Future graduates</a>' );
-				?>
-		</div><!-- .site-info -->
+        <div class="site-info">
+                <?php
+                /* translators: 1: Theme name, 2: Theme author. */
+                printf( esc_html__( 'Theme: %1$s by %2$s.', 'src-project' ), 'Refugee Scotland Festival', '<a href="https://codeyourfuture.io">Code Your Future graduates</a>' );
+                ?>
+        </div><!-- .site-info -->
 
-	</footer><!-- #colophon -->
+    </footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

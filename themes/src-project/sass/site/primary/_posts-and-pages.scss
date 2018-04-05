@@ -30,3 +30,25 @@
 	clear: both;
 	margin: 0 0 1.5em;
 }
+
+body:not(.home) .site-main {
+	padding: 3em;
+	padding-bottom: 16em;
+
+	p {
+		text-align: justify;
+	}
+
+	.columns {
+		display: flex;
+	}
+	
+	.layout-column-1, .layout-column-2 {
+		margin:0 2rem 0 2rem;
+		width: 50%;
+	}
+
+	.entry-title {
+		margin-left: 2rem;
+	}
+}
