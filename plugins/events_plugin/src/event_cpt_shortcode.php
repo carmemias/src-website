@@ -140,6 +140,7 @@ function events_cpt_shortcode_handler( $atts ){
     $event_postcode = $single_event->_event_cpt_address_postcode;
     $event_area = $single_event->_event_cpt_area;
     $event_price = money_format('%i', floatval($single_event->_event_cpt_price_event));
+    $event_post_url = get_permalink($event_id);
 
     //if more than 1 event type, join them.
     if ( $event_types && !is_wp_error( $event_types ) ) {
@@ -153,16 +154,16 @@ function events_cpt_shortcode_handler( $atts ){
     //output the event
     $output_string .= '<section id="event-'.$event_id.'" class="event-entry">';
     $output_string .= '<div class="left-column">';
-    $output_string .= $event_image;
+    $output_string .= '<a href="'.esc_url_raw($event_post_url).'" alt="Read more about '.$event_name.'">'.$event_image.'</a>';
     $output_string .= '<div class="links">';
-    if( '' != $event_organiser_website ){$output_string .= '<a href="'.esc_attr($event_organiser_website).'" target="_blank" rel="noopener"><span class="screen-reader-text">Website</span><svg class="icon icon-website" aria-hidden="true" role="img"><use href="#icon-website" xlink:href="#icon-website"></use></svg></a>';}
-    if( '' != $event_organiser_facebook ){$output_string .= '<a href="'.esc_attr($event_organiser_facebook).'" target="_blank" rel="noopener"><span class="screen-reader-text">Facebook</span><svg class="icon icon-facebook" aria-hidden="true" role="img"><use href="#icon-facebook" xlink:href="#icon-facebook"></use></svg></a>';}
-    if( '' != $event_organiser_twitter ){$output_string .= '<a href="'.esc_attr($event_organiser_twitter).'" target="_blank" rel="noopener"><span class="screen-reader-text">Twitter</span><svg class="icon icon-twitter" aria-hidden="true" role="img"><use href="#icon-twitter" xlink:href="#icon-twitter"></use></svg></a>';}
-    if( '' != $event_organiser_instagram ){$output_string .= '<a href="'.esc_attr($event_organiser_instagram).'" target="_blank" rel="noopener"><span class="screen-reader-text">Instagram</span><svg class="icon icon-instagram" aria-hidden="true" role="img"><use href="#icon-instagram" xlink:href="#icon-instagram"></use></svg></a>';}
+    if( '' != $event_organiser_website ){$output_string .= '<a href="'.esc_url_raw($event_organiser_website).'" target="_blank" rel="noopener"><span class="screen-reader-text">Website</span><svg class="icon icon-website" aria-hidden="true" role="img"><use href="#icon-website" xlink:href="#icon-website"></use></svg></a>';}
+    if( '' != $event_organiser_facebook ){$output_string .= '<a href="'.esc_url_raw($event_organiser_facebook).'" target="_blank" rel="noopener"><span class="screen-reader-text">Facebook</span><svg class="icon icon-facebook" aria-hidden="true" role="img"><use href="#icon-facebook" xlink:href="#icon-facebook"></use></svg></a>';}
+    if( '' != $event_organiser_twitter ){$output_string .= '<a href="'.esc_url_raw($event_organiser_twitter).'" target="_blank" rel="noopener"><span class="screen-reader-text">Twitter</span><svg class="icon icon-twitter" aria-hidden="true" role="img"><use href="#icon-twitter" xlink:href="#icon-twitter"></use></svg></a>';}
+    if( '' != $event_organiser_instagram ){$output_string .= '<a href="'.esc_url_raw($event_organiser_instagram).'" target="_blank" rel="noopener"><span class="screen-reader-text">Instagram</span><svg class="icon icon-instagram" aria-hidden="true" role="img"><use href="#icon-instagram" xlink:href="#icon-instagram"></use></svg></a>';}
     $output_string .= '</div><!-- links -->';
     $output_string .= '</div><!-- left-column -->';
     $output_string .= '<div class="right-column">';
-    $output_string .= ' <h2 class="type-title">' . $event_name . '</h2>';
+    $output_string .= ' <h2 class="type-title"><a href="'.esc_url_raw($event_post_url).'" alt="Read more about '.$event_name.'">' . $event_name . '</a></h2>';
     $output_string .= ' <div class="entry-meta">'.$event_types_string.'</div>';
     //$output_string .= $event_excerpt;
     //$output_string .= $event_description;
