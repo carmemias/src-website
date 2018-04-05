@@ -64,16 +64,16 @@ function events_cpt_shortcode_handler( $atts ){
 	//find type (custom taxonomy)
 	if( ('' != $a['type']) ){
 		$event_type = $a['type'];
-		
+
 		//the type attribute has been set. Does this type exist?
 		$type_ID = term_exists($event_type,'event-type');
 		if( is_array($type_ID) ){ $type_ID = array_shift($type_ID);}
-		
+
 		//if the type doesn't exist, return error message
 		if( ( 0==$type_ID ) || ( null==$type_ID ) ) {
-			
+
 			return __('<p>The selected event type '.$event_type.' does not exist.</p>', 'events-functionality' );
-			
+
 		} else {
 			//if it does, add it to query
 			$event_cpt_args['tax_query'] = array(
@@ -92,20 +92,20 @@ function events_cpt_shortcode_handler( $atts ){
 		$event_area = $a['area'];
 		$event_cpt_args['meta_query']['event_area']['value'] = $event_area;
 	} //by area
-	
-	
+
+
 	//find date (event date)
 	if( ('' != $a['date']) ){
 		$event_date = $a['date'];
 		$event_cpt_args['meta_query']['event_date']['value'] = array($event_date, $event_date);
 	} //by date
-	
+
 	//find year (event year)
 	if( ('' != $a['year']) ){
 		$event_year = $a['year'];
 		$event_cpt_args['meta_query']['event_date']['value'] = array($event_year.'-01-01', $event_year.'-12-31');
 	} //by year
-	
+
 	$events_cpt = get_posts( $event_cpt_args ); //returns an array
 		if(count($events_cpt)==0){
 			return __('<p>There are no events to display.</p>', 'events-functionality' );
@@ -116,7 +116,7 @@ function events_cpt_shortcode_handler( $atts ){
     foreach ( $events_cpt as $single_event ) {
     //get the data
     $event_id = $single_event->ID;
-        $event_name = $single_event->post_title;
+    $event_name = $single_event->post_title;
     $event_types = get_the_terms( $event_id, 'event-type' );
     $event_types_string = '';
     $event_image = get_the_post_thumbnail( $event_id, 'medium' );
@@ -138,8 +138,10 @@ function events_cpt_shortcode_handler( $atts ){
     $event_address_line_1 = $single_event->_event_cpt_address_line_1;
     $event_address_line_2 = $single_event->_event_cpt_address_line_2;
     $event_postcode = $single_event->_event_cpt_address_postcode;
-        $event_area = $single_event->_event_cpt_area;
+    $event_area = $single_event->_event_cpt_area;
     $event_price = $single_event->_event_cpt_price_event;
+
+    //if more than 1 event type, join them.
     if ( $event_types && !is_wp_error( $event_types ) ) {
         $event_types_array = array();
         foreach ( $event_types as $event_type ) {
@@ -147,12 +149,15 @@ function events_cpt_shortcode_handler( $atts ){
         }
         $event_types_string = join( " | ", $event_types_array );
         }
+
+    setlocale(LC_MONETARY, 'en_GB');
+
     //output the event
     $output_string .= '<section id="event-'.$event_id.'" class="event-entry">';
     $output_string .= '<div class="left-column">';
     $output_string .= $event_image;
     $output_string .= '<div class="links">';
-    if( '' != $event_organiser_website ){$output_string .= '<a href="'.esc_attr($event_organiser_website).'" target="_blank" rel="noopener"><span class="screen-reader-text">Website</span><svg class="icon icon-chain" aria-hidden="true" role="img"><use href="#icon-chain" xlink:href="#icon-chain"></use></svg></a>';}
+    if( '' != $event_organiser_website ){$output_string .= '<a href="'.esc_attr($event_organiser_website).'" target="_blank" rel="noopener"><span class="screen-reader-text">Website</span><svg class="icon icon-website" aria-hidden="true" role="img"><use href="#icon-website" xlink:href="#icon-website"></use></svg></a>';}
     if( '' != $event_organiser_facebook ){$output_string .= '<a href="'.esc_attr($event_organiser_facebook).'" target="_blank" rel="noopener"><span class="screen-reader-text">Facebook</span><svg class="icon icon-facebook" aria-hidden="true" role="img"><use href="#icon-facebook" xlink:href="#icon-facebook"></use></svg></a>';}
     if( '' != $event_organiser_twitter ){$output_string .= '<a href="'.esc_attr($event_organiser_twitter).'" target="_blank" rel="noopener"><span class="screen-reader-text">Twitter</span><svg class="icon icon-twitter" aria-hidden="true" role="img"><use href="#icon-twitter" xlink:href="#icon-twitter"></use></svg></a>';}
     if( '' != $event_organiser_instagram ){$output_string .= '<a href="'.esc_attr($event_organiser_instagram).'" target="_blank" rel="noopener"><span class="screen-reader-text">Instagram</span><svg class="icon icon-instagram" aria-hidden="true" role="img"><use href="#icon-instagram" xlink:href="#icon-instagram"></use></svg></a>';}
@@ -188,9 +193,9 @@ function events_cpt_shortcode_handler( $atts ){
         //$output_string .= $event_description;
     $output_string .= '</section>';
      } //foreach
-	
+
 	return $output_string;
-	
+
 	 wp_reset_postdata();
 
   }
