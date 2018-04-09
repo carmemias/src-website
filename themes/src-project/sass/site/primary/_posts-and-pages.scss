@@ -34,7 +34,7 @@
 body:not(.home) .site-main {
 
 	padding: 3em;
-	padding-bottom: 16em;
+	padding-bottom: 8em !important;
 
 	p {
 		text-align: justify;
@@ -57,6 +57,7 @@ body:not(.home) .site-main {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
+		justify-content: space-around;
 	}
 
 	.filters {
@@ -67,14 +68,117 @@ body:not(.home) .site-main {
 		display: flex;
 		flex-direction: row;
 		max-width: 50%;
+		padding: 0 10px 0 10px;
+		padding-bottom: 3em;
+
 
 		.left-column, .right-column{
-			padding: 1rem;
+			padding: .5rem;
 			align-self: start;
 		}
 
 		h2, p {
 			margin: 0;
 		}
+
+		img{
+			max-width: none;
+		}
+
+		.links {
+			display: flex;
+			justify-content: space-around;
+		}
 	}
+
 }
+
+
+
+@media only screen and (max-width: 640px) {
+	.site-main {
+		padding: 1em !important;
+	}
+	
+	#programme {
+		flex-direction: column !important;
+	}
+
+	.entry-content {
+		margin: 1.5em 0 1.5em 0;
+	  	display: flex;
+	  	flex-direction: column !important;  
+	}
+
+	.filters {
+		display: flex;
+    	flex-direction: column;
+		justify-items: stretch;
+		margin: 1rem !important;
+	}
+
+
+	select {
+		margin: .5rem;
+	}
+
+	input[type="date"] {
+		margin: .5rem;
+	}
+
+	h2 {
+		font-size: 18px !important;
+	}
+
+	p {
+		font-size: 15px !important;
+		line-height: 30px;
+	}
+
+	.event-entry{
+		flex-direction: column !important;
+		max-width: 100% !important;
+
+	}
+  }
+  
+  @media only screen and (min-width: 640px) and (max-width: 1024px) {
+
+	.site-main {
+		padding: 1em !important;
+	}
+
+	.entry-content {
+	  margin: 1.5em 0 1.5em 0;
+	  display: flex;
+	  flex-direction: column !important;  
+
+	}
+
+	.filters {
+		display: flex;
+		margin: 1rem !important;
+		}
+
+	select {
+		margin: .5rem;
+	}
+
+	input[type="date"] {
+		margin: .5rem;
+	}
+
+	.event-entry{
+		flex-direction: column !important;
+	}
+
+	h2 {
+		font-size: 18px !important;
+	}
+
+	p {
+		font-size: 15px !important;
+		line-height: 30px;
+	}
+  }
+  
