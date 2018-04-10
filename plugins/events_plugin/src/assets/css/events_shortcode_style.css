@@ -1,7 +1,16 @@
-select{
-margin-right: 20px !important;
+form {
+    display: flex;
+    justify-content: space-between;
 }
-input{
+
+select {
+    margin-right: 20px !important;
+}
+
+input {
     max-width: 200px;
-    float: right;
+}
+
+#submitFilterButton{
+    width: 200px;
 }
