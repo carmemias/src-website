@@ -121,8 +121,175 @@ function submitButton(data) {
               filteredValues.date)
         );
       });
-      console.log(newArray);
+      renderNewEventsView(newArray);
     });
+}
+
+function renderNewEventsView(newArray) {
+  let programDiv = document.getElementById("programme");
+  programDiv.innerHTML = "";
+  newArray.forEach(event => {
+    let sectionElement = document.createElement("section");
+    sectionElement.classList.add("event-entry");
+    sectionElement.setAttribute("id", "event-" + event.id);
+    let leftColumn = document.createElement("div");
+    leftColumn.classList.add("left-column");
+    let rightColumn = document.createElement("div");
+    rightColumn.classList.add("right-column");
+    sectionElement.appendChild(leftColumn);
+    sectionElement.appendChild(rightColumn);
+    programDiv.appendChild(sectionElement);
+    //start of left column
+    let aElement = document.createElement("a");
+    aElement.setAttribute("href", event.link);
+    aElement.setAttribute("alt", "read more about " + event.title.rendered);
+
+    if (event.featured_media != 0) {
+      let imgElement = document.createElement("img");
+      imgElement.classList.add(
+        "attachment-medium",
+        "size-medium",
+        "wp-post-image"
+      );
+      imgElement.setAttribute(
+        "src",
+        event._embedded["wp:featuredmedia"][0].media_details.sizes.medium
+          .source_url
+      );
+      aElement.appendChild(imgElement);
+      leftColumn.appendChild(aElement);
+    }
+
+    let links = document.createElement("div");
+    links.classList.add("links");
+    if (event.extra_meta._event_cpt_organizer_website) {
+      let website = document.createElement("a");
+      website.setAttribute(
+        "href",
+        event.extra_meta._event_cpt_organizer_website[0]
+      );
+      website.setAttribute("target", "_blank");
+      website.setAttribute("rel", "noopener");
+
+      let span = document.createElement("span");
+      span.classList.add("screen-reader-text");
+      span.innerHTML = "Website";
+
+      let svgEl = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      let useEl = document.createElementNS("http://www.w3.org/2000/svg", "use");
+
+      useEl.setAttribute("href", "#icon-website");
+      useEl.setAttribute("xlink:href", "#icon-website");
+
+      svgEl.setAttribute("class", "icon icon-website");
+      svgEl.setAttribute("role", "img");
+      svgEl.setAttribute("aria-hidden", "true");
+
+      svgEl.appendChild(useEl);
+      website.appendChild(span);
+      website.appendChild(svgEl);
+      links.appendChild(website);
+    }
+    if (event.extra_meta._event_cpt_organizer_facebook) {
+      let facebook = document.createElement("a");
+      facebook.setAttribute(
+        "href",
+        event.extra_meta._event_cpt_organizer_facebook[0]
+      );
+      facebook.setAttribute("target", "_blank");
+      facebook.setAttribute("rel", "noopener");
+
+      let span = document.createElement("span");
+      span.classList.add("screen-reader-text");
+      span.innerHTML = "facebook";
+
+      let svgEl = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      let useEl = document.createElementNS("http://www.w3.org/2000/svg", "use");
+
+      useEl.setAttribute("href", "#icon-facebook");
+      useEl.setAttribute("xlink:href", "#icon-facebook");
+
+      svgEl.setAttribute("class", "icon icon-facebook");
+      svgEl.setAttribute("role", "img");
+      svgEl.setAttribute("aria-hidden", "true");
+
+      svgEl.appendChild(useEl);
+      facebook.appendChild(span);
+      facebook.appendChild(svgEl);
+      links.appendChild(facebook);
+    }
+    if (event.extra_meta._event_cpt_organizer_twitter) {
+      let twitter = document.createElement("a");
+      twitter.setAttribute(
+        "href",
+        event.extra_meta._event_cpt_organizer_twitter[0]
+      );
+      twitter.setAttribute("target", "_blank");
+      twitter.setAttribute("rel", "noopener");
+
+      let span = document.createElement("span");
+      span.classList.add("screen-reader-text");
+      span.innerHTML = "twitter";
+
+      let svgEl = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      let useEl = document.createElementNS("http://www.w3.org/2000/svg", "use");
+
+      useEl.setAttribute("href", "#icon-twitter");
+      useEl.setAttribute("xlink:href", "#icon-twitter");
+
+      svgEl.setAttribute("class", "icon icon-twitter");
+      svgEl.setAttribute("role", "img");
+      svgEl.setAttribute("aria-hidden", "true");
+
+      svgEl.appendChild(useEl);
+      twitter.appendChild(span);
+      twitter.appendChild(svgEl);
+      links.appendChild(twitter);
+    }
+    if (event.extra_meta._event_cpt_organizer_instagram) {
+      let instagram = document.createElement("a");
+      instagram.setAttribute(
+        "href",
+        event.extra_meta._event_cpt_organizer_instagram[0]
+      );
+      instagram.setAttribute("target", "_blank");
+      instagram.setAttribute("rel", "noopener");
+
+      let span = document.createElement("span");
+      span.classList.add("screen-reader-text");
+      span.innerHTML = "instagram";
+
+      let svgEl = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      let useEl = document.createElementNS("http://www.w3.org/2000/svg", "use");
+
+      useEl.setAttribute("href", "#icon-instagram");
+      useEl.setAttribute("xlink:href", "#icon-instagram");
+
+      svgEl.setAttribute("class", "icon icon-instagram");
+      svgEl.setAttribute("role", "img");
+      svgEl.setAttribute("aria-hidden", "true");
+
+      svgEl.appendChild(useEl);
+      instagram.appendChild(span);
+      instagram.appendChild(svgEl);
+      links.appendChild(instagram);
+    }
+    leftColumn.appendChild(links);
+    //start of right column
+    let headerTwo = document.createElement("h2");
+    headerTwo.classList.add("type-title");
+
+    let aRightElement = document.createElement("a");
+    aRightElement.setAttribute("href", event.link);
+    aRightElement.setAttribute(
+      "alt",
+      "read more about " + event.title.rendered
+    );
+    aRightElement.innerHTML = event.title.rendered;
+
+    headerTwo.appendChild(aRightElement);
+    rightColumn.appendChild(headerTwo);
+  });
 }
 
 wp.api.loadPromise.done(() => {
