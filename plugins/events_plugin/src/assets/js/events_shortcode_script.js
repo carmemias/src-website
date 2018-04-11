@@ -126,6 +126,7 @@ function submitButton(data) {
 }
 
 function renderNewEventsView(newArray) {
+  console.log(newArray);
   let programDiv = document.getElementById("programme");
   programDiv.innerHTML = "";
   newArray.forEach(event => {
@@ -289,6 +290,50 @@ function renderNewEventsView(newArray) {
 
     headerTwo.appendChild(aRightElement);
     rightColumn.appendChild(headerTwo);
+
+    let titleDivElement = document.createElement("div");
+    titleDivElement.classList.add("entry-meta");
+    titleDivElement.innerHTML = event._embedded["wp:term"][0][0].slug;
+
+    // headerTwo.appendChild(titleDivElement);
+    rightColumn.appendChild(titleDivElement);
+
+    let contentDivElement = document.createElement("div");
+    contentDivElement.classList.add("event-excerpt");
+    contentDivElement.innerHTML = event.excerpt.rendered;
+    rightColumn.appendChild(contentDivElement);
+
+    let organizerParagraph = document.createElement("p");
+    organizerParagraph.classList.add("organisers");
+    organizerParagraph.innerHTML =
+      "Organised by: " +
+      event.extra_meta._event_cpt_main_organizer +
+      ". In partnership with: " +
+      event.extra_meta._event_cpt_other_organizer;
+    rightColumn.appendChild(organizerParagraph);
+    // organizerParagraph.classList.add("organisers");
+
+    let eventDate = document.createElement("p");
+    eventDate.classList.add("date");
+    eventDate.innerHTML =
+      event.extra_meta._event_cpt_date_event + "From " +
+      event.extra_meta._event_cpt_startTime_event + "To " +
+      event.extra_meta._event_cpt_endTime_event;
+    rightColumn.appendChild(eventDate);
+
+    let eventLocation = document.createElement("p");
+    eventLocation.classList.add("location");
+    eventLocation.innerHTML =
+      event.extra_meta._event_cpt_area + ", " +
+      event.extra_meta._event_cpt_address_line_1 + "," +
+      event.extra_meta._event_cpt_address_town_city +
+      event.extra_meta._event_cpt_address_postcode;
+    rightColumn.appendChild(eventLocation);
+
+    let eventPrice = document.createElement("p");
+    eventPrice.classList.add("price");
+    eventPrice.innerHTML = "£ " + event.extra_meta._event_cpt_price_event;
+    rightColumn.appendChild(eventPrice);
   });
 }
 
