@@ -81,10 +81,6 @@ body:not(.home) .site-main {
 			margin: 0;
 		}
 
-		.links {
-			display: flex;
-			justify-content: space-around;
-		}
 	}
 
 }
@@ -94,7 +90,22 @@ body:not(.home) .site-main {
 @media only screen and (max-width: 640px) {
 	.site-main {
 		padding: 1em !important;
+
+		#post-5{
+			padding-bottom: 15rem;
+			
+			.entry-content{
+				padding-right: 5rem;
+			}
+			.columns {
+				display: block;
+			}
+			.layout-column-1, .layout-column-2 {
+				width: 100%;
+			}
+		}
 	}
+	
 	
 	#programme {
 		flex-direction: column !important;
@@ -103,7 +114,9 @@ body:not(.home) .site-main {
 	.entry-content {
 		margin: 1.5em 0 1.5em 0;
 	  	display: flex;
-	  	flex-direction: column !important;  
+		flex-direction: column !important; 
+		padding-bottom: 8rem;
+ 
 	}
 
 	.filters {
@@ -129,7 +142,7 @@ body:not(.home) .site-main {
 		font-size: 18px !important;
 	}
 
-	p {
+	p:not(.site-description){
 		font-size: 15px !important;
 		line-height: 30px;
 	}
@@ -175,7 +188,7 @@ body:not(.home) .site-main {
 		font-size: 18px !important;
 	}
 
-	p {
+	p:not(.site-description) {
 		font-size: 15px !important;
 		line-height: 30px;
 	}
