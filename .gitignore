@@ -8,3 +8,4 @@ node_modules/**
 **/twentysixteen
 plugins/hello.php
 **/faqs_cpt
+**/ninja-forms
