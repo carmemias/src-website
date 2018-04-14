@@ -30,7 +30,9 @@
 
   form.es_widget_form {
     display: flex !important;
+    justify-content: center;
     align-items: baseline;
+    flex-wrap:wrap;
   }
 
   .es_textbox {
@@ -51,6 +53,14 @@
   label,  {
     color: $color__placeholder;
   }
+
+  #es_widget_msg {
+  	width: 100%;
+  }
+  .es_msg {
+  	color:$color__subscriptions-message;
+  }
+
 
 }
 .widget-title {
