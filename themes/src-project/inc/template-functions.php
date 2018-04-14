@@ -17,6 +17,12 @@ function src_project_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
+	if (is_page() ) {
+		$slug = get_post_field( 'post_name', get_post() );
+		$classes[] = 'page-' . $slug;
+
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'src_project_body_classes' );
