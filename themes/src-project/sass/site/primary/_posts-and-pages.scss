@@ -2,6 +2,7 @@
 	position: relative;
 	min-height:100vh;
 	height: 100%;
+	padding-bottom: 4rem;
 }
 
 .sticky {
@@ -70,7 +71,6 @@ body:not(.home) .site-main {
 		padding: 0 10px 0 10px;
 		padding-bottom: 3em;
 
-
 		.left-column, .right-column{
 			align-self: start;
 			padding: .5rem 1.5rem .5rem 1.5rem !important; 
@@ -79,31 +79,31 @@ body:not(.home) .site-main {
 		h2, p {
 			margin: 0;
 		}
-
 	}
-
 }
 
 
-
 @media only screen and (max-width: 640px) {
-	.site-main {
-		padding: 1em !important;
+ 
+	#page, .site {
+		padding-bottom: 16rem !important;
+	}
 
-		#post-5{
-			padding-bottom: 8rem;
-			
-			.entry-content{
-				padding-right: 5rem;
-			}
-			.columns {
-				display: block;
-			}
-			.layout-column-1, .layout-column-2 {
-				width: 100%;
-			}
+	.page-about {		
+		.site-main {
+			padding: 1em !important;
+		}
+		.entry-content{
+			padding-right: 5rem;
+		}
+		.columns {
+			display: block !important; 
+		}
+		.layout-column-1, .layout-column-2 {
+			width: 100% !important;
 		}
 	}
+
 	
 	
 	#programme {
@@ -113,9 +113,7 @@ body:not(.home) .site-main {
 	.entry-content {
 		margin: 1.5em 0 1.5em 0;
 	  	display: flex;
-		flex-direction: column !important; 
-		padding-bottom: 8rem;
- 
+		flex-direction: column !important;  
 	}
 
 	.filters {
