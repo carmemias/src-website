@@ -21,12 +21,13 @@
 .entry-content,
 .entry-summary {
 	margin: 1.5em 0 0;
+	padding: 0 1rem 10rem 1rem;
 }
 
-#content {
-	padding-bottom:150px;
-}
+.entry-header{
+	padding: 0 1rem 0rem 1rem;
 
+}
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
