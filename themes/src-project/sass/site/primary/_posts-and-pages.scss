@@ -23,13 +23,13 @@ body:not(.home) .content-area {
 	padding: 0 1rem 5rem 1rem;
 }
 
-.entry-header{
-	padding: 0 1rem 0rem 2rem;
-}
-
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+[class^="page-whats-"].entry-header {
+	margin-left: 2rem;
 }
 
 body:not(.home) .site-main {
@@ -43,7 +43,7 @@ body:not(.home) .site-main {
 	}
 	
 	.layout-column-1, .layout-column-2 {
-		margin:0 2rem 0 2rem;
+		margin:0 2rem 0 0;
 		width: 50%;
 	}
 
@@ -96,9 +96,7 @@ body:not(.home) .site-main {
 		.layout-column-1, .layout-column-2 {
 			width: 100% !important;
 		}
-	}
-
-	
+	}	
 	
 	#programme {
 		flex-direction: column !important;
