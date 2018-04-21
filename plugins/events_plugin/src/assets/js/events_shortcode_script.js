@@ -305,11 +305,9 @@ function renderNewEventsView(newArray) {
     let organizerParagraph = document.createElement("p");
     organizerParagraph.classList.add("organisers");
     if (event.extra_meta._event_cpt_main_organizer){
-      organizerParagraph.innerHTML = "Organised by: " + event.extra_meta._event_cpt_main_organizer;
+      organizerParagraph.innerHTML = event.extra_meta._event_cpt_main_organizer;
     }
-    if (event.extra_meta._event_cpt_other_organizer){
-       organizerParagraph.innerHTML = ". In partnership with: " + event.extra_meta._event_cpt_other_organizer;
-    }
+    
     rightColumn.appendChild(organizerParagraph);
     // organizerParagraph.classList.add("organisers");
 
@@ -324,15 +322,11 @@ function renderNewEventsView(newArray) {
     if(event.extra_meta._event_cpt_area){
         eventLocation.innerHTML = event.extra_meta._event_cpt_area + ", " 
     }
-    if(event.extra_meta._event_cpt_address_line_1){
-      eventLocation.innerHTML = event.extra_meta._event_cpt_address_line_1 + ",";
-    }
+    
     if(event.extra_meta._event_cpt_address_town_city){
       eventLocation.innerHTML = event.extra_meta._event_cpt_address_town_city;
     }
-    if(event.extra_meta._event_cpt_address_postcode){
-     eventLocation.innerHTML = event.extra_meta._event_cpt_address_postcode;
-    }
+    
     rightColumn.appendChild(eventLocation);
 
     let eventPrice = document.createElement("p");
