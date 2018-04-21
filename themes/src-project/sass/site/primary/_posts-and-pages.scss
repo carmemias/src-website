@@ -2,7 +2,7 @@
 	position: relative;
 	min-height:100vh;
 	height: 100%;
-	padding-bottom: 4rem;
+	padding-bottom: 10rem;
 }
 
 .sticky {
@@ -17,25 +17,22 @@
 	display: none;
 }
 
-.page-content,
-.entry-content,
-.entry-summary {
+body:not(.home) .site-content,
+body:not(.home) .content-area {
 	margin: 1.5em 0 0;
-	padding: 0 1rem 10rem 1rem;
+	padding: 0 1rem 5rem 1rem;
 }
 
-.entry-header{
-	padding: 0 1rem 0rem 1rem;
-
-}
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
 }
 
-body:not(.home) .site-main {
+[class^="page-whats-"].entry-header {
+	margin-left: 2rem;
+}
 
-	padding: 3em;
+body:not(.home) .site-main {
 
 	p {
 		text-align: justify;
@@ -46,12 +43,8 @@ body:not(.home) .site-main {
 	}
 	
 	.layout-column-1, .layout-column-2 {
-		margin:0 2rem 0 2rem;
+		margin:0 2rem 0 0;
 		width: 50%;
-	}
-
-	.entry-title {
-		margin-left: 2rem;
 	}
 
 	#programme {
@@ -103,9 +96,7 @@ body:not(.home) .site-main {
 		.layout-column-1, .layout-column-2 {
 			width: 100% !important;
 		}
-	}
-
-	
+	}	
 	
 	#programme {
 		flex-direction: column !important;
