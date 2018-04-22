@@ -185,3 +185,20 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
+
+/*
+* Apply Custom Customizer settings to the live website
+* See inc/customizer.php for further info on what those customized settings are.
+*/
+add_action( 'wp_head', 'src_project_customizer_css');
+function src_project_customizer_css(){
+	$homepage_hero_background_image = get_theme_mod('current_festival_hero_image', get_stylesheet_directory_uri() . '/images/home-background.png');
+    ?>
+         <style type="text/css">
+             .home #hero { background-image: url('<?php echo $homepage_hero_background_image ?>');
+							 			background-color: transparent;
+						 				background-position: center;
+										background-size: cover; }
+         </style>
+    <?php
+}

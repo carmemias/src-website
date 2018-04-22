@@ -29,7 +29,7 @@ function src_project_customize_register( $wp_customize ) {
 
 	/* Amend Customizer screen to add 2nd logo and current year's Festival customization */
 	$wp_customize->add_setting( 'second_logo', array(
-		'default' => get_template_directory() . '/images/src-logo.png',  //TODO DOUBLE CHECK DEFAULT WORKS
+		'default' => get_template_directory() . '/images/src-logo.png',  //TODO IS DEFAULT IS AN ATTRIBUTE FOR IMAGE?
 		'sanitize_callback' => 'src_project_sanitize_image_file',
 	) );
 	$wp_customize->add_control( new WP_Customize_Cropped_Image_Control( $wp_customize, 'second_logo', array(
@@ -48,7 +48,7 @@ function src_project_customize_register( $wp_customize ) {
 
 	//Festival dates, displayed in homepage
 	$wp_customize->add_setting( 'current_festival_dates', array(
-		'default' => esc_html__('Friday 15 - Sunday 24 June 2018', 'src-project'),
+		'default' => esc_html__('Friday 15 - Sunday 24 June 2018', 'src-project'), 
 		'sanitize_callback' => 'wp_filter_nohtml_kses'
 	) );
 	$wp_customize->add_control( 'current_festival_dates', array(

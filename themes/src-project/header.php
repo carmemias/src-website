@@ -45,12 +45,20 @@
 			) );
 			?>
 		</nav><!-- #site-navigation -->
+
+		<div class="site-branding">
+		<!-- See https://developer.wordpress.org/reference/functions/the_custom_logo/
+			< ?php $second_logo = get_theme_mod('second_logo', get_stylesheet_directory_uri() . '/images/src-logo.png'); ?>
+			<img src="< ?php echo $second_logo; ?>" class="second-logo" alt="scottish refugee council logo" itemprop="logo" width="80" height="80"/>
+		-->
+		</div>
+
 		<?php if ( is_active_sidebar( 'header' ) ) { ?>
 
-	<?php dynamic_sidebar( 'header' ); ?>
-<!-- #secondary -->
+				<?php dynamic_sidebar( 'header' ); ?><!-- thsi sidebar is used for the Search widget -->
+				<!-- #secondary -->
 
-<?php } ?>
+		<?php } ?>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
