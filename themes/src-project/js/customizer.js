@@ -39,4 +39,12 @@
 			}
 		} );
 	} );
+
+	//Festival dates
+	//See https://codex.wordpress.org/Theme_Customization_API#Part_3:_Configure_Live_Preview_.28Optional.29
+	wp.customize( 'current_festival_dates', function( value ) {
+		value.bind( function( newval ) {
+			$( '.festival-dates' ).text( newval );
+		} );
+	} );
 } )( jQuery );

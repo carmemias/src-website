@@ -192,10 +192,13 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 */
 add_action( 'wp_head', 'src_project_customizer_css');
 function src_project_customizer_css(){
-	$homepage_hero_background_image = get_theme_mod('current_festival_hero_image', get_stylesheet_directory_uri() . '/images/home-background.png');
+	//See https://developer.wordpress.org/reference/functions/the_custom_logo/#user-contributed-notes
+	$homepage_hero_background_image_id = get_theme_mod('current_festival_hero_image');
+	$homepage_hero_background_image = wp_get_attachment_image_src( $homepage_hero_background_image_id , 'full' );
+
     ?>
          <style type="text/css">
-             .home #hero { background-image: url('<?php echo $homepage_hero_background_image ?>');
+             .home #hero { background-image: url('<?php echo esc_url($homepage_hero_background_image[0]); ?>');
 							 			background-color: transparent;
 						 				background-position: center;
 										background-size: cover; }

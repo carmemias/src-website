@@ -11,26 +11,9 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function src_project_customize_register( $wp_customize ) {
-	 /* Add postMessage support for site title and description for the Theme Customizer. */
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-
-	if ( isset( $wp_customize->selective_refresh ) ) {
-		$wp_customize->selective_refresh->add_partial( 'blogname', array(
-			'selector'        => '.site-title a',
-			'render_callback' => 'src_project_customize_partial_blogname',
-		) );
-		$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
-			'selector'        => '.site-description',
-			'render_callback' => 'src_project_customize_partial_blogdescription',
-		) );
-	}
-
 	/* Amend Customizer screen to add 2nd logo and current year's Festival customization */
 	$wp_customize->add_setting( 'second_logo', array(
-		'default' => get_template_directory() . '/images/src-logo.png',  //TODO IS DEFAULT IS AN ATTRIBUTE FOR IMAGE?
-		'sanitize_callback' => 'src_project_sanitize_image_file',
+		'sanitize_callback' => 'absint',
 	) );
 	$wp_customize->add_control( new WP_Customize_Cropped_Image_Control( $wp_customize, 'second_logo', array(
 	'label'      => esc_html__('Second Logo', 'src-project'),
@@ -48,8 +31,8 @@ function src_project_customize_register( $wp_customize ) {
 
 	//Festival dates, displayed in homepage
 	$wp_customize->add_setting( 'current_festival_dates', array(
-		'default' => esc_html__('Friday 15 - Sunday 24 June 2018', 'src-project'), 
-		'sanitize_callback' => 'wp_filter_nohtml_kses'
+		'default' => esc_html__('enter this year\'s festival dates here...', 'src-project'),
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 	$wp_customize->add_control( 'current_festival_dates', array(
 	'label'      => esc_html__('Festival Dates', 'src-project'),
@@ -59,8 +42,7 @@ function src_project_customize_register( $wp_customize ) {
   ) );
 
 	$wp_customize->add_setting( 'current_festival_hero_image', array(
-		'default' => get_template_directory() . '/images/home-background.png', //TODO DOUBLE CHECK DEFAULT WORKS
-		'sanitize_callback' => 'src_project_sanitize_image_file',
+		'sanitize_callback' => 'absint',
 	) );
 	$wp_customize->add_control(new WP_Customize_Media_Control( $wp_customize, 'current_festival_hero_image', array(
 	'label'      => esc_html__('Homepage Hero Image', 'src-project'),
@@ -111,6 +93,33 @@ function src_project_customize_register( $wp_customize ) {
 	//DEFAULT DOES NOT EXIST FOR CUSTOM LOGO $wp_customize->get_control( 'custom_logo' )->default = get_template_directory() . '/images/rfs-logo.png';
 	$wp_customize->get_control( 'custom_logo' )->label = esc_html__('Festival Logo', 'src-project');
 	$wp_customize->remove_control( 'display_header_text' ); //remove the option to not show the tagline
+
+	/* Add postMessage support for site title and description for the Theme Customizer. */
+  $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+  $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+  $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'second_logo' )->transport      = 'postMessage';
+	$wp_customize->get_setting( 'current_festival_dates' )->transport 			 = 'postMessage';
+	$wp_customize->get_setting( 'current_festival_hero_image' )->transport   = 'postMessage';
+	$wp_customize->get_setting( 'current_festival_text_color' )->transport   = 'postMessage';
+	$wp_customize->get_setting( 'current_festival_menu_color' )->transport   = 'postMessage';
+	$wp_customize->get_setting( 'current_festival_accent_color' )->transport = 'postMessage';
+
+	if ( isset( $wp_customize->selective_refresh ) ) {
+		$wp_customize->selective_refresh->add_partial( 'blogname', array(
+			'selector'        => '.site-title a',
+			'render_callback' => 'src_project_customize_partial_blogname',
+		) );
+		$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
+			'selector'        => '.site-description',
+			'render_callback' => 'src_project_customize_partial_blogdescription',
+		) );
+		$wp_customize->selective_refresh->add_partial( 'current_festival_dates', array(
+			'selector'        => '.festival-dates',
+			'render_callback' => 'src_project_customize_partial_festival_dates',
+		) );
+	}
+
 }
 add_action( 'customize_register', 'src_project_customize_register' );
 
@@ -131,6 +140,10 @@ function src_project_customize_partial_blogname() {
 function src_project_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
+
+/*function src_project_customize_partial_festival_dates(){
+	get_theme_mod( 'current_festival_dates' );
+}*/
 
 /*
 * Sanitize image files for the second logo
