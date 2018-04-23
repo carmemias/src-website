@@ -10,6 +10,8 @@ html {
 
 body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+	background-size: cover;
+  background-repeat: no-repeat;
 }
 
 hr {
