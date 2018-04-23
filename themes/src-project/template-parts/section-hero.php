@@ -13,12 +13,16 @@
   <?php	if ( is_front_page() && !is_home() ) :
       ?>
       <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-      <?php
-    endif;
+  <?php endif;
 
-    $src_project_description = get_bloginfo( 'description', 'display' );
-    if ( $src_project_description || is_customize_preview() ) :
-      ?>
-      <p class="site-description"><?php echo $src_project_description; /* WPCS: xss ok. */ ?></p>
-    <?php endif; ?>
+  $src_project_description = get_bloginfo( 'description', 'display' );
+  if ( $src_project_description || is_customize_preview() ) : ?>
+      <p class="site-description"><?php echo esc_html($src_project_description); /* WPCS: xss ok. */ ?></p>
+  <?php endif;
+
+  //See https://codex.wordpress.org/Function_Reference/get_theme_mod
+  $src_project_current_festival_dates = get_theme_mod( 'current_festival_dates');
+
+?>
+  <p class="festival-dates"><?php echo esc_html($src_project_current_festival_dates);?></p>
 </section>

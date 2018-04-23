@@ -1,11 +1,21 @@
 .site-header {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-wrap: wrap;
   padding:20px;
-  @include box-shadow();
 
+  svg.icon {
+    width: 25px !important;
+    height: 25px !important;
+    fill: $color__menu-item;
+
+    .active-search & {
+      fill: $color__current-menu-item;
+    }
+
+  }
+  
   .widget {
     align-self: flex-end;
     margin: 0;
@@ -38,17 +48,6 @@
     label {
       color: $color__placeholder;
     }
-  }
-
-}
-
-svg.icon {
-  width: 25px !important;
-  height: 25px !important;
-  fill: $color__menu-item;
-
-  .active-search & {
-    fill: $color__current-menu-item;
   }
 
 }

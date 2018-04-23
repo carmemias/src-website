@@ -75,8 +75,8 @@ if ( ! function_exists( 'src_project_setup' ) ) :
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
 		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
+			'height'      => 100,
+			'width'       => 100,
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
@@ -185,3 +185,59 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
+
+/*
+* Apply Custom Customizer settings to the live website
+* See inc/customizer.php for further info on what those customized settings are.
+*/
+add_action( 'wp_head', 'src_project_customizer_css');
+function src_project_customizer_css(){
+	//See https://developer.wordpress.org/reference/functions/the_custom_logo/#user-contributed-notes
+	$homepage_hero_background_image_id = get_theme_mod('current_festival_hero_image');
+	$homepage_hero_background_image = wp_get_attachment_image_src( $homepage_hero_background_image_id , 'full' );
+	$menu_links_color = get_theme_mod('current_festival_menu_color');
+	$text_color = get_theme_mod('current_festival_text_color');
+  $accent_color = get_theme_mod('current_festival_accent_color');
+    ?>
+         <style type="text/css">
+				 		 /* homepage hero image */
+             .home #hero { background-image: url('<?php echo esc_url($homepage_hero_background_image[0]); ?>');
+							 			background-color: transparent;
+						 				background-position: center;
+										background-size: cover; }
+
+							/* menu and links text color */
+							.main-navigation a, #hero .site-title {
+										color: <?php echo $menu_links_color; ?>;
+							}
+							.site-header svg.icon,
+							.left-column svg.icon {
+										fill:<?php echo $menu_links_color; ?>;
+							}
+							button, .site-footer #es_txt_button {
+								border: <?php echo $menu_links_color; ?>;
+								background-color: <?php echo $menu_links_color; ?>;
+							}
+
+							/* main text color */
+							body, input, select, optgroup, textarea, a,
+							#hero .site-description, #hero .festival-dates,
+							.site-footer, .site-footer a, .site-footer label {
+								color: <?php echo $text_color; ?>;
+							}
+
+							/* accent color */
+							.social-navigation a {
+								background-color: <?php echo $accent_color; ?>;
+							}
+							input[type="text"], input[type="email"], input[type="url"], input[type="password"],
+							input[type="search"], input[type="number"], input[type="tel"], input[type="range"],
+							input[type="date"], input[type="month"], input[type="week"], input[type="time"],
+							input[type="datetime"], input[type="datetime-local"], input[type="color"],
+							textarea, select {
+								border-color:<?php echo $accent_color; ?>;
+								background-color: <?php echo $accent_color; ?>;
+							}
+         </style>
+    <?php
+}
