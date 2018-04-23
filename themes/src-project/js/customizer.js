@@ -47,4 +47,19 @@
 			$( '.festival-dates' ).text( newval );
 		} );
 	} );
+
+	// Menu color.
+	wp.customize( 'current_festival_menu_color', function( value ) {
+		value.bind( function( newval ) {
+			if ( 'blank' != newval ) {
+				$( '.main-navigation a, #hero .site-title' ).css( {
+					'color': newval
+				} );
+				$( 'svg.icon' ).css( {
+					'fill': newval
+				} );
+			}
+		} );
+	} );
+
 } )( jQuery );

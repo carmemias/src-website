@@ -61,6 +61,9 @@ function src_project_customize_register( $wp_customize ) {
 	'settings'   => 'current_festival_text_color',
 	) ) );
 
+  //Use twentyseventeen/inc/customizer.php setting 'colourscheme' as a possible model.
+	//It calls (in functions.php) function twentyseventeen_colors_css_wrap() and echoes twentyseventeen_custom_colors_css() (which is in inc/color-patterns.php)
+	//for both the frontend and customizer
 	$wp_customize->add_setting( 'current_festival_menu_color', array(
 		'default' => '#a66bed',
 		'sanitize_callback' => 'sanitize_hex_color',
