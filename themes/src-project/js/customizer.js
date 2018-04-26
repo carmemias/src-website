@@ -74,6 +74,9 @@
 				$( 'svg.icon' ).css( {
 					'fill': newval
 				} );
+				$('.site-header .widget input.search-submit').css({
+					'background-color': newVal
+				})
 			}
 		} );
 	} );
