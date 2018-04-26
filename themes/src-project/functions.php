@@ -141,6 +141,7 @@ add_action( 'widgets_init', 'src_project_widgets_init' );
  */
 function src_project_scripts() {
 	wp_enqueue_style( 'src-project-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'ttcommons-style', get_template_directory_uri(). '/fonts/TTCOMMONS/Info/MyFontsWebfontsKit.css' );
 
 	wp_enqueue_script( 'src-project-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
