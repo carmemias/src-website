@@ -117,10 +117,10 @@ function src_project_customize_register( $wp_customize ) {
 			'selector'        => '.site-description',
 			'render_callback' => 'src_project_customize_partial_blogdescription',
 		) );
-		$wp_customize->selective_refresh->add_partial( 'current_festival_dates', array(
+/*		$wp_customize->selective_refresh->add_partial( 'current_festival_dates', array(
 			'selector'        => '.festival-dates',
 			'render_callback' => 'src_project_customize_partial_festival_dates',
-		) );
+		) ); */
 	}
 
 }
@@ -172,6 +172,6 @@ function src_project_sanitize_image_file($file, $setting){
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function src_project_customize_preview_js() {
-	wp_enqueue_script( 'src-project-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+	wp_enqueue_script( 'src-project-customizer-controls', get_template_directory_uri() . '/js/customizer.js', array( 'jquery','customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'src_project_customize_preview_js' );
