@@ -136,12 +136,6 @@ body:not(.home) .site-main {
 		font-size: 18px !important;
 	}
 
-	p:not(.site-description), p:not(.festival-dates), 
-	div:not(.site-description), div:not(.festival-dates){
-		font-size: 15px;
-		line-height: 30px;
-	}
-
 
 	.event-entry{
 		flex-direction: column !important;
@@ -187,10 +181,5 @@ body:not(.home) .site-main {
 		font-size: 18px !important;
 	}
 
-	p:not(.site-description), p:not(.festival-dates), 
-	div:not(.site-description), div:not(.festival-dates) {
-		font-size: 15px;
-		line-height: 30px;
-	}
   }
   
