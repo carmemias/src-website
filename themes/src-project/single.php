@@ -28,11 +28,11 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-        <a href="/whats-on">Back to what's on</a>
+        <!-- a href="/whats-on">Back to what's on</a -->
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+//get_sidebar();
 get_footer();
