@@ -3,11 +3,12 @@
 	align-self: flex-end;
 	clear: both;
 	display: block;
-	//float: left;
 	width: 70%;/*100%;*/
 	display:flex;
 	justify-content:center;
 	flex-wrap: wrap;
+	font-size: 30px;
+
 
 	ul {
 		display: none;
@@ -67,7 +68,6 @@
 		display: block;
 		text-decoration: none;
 		padding: 20px;
-		font-weight: bold;
 		color: $color__menu-item;
 		text-align: right;
 	}
@@ -76,7 +76,7 @@
 	.current-menu-item > a,
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
-		color: $color__current-menu-item;
+		border-bottom: solid 6px $color__border-current-menu-item;
 	}
 }
 

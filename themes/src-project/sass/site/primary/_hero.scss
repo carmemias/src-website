@@ -11,9 +11,17 @@
     @include font-size(3);
   }
 
-  & .site-description {
+  & .site-description,  {
     color: $color__site-description;
     @include font-size(2);
     margin:0;
   }
+
+  & .festival-dates {
+    color: $color__site-description;
+    @include font-size(2);
+    margin:0; 
+  }
+
+  
 }
