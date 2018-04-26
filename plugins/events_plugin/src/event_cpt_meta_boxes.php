@@ -21,7 +21,7 @@ function event_cpt_enqueue_logo_script() {
         wp_enqueue_media();
     }
  
-     wp_enqueue_script( 'eventlogoscript' , EVENT_FUNCTIONALITY_URL .'/src/views/upload_event_logo.js', array('jquery'), null, true );
+     wp_enqueue_script( 'eventlogoscript' , EVENT_FUNCTIONALITY_URL .'/src/assets/js/upload_event_logo.js', array('jquery'), null, true );
      wp_enqueue_style( 'eventmetastyles' , EVENT_FUNCTIONALITY_URL .'/src/assets/css/metaboxStyling.css');
 }
  

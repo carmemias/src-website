@@ -67,3 +67,13 @@ jQuery(function($) {
     return false;
   });
 });
+
+
+$(document).ready(function(){
+  $('input[name="_event_cpt_price_event"]').click(function(){
+    $(this).siblings('input').each(function(){
+      $(this).prop('checked', false);
+      $(this).val("");  
+    });
+  });
+});
