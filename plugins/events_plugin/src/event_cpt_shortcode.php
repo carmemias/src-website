@@ -128,10 +128,10 @@ function events_cpt_shortcode_handler( $atts ){
     $event_date = date('l, j F', strtotime($single_event->_event_cpt_date_event));
     $event_start_time = $single_event->_event_cpt_startTime_event;
     $event_end_time = $single_event->_event_cpt_endTime_event;
-    $event_organisers = get_event_organisers($single_event);
+    $event_organisers = get_event_main_organiser($single_event);
     $event_organiser_links = get_event_organiser_links($single_event);
 
-    $event_location = get_event_full_location($single_event);
+    $event_location = get_event_short_location($single_event);
 
     $event_price = money_format('%i', floatval($single_event->_event_cpt_price_event));
     $event_post_url = get_permalink($event_id);
@@ -199,9 +199,17 @@ function get_event_types($id){
 
   return $types_string;
 }
-
 /*
-* Get the organisers blurb
+* Get only the main organiser blurb
+*/
+function get_event_main_organiser($event){
+  $string ='';
+  $event_organiser_main = $event->_event_cpt_main_organizer;
+
+  $string .= '<p class="organisers">'.$event_organiser_main.'.';
+}
+/*
+* Get all the organisers blurb
 */
 function get_event_organisers($event){
   $string ='';
@@ -245,6 +253,17 @@ function get_event_organiser_links($event){
   $string .= '</div><!-- links -->';
 
   return $string;
+}
+
+function get_event_short_location($single_event){
+    $string ='';
+    $event_venue = $event->_event_cpt_venue;
+    $event_area = $event->_event_cpt_area;
+
+    $string .= ' <p class="location">'.$event_venue;
+    $string .= ''.$event_area.'</p>';
+
+    return $string;
 }
 
 function get_event_full_location($event){
