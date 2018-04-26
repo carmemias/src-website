@@ -3,11 +3,12 @@
 	align-self: flex-end;
 	clear: both;
 	display: block;
-	//float: left;
 	width: 70%;/*100%;*/
 	display:flex;
 	justify-content:center;
 	flex-wrap: wrap;
+	font-size: 30px;
+
 
 	ul {
 		display: none;
@@ -67,7 +68,6 @@
 		display: block;
 		text-decoration: none;
 		padding: 20px;
-		font-weight: bold;
 		color: $color__menu-item;
 		text-align: right;
 	}
@@ -76,7 +76,7 @@
 	.current-menu-item > a,
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
-		color: $color__current-menu-item;
+		border-bottom: solid 6px $color__border-current-menu-item;
 	}
 }
 
@@ -134,65 +134,10 @@
 	}
 }
 
-/* Social Navigation */
-.social-navigation {
-	font-size: 16px;
-	font-size: 1rem;
-	margin-bottom: 1em;
-	padding-top:20px;
-
-	ul {
-		list-style: none;
-		margin-bottom: 0;
-		margin-left: 0;
-	}
-
-	li {
-		display: inline;
-	}
-
-	a {
-		background-color: #767676;
-		-webkit-border-radius: 4px;
-		border-radius: 4px;
-		color: #fff;
-		display: inline-block;
-		height: 40px;
-		margin: 0 1em 0.5em 0;
-		text-align: center;
-		width: 40px;
-	}
-
-	a[href*="twitter"] {
-		background-color:$color__background-twitter;
-	}
-
-	a[href*="facebook"] {
-		background-color:$color__background-facebook;
-	}
-
-	a[href*="mailto"] {
-		background-color:$color__background-email;
-	}
-
-	a:hover, a:focus {
-		background-color: #333;
-	}
-
-	.icon {
-		margin-top:9px;
-		height: 22px;
-		width:22px;
-		top: 20px;
-		vertical-align: top;
-		fill:$color__fill-icon;
-	}
-}
 
 /* Social Navigation */
 .social-navigation {
-    font-size: 16px;
-    font-size: 1rem;
+    font-size: 30px;
     margin-bottom: 1em;
     padding-top:20px;
 
