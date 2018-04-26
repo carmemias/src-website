@@ -10,20 +10,20 @@
 
 	// Site title and description.
 	wp.customize( 'blogname', function( value ) {
-		value.bind( function( to ) {
-			$( '.site-title a' ).text( to );
+		value.bind( function( newVal ) {
+			$( '.site-title a' ).text( newVal );
 		} );
 	} );
 	wp.customize( 'blogdescription', function( value ) {
-		value.bind( function( to ) {
-			$( '.site-description' ).text( to );
+		value.bind( function( newVal ) {
+			$( '.site-description' ).text( newVal );
 		} );
 	} );
 
 	// Header text color.
 	wp.customize( 'header_textcolor', function( value ) {
-		value.bind( function( to ) {
-			if ( 'blank' === to ) {
+		value.bind( function( newVal ) {
+			if ( 'blank' === newVal ) {
 				$( '.site-title, .site-description' ).css( {
 					'clip': 'rect(1px, 1px, 1px, 1px)',
 					'position': 'absolute'
@@ -34,7 +34,7 @@
 					'position': 'relative'
 				} );
 				$( '.site-title a, .site-description' ).css( {
-					'color': to
+					'color': newVal
 				} );
 			}
 		} );
