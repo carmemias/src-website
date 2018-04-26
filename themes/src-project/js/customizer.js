@@ -48,9 +48,40 @@
 		} );
 	} );
 
+	// Text color.
+	wp.customize( 'current_festival_text_color', function( value ) {
+		value.bind( function( newval ) {
+			console.log(newVal);
+			if ( 'blank' != newval ) {
+				$( '.main-navigation a, #hero .site-title' ).css( {
+					'color': newval
+				} );
+				$( 'svg.icon' ).css( {
+					'fill': newval
+				} );
+			}
+		} );
+	} );
+
 	// Menu color.
 	wp.customize( 'current_festival_menu_color', function( value ) {
 		value.bind( function( newval ) {
+			console.log(newVal);
+			if ( 'blank' != newval ) {
+				$( '.main-navigation a, #hero .site-title' ).css( {
+					'color': newval
+				} );
+				$( 'svg.icon' ).css( {
+					'fill': newval
+				} );
+			}
+		} );
+	} );
+
+	// Accent color.
+	wp.customize( 'current_festival_accent_color', function( value ) {
+		value.bind( function( newval ) {
+			console.log(newVal);
 			if ( 'blank' != newval ) {
 				$( '.main-navigation a, #hero .site-title' ).css( {
 					'color': newval
