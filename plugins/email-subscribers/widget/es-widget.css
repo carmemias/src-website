@@ -1,6 +1,11 @@
 .es_caption {
 	padding-bottom:1em;
-	padding-right:0.5em;
+	padding-right: 1rem;
+	align-self: end;
+	/* display:  flex; */
+	/* flex-direction:  column-reverse; */
+	justify-items:;
+	width:  100%;
 }
 .es_msg {
 	padding-top:5px;

@@ -10,11 +10,8 @@
 
   padding-bottom:20px;
   text-align: center;
-  background-color: $color__background-footer;
-  color: $color__site-footer;
 
   .widget-area {
-    background-color: $color__background-widgets;
     color: $color__widgets;
   }
 
@@ -39,6 +36,12 @@
     padding: 10px;
   }
 
+  .es_caption {
+    align-self: end;
+    width: 100%;
+    color: $color__text-main
+}
+
   #es_txt_button {
     background-color: $color__background-input;
     @include font-size(1);
@@ -62,9 +65,6 @@
   }
 
 
-}
-.widget-title {
-  color: $color__placeholder;
 }
 
 .site-info {
