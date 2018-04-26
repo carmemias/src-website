@@ -1,6 +1,6 @@
 form.filters{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .filters select {
@@ -11,6 +11,11 @@ form.filters{
     max-width: 90%;
 }
 
-.filters #submitFilterButton {
-    width: 200px;
+#submitFilterButton {
+    font-size:  20px;
+    min-width: 15%;
+    max-height: auto;
+    height:  55px;
+    text-align:  center;
+    align-self:  center;
 }
