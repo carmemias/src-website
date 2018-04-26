@@ -1,16 +1,16 @@
-form {
+form.filters{
     display: flex;
     justify-content: space-between;
 }
 
-select {
+.filters select {
     margin-right: 20px !important;
 }
 
-input {
+.filters input {
     max-width: 90%;
 }
 
-#submitFilterButton{
+.filters #submitFilterButton {
     width: 200px;
 }
