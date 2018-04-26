@@ -117,10 +117,6 @@ function src_project_customize_register( $wp_customize ) {
 			'selector'        => '.site-description',
 			'render_callback' => 'src_project_customize_partial_blogdescription',
 		) );
-/*		$wp_customize->selective_refresh->add_partial( 'current_festival_dates', array(
-			'selector'        => '.festival-dates',
-			'render_callback' => 'src_project_customize_partial_festival_dates',
-		) ); */
 	}
 
 }
@@ -143,10 +139,6 @@ function src_project_customize_partial_blogname() {
 function src_project_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
-
-/*function src_project_customize_partial_festival_dates(){
-	get_theme_mod( 'current_festival_dates' );
-}*/
 
 /*
 * Sanitize image files for the second logo
