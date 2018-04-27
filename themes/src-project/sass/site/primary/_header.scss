@@ -13,8 +13,16 @@
     .active-search & {
       fill: $color__current-menu-item;
     }
-
   }
+  
+  .menu-toggle {
+    margin: 0  
+  }
+
+  .menu-main-menu-container {
+    align-self: center;
+  }
+
   
   .widget {
     align-self: flex-end;
@@ -56,8 +64,7 @@
 @media only screen and (max-width: 890px) {
 
   .site-header{
-    justify-content: space-between;
-    flex-wrap: wrap;
+  
 
     .widget {
       .search-field {
@@ -80,20 +87,26 @@
   }
 
   .main-navigation{
-    width: 71%;
     flex-direction: column;
     justify-content: flex-end;
     flex-wrap: nowrap;
+    padding: 20px 0px 20px 0px;
 
-    ul {
-      padding-left: 50px !important;
+    a {
+      text-align: center;
+
+    }
+    .menu-toggle {
+      align-self: center;
     }
   }
 
 }
 
 @media (max-width:660px){
-  .main-navigation{ width: 50%;}
+  .main-navigation {
+     width: 50%; 
+    }
 }
 
 @media (max-width:400px){
@@ -115,7 +128,7 @@
       }
     }
   }
-  .main-navigation{
+  .main-navigation {
     width:auto;
     align-self: center;
     justify-content: center;
@@ -134,3 +147,4 @@
     flex-direction: row;
   }
 }
+

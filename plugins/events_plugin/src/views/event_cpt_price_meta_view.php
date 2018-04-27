@@ -15,7 +15,9 @@ namespace yohannes\EventsFunctionality\src\views;
     <tr>
         <td>
         <label><?php _e( 'Event Price?', 'event_cpt' ); ?></label><br>
-            <span>£</span><input type="number" style="width: 100px; height: 35px;" min="0.00" step="0.01" max="500" name="_event_cpt_price_event" placeholder="£" value="<?php echo $_event_cpt_price_event; ?>" />
+            <span>£ </span><input type="number" id="inputPrice" style="width: 100px; height: 35px;" min="0.00" step="0.01" max="500" name="_event_cpt_price_event" placeholder="£" value="<?php echo $_event_cpt_price_event; ?>" /><br/>
+            <input type="radio" name="_event_cpt_price_event" value="0" <?php checked( $_event_cpt_price_event, '0' ); ?> /> Free<br />
+			<input type="radio" name="_event_cpt_price_event" value="-1" <?php checked( $_event_cpt_price_event, '0' ); ?> /> Entry by Donation
         </td>
     </tr>
 </table>
