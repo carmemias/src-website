@@ -153,7 +153,7 @@ function events_cpt_shortcode_handler( $atts ){
     $output_string .= ' <p class="date">'.$event_date.' from '.$event_start_time.' to '.$event_end_time.'</p>';
     $output_string .= $event_location;
     $output_string .= '<p class="price">';
-    if('0.00' != $event_price){$output_string .= '£'.$event_price;}else{$output_string .= 'FREE';};
+    if('0.00' == $event_price){$output_string .= 'FREE';}elseif('-1.00' == $event_price){$output_string .= 'ENTRY BY DONATION';}else{$output_string .= '£'.$event_price;};
     $output_string .= '</p>';
     $output_string .= '</div><!-- right-column -->';
         //$output_string .= $event_description;
