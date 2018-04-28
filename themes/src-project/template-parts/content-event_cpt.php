@@ -8,7 +8,8 @@
  */
 
 $event_id = get_the_id();
-//TODO use get_post_custom() instead
+//TODO use get_post_custom() instead ?
+$event_types = get_event_types($event_id);
 $event_date = get_post_meta($event_id, '_event_cpt_date_event', true);
 $event_start_time = get_post_meta($event_id, '_event_cpt_startTime_event', true);
 $event_end_time = get_post_meta($event_id, '_event_cpt_endTime_event', true);
@@ -18,6 +19,22 @@ $event_location = get_event_full_location($event_id);
 $event_price = get_post_meta($event_id, '_event_cpt_price_event', true);
 
 $event_price = money_format('%i', floatval($event_price));
+
+/*
+* Get string listing event types
+*/
+function get_event_types($id){
+ $types = get_the_terms( $id, 'event-type' );
+ $types_string = '';
+
+ if ( $types && !is_wp_error( $types ) ) {
+    $types_array = array();
+    foreach ( $types as $type ) { $types_array[] = $type->name;}
+    $types_string = join( " | ", $types_array );
+  }
+
+  return $types_string;
+}
 
 function get_event_organisers($event_id){
   $string ='';
@@ -83,36 +100,39 @@ function get_event_full_location($event_id){
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
 
-			the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+  <div class="left-column">
+	    <header class="entry-header">
+		   <?php	the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+	    </header><!-- .entry-header -->
 
-	</header><!-- .entry-header -->
+	    <div class="entry-content">
 
-	<?php src_project_post_thumbnail(); ?>
+        <?php
+    		the_content( sprintf(
+    			wp_kses(
+    				/* translators: %s: Name of current post. Only visible to screen readers */
+    				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'src-project' ),
+    				array(
+    					'span' => array(
+    						'class' => array(),
+    					),
+    				)
+    			),
+    			get_the_title()
+    		) );
+        ?>
+	    </div><!-- .entry-content -->
+   </div><!-- left-column -->
 
-	<div class="entry-content">
+   <div class="right-column">
+  	  <?php src_project_post_thumbnail(); ?>
+      <?php echo $event_organiser_links; ?>
+      <div class="event-type"> <?php echo $event_types;?> </div>
+   </div><!-- right-column -->
 
-		<?php
-		the_content( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'src-project' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
-
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'src-project' ),
-			'after'  => '</div>',
-		) );
-		?>
-	</div><!-- .entry-content -->
+   <div id="organiser-logos">
+      <p>organiser logos</p>
+   </div><!-- organiser-logos -->';
 
 </article><!-- #post-<?php the_ID(); ?> -->

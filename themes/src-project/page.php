@@ -36,5 +36,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-if(is_home()){get_sidebar();}
+//if(is_home()){get_sidebar();} NO SIDEBAR NEEDED
 get_footer();
