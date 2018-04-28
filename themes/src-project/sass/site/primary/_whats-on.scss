@@ -1,0 +1,43 @@
+body[class*="page-whats-"] {
+  .event-title {
+    border-bottom: 2px solid $color__border-whatson-event-title;
+
+    a {text-decoration: none !important;}
+
+  }
+}
+
+//single-event
+.single-event_cpt {
+
+  article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .left-column,
+    .right-column {
+      width:47%;
+    }
+
+    .right-column {
+      align-self: right;
+      text-align: right;
+    }
+
+    .organiser-logos {
+      width:100%;
+    }
+  }
+
+  .entry-title {
+    margin-top:0;
+    border-bottom: 2px solid $color__border-whatson-event-title;
+  }
+
+  .event-type {
+    text-transform: uppercase;
+  }
+
+}

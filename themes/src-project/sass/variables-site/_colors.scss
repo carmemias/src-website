@@ -2,13 +2,14 @@ $color__background-body: #fff;
 $color__background-hero: transparent;
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
-$color__background-button: #AD006D;/*#e6e6e6;*/
+$color__background-button: #a66bed;/*#e6e6e6;*/
 $color__background-menu-toggle: transparent;
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
 $color__background-widgets: #FFF;
 $color__background-footer: transparent;
 $color__background-social: #00ACED;
+$color__background-whatson-icon: #a66bed;
 $color__background-filters: #2f39ed;
 
 $color__site-title: #AD006D;
@@ -30,15 +31,16 @@ $color__placeholder: #AD006D;
 $color__subscriptions-message:#0EA2C7;
 
 
-$color__border-button: #AD006D #ccc #bbb;
-$color__button-hover: #0EA2C7;
-$color__button-focus: #0EA2C7;
-$color__border-button-hover: #42D1B1 #bbb #aaa;
-$color__border-button-focus: #42D1B1 #bbb #bbb;
+$color__border-button: transparent;
+$color__button-hover: #00ACED;
+$color__button-focus: #00ACED;
+$color__border-button-hover: transparent;
+$color__border-button-focus: transparent;
 $color__border-input: #AD006D;
 $color__background-input: #AD006D;
 $color__border-abbr: #666;
 $color__border-current-menu-item: #0EA2C7;
+$color__border-whatson-event-title: #00ACED;
 
 $color__fill-icon: #FFF;
-$color__fill-whatson-icon: #AD006D;
+$color__fill-whatson-icon: #FFF;

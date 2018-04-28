@@ -49,15 +49,17 @@
 	} );
 
 	// Text color.
+	/*
+	body, input, select, optgroup, textarea, a,
+	#hero .site-description, #hero .festival-dates,
+	.site-footer, .site-footer a, .site-footer label, .widget-title
+	*/
 	wp.customize( 'current_festival_text_color', function( value ) {
 		value.bind( function( newval ) {
 			console.log(newVal);
 			if ( 'blank' != newval ) {
-				$( '.main-navigation a, #hero .site-title' ).css( {
+				$( 'body, input, select, optgroup, a, #hero .site-description, #hero .festival-dates, .site-footer, .site-footer a, .site-footer label, .widget-title' ).css( {
 					'color': newval
-				} );
-				$( 'svg.icon' ).css( {
-					'fill': newval
 				} );
 			}
 		} );
@@ -74,6 +76,9 @@
 				$( 'svg.icon' ).css( {
 					'fill': newval
 				} );
+				$('.site-header .widget input.search-submit').css({
+					'background-color': newVal
+				})
 			}
 		} );
 	} );

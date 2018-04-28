@@ -171,18 +171,45 @@
 		margin-top:9px;
 		height: 22px;
 		width:22px;
-		top: 16px;
+		top: 18px;
 		vertical-align: top;
 		fill:$color__fill-icon;
 	}
 }
 
-/* What's On event links */
-.left-column svg.icon {
-	margin-top:9px;
+/* What's On and Single event links */
+.single-event_cpt .links{
+	text-align:right;
+	margin-top:15px;
+	margin-bottom:15px;
+
+	:last-child,
+	:nth-last-child(1){
+		margin-right:0;
+	}
+}
+
+#programme .links a,
+.single-event_cpt .links a {
+	background-color: $color__background-whatson-icon;
+	border-radius: 18px;
+	display: inline-block;
+	height: 35px;
+	margin: 0 1em 0.5em 0;
+	text-align: center;
+	width: 35px;
+
+	&:hover, &:focus {
+		background-color: #333;
+	}
+}
+
+#programme .links svg.icon,
+.single-event_cpt .links svg.icon {
+	margin-top:6px;
 	height: 22px;
 	width:22px;
-	top: 16px;
+	//top: 16px;
 	vertical-align: top;
 	fill:$color__fill-whatson-icon;
 }
