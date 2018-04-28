@@ -10,7 +10,8 @@
 $event_id = get_the_id();
 //TODO use get_post_custom() instead ?
 $event_types = get_event_types($event_id);
-$event_date = get_post_meta($event_id, '_event_cpt_date_event', true);
+//$event_date = get_post_meta($event_id, '_event_cpt_date_event', true);
+$event_date = date('l, j F', strtotime(get_post_meta($event_id, '_event_cpt_date_event', true)));
 $event_start_time = get_post_meta($event_id, '_event_cpt_startTime_event', true);
 $event_end_time = get_post_meta($event_id, '_event_cpt_endTime_event', true);
 $event_organisers = get_event_organisers($event_id);
@@ -89,10 +90,10 @@ function get_event_full_location($event_id){
   $event_postcode = get_post_meta($event_id, '_event_cpt_address_postcode', true);
   $event_area = get_post_meta($event_id, '_event_cpt_area', true);
 
-  $string .= ' <p class="location">'.$event_venue;
-  if($event_address_line_1){$string .= ', '.$event_address_line_1;}
-  if($event_address_line_2){$string .= ', '.$event_address_line_2;}
-  $string .= ', '.$event_area.' '.$event_postcode.'</p>';
+  $string .= $event_venue.'</br>';
+  if($event_address_line_1){$string .= $event_address_line_1.'</br>';}
+  if($event_address_line_2){$string .= $event_address_line_2.'</br>';}
+  $string .= $event_area.'</br>'.$event_postcode;
 
   return $string;
 }
@@ -129,6 +130,8 @@ function get_event_full_location($event_id){
   	  <?php src_project_post_thumbnail(); ?>
       <?php echo $event_organiser_links; ?>
       <div class="event-type"> <?php echo $event_types;?> </div>
+      <div class="date"> <?php echo $event_date; ?> from <?php echo $event_start_time;?> to <?php echo $event_end_time; ?></div>
+      <div class="location"><?php echo $event_location; ?></div>
    </div><!-- right-column -->
 
    <div id="organiser-logos">
