@@ -20,8 +20,14 @@ app.init = function() {
       data.forEach(event => {
         let slug = event._embedded["wp:term"][0][0].slug;
         types[slug] = event._embedded["wp:term"][0][0].name;
-        let areaName = event.extra_meta["_event_cpt_area"][0];
-        let date = event.extra_meta["_event_cpt_date_event"][0];
+
+        let areaName = event.extra_meta["_event_cpt_area"]
+          ? event.extra_meta["_event_cpt_area"][0]
+          : "No area name set yet";
+
+        let date = event.extra_meta["_event_cpt_date_event"]
+          ? event.extra_meta["_event_cpt_date_event"][0]
+          : "No date set yet";
         if (areas.indexOf(areaName) == -1) {
           areas.push(areaName);
         }
@@ -304,29 +310,45 @@ function renderNewEventsView(newArray) {
 
     let organizerParagraph = document.createElement("p");
     organizerParagraph.classList.add("organisers");
-    if (event.extra_meta._event_cpt_main_organizer){
+    if (event.extra_meta._event_cpt_main_organizer) {
       organizerParagraph.innerHTML = event.extra_meta._event_cpt_main_organizer;
     }
-    
+
     rightColumn.appendChild(organizerParagraph);
     // organizerParagraph.classList.add("organisers");
 
     let eventDate = document.createElement("p");
     eventDate.classList.add("date");
     // eventDate.innerHTML = date;
-    eventDate.innerHTML = event.extra_meta._event_cpt_date_event + " From " + event.extra_meta._event_cpt_startTime_event + " To " + event.extra_meta._event_cpt_endTime_event;
+    if (
+      event.extra_meta._event_cpt_date_event === undefined ||
+      event.extra_meta._event_cpt_startTime_event === undefined ||
+      event.extra_meta._event_cpt_endTime_event === undefined
+    ) {
+      var span = document.createElement("span");
+      span.setAttribute("style", "color: #f00");
+      span.innerHTML = "No date set yet";
+      eventDate.appendChild(span);
+    } else {
+      eventDate.innerHTML =
+        event.extra_meta._event_cpt_date_event +
+        " From " +
+        event.extra_meta._event_cpt_startTime_event +
+        " To " +
+        event.extra_meta._event_cpt_endTime_event;
+    }
     rightColumn.appendChild(eventDate);
 
     let eventLocation = document.createElement("p");
     eventLocation.classList.add("location");
-    if(event.extra_meta._event_cpt_area){
-        eventLocation.innerHTML = event.extra_meta._event_cpt_area + ", " 
+    if (event.extra_meta._event_cpt_area) {
+      eventLocation.innerHTML = event.extra_meta._event_cpt_area + ", ";
     }
-    
-    if(event.extra_meta._event_cpt_address_town_city){
+
+    if (event.extra_meta._event_cpt_address_town_city) {
       eventLocation.innerHTML = event.extra_meta._event_cpt_address_town_city;
     }
-    
+
     rightColumn.appendChild(eventLocation);
 
     let eventPrice = document.createElement("p");

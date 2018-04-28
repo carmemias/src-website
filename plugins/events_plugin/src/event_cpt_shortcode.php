@@ -147,10 +147,10 @@ function events_cpt_shortcode_handler( $atts ){
     $output_string .= ' <h2 class="event-title"><a href="'.esc_url_raw($event_post_url).'" alt="Read more about '.$event_name.'">' . $event_name . '</a></h2>';
     $output_string .= ' <div class="entry-meta">'.$event_types.'</div>';
     $output_string .= '<div class="event-excerpt">';
-    if(''!=$event_excerpt){$output_string .= $event_excerpt;} else {$output_string .= 'No excerpt yet.';}
+    if(''!=$event_excerpt){$output_string .= $event_excerpt;} else {$output_string .= '<span style="color: #f00;">No excerpt yet.</span>';}
     $output_string .= '</div>';//$output_string .= $event_description;
     $output_string .= $event_organisers;
-    if(('' == $event_date)||('' == $event_start_time)||('' == $$event_end_time)){$output_string .= '00/00/0000';}else{$output_string .= ' <p class="date">'.$event_date.' from '.$event_start_time.' to '.$event_end_time.'</p>';}
+    if(!$event_date){$output_string .= '<span style="color: #f00;">No date set yet</span>';}else{$output_string .= ' <p class="date">'.$event_date.' from '.$event_start_time.' to '.$event_end_time.'</p>';}
     $output_string .= $event_location;
     $output_string .= '<p class="price">';
     if('0.00' == $event_price){$output_string .= 'FREE';}elseif('-1.00' == $event_price){$output_string .= 'ENTRY BY DONATION';}else{$output_string .= '£'.$event_price;};
