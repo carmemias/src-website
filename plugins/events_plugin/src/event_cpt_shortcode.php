@@ -144,7 +144,7 @@ function events_cpt_shortcode_handler( $atts ){
     $output_string .= '</div><!-- left-column -->';
 
     $output_string .= '<div class="right-column">';
-    $output_string .= ' <h2 class="type-title"><a href="'.esc_url_raw($event_post_url).'" alt="Read more about '.$event_name.'">' . $event_name . '</a></h2>';
+    $output_string .= ' <h2 class="event-title"><a href="'.esc_url_raw($event_post_url).'" alt="Read more about '.$event_name.'">' . $event_name . '</a></h2>';
     $output_string .= ' <div class="entry-meta">'.$event_types.'</div>';
     $output_string .= '<div class="event-excerpt">';
     if(''!=$event_excerpt){$output_string .= $event_excerpt;} else {$output_string .= 'No excerpt yet.';}

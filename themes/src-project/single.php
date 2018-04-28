@@ -18,7 +18,7 @@ get_header();
 			the_post();
 
 			get_template_part( 'template-parts/content', get_post_type() );
-
+ 
 			the_post_navigation();
 
 			// If comments are open or we have at least one comment, load up the comment template.
@@ -28,11 +28,11 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-        <a href="/whats-on">Back to what's on</a>
+        <!-- a href="/whats-on">Back to what's on</a -->
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+//get_sidebar();
 get_footer();

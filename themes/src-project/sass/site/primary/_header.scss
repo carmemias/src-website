@@ -14,16 +14,16 @@
       fill: $color__current-menu-item;
     }
   }
-  
+
   .menu-toggle {
-    margin: 0  
+    margin: 0
   }
 
   .menu-main-menu-container {
     align-self: center;
   }
 
-  
+
   .widget {
     align-self: flex-end;
     margin: 0;
@@ -41,7 +41,7 @@
       width: 90%;
     }
 
-    input.search-submit{
+  /*  input.search-submit{
       width: 8%;
       font-size: 15px;
       margin-left: 5px;
@@ -52,7 +52,7 @@
 
      input.search-submit:hover, input.search-submit:focus{
       background-color: $color__button-hover;
-    }
+    }*/
     label {
       color: $color__placeholder;
     }
@@ -64,7 +64,7 @@
 @media only screen and (max-width: 890px) {
 
   .site-header{
-  
+
 
     .widget {
       .search-field {
@@ -105,7 +105,7 @@
 
 @media (max-width:660px){
   .main-navigation {
-     width: 50%; 
+     width: 50%;
     }
 }
 
@@ -147,4 +147,3 @@
     flex-direction: row;
   }
 }
-
