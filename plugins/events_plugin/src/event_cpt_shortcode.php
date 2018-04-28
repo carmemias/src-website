@@ -150,7 +150,7 @@ function events_cpt_shortcode_handler( $atts ){
     if(''!=$event_excerpt){$output_string .= $event_excerpt;} else {$output_string .= 'No excerpt yet.';}
     $output_string .= '</div>';//$output_string .= $event_description;
     $output_string .= $event_organisers;
-    $output_string .= ' <p class="date">'.$event_date.' from '.$event_start_time.' to '.$event_end_time.'</p>';
+    if(('' == $event_date)||('' == $event_start_time)||('' == $$event_end_time)){$output_string .= '00/00/0000';}else{$output_string .= ' <p class="date">'.$event_date.' from '.$event_start_time.' to '.$event_end_time.'</p>';}
     $output_string .= $event_location;
     $output_string .= '<p class="price">';
     if('0.00' == $event_price){$output_string .= 'FREE';}elseif('-1.00' == $event_price){$output_string .= 'ENTRY BY DONATION';}else{$output_string .= '£'.$event_price;};
