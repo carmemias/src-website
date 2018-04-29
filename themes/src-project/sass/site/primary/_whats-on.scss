@@ -26,7 +26,7 @@ body[class*="page-whats-"] {
       text-align: right;
     }
 
-    .organiser-logos {
+    .organiser-info {
       width:100%;
     }
   }
@@ -38,6 +38,22 @@ body[class*="page-whats-"] {
 
   .event-type {
     text-transform: uppercase;
+  }
+
+  .location {
+    margin-top: 15px;
+  }
+
+  .organisers {
+    margin-bottom: 15px;
+  }
+  
+  .organiser-logos {
+    display:flex;
+  }
+  .organiser-logos img:not(:last-child),
+  .organiser-logos img:not(:nth-last-child(0)) {
+    margin-right:10px;
   }
 
 }

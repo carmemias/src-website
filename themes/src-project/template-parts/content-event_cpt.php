@@ -6,8 +6,11 @@
  *
  * @package Refugee_Scotland_Festival_Theme
  */
+global $post;
 
 $event_id = get_the_id();
+//$upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID) );
+
 //TODO use get_post_custom() instead ?
 $event_types = get_event_types($event_id);
 //$event_date = get_post_meta($event_id, '_event_cpt_date_event', true);
@@ -17,9 +20,41 @@ $event_end_time = get_post_meta($event_id, '_event_cpt_endTime_event', true);
 $event_organisers = get_event_organisers($event_id);
 $event_organiser_links = get_event_organiser_links($event_id);
 $event_location = get_event_full_location($event_id);
-$event_price = get_post_meta($event_id, '_event_cpt_price_event', true);
+//$event_price = get_post_meta($event_id, '_event_cpt_price_event', true);
 
-$event_price = money_format('%i', floatval($event_price));
+$event_price = money_format('%i', floatval(get_post_meta($event_id, '_event_cpt_price_event', true)));
+$is_key_event = get_post_meta($event_id, '_event_cpt_key_event', true);
+
+if($is_key_event){
+  $organiser_logos = get_organiser_logos($event_id);
+}
+
+/*
+* Get organiser logos
+*/
+function get_organiser_logos($event_id){
+  $logo_ids_array = array();
+
+  // See if there's a media id already saved as post meta
+  $logo1_id = absint(get_post_meta( $event_id, '_event_cpt_logo1_event', true ));
+  array_push($logo_ids_array,$logo1_id);
+  $logo2_id = absint(get_post_meta( $event_id, '_event_cpt_logo2_event', true ));
+  array_push($logo_ids_array,$logo2_id);
+  $logo3_id = absint(get_post_meta( $event_id, '_event_cpt_logo3_event', true ));
+  array_push($logo_ids_array,$logo3_id);
+  $logo4_id = absint(get_post_meta( $event_id, '_event_cpt_logo4_event', true ));
+  array_push($logo_ids_array,$logo4_id);
+
+  // Get the image src
+  foreach($logo_ids_array as $logo_id){
+    if(0 != $logo_id){
+      $logo_img = wp_get_attachment_image( $logo_id );
+      $result .= $logo_img;
+    }
+  }
+
+   return $result;
+}
 
 /*
 * Get string listing event types
@@ -40,11 +75,15 @@ function get_event_types($id){
 function get_event_organisers($event_id){
   $string ='';
   $event_organiser_main = get_post_meta($event_id, '_event_cpt_main_organizer', true);
+  if(!$event_organiser_main) {return $string;}
+
   $event_organiser_other_1 = get_post_meta($event_id, '_event_cpt_other_organizer_1', true);
   $event_organiser_other_2 = get_post_meta($event_id, '_event_cpt_other_organizer_2', true);
   $event_organiser_other_3 = get_post_meta($event_id, '_event_cpt_other_organizer_3', true);
 
-  $string .= '<p class="organisers">Organised by: '.$event_organiser_main.'.';
+
+
+  $string .= 'Organised by: '.$event_organiser_main.'.';
   if( $event_organiser_other_1 || $event_organiser_other_2 || $event_organiser_other_3 ){
     $other_organisers = array();
     if($event_organiser_other_1){array_push($other_organisers,$event_organiser_other_1);}
@@ -58,7 +97,6 @@ function get_event_organisers($event_id){
       $string .= ', '.$event_organiser_other_2.' and '.$event_organiser_other_3.'.';
     }
   }
-  $string .= '</p><!-- organisers -->';
 
   return $string;
 }
@@ -108,7 +146,6 @@ function get_event_full_location($event_id){
 	    </header><!-- .entry-header -->
 
 	    <div class="entry-content">
-
         <?php
     		the_content( sprintf(
     			wp_kses(
@@ -127,15 +164,31 @@ function get_event_full_location($event_id){
    </div><!-- left-column -->
 
    <div class="right-column">
-  	  <?php src_project_post_thumbnail(); ?>
+  	  <?php if(has_post_thumbnail()){src_project_post_thumbnail();} else {
+        echo '<img src="'.get_stylesheet_directory_uri().'/images/default-event-image.png" alt="no event image available" />';
+      } ?>
       <?php echo $event_organiser_links; ?>
       <div class="event-type"> <?php echo $event_types;?> </div>
-      <div class="date"> <?php echo $event_date; ?> from <?php echo $event_start_time;?> to <?php echo $event_end_time; ?></div>
+      <div class="date">
+        <?php
+        if($event_date){echo $event_date;}
+        if($event_start_time){ echo ' from '.$event_start_time.' to '. $event_end_time; }
+        ?></div>
+      <div class="price"> <?php if('0.00' == $event_price){ echo 'FREE';}elseif('-1.00' == $event_price){ echo 'ENTRY BY DONATION';}else{ echo '£'.$event_price;};
+       ?> </div>
       <div class="location"><?php echo $event_location; ?></div>
    </div><!-- right-column -->
 
-   <div id="organiser-logos">
-      <p>organiser logos</p>
-   </div><!-- organiser-logos -->';
+   <div id="organiser-info">
+     <div class="organisers">
+       <?php echo $event_organisers; ?>
+     </div>
+
+     <div class="organiser-logos">
+       <?php if($is_key_event){
+         echo $organiser_logos;
+       }?>
+     </div>
+   </div><!-- organiser-logos -->
 
 </article><!-- #post-<?php the_ID(); ?> -->

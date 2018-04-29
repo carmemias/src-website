@@ -1,3 +1,4 @@
+
 //on document load
 //* display all event (*.php)
 
@@ -307,7 +308,7 @@ function renderNewEventsView(newArray) {
     if (event.extra_meta._event_cpt_main_organizer){
       organizerParagraph.innerHTML = event.extra_meta._event_cpt_main_organizer;
     }
-    
+
     rightColumn.appendChild(organizerParagraph);
     // organizerParagraph.classList.add("organisers");
 
@@ -320,13 +321,13 @@ function renderNewEventsView(newArray) {
     let eventLocation = document.createElement("p");
     eventLocation.classList.add("location");
     if(event.extra_meta._event_cpt_area){
-        eventLocation.innerHTML = event.extra_meta._event_cpt_area + ", " 
+        eventLocation.innerHTML = event.extra_meta._event_cpt_area + ", "
     }
-    
+
     if(event.extra_meta._event_cpt_address_town_city){
       eventLocation.innerHTML = event.extra_meta._event_cpt_address_town_city;
     }
-    
+
     rightColumn.appendChild(eventLocation);
 
     let eventPrice = document.createElement("p");
