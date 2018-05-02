@@ -35,9 +35,11 @@
   }
   .es_textbox {
     padding: 10px;
-    background-color: $color__background-aqua;
   }
 
+  .es_textbox_class {
+    background-color: $color__background-aqua;
+  }
   .es_caption {
     align-self: end;
     width: 100%;
