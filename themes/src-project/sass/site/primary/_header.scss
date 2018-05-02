@@ -5,6 +5,11 @@
   flex-wrap: wrap;
   padding:20px;
 
+  .site-branding img {
+      max-height: 80px;
+      width: auto;
+  }
+
   svg.icon {
     width: 25px !important;
     height: 25px !important;
@@ -41,18 +46,6 @@
       width: 90%;
     }
 
-  /*  input.search-submit{
-      width: 8%;
-      font-size: 15px;
-      margin-left: 5px;
-      background-color: $color__background-input;
-      color: $color__text-button;
-
-    }
-
-     input.search-submit:hover, input.search-submit:focus{
-      background-color: $color__button-hover;
-    }*/
     label {
       color: $color__placeholder;
     }

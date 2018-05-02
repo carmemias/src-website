@@ -222,12 +222,14 @@ function src_project_customizer_css(){
 
 							/* main text color */
 							body, input, select, optgroup, a,
-							#hero .site-description, #hero .festival-dates,
 							.site-footer, .site-footer a, .site-footer label, .widget-title {
 								color: <?php echo $text_color; ?>;
 							}
 
 							/* accent color */
+							#hero .site-description, #hero .festival-dates {
+								color: <?php echo $accent_color; ?>;
+							}
 							.social-navigation a {
 								background-color: <?php echo $accent_color; ?>;
 							}

@@ -11,7 +11,7 @@ global $post;
 $event_id = get_the_id();
 $custom = get_post_custom($event_id);
 
-//TODO use get_post_custom() instead ?
+$event_by = $custom['_event_cpt_main_organizer'][0];
 $event_types = get_event_types($event_id);
 //$event_date = get_post_meta($event_id, '_event_cpt_date_event', true);
 $event_date = date('l, j F', strtotime($custom['_event_cpt_date_event'][0]));
@@ -141,6 +141,7 @@ function get_event_full_location($custom){
   <div class="left-column">
 	    <header class="entry-header">
 		   <?php	the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+       <?php if(!empty($event_by)){  echo '<div class="event-by">by ' . $event_by .'</div>';  } ?>
 	    </header><!-- .entry-header -->
 
 	    <div class="entry-content">
