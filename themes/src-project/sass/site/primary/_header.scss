@@ -3,13 +3,12 @@
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding:20px;
+  padding: 20px;
 
-  
   .site-branding img {
     max-height: 80px;
     width: auto;
-}
+  }
 
   svg.icon {
     width: 25px !important;
@@ -22,21 +21,20 @@
   }
 
   .menu-toggle {
-    margin: 0
+    margin: 0;
   }
 
   .menu-main-menu-container {
     align-self: center;
   }
 
-
   .widget {
     align-self: flex-end;
     margin: 0;
     display: none;
-    width:100%;
+    width: 100%;
     text-align: right;
-    padding-top:20px;
+    padding-top: 20px;
 
     &.widget-show {
       display: block !important;
@@ -47,7 +45,7 @@
       width: 90%;
     }
 
-  /*  input.search-submit{
+    /*  input.search-submit{
       width: 8%;
       font-size: 15px;
       margin-left: 5px;
@@ -63,36 +61,30 @@
       color: $color__placeholder;
     }
   }
-
 }
 
-
 @media only screen and (max-width: 890px) {
-
-  .site-header{
-
-
+  .site-header {
     .widget {
       .search-field {
         width: 85%;
       }
 
-      input.search-submit{
+      input.search-submit {
         width: 12%;
       }
     }
-
   }
 
   .icon-bar {
     display: block;
-    height:4px;
+    height: 4px;
     background-color: $color__menu-toggle-hamburger;
     width: 26px;
     margin: 5px auto;
   }
 
-  .main-navigation{
+  .main-navigation {
     flex-direction: column;
     justify-content: flex-end;
     flex-wrap: nowrap;
@@ -100,25 +92,23 @@
 
     a {
       text-align: center;
-
     }
     .menu-toggle {
       align-self: center;
     }
   }
-
 }
 
-@media (max-width:660px){
+@media (max-width: 660px) {
   .main-navigation {
-     width: 50%;
-    }
+    width: 50%;
+  }
 }
 
-@media (max-width:400px){
+@media (max-width: 400px) {
   .site-header {
-    flex-direction:column;
-    justify-content:center;
+    flex-direction: column;
+    justify-content: center;
 
     .site-branding {
       text-align: center;
@@ -129,13 +119,13 @@
         width: 70%;
       }
 
-      input.search-submit{
+      input.search-submit {
         width: 25%;
       }
     }
   }
   .main-navigation {
-    width:auto;
+    width: auto;
     align-self: center;
     justify-content: center;
 
@@ -143,11 +133,12 @@
       padding-left: 0 !important;
     }
   }
-  .menu-toggle{margin-top:20px;}
+  .menu-toggle {
+    margin-top: 20px;
+  }
 }
 
 @media only screen and (min-width: 890px) and (max-width: 1024px) {
-
   #primary-menu {
     display: flex;
     flex-direction: row;

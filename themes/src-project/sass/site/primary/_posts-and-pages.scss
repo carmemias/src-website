@@ -1,235 +1,228 @@
-#page, .site {
-	position: relative;
-	min-height:100vh;
-	height: 100%;
-	padding-bottom: 10rem;
+#page,
+.site {
+  position: relative;
+  min-height: 100vh;
+  height: 100%;
+  padding-bottom: 10rem;
 }
 
 .sticky {
-	display: block;
+  display: block;
 }
 
 .hentry {
-	margin: 0 0 1.5em;
+  margin: 0 0 1.5em;
 }
 
 .updated:not(.published) {
-	display: none;
+  display: none;
 }
 
 body:not(.home) .site-content,
 body:not(.home) .content-area {
-	margin: 1.5em 0 0;
-	padding: 0 1rem 5rem 1rem;
+  margin: 1.5em 0 0;
+  padding: 0 1rem 5rem 1rem;
 }
 
-
 .page-home .site-content {
-	margin-bottom: 10rem;
+  margin-bottom: 10rem;
 }
 
 .page-links {
-	clear: both;
-	margin: 0 0 1.5em;
+  clear: both;
+  margin: 0 0 1.5em;
 }
 
 [class^="page-whats-"].entry-header {
-	margin-left: 2rem;
+  margin-left: 2rem;
 }
 
 body:not(.home) .site-main {
+  p {
+    text-align: justify;
+  }
 
-	p {
-		text-align: justify;
-	}
+  .columns {
+    display: flex;
+  }
 
-	.columns {
-		display: flex;
-	}
+  .filterElement {
+    background-color: $color__background-dark-blue;
+    color: $color__text-input;
+    min-width: 15%;
+    border-color: transparent;
+  }
 
-	.filterElement {
-		background-color: $color__background-dark-blue;
-		color: $color__text-input;
-		min-width: 15%;
-		border-color: transparent;
-	}
+  .layout-column-1,
+  .layout-column-2 {
+    margin: 0 2rem 0 0;
+    width: 50%;
+  }
 
-	.layout-column-1, .layout-column-2 {
-		margin:0 2rem 0 0;
-		width: 50%;
-	}
+  #programme {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-top: solid 20px #0ea2c7;
+  }
 
-	#programme {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-around;
-		border-top: solid 20px #0EA2C7;
-	}
+  .filters {
+    margin: 2rem;
+  }
 
-	.filters {
-		margin: 2rem;
-	}
+  .filterElement {
+    background-color: $color__background-dark-blue;
+    color: $color__text-input;
+    min-width: 25%;
+    height: 45px;
+    text-align: center;
+    border-color: transparent;
+  }
 
-	.filterElement {
-		background-color: $color__background-dark-blue;
-		color: $color__text-input;
-		min-width: 25%;
-  		height: 45px;
-		text-align: center;
-		border-color: transparent;
-	}
+  #submitFilterButton {
+    font-size: 20px;
+    min-width: 15%;
+    max-height: auto;
+    height: 45px;
+    text-align: center;
+    align-self: center;
+  }
 
-		#submitFilterButton {
-			font-size: 20px;
-    		min-width: 15%;
-    		max-height: auto;
-    		height: 45px;
-    		text-align: center;
-   			align-self: center;
-		}
+  .event-entry {
+    display: flex;
+    flex-direction: row;
+    max-width: 50%;
+    padding: 15px 10px 0 10px;
+    padding-bottom: 3em;
 
-	.event-entry{
-		display: flex;
-		flex-direction: row;
-		max-width: 50%;
-		padding: 15px 10px 0 10px;
-		padding-bottom: 3em;
+    .left-column,
+    .right-column {
+      align-self: start;
+      padding: 0.5rem 1.5rem 0.5rem 1.5rem !important;
+      width: 50%;
+    }
 
-		.left-column, .right-column{
-			align-self: start;
-			padding: .5rem 1.5rem .5rem 1.5rem !important;
-			width: 50%;
-
-		}
-
-		h2, p {
-			margin: 0;
-		}
-	}
-
-	input {
-		color: $color__background-aqua
-	}
+    h2,
+    p {
+      margin: 0;
+    }
+  }
 }
-
 
 @media only screen and (max-width: 640px) {
-
-	#page, .site {
-		padding-bottom: 16rem !important;
-	}
-
-	.page-about {
-		.site-main {
-			padding: 1em !important;
-		}
-		
-		.columns {
-			display: block !important;
-		}
-		.layout-column-1, .layout-column-2 {
-			width: 100% !important;
-		}
-	}
-
-	#programme {
-		flex-direction: column !important;
-	}
-
-	.entry-content {
-		margin: 1.5em 0 1.5em 0;
-	  	display: flex;
-		flex-direction: column !important;
-	}
-
-	.filters {
-		display: flex;
-    	flex-direction: column;
-		justify-items: stretch;
-		margin: 1rem !important;
-	}
-
-
-	.left-column, .right-column{
-		padding: 0 !important;
-		width: 100% !important;
-	}
-
-	select {
-		margin: .5rem;
-	}
-
-	input[type="date"] {
-		margin: .5rem;
-	}
-
-	h2 {
-		font-size: 18px !important;
-	}
-
-
-	.event-entry{
-		flex-direction: column !important;
-		max-width: 100% !important;
-
-	}
+  #page,
+  .site {
+    padding-bottom: 16rem !important;
   }
 
-  @media only screen and (max-width: 916px){
+  .page-about {
+    .site-main {
+      padding: 1em !important;
+    }
 
-	.filterElement,	#submitFilterButton {
-		font-size: 18px !important;
-	}
-	#submitFilterButton {
-		min-width: 18% !important;
- 	 }
+    .columns {
+      display: block !important;
+    }
+    .layout-column-1,
+    .layout-column-2 {
+      width: 100% !important;
+    }
+  }
+
+  #programme {
+    flex-direction: column !important;
+  }
+
+  .entry-content {
+    margin: 1.5em 0 1.5em 0;
+    display: flex;
+    flex-direction: column !important;
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+    justify-items: stretch;
+    margin: 1rem !important;
+  }
+
+  .left-column,
+  .right-column {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  select {
+    margin: 0.5rem;
+  }
+
+  input[type="date"] {
+    margin: 0.5rem;
+  }
+
+  h2 {
+    font-size: 18px !important;
+  }
+
+  .event-entry {
+    flex-direction: column !important;
+    max-width: 100% !important;
+  }
 }
 
-
-  @media only screen and (min-width: 640px) and (max-width: 1024px) {
-
-	.site-main {
-		padding: 1em !important;
-	}
-
-	.entry-content {
-	  margin: 1.5em 0 1.5em 0;
-	  display: flex;
-	  flex-direction: column !important;
-	}
-
-	.filters {
-		display: flex;
-		margin: 1rem !important;
-		}
-
-	.filterElement {
-		min-width: 25%;
-	}
-
-	select {
-		margin: .5rem;
-	}
-
-	input[type="date"] {
-		margin: .5rem;
-	}
-
-	.event-entry{
-		flex-direction: column !important;
-	}
-
-	.left-column, .right-column{
-		width: 100% !important;
-	}
-
-	.page-home .site-content {
-		margin-bottom: 5rem;
-	}
-
-	h2 {
-		font-size: 18px !important;
-	}
-
+@media only screen and (max-width: 916px) {
+  .filterElement,
+  #submitFilterButton {
+    font-size: 18px !important;
   }
+  #submitFilterButton {
+    min-width: 18% !important;
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1024px) {
+  .site-main {
+    padding: 1em !important;
+  }
+
+  .entry-content {
+    margin: 1.5em 0 1.5em 0;
+    display: flex;
+    flex-direction: column !important;
+  }
+
+  .filters {
+    display: flex;
+    margin: 1rem !important;
+  }
+
+  .filterElement {
+    min-width: 25%;
+  }
+
+  select {
+    margin: 0.5rem;
+  }
+
+  input[type="date"] {
+    margin: 0.5rem;
+  }
+
+  .event-entry {
+    flex-direction: column !important;
+  }
+
+  .left-column,
+  .right-column {
+    width: 100% !important;
+  }
+
+  .page-home .site-content {
+    margin-bottom: 5rem;
+  }
+
+  h2 {
+    font-size: 18px !important;
+  }
+}
