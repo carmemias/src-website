@@ -45,11 +45,15 @@ body[class*="page-whats-"] {
   }
 
   .organisers {
-    margin-bottom: 15px;
+    margin: 15px 0;
   }
-  
+
   .organiser-logos {
     display:flex;
+  }
+  .organiser-logos img{
+    max-height:100px;
+    width:auto;
   }
   .organiser-logos img:not(:last-child),
   .organiser-logos img:not(:nth-last-child(0)) {
