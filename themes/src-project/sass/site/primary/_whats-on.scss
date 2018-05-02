@@ -1,11 +1,8 @@
-body[class*="page-whats-"] {
   .event-title {
     border-bottom: 2px solid $color__border-whatson-event-title;
-
     a {text-decoration: none !important;}
 
   }
-}
 
 //single-event
 .single-event_cpt {
