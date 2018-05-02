@@ -32,6 +32,9 @@
     flex-wrap:wrap;
   }
 
+  widget-title{
+    color: $color__text-main;
+  }
   .es_textbox {
     padding: 10px;
   }
@@ -54,14 +57,14 @@
   }
 
   label,  {
-    color: $color__placeholder;
+    color: $color__text-main;
   }
 
   #es_widget_msg {
   	width: 100%;
   }
   .es_msg {
-  	color:$color__subscriptions-message;
+  	color:$color__background-aqua;
   }
 
 

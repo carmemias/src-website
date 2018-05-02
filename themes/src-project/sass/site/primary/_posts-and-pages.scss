@@ -48,7 +48,7 @@ body:not(.home) .site-main {
 	}
 
 	.filterElement {
-		background-color: $color__background-filters;
+		background-color: $color__background-dark-blue;
 		color: $color__text-input;
 		min-width: 15%;
 	}
@@ -71,7 +71,7 @@ body:not(.home) .site-main {
 	}
 
 	.filterElement {
-		background-color: $color__background-filters;
+		background-color: $color__background-dark-blue;
 		color: $color__text-input;
 		min-width: 25%;
   		height: 45px;
@@ -104,6 +104,10 @@ body:not(.home) .site-main {
 		h2, p {
 			margin: 0;
 		}
+	}
+
+	input {
+		color: $color__background-aqua
 	}
 }
 

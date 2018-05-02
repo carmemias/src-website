@@ -5,6 +5,12 @@
   flex-wrap: wrap;
   padding:20px;
 
+  
+  .site-branding img {
+    max-height: 80px;
+    width: auto;
+}
+
   svg.icon {
     width: 25px !important;
     height: 25px !important;
