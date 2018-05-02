@@ -75,8 +75,8 @@ if ( ! function_exists( 'src_project_setup' ) ) :
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
 		add_theme_support( 'custom-logo', array(
-			'height'      => 100,
-			'width'       => 100,
+			'height'      => 80,
+			'width'       => 80,
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );

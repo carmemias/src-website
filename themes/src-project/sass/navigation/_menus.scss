@@ -127,10 +127,18 @@
 		width: 50%;
 	}
 
+	.nav-previous::before {
+		content: '<< ';
+	}
+
 	.nav-next {
 		float: right;
 		text-align: right;
 		width: 50%;
+	}
+
+	.nav-next::after{
+		content: ' >>';
 	}
 }
 
