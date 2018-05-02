@@ -1,13 +1,15 @@
 .site-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position:absolute;
-    bottom:0;
-    left:0;
-    right:0;
-    padding-bottom:20px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+
+  padding-bottom:20px;
+  text-align: center;
 
   .widget-area {
     color: $color__widgets;
@@ -40,9 +42,8 @@
   .es_caption {
     align-self: end;
     width: 100%;
-    color: $color__text-subscribers;
-    font-size: 22px;
-  }
+    color: $color__text-main
+}
 
   #es_txt_button {
     background-color: $color__background-input;
@@ -77,10 +78,5 @@
 @media only screen and (max-width: 640px) {
   form.es_widget_form {
     flex-direction: column;
-    align-items: center !important;
-  }
-
-  .es_caption {
-    font-size: 18px !important;
   }
 }
