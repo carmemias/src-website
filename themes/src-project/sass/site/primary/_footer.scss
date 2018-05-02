@@ -2,6 +2,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+<<<<<<< HEAD
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 20px;
+=======
 
   position:absolute;
   bottom:0;
@@ -9,6 +16,7 @@
   right:0;
 
   padding-bottom:20px;
+>>>>>>> c8e6aa1a4bfbc27414658031bc7b2aadc9bad945
   text-align: center;
 
   .widget-area {
@@ -16,12 +24,12 @@
   }
 
   a {
-    color: $color__site-footer;
+    color: $color__text-main;
     text-decoration: none;
   }
 
-  #footer-secondary{
-    display:  flex;
+  #footer-secondary {
+    display: flex;
     justify-content: center;
   }
 
@@ -29,14 +37,15 @@
     display: flex !important;
     justify-content: center;
     align-items: baseline;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
   }
 
-  widget-title{
+  .widget-title {
     color: $color__text-main;
   }
   .es_textbox {
     padding: 10px;
+    color: $color__background-aqua;
   }
 
   .es_caption {
@@ -56,24 +65,21 @@
     background-color: $color__button-hover;
   }
 
-  label,  {
+  label {
     color: $color__text-main;
   }
 
   #es_widget_msg {
-  	width: 100%;
+    width: 100%;
   }
   .es_msg {
-  	color:$color__background-aqua;
+    color: $color__background-aqua;
   }
-
-
 }
 
 .site-info {
   @include font-size(0.75);
 }
-
 
 @media only screen and (max-width: 640px) {
   form.es_widget_form {
