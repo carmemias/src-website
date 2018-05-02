@@ -1,3 +1,4 @@
+
 //on document load
 //* display all event (*.php)
 
@@ -341,11 +342,12 @@ function renderNewEventsView(newArray) {
 
     let eventLocation = document.createElement("p");
     eventLocation.classList.add("location");
-    if (event.extra_meta._event_cpt_area) {
-      eventLocation.innerHTML = event.extra_meta._event_cpt_area + ", ";
+
+    if(event.extra_meta._event_cpt_area){
+        eventLocation.innerHTML = event.extra_meta._event_cpt_area + ", "
     }
 
-    if (event.extra_meta._event_cpt_address_town_city) {
+    if(event.extra_meta._event_cpt_address_town_city){
       eventLocation.innerHTML = event.extra_meta._event_cpt_address_town_city;
     }
 

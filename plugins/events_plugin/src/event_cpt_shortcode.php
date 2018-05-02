@@ -95,12 +95,11 @@ function events_cpt_shortcode_handler( $atts ){
 		$event_cpt_args['meta_query']['event_area']['value'] = $event_area;
 	} //by area
 
-
 	//find date (event date)
-	if( ('' != $a['date']) ){
+	if( ('' != $a['date']) || (undefined !== $a['date']) ){
 		$event_date = $a['date'];
 		$event_cpt_args['meta_query']['event_date']['value'] = array($event_date, $event_date);
-	} //by date
+	}//by date
 
 	//find year (event year)
 	if( ('' != $a['year']) ){
