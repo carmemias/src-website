@@ -51,6 +51,7 @@ body:not(.home) .site-main {
 		background-color: $color__background-filters;
 		color: $color__text-input;
 		min-width: 15%;
+		border-color: transparent;
 	}
 
 	.layout-column-1, .layout-column-2 {
@@ -75,8 +76,9 @@ body:not(.home) .site-main {
 		color: $color__text-input;
 		min-width: 25%;
   		height: 45px;
-   		text-align: center;
-		}
+		text-align: center;
+		border-color: transparent;
+	}
 
 		#submitFilterButton {
 			font-size: 20px;
@@ -118,9 +120,7 @@ body:not(.home) .site-main {
 		.site-main {
 			padding: 1em !important;
 		}
-		.entry-content{
-			padding-right: 5rem;
-		}
+		
 		.columns {
 			display: block !important;
 		}
