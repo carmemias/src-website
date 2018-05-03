@@ -260,7 +260,7 @@ function get_event_short_location($event){
     $event_area = $event->_event_cpt_area;
 
     $string .= ' <p class="location">'.$event_venue;
-    $string .= ''.$event_area.'</p>';
+    $string .= ', '.$event_area.'</p>';
 
     return $string;
 }
