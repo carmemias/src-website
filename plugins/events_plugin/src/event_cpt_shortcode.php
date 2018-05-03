@@ -96,7 +96,7 @@ function events_cpt_shortcode_handler( $atts ){
 	} //by area
 
 	//find date (event date)
-	if( ('' != $a['date']) || (undefined !== $a['date']) ){
+	if( ('' != $a['date']) || ('undefined' !== $a['date']) ){
 		$event_date = $a['date'];
 		$event_cpt_args['meta_query']['event_date']['value'] = array($event_date, $event_date);
 	}//by date
@@ -254,13 +254,13 @@ function get_event_organiser_links($event){
   return $string;
 }
 
-function get_event_short_location($single_event){
+function get_event_short_location($event){
     $string ='';
     $event_venue = $event->_event_cpt_venue;
     $event_area = $event->_event_cpt_area;
 
     $string .= ' <p class="location">'.$event_venue;
-    $string .= ''.$event_area.'</p>';
+    $string .= ', '.$event_area.'</p>';
 
     return $string;
 }

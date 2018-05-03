@@ -43,23 +43,20 @@
 	//Festival dates
 	//See https://codex.wordpress.org/Theme_Customization_API#Part_3:_Configure_Live_Preview_.28Optional.29
 	wp.customize( 'current_festival_dates', function( value ) {
-		value.bind( function( newval ) {
-			$( '.festival-dates' ).text( newval );
+		value.bind( function( newVal ) {
+			$( '.festival-dates' ).text( newVal );
 		} );
 	} );
 
 	// Text color.
-	/*
-	body, input, select, optgroup, textarea, a,
-	#hero .site-description, #hero .festival-dates,
-	.site-footer, .site-footer a, .site-footer label, .widget-title
-	*/
 	wp.customize( 'current_festival_text_color', function( value ) {
-		value.bind( function( newval ) {
-			console.log(newVal);
-			if ( 'blank' != newval ) {
-				$( 'body, input, select, optgroup, a, #hero .site-description, #hero .festival-dates, .site-footer, .site-footer a, .site-footer label, .widget-title' ).css( {
-					'color': newval
+		value.bind( function( newVal ) {
+			if ( 'blank' != newVal ) {
+				$( 'body, input, select, optgroup, a, .site-footer, .site-footer a, .site-footer label, .site-footer .es_caption, .widget-title' ).css( {
+					'color': newVal,
+				} );
+				$( '.site-footer #es_txt_button' ).css( {
+					'color': '#FFF'
 				} );
 			}
 		} );
@@ -67,32 +64,34 @@
 
 	// Menu color.
 	wp.customize( 'current_festival_menu_color', function( value ) {
-		value.bind( function( newval ) {
-			console.log(newVal);
-			if ( 'blank' != newval ) {
+		value.bind( function( newVal ) {
+			if ( 'blank' != newVal ) {
 				$( '.main-navigation a, #hero .site-title' ).css( {
-					'color': newval
+					'color': newVal,
 				} );
-				$( 'svg.icon' ).css( {
-					'fill': newval
+				$( '.search-bttn svg.icon' ).css( {
+					'fill': newVal,
 				} );
-				$('.site-header .widget input.search-submit').css({
-					'background-color': newVal
-				})
+				$('input[type="submit"], .site-footer #es_txt_button, #programme .links a, .single-event_cpt .links a').css( {
+					'background-color': newVal,
+				} );
 			}
 		} );
 	} );
 
 	// Accent color.
 	wp.customize( 'current_festival_accent_color', function( value ) {
-		value.bind( function( newval ) {
-			console.log(newVal);
-			if ( 'blank' != newval ) {
-				$( '.main-navigation a, #hero .site-title' ).css( {
-					'color': newval
+		value.bind( function( newVal ) {
+			if ( 'blank' != newVal ) {
+				$( '.main-navigation .current_page_item > a, body[class*="page-whats-"] .event-title, .single-event_cpt .entry-title' ).css( {
+					'border-color': newVal,
 				} );
-				$( 'svg.icon' ).css( {
-					'fill': newval
+				$( '#hero .site-description, #hero .festival-dates' ).css( {
+					'color': newVal,
+				} );
+				$( 'input[type="text"], input[type="email"], input[type="search"]' ).css( {
+					'background-color': newVal,
+					'border-color': newVal,
 				} );
 			}
 		} );

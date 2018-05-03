@@ -31,9 +31,12 @@ body[class*="page-whats-"] {
     }
   }
 
-  .entry-title {
-    margin-top: 0;
+  .entry-header {
     border-bottom: 8px solid $color__border-whatson-event-title;
+  }
+  
+  .entry-title {
+    margin:0;
   }
 
   .event-type {
