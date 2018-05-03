@@ -1,223 +1,230 @@
 /* Main Navigation */
 .main-navigation {
-	align-self: flex-end;
-	clear: both;
-	display: block;
-	width: 70%;/*100%;*/
-	display:flex;
-	justify-content:center;
-	flex-wrap: wrap;
-	font-size: 30px;
+  align-self: flex-end;
+  clear: both;
+  display: block;
+  width: 70%; /*100%;*/
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 30px;
 
+  ul {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
 
-	ul {
-		display: none;
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
+    ul {
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+      float: left;
+      position: absolute;
+      top: 100%;
+      left: -999em;
+      z-index: 99999;
 
-		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
+      ul {
+        left: -999em;
+        top: 0;
+      }
 
-			ul {
-				left: -999em;
-				top: 0;
-			}
+      li {
+        &:hover > ul,
+        &.focus > ul {
+          left: 100%;
+        }
+      }
 
-			li {
-				&:hover > ul,
-				&.focus > ul {
-					left: 100%;
-				}
-			}
+      a {
+        width: 200px;
+      }
 
-			a {
-				width: 200px;
-			}
+      :hover > a,
+      .focus > a {
+      }
 
-			:hover > a,
-			.focus > a {
-			}
+      a:hover,
+      a.focus {
+      }
+    }
 
-			a:hover,
-			a.focus {
-			}
-		}
+    li:hover > ul,
+    li.focus > ul {
+      left: auto;
+    }
+  }
 
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
-		}
-	}
+  li {
+    float: none;
+    position: relative;
 
-	li {
-		float: none;
-		position: relative;
+    &:hover > a,
+    &.focus > a {
+    }
+  }
 
-		&:hover > a,
-		&.focus > a {
-		}
-	}
+  a {
+    display: block;
+    text-decoration: none;
+    padding: 20px;
+    color: $color__menu-item;
+    text-align: right;
+  }
 
-	a {
-		display: block;
-		text-decoration: none;
-		padding: 20px;
-		color: $color__menu-item;
-		text-align: right;
-	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
-		border-bottom: solid 6px $color__border-current-menu-item;
-	}
+  .current_page_item > a,
+  .current-menu-item > a,
+  .current_page_ancestor > a,
+  .current-menu-ancestor > a {
+    border-bottom: solid 6px $color__border-current-menu-item;
+  }
 }
 
 /* Mobile menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
-	display: block;
+  display: block;
 }
 
 .menu-toggle {
-	background-color: $color__background-menu-toggle;
-	max-width:50px;
-	margin-top:68px;
-	align-self: flex-end;
+  background-color: $color__background-menu-toggle;
+  max-width: 50px;
+  margin-top: 68px;
+  align-self: flex-end;
 }
 
-@media screen and (min-width: 890px) {//37.5em = 600px
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation {
-		ul { display: block;}
-		li {float:left;}
-		a {padding: 10px 20px;}
-	}
+@media screen and (min-width: 890px) {
+  //37.5em = 600px
+  .menu-toggle {
+    display: none;
+  }
+  .main-navigation {
+    ul {
+      display: block;
+    }
+    li {
+      float: left;
+    }
+    a {
+      padding: 10px 20px;
+    }
+  }
 }
 
-@media (max-width:400px){
-	.menu-toggle {
-		align-self: center;
-	}
-	.main-navigation a{
-		text-align:center;
-	}
+@media (max-width: 400px) {
+  .menu-toggle {
+    align-self: center;
+  }
+  .main-navigation a {
+    text-align: center;
+  }
 }
 
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
+  .site-main & {
+    margin: 0 0 1.5em;
+    overflow: hidden;
+  }
 
-	.site-main & {
-		margin: 0 0 1.5em;
-		overflow: hidden;
-	}
+  .nav-previous {
+    float: left;
+    width: 50%;
+  }
 
-	.nav-previous {
-		float: left;
-		width: 50%;
-	}
+  .nav-previous::before {
+    content: "<< ";
+  }
 
-	.nav-previous::before {
-		content: '<< ';
-	}
+  .nav-next {
+    float: right;
+    text-align: right;
+    width: 50%;
+  }
 
-	.nav-next {
-		float: right;
-		text-align: right;
-		width: 50%;
-	}
-
-	.nav-next::after{
-		content: ' >>';
-	}
+  .nav-next::after {
+    content: " >>";
+  }
 }
 
 /* Social Navigation */
 .social-navigation {
-	font-size: 16px;
-	font-size: 1rem;
-	margin-bottom: 1em;
-	padding-top:20px;
+  font-size: 16px;
+  font-size: 1rem;
+  margin-bottom: 1em;
+  padding-top: 20px;
 
-	ul {
-		list-style: none;
-		margin-bottom: 0;
-		margin-left: 0;
-	}
+  ul {
+    list-style: none;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
 
-	li {
-		display: inline;
-	}
+  li {
+    display: inline;
+  }
 
-	a {
-		background-color: $color__background-social;
-		-webkit-border-radius: 20px;
-		border-radius: 20px;
-		color: #fff;
-		display: inline-block;
-		height: 40px;
-		margin: 0 1em 0.5em 0;
-		text-align: center;
-		width: 40px;
-	}
+  a {
+    background-color: $color__background-social;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    color: #fff;
+    display: inline-block;
+    height: 40px;
+    margin: 0 1em 0.5em 0;
+    text-align: center;
+    width: 40px;
+  }
 
-	a:hover, a:focus {
-		background-color: #333;
-	}
+  a:hover,
+  a:focus {
+    background-color: #333;
+  }
 
-	.icon {
-		margin-top:9px;
-		height: 22px;
-		width:22px;
-		top: 18px;
-		vertical-align: top;
-		fill:$color__fill-icon;
-	}
+  .icon {
+    margin-top: 9px;
+    height: 22px;
+    width: 22px;
+    top: 18px;
+    vertical-align: top;
+    fill: $color__fill-icon;
+  }
 }
 
 /* What's On and Single event links */
-.single-event_cpt .links{
-	text-align:right;
-	margin-top:15px;
-	margin-bottom:15px;
+.single-event_cpt .links {
+  text-align: right;
+  margin-top: 15px;
+  margin-bottom: 15px;
 
-	:last-child,
-	:nth-last-child(1){
-		margin-right:0;
-	}
+  :last-child,
+  :nth-last-child(1) {
+    margin-right: 0;
+  }
 }
 
 #programme .links a,
 .single-event_cpt .links a {
-	background-color: $color__background-whatson-icon;
-	border-radius: 18px;
-	display: inline-block;
-	height: 35px;
-	margin: 0 1em 0.5em 0;
-	text-align: center;
-	width: 35px;
+  background-color: $color__background-whatson-icon;
+  border-radius: 18px;
+  display: inline-block;
+  height: 35px;
+  margin: 0 1em 0.5em 0;
+  text-align: center;
+  width: 35px;
 
-	&:hover, &:focus {
-		background-color: #333;
-	}
+  &:hover,
+  &:focus {
+    background-color: #333;
+  }
 }
 
 #programme .links svg.icon,
 .single-event_cpt .links svg.icon {
-	margin-top:6px;
-	height: 22px;
-	width:22px;
-	//top: 16px;
-	vertical-align: top;
-	fill:$color__fill-whatson-icon;
+  margin-top: 6px;
+  height: 22px;
+  width: 22px;
+  //top: 16px;
+  vertical-align: top;
+  fill: $color__fill-whatson-icon;
 }

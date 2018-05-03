@@ -1,15 +1,15 @@
 body[class*="page-whats-"] {
   .event-title {
     border-bottom: 2px solid $color__border-whatson-event-title;
-
-    a {text-decoration: none !important;}
-
+    a {
+      text-decoration: none !important;
+    }
+    margin-bottom: 1rem !important;
   }
 }
 
 //single-event
 .single-event_cpt {
-
   article {
     display: flex;
     flex-direction: row;
@@ -18,7 +18,7 @@ body[class*="page-whats-"] {
 
     .left-column,
     .right-column {
-      width:47%;
+      width: 47%;
     }
 
     .right-column {
@@ -27,7 +27,7 @@ body[class*="page-whats-"] {
     }
 
     .organiser-info {
-      width:100%;
+      width: 100%;
     }
   }
 
@@ -52,15 +52,14 @@ body[class*="page-whats-"] {
   }
 
   .organiser-logos {
-    display:flex;
+    display: flex;
   }
-  .organiser-logos img{
-    max-height:100px;
-    width:auto;
+  .organiser-logos img {
+    max-height: 100px;
+    width: auto;
   }
   .organiser-logos img:not(:last-child),
   .organiser-logos img:not(:nth-last-child(0)) {
-    margin-right:10px;
+    margin-right: 10px;
   }
-
 }
