@@ -47,7 +47,7 @@
 			?>
 		</nav><!-- #site-navigation -->
 
-		<div class="site-branding">
+		<div class="site-branding second-logo">
 		  <!-- See https://developer.wordpress.org/reference/functions/the_custom_logo/ -->
 			<?php $second_logo_id = get_theme_mod( 'second_logo' );
 			if($second_logo_id) {
