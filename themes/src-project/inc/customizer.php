@@ -14,11 +14,14 @@ function src_project_customize_register( $wp_customize ) {
 	/* Amend Customizer screen to add 2nd logo and current year's Festival customization */
 	$wp_customize->add_setting( 'second_logo', array(
 		'sanitize_callback' => 'absint',
+		'transport' => 'postMessage',
 	) );
 	$wp_customize->add_control( new WP_Customize_Cropped_Image_Control( $wp_customize, 'second_logo', array(
 	'label'      => esc_html__('Second Logo', 'src-project'),
 	'section'    => 'title_tagline',
 	'settings'   => 'second_logo',
+	'height'		 => '80',
+	'width'			 => '80',
 	'mime_type'	 => 'image',
 	'priority'	 => 9
 	) ) );
@@ -33,6 +36,7 @@ function src_project_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'current_festival_dates', array(
 		'default' => esc_html__('enter this year\'s festival dates here...', 'src-project'),
 		'sanitize_callback' => 'wp_filter_nohtml_kses',
+		'transport' => 'postMessage',
 	) );
 	$wp_customize->add_control( 'current_festival_dates', array(
 	'label'      => esc_html__('Festival Dates', 'src-project'),
@@ -43,6 +47,7 @@ function src_project_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'current_festival_hero_image', array(
 		'sanitize_callback' => 'absint',
+		'transport' => 'postMessage',
 	) );
 	$wp_customize->add_control(new WP_Customize_Media_Control( $wp_customize, 'current_festival_hero_image', array(
 	'label'      => esc_html__('Homepage Hero Image', 'src-project'),
@@ -54,6 +59,7 @@ function src_project_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'current_festival_text_color', array(
 		'default' => '#2f39ed',
 		'sanitize_callback' => 'sanitize_hex_color',
+		'transport' => 'postMessage',
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'current_festival_text_color', array(
 	'label'      => esc_html__('Text Color', 'src-project'),
@@ -67,6 +73,7 @@ function src_project_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'current_festival_menu_color', array(
 		'default' => '#a66bed',
 		'sanitize_callback' => 'sanitize_hex_color',
+		'transport' => 'postMessage',
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'current_festival_menu_color', array(
 	'label'      => esc_html__('Menu Colour', 'src-project'),
@@ -77,6 +84,7 @@ function src_project_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'current_festival_accent_color', array(
 		'default' => '#0ea2c7',
 		'sanitize_callback' => 'sanitize_hex_color',
+		'transport' => 'postMessage',
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'current_festival_accent_color', array(
 	'label'      => esc_html__('Accent Colour', 'src-project'),
@@ -101,12 +109,12 @@ function src_project_customize_register( $wp_customize ) {
   $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
   $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
   $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'second_logo' )->transport      = 'postMessage';
+	/*$wp_customize->get_setting( 'second_logo' )->transport      = 'postMessage';
 	$wp_customize->get_setting( 'current_festival_dates' )->transport 			 = 'postMessage';
 	$wp_customize->get_setting( 'current_festival_hero_image' )->transport   = 'postMessage';
 	$wp_customize->get_setting( 'current_festival_text_color' )->transport   = 'postMessage';
 	$wp_customize->get_setting( 'current_festival_menu_color' )->transport   = 'postMessage';
-	$wp_customize->get_setting( 'current_festival_accent_color' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'current_festival_accent_color' )->transport = 'postMessage';*/
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(

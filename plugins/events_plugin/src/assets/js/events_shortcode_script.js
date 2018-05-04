@@ -19,8 +19,10 @@ app.init = function() {
     .done(data => {
       data["events"] = events;
       data.forEach(event => {
-        let slug = event._embedded["wp:term"][0][0].slug;
-        types[slug] = event._embedded["wp:term"][0][0].name;
+        if (event._embedded != undefined && event._embedded["wp:term"] != undefined){
+          let slug = event._embedded["wp:term"][0][0].slug;
+          types[slug] = event._embedded["wp:term"][0][0].name;
+        }
 
         let areaName = event.extra_meta["_event_cpt_area"]
           ? event.extra_meta["_event_cpt_area"][0]
@@ -90,10 +92,11 @@ function renderDropDownDate() {
   inputDateElement.setAttribute("type", "date");
   inputDateElement.setAttribute("data-date-inline-picker", true);
   inputDateElement.setAttribute("pattern", "[0-9]{4}-[0-9]{2}-[0-9]{2}");
-  inputDateElement.setAttribute("min", "2018-06-01");
-  inputDateElement.setAttribute("max", "2018-06-30");
   formElement.appendChild(inputDateElement);
 }
+let currentURL = window.location.pathname;
+let currentYear = currentURL.substring(currentURL.length - 5, currentURL.length - 1);
+
 
 function submitButton(data) {
   var filteredValues = { type: "", area: "", date: "" };
@@ -119,13 +122,10 @@ function submitButton(data) {
       });
       var newArray = data.filter(function(dataItem) {
         return (
-          (filteredValues.type == "" ||
-            dataItem._embedded["wp:term"][0][0].slug == filteredValues.type) &&
-          (filteredValues.area == "" ||
-            dataItem.extra_meta["_event_cpt_area"][0] == filteredValues.area) &&
-          (filteredValues.date == "" ||
-            dataItem.extra_meta["_event_cpt_date_event"][0] ==
-              filteredValues.date)
+          (filteredValues.type == "" || (dataItem._embedded != undefined && dataItem._embedded["wp:term"] != undefined && dataItem._embedded["wp:term"][0][0].slug == filteredValues.type)) &&
+          (filteredValues.area == "" || (dataItem.extra_meta != undefined && dataItem.extra_meta["_event_cpt_area"] != undefined && dataItem.extra_meta["_event_cpt_area"][0] == filteredValues.area)) &&
+          (filteredValues.date == "" || (dataItem.extra_meta != undefined && dataItem.extra_meta["_event_cpt_date_event"] != undefined && (dataItem.extra_meta["_event_cpt_date_event"][0].substring(0,4) === currentYear) && dataItem.extra_meta["_event_cpt_date_event"][0] == filteredValues.date))
+          
         );
       });
       renderNewEventsView(newArray);
@@ -135,6 +135,12 @@ function submitButton(data) {
 function renderNewEventsView(newArray) {
   let programDiv = document.getElementById("programme");
   programDiv.innerHTML = "";
+  if (newArray.length === 0){
+    let errorDiv = document.createElement("div");
+    errorDiv.classList.add("error");
+     errorDiv.innerHTML = "Oops! Nothing to show";
+     programDiv.appendChild(errorDiv);
+  }
   newArray.forEach(event => {
     let sectionElement = document.createElement("section");
     sectionElement.classList.add("event-entry");
@@ -299,7 +305,11 @@ function renderNewEventsView(newArray) {
 
     let titleDivElement = document.createElement("div");
     titleDivElement.classList.add("entry-meta");
-    titleDivElement.innerHTML = event._embedded["wp:term"][0][0].name;
+    if (event._embedded != undefined && event._embedded["wp:term"] != undefined) {
+      titleDivElement.innerHTML = event._embedded["wp:term"][0][0].name;
+    } else {
+      titleDivElement.innerHTML = "";
+    }
 
     // headerTwo.appendChild(titleDivElement);
     rightColumn.appendChild(titleDivElement);

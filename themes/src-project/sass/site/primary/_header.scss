@@ -10,6 +10,11 @@
     width: auto;
   }
 
+  .site-branding img {
+      max-height: 80px;
+      width: auto;
+  }
+
   svg.icon {
     width: 25px !important;
     height: 25px !important;
@@ -57,6 +62,7 @@
      input.search-submit:hover, input.search-submit:focus{
       background-color: $color__button-hover;
     }*/
+
     label {
       color: $color__placeholder;
     }
