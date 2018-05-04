@@ -1,6 +1,6 @@
 body[class*="page-whats-"] {
   .event-title {
-    border-bottom: 2px solid $color__border-whatson-event-title;
+    border-bottom: 2px solid $color__border-aqua;
     a {
       text-decoration: none !important;
     }
@@ -31,12 +31,9 @@ body[class*="page-whats-"] {
     }
   }
 
-  .entry-header {
-    border-bottom: 8px solid $color__border-whatson-event-title;
-  }
-  
   .entry-title {
-    margin:0;
+    margin-top: 0;
+    border-bottom: 15px solid $color__border-aqua;
   }
 
   .event-type {
