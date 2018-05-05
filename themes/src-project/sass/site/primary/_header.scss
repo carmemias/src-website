@@ -11,7 +11,7 @@
   }
 
   .site-branding {
-    width:15%;
+    width: 15%;
   }
 
   .site-branding.second-logo {
@@ -44,17 +44,17 @@
   .widget {
     align-self: flex-end;
     margin: 0;
-    opacity: 0;
-    height: 0;
-    width:100%;
+    display: none;
+    width: 100%;
     text-align: right;
-    padding-top:0;
+    padding-top: 20px;
     transition: opacity 0.3s ease, height 0.15s ease, padding 0.15s ease;
 
     &.widget-show {
-      padding-top:20px;
+      display: block !important;
+      padding-top: 20px;
       height: 50px;
-      opacity:1;
+      opacity: 1;
     }
 
     .search-field {
