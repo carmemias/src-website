@@ -20,12 +20,12 @@
 
 body:not(.home) .site-content,
 body:not(.home) .content-area {
-  margin: 1.5em 0 0;
+  margin: 1.5em 0 5rem 0;
   padding: 0 1rem 5rem 1rem;
 }
 
 .page-home .site-content {
-  margin-bottom: 10rem;
+  margin-bottom: 15rem;
 }
 
 .page-links {
@@ -217,7 +217,7 @@ body:not(.home) .site-main {
   }
 
   .page-home .site-content {
-    margin-bottom: 5rem;
+    margin-bottom: 10rem;
   }
 
   h2 {
