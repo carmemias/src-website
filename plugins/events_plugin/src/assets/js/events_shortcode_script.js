@@ -19,7 +19,7 @@ app.init = function() {
     .done(data => {
       data["events"] = events;
       data.forEach(event => {
-        if (event._embedded != undefined && event._embedded["wp:term"] != undefined){
+        if (event._embedded != undefined &&event._embedded["wp:term"] != undefined) {
           let slug = event._embedded["wp:term"][0][0].slug;
           types[slug] = event._embedded["wp:term"][0][0].name;
         }
@@ -95,7 +95,10 @@ function renderDropDownDate() {
   formElement.appendChild(inputDateElement);
 }
 let currentURL = window.location.pathname;
-let currentYear = currentURL.substring(currentURL.length - 5, currentURL.length - 1);
+let currentYear = currentURL.substring(
+  currentURL.length - 5,
+  currentURL.length - 1
+);
 
 
 function submitButton(data) {
@@ -122,10 +125,19 @@ function submitButton(data) {
       });
       var newArray = data.filter(function(dataItem) {
         return (
-          (filteredValues.type == "" || (dataItem._embedded != undefined && dataItem._embedded["wp:term"] != undefined && dataItem._embedded["wp:term"][0][0].slug == filteredValues.type)) &&
-          (filteredValues.area == "" || (dataItem.extra_meta != undefined && dataItem.extra_meta["_event_cpt_area"] != undefined && dataItem.extra_meta["_event_cpt_area"][0] == filteredValues.area)) &&
-          (filteredValues.date == "" || (dataItem.extra_meta != undefined && dataItem.extra_meta["_event_cpt_date_event"] != undefined && (dataItem.extra_meta["_event_cpt_date_event"][0].substring(0,4) === currentYear) && dataItem.extra_meta["_event_cpt_date_event"][0] == filteredValues.date))
-          
+          (filteredValues.type == "" ||
+            (dataItem._embedded != undefined &&
+              dataItem._embedded["wp:term"] != undefined &&
+              dataItem._embedded["wp:term"][0][0].slug == filteredValues.type)) &&
+          (filteredValues.area == "" ||
+            (dataItem.extra_meta != undefined &&
+              dataItem.extra_meta["_event_cpt_area"] != undefined &&
+              dataItem.extra_meta["_event_cpt_area"][0] == filteredValues.area)) &&
+          (filteredValues.date == "" ||
+            (dataItem.extra_meta != undefined &&
+              dataItem.extra_meta["_event_cpt_date_event"] != undefined &&
+              dataItem.extra_meta["_event_cpt_date_event"][0].substring(0, 4) === currentYear &&
+              dataItem.extra_meta["_event_cpt_date_event"][0] == filteredValues.date))
         );
       });
       renderNewEventsView(newArray);
@@ -135,11 +147,11 @@ function submitButton(data) {
 function renderNewEventsView(newArray) {
   let programDiv = document.getElementById("programme");
   programDiv.innerHTML = "";
-  if (newArray.length === 0){
+  if (newArray.length === 0) {
     let errorDiv = document.createElement("div");
     errorDiv.classList.add("error");
-     errorDiv.innerHTML = "Oops! Nothing to show";
-     programDiv.appendChild(errorDiv);
+    errorDiv.innerHTML = "Oops! Nothing to show";
+    programDiv.appendChild(errorDiv);
   }
   newArray.forEach(event => {
     let sectionElement = document.createElement("section");
@@ -164,11 +176,17 @@ function renderNewEventsView(newArray) {
         "size-medium",
         "wp-post-image"
       );
-      imgElement.setAttribute(
-        "src",
-        event._embedded["wp:featuredmedia"][0].media_details.sizes.medium
-          .source_url
-      );
+      if (event._embedded["wp:featuredmedia"][0].media_details.sizes.medium != undefined) {
+        imgElement.setAttribute(
+          "src",
+          event._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
+        );
+      } else {
+        imgElement.setAttribute(
+          "src",
+          event._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url
+        );
+      }
       aElement.appendChild(imgElement);
       leftColumn.appendChild(aElement);
     }
@@ -305,7 +323,10 @@ function renderNewEventsView(newArray) {
 
     let titleDivElement = document.createElement("div");
     titleDivElement.classList.add("entry-meta");
-    if (event._embedded != undefined && event._embedded["wp:term"] != undefined) {
+    if (
+      event._embedded != undefined &&
+      event._embedded["wp:term"] != undefined
+    ) {
       titleDivElement.innerHTML = event._embedded["wp:term"][0][0].name;
     } else {
       titleDivElement.innerHTML = "";
@@ -353,11 +374,11 @@ function renderNewEventsView(newArray) {
     let eventLocation = document.createElement("p");
     eventLocation.classList.add("location");
 
-    if(event.extra_meta._event_cpt_area){
-        eventLocation.innerHTML = event.extra_meta._event_cpt_area + ", "
+    if (event.extra_meta._event_cpt_area) {
+      eventLocation.innerHTML = event.extra_meta._event_cpt_area + ", ";
     }
 
-    if(event.extra_meta._event_cpt_address_town_city){
+    if (event.extra_meta._event_cpt_address_town_city) {
       eventLocation.innerHTML = event.extra_meta._event_cpt_address_town_city;
     }
 
