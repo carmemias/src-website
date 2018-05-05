@@ -1,10 +1,12 @@
-form.filters{
+form.filters {
     display: flex;
     justify-content: space-around;
+    /* text-align:  center; */
 }
 
 .filters select {
     margin-right: 20px !important;
+    text-align:  center;
 }
 
 .filters input {
@@ -12,10 +14,16 @@ form.filters{
 }
 
 #submitFilterButton {
-    font-size:  20px;
+    font-size: 20px;
     min-width: 15%;
     max-height: auto;
-    height:  55px;
-    text-align:  center;
-    align-self:  center;
+    height: 55px;
+    text-align: center;
+    align-self: center;
+}
+
+.error{
+    color: red;
+    font-size: 28px;
+    padding: 30px 0;
 }
