@@ -1,9 +1,10 @@
 body[class*="page-whats-"] {
   .event-title {
     border-bottom: 2px solid $color__border-whatson-event-title;
-
-    a {text-decoration: none !important;}
-
+    a {
+      text-decoration: none !important;
+    }
+    margin-bottom: 1rem !important;
   }
 }
 
@@ -105,7 +106,6 @@ body[class*="page-whats-"] {
   }
   .organiser-logos img:not(:last-child),
   .organiser-logos img:not(:nth-last-child(0)) {
-    margin-right:10px;
+    margin-right: 10px;
   }
-
 }

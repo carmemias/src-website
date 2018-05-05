@@ -2,13 +2,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
-
-  padding-bottom:20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 20px;
   text-align: center;
 
   .widget-area {
@@ -16,12 +14,12 @@
   }
 
   a {
-    color: $color__site-footer;
+    color: $color__text-main;
     text-decoration: none;
   }
 
-  #footer-secondary{
-    display:  flex;
+  #footer-secondary {
+    display: flex;
     justify-content: center;
   }
 
@@ -29,21 +27,28 @@
     display: flex !important;
     justify-content: center;
     align-items: baseline;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
+  }
+
+  .widget-title {
+    color: $color__text-main;
   }
 
   .es_textbox {
     padding: 10px;
   }
 
+  .es_textbox_class {
+    background-color: $color__background-aqua;
+  }
   .es_caption {
     align-self: end;
     width: 100%;
-    color: $color__text-main
-}
+    color: $color__text-subscribers;
+  }
 
   #es_txt_button {
-    background-color: $color__background-input;
+    background-color: $color__background-button;
     @include font-size(1);
     color: $color__text-button;
     margin-left: 5px;
@@ -53,24 +58,21 @@
     background-color: $color__button-hover;
   }
 
-  label,  {
-    color: $color__placeholder;
+  label {
+    color: $color__text-main;
   }
 
   #es_widget_msg {
-  	width: 100%;
+    width: 100%;
   }
   .es_msg {
-  	color:$color__subscriptions-message;
+    color: $color__background-aqua;
   }
-
-
 }
 
 .site-info {
   @include font-size(0.75);
 }
-
 
 @media only screen and (max-width: 640px) {
   form.es_widget_form {
