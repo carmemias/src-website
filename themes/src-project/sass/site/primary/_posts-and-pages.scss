@@ -21,7 +21,7 @@
 body:not(.home) .site-content,
 body:not(.home) .content-area {
   margin: 1.5em 0 5rem 0;
-  padding: 0 1rem 5rem 1rem;
+  padding: 0 1rem;
 }
 
 .page-home .site-content {
@@ -130,6 +130,10 @@ body:not(.home) .site-main {
 
   #programme {
     flex-direction: column !important;
+
+    img {
+      width:100%;
+    }
   }
 
   .entry-content {
@@ -159,7 +163,7 @@ body:not(.home) .site-main {
     margin: 0.5rem;
   }
 
-  h2 {
+  h2:not(.widget-title) {
     font-size: 18px !important;
   }
 
@@ -220,7 +224,7 @@ body:not(.home) .site-main {
     margin-bottom: 10rem;
   }
 
-  h2 {
+  h2:not(.widget-title) {
     font-size: 18px !important;
   }
 }

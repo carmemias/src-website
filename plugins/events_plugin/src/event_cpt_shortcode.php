@@ -118,17 +118,19 @@ function events_cpt_shortcode_handler( $atts ){
     setup_postdata($single_event);
     //get the data
     $event_id = $single_event->ID;
+
+    $event_image = get_the_post_thumbnail( $event_id, 'medium' );
+    $event_organiser_links = get_event_organiser_links($single_event);
+
     $event_name = get_the_title($event_id);
-    //test $event_types = get_the_terms( $event_id, 'event-type' );
+    $event_organiser_main = $single_event->_event_cpt_main_organizer;
+
     $event_types = get_event_types($event_id);
     $event_types_string = '';
-    $event_image = get_the_post_thumbnail( $event_id, 'medium' );
-    $event_excerpt = get_the_excerpt( $event_id );
-    $event_date = date('l, j F', strtotime($single_event->_event_cpt_date_event));
+
+    $event_date = date('l j F', strtotime($single_event->_event_cpt_date_event));
     $event_start_time = $single_event->_event_cpt_startTime_event;
     $event_end_time = $single_event->_event_cpt_endTime_event;
-    $event_organisers = get_event_main_organiser($single_event);
-    $event_organiser_links = get_event_organiser_links($single_event);
 
     $event_location = get_event_short_location($single_event);
 
@@ -139,23 +141,22 @@ function events_cpt_shortcode_handler( $atts ){
     $output_string .= '<section id="event-'.esc_attr($event_id).'" class="event-entry">';
     $output_string .= '<div class="left-column">';
     $output_string .= '<a href="'.esc_url_raw($event_post_url).'" alt="Read more about '.$event_name.'">'.$event_image.'</a>';
-    $output_string .= $event_organiser_links;
+    $output_string .= '<div class="links">'.$event_organiser_links.'</div><!-- links -->';
     $output_string .= '</div><!-- left-column -->';
 
     $output_string .= '<div class="right-column">';
-    $output_string .= ' <h2 class="event-title"><a href="'.esc_url_raw($event_post_url).'" alt="Read more about '.$event_name.'">' . $event_name . '</a></h2>';
+    $output_string .= ' <header class="event-header">';
+    $output_string .= '  <h2 class="event-title"><a href="'.esc_url_raw($event_post_url).'" alt="Read more about '.$event_name.'">' . $event_name . '</a></h2>';
+    $output_string .= '  <div class="event-by">by '.$event_organiser_main.'</div>';
+    $output_string .= ' </header>';
+
     $output_string .= ' <div class="entry-meta">'.$event_types.'</div>';
-    $output_string .= '<div class="event-excerpt">';
-    if(''!=$event_excerpt){$output_string .= $event_excerpt;} else {$output_string .= '<span style="color: #f00;">No excerpt yet.</span>';}
-    $output_string .= '</div>';//$output_string .= $event_description;
-    $output_string .= $event_organisers;
     if(!$event_date){$output_string .= '<span style="color: #f00;">No date set yet</span>';}else{$output_string .= ' <p class="date">'.$event_date.' from '.$event_start_time.' to '.$event_end_time.'</p>';}
-    $output_string .= $event_location;
-    $output_string .= '<p class="price">';
-    if('0.00' == $event_price){$output_string .= 'FREE';}elseif('-1.00' == $event_price){$output_string .= 'ENTRY BY DONATION';}else{$output_string .= '£'.$event_price;};
+    $output_string .= ' <p class="location">'.$event_location.'</p>';
+    $output_string .= ' <p class="price">';
+    if('0.00' == $event_price){$output_string .= 'Free';}elseif('-1.00' == $event_price){$output_string .= 'Entry by Donation';}else{$output_string .= '£'.$event_price;};
     $output_string .= '</p>';
     $output_string .= '</div><!-- right-column -->';
-        //$output_string .= $event_description;
     $output_string .= '</section>';
      } //foreach
 
@@ -198,43 +199,6 @@ function get_event_types($id){
 
   return $types_string;
 }
-/*
-* Get only the main organiser blurb
-*/
-function get_event_main_organiser($event){
-  $string ='';
-  $event_organiser_main = $event->_event_cpt_main_organizer;
-
-  $string .= '<p class="organisers">'.$event_organiser_main.'.';
-}
-/*
-* Get all the organisers blurb
-*/
-function get_event_organisers($event){
-  $string ='';
-  $event_organiser_main = $event->_event_cpt_main_organizer;
-  $event_organiser_other_1 = $event->_event_cpt_other_organizer_1;
-  $event_organiser_other_2 = $event->_event_cpt_other_organizer_2;
-  $event_organiser_other_3 = $event->_event_cpt_other_organizer_3;
-
-  $string .= '<p class="organisers">Organised by: '.$event_organiser_main.'.';
-  if( $event_organiser_other_1 || $event_organiser_other_2 || $event_organiser_other_3 ){
-    $other_organisers = array();
-    if($event_organiser_other_1){array_push($other_organisers,$event_organiser_other_1);}
-    if($event_organiser_other_2){array_push($other_organisers,$event_organiser_other_2);}
-    if($event_organiser_other_3){array_push($other_organisers,$event_organiser_other_3);}
-    $string .= ' In partnership with: '. $other_organisers[0];
-    if(2 === count($other_organisers)){
-      $string .= ' and '.$event_organiser_other_2.'.';
-    }
-    if(3 === count($other_organisers)){
-      $string .= ', '.$event_organiser_other_2.' and '.$event_organiser_other_3.'.';
-    }
-  }
-  $string .= '</p><!-- organisers -->';
-
-  return $string;
-}
 
 function get_event_organiser_links($event){
   $string ='';
@@ -244,12 +208,10 @@ function get_event_organiser_links($event){
   $event_organiser_twitter = $event->_event_cpt_organizer_twitter;
   $event_organiser_instagram = $event->_event_cpt_organizer_instagram;
 
-  $string .= '<div class="links">';
   if( '' != $event_organiser_website ){$string .= '<a href="'.esc_url_raw($event_organiser_website).'" target="_blank" rel="noopener"><span class="screen-reader-text">Website</span><svg class="icon icon-website" aria-hidden="true" role="img"><use href="#icon-website" xlink:href="#icon-website"></use></svg></a>';}
   if( '' != $event_organiser_facebook ){$string .= '<a href="'.esc_url_raw($event_organiser_facebook).'" target="_blank" rel="noopener"><span class="screen-reader-text">Facebook</span><svg class="icon icon-facebook" aria-hidden="true" role="img"><use href="#icon-facebook" xlink:href="#icon-facebook"></use></svg></a>';}
   if( '' != $event_organiser_twitter ){$string .= '<a href="'.esc_url_raw($event_organiser_twitter).'" target="_blank" rel="noopener"><span class="screen-reader-text">Twitter</span><svg class="icon icon-twitter" aria-hidden="true" role="img"><use href="#icon-twitter" xlink:href="#icon-twitter"></use></svg></a>';}
   if( '' != $event_organiser_instagram ){$string .= '<a href="'.esc_url_raw($event_organiser_instagram).'" target="_blank" rel="noopener"><span class="screen-reader-text">Instagram</span><svg class="icon icon-instagram" aria-hidden="true" role="img"><use href="#icon-instagram" xlink:href="#icon-instagram"></use></svg></a>';}
-  $string .= '</div><!-- links -->';
 
   return $string;
 }
@@ -259,8 +221,7 @@ function get_event_short_location($event){
     $event_venue = $event->_event_cpt_venue;
     $event_area = $event->_event_cpt_area;
 
-    $string .= ' <p class="location">'.$event_venue;
-    $string .= ', '.$event_area.'</p>';
+    $string .= $event_venue.', '.$event_area;
 
     return $string;
 }

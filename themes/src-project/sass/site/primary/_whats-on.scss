@@ -1,10 +1,17 @@
 body[class*="page-whats-"] {
-  .event-title {
+  .entry-header { display: none;}
+  .event-header {
     border-bottom: 2px solid $color__border-aqua;
+  }
+  .event-title {
+    line-height:1.1em;
+    text-transform: capitalize;
     a {
       text-decoration: none !important;
     }
-    margin-bottom: 1rem !important;
+  }
+  .price{
+    font-weight:bold;
   }
 }
 
