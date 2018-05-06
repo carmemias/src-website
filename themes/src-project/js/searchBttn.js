@@ -23,33 +23,33 @@
 
     lastItem = links[links.length - 1];
 
-
     if (lastItem.innerHTML === 'Search' || 'search') {
       let spanEl = document.createElement('span'),
-        svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
-        useEl = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+          protocol = window.location.protocol,
+          hostURL = window.location.hostname,
+          svgURL = protocol + '//' + hostURL + '/wp-content/themes/src-project/images/search-icon.svg',
+          pngURL = protocol + '//' + hostURL + '/wp-content/themes/src-project/images/search-icon.png',
+          imgEl = document.createElement('img'); //<img src="your.svg" onerror="this.src='your.png'">
 
       spanEl.innerHTML = 'Search';
       spanEl.classList.add('screen-reader-text');
 
-      useEl.setAttribute('href', '#icon-search');
-      useEl.setAttribute('xlink:href', '#icon-search');
-
-      svgEl.setAttribute('class', 'icon icon-search');
-      svgEl.setAttribute('role', 'img');
-      svgEl.setAttribute('aria-hidden', 'true');
-      svgEl.appendChild(useEl);
+      imgEl.setAttribute('src', svgURL);
+      imgEl.setAttribute('onerror', "this.src=pngURL");
+      imgEl.setAttribute('width', 25);
+      imgEl.setAttribute('height', 25);
 
       lastItem.innerHTML = '';
       lastItem.appendChild(spanEl);
 
-      lastItem.appendChild(svgEl);
+      lastItem.appendChild(imgEl);
 
       lastItem.classList.add('search-bttn');
       lastItem.addEventListener('click', toggleSearchForm);
     }
 
-    function toggleSearchForm() {
+    function toggleSearchForm(event) {
+      event.preventDefault();
       var widgetSearch = document.getElementsByClassName('widget_search')[0];
 
       if (!widgetSearch) {

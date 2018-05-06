@@ -11,7 +11,7 @@
   }
 
   .site-branding {
-    width: 15%;
+    width: 12%;
   }
 
   .site-branding.second-logo {
@@ -43,11 +43,13 @@
 
   .widget {
     align-self: flex-end;
+    order:4;
     margin: 0;
-    display: none;
+    height:0;
+    opacity:0;
     width: 100%;
     text-align: right;
-    padding-top: 20px;
+    padding-top: 0;
     transition: opacity 0.3s ease, height 0.15s ease, padding 0.15s ease;
 
     &.widget-show {
@@ -119,10 +121,19 @@
   }
 }
 
+@media (max-width: 640px) {
+  .site-header .site-branding img {
+    height:80px;
+    max-width:none;
+  }
+}
+
 @media (max-width: 400px) {
   .site-header {
+    justify-content: space-between;
     .site-branding {
-      text-align: center;
+      width:30%;
+      //text-align: center;
     }
 
     .widget {

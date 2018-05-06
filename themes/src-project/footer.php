@@ -37,7 +37,7 @@
         <div class="site-info">
                 <?php
                 /* translators: 1: Theme name, 2: Theme author. */
-                printf( esc_html__( 'Design by %1$s. WordPress Theme by %2$s.', 'src-project' ), '<a href="ttps://www.risottostudio.com">RISOTTO Studio</a>', '<a href="https://codeyourfuture.io">Code Your Future</a> graduates' );
+                printf( esc_html__( 'Design by %1$s. WordPress website by %2$s.', 'src-project' ), '<a href="ttps://www.risottostudio.com">RISOTTO Studio</a>', '<a href="https://codeyourfuture.io">Code Your Future</a> graduates' );
                 ?>
         </div><!-- .site-info -->
 
