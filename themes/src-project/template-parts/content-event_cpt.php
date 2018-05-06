@@ -22,7 +22,7 @@ $event_organiser_links = get_event_organiser_links($custom);
 $event_location = get_event_full_location($custom);
 
 $event_price = get_price($custom);
-if(array_key_exists( '_event_cpt_key_event', $custom )){$is_key_event = $custom['_event_cpt_key_event'][0];}
+if(array_key_exists( '_event_cpt_key_event', $custom )){$is_key_event = $custom['_event_cpt_key_event'][0];}else{$is_key_event = false;}
 
 if($is_key_event){
   $organiser_logos = get_organiser_logos($custom);

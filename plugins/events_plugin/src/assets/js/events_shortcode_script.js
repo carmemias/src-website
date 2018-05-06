@@ -19,9 +19,12 @@ app.init = function() {
     .done(data => {
       data["events"] = events;
       data.forEach(event => {
-        if (event._embedded != undefined &&event._embedded["wp:term"] != undefined) {
-          let slug = event._embedded["wp:term"][0][0].slug;
-          types[slug] = event._embedded["wp:term"][0][0].name;
+        if (event._embedded != undefined && event._embedded["wp:term"] != undefined) {
+          let allTypes = event._embedded["wp:term"][0];
+          allTypes.forEach(function(singleType){
+            let slug = singleType.slug;
+            types[slug] = singleType.name;
+          });
         }
 
         let areaName = event.extra_meta["_event_cpt_area"]
