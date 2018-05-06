@@ -49,7 +49,8 @@
       lastItem.addEventListener('click', toggleSearchForm);
     }
 
-    function toggleSearchForm() {
+    function toggleSearchForm(event) {
+      event.preventDefault();
       var widgetSearch = document.getElementsByClassName('widget_search')[0];
 
       if (!widgetSearch) {

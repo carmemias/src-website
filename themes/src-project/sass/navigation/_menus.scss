@@ -10,10 +10,13 @@
   font-size: 30px;
 
   ul {
-    display: none;
+    //display: none;
+    opacity:0;
+    height:0;
     list-style: none;
     margin: 0;
     padding-left: 0;
+    transition: opacity 0.15s, height 0.15s;
 
     ul {
       box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -82,7 +85,9 @@
 /* Mobile menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
-  display: block;
+  //display: block;
+  height:auto;
+  opacity:1;
 }
 
 .menu-toggle {
