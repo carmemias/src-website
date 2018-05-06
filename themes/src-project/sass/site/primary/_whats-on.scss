@@ -35,8 +35,6 @@ body[class*="page-whats-"] {
     }
 
     .right-column {
-      align-self: right;
-      text-align: right;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -48,14 +46,24 @@ body[class*="page-whats-"] {
 
       .subcolumn-A {
         width: 47%;
+        margin-bottom:10px;
         font-size: 1.1em;
         line-height: 2em;
         font-weight: bold;
+
+        @media (max-width: 450px) {
+          width: 100%;
+        }
       }
 
       .subcolumn-B {
         width: 47%;
+        margin-bottom:10px;
         color: $color__single-event-right-content;
+
+        @media (max-width: 450px) {
+          width: 100%;
+        }
       }
     }
 

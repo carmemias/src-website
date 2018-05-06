@@ -22,6 +22,10 @@ body:not(.home) .site-content,
 body:not(.home) .content-area {
   margin: 1.5em 0 5rem 0;
   padding: 0 1rem;
+
+  @media only screen and (max-width: 640px) {
+    margin-bottom:8rem;
+  }
 }
 
 .page-home .site-content {

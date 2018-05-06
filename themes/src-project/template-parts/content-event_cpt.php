@@ -182,7 +182,7 @@ function get_event_full_location($custom){
 
    <div class="right-column">
   	  <?php if(has_post_thumbnail()){src_project_post_thumbnail();} else {
-        echo '<img src="'.get_stylesheet_directory_uri().'/images/default-event-image.png" alt="no event image available" />';
+        echo '<div class="post-thumbnail"><img src="'.get_stylesheet_directory_uri().'/images/default-event-image.png" alt="no event image available" /></div>';
       } ?>
 
       <div class="subcolumn-A">
