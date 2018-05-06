@@ -48,7 +48,9 @@ app.init = function() {
     });
 };
 
-//add event_type filter html to the top of the page
+/*
+* add event_type filter html to the top of the page
+*/
 function renderDropDown(types) {
   let formElement = document.getElementsByClassName("filters")[0];
 
@@ -68,6 +70,9 @@ function renderDropDown(types) {
   formElement.appendChild(selectElement);
 }
 
+/*
+* add event_area filter html to the top of the page
+*/
 function renderDropDownArea(areas) {
   let formElement = document.getElementsByClassName("filters")[0];
 
@@ -87,6 +92,9 @@ function renderDropDownArea(areas) {
   formElement.appendChild(selectAreaElement);
 }
 
+/*
+* add event_date filter html to the top of the page
+*/
 function renderDropDownDate() {
   let formElement = document.getElementsByClassName("filters")[0];
 
@@ -97,13 +105,17 @@ function renderDropDownDate() {
   inputDateElement.setAttribute("pattern", "[0-9]{4}-[0-9]{2}-[0-9]{2}");
   formElement.appendChild(inputDateElement);
 }
+
+//check in which programme page we are
 let currentURL = window.location.pathname;
 let currentYear = currentURL.substring(
   currentURL.length - 5,
   currentURL.length - 1
 );
 
-
+/*
+* add a Submit button to the filter, form read input from all 3 filters and submit query
+*/
 function submitButton(data) {
   var filteredValues = { type: "", area: "", date: "" };
   let formElement = document.getElementsByClassName("filters")[0];
@@ -112,6 +124,7 @@ function submitButton(data) {
   var t = document.createTextNode("Find Event");
   btn.appendChild(t);
   formElement.appendChild(btn);
+
   document
     .getElementById("submitFilterButton")
     .addEventListener("click", function(x) {
@@ -147,6 +160,9 @@ function submitButton(data) {
     });
 }
 
+/*
+* render the list of events resulting from the filter query
+*/
 function renderNewEventsView(newArray) {
   let programDiv = document.getElementById("programme");
   programDiv.innerHTML = "";
@@ -167,6 +183,7 @@ function renderNewEventsView(newArray) {
     sectionElement.appendChild(leftColumn);
     sectionElement.appendChild(rightColumn);
     programDiv.appendChild(sectionElement);
+    
     //start of left column
     let aElement = document.createElement("a");
     aElement.setAttribute("href", event.link);
