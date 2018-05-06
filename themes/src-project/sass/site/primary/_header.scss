@@ -10,14 +10,6 @@
     width: auto;
   }
 
-  .site-branding {
-    width:15%;
-  }
-
-  .site-branding.second-logo {
-    text-align: right;
-  }
-
   .site-branding img {
       max-height: 80px;
       width: auto;
@@ -44,17 +36,13 @@
   .widget {
     align-self: flex-end;
     margin: 0;
-    opacity: 0;
-    height: 0;
-    width:100%;
+    display: none;
+    width: 100%;
     text-align: right;
-    padding-top:0;
-    transition: opacity 0.3s ease, height 0.15s ease, padding 0.15s ease;
+    padding-top: 20px;
 
     &.widget-show {
-      padding-top:20px;
-      height: 50px;
-      opacity:1;
+      display: block !important;
     }
 
     .search-field {

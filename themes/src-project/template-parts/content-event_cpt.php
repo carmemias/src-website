@@ -14,7 +14,7 @@ $custom = get_post_custom($event_id);
 if(array_key_exists( '_event_cpt_main_organizer', $custom )){$event_by = $custom['_event_cpt_main_organizer'][0];}
 $event_types = get_event_types($event_id);
 //$event_date = get_post_meta($event_id, '_event_cpt_date_event', true);
-if(array_key_exists( '_event_cpt_date_event', $custom )){$event_date = date('l j F', strtotime($custom['_event_cpt_date_event'][0]));}
+if(array_key_exists( '_event_cpt_date_event', $custom )){$event_date = date('l, j F', strtotime($custom['_event_cpt_date_event'][0]));}
 if(array_key_exists( '_event_cpt_startTime_event', $custom )){$event_start_time = $custom['_event_cpt_startTime_event'][0];}
 if(array_key_exists( '_event_cpt_endTime_event', $custom )){$event_end_time = $custom['_event_cpt_endTime_event'][0];}
 $event_organisers = get_event_organisers($custom);
@@ -22,7 +22,7 @@ $event_organiser_links = get_event_organiser_links($custom);
 $event_location = get_event_full_location($custom);
 //$event_price = get_post_meta($event_id, '_event_cpt_price_event', true);
 
-if(array_key_exists( '_event_cpt_price_event', $custom )){$event_price = $custom['_event_cpt_price_event'][0];}
+if(array_key_exists( '_event_cpt_price_event', $custom )){$event_price = money_format('%i', floatval($custom['_event_cpt_price_event'][0]));}
 if(array_key_exists( '_event_cpt_key_event', $custom )){$is_key_event = $custom['_event_cpt_key_event'][0];}
 
 if($is_key_event){
@@ -81,11 +81,16 @@ function get_event_types($id){
 }
 
 function get_event_organisers($custom){
-  $string = '';
+  $string ='';
+
+  if(array_key_exists( '_event_cpt_main_organizer', $custom )) {
+    $event_organiser_main = $custom['_event_cpt_main_organizer'][0];
+    $string .= 'Organised by: '.$event_organiser_main.'.';
+  }
 
   $other_organisers = array();
 
-  if(array_key_exists( '_event_cpt_other_organizer_1', $custom )){
+  if( array_key_exists( '_event_cpt_other_organizer_1', $custom ) ){
     $event_organiser_other_1 = $custom['_event_cpt_other_organizer_1'][0];
     array_push($other_organisers,$event_organiser_other_1);
   }
@@ -100,17 +105,15 @@ function get_event_organisers($custom){
     array_push($other_organisers,$event_organiser_other_3);
   }
 
-  if(0 == count($other_organisers)){ return '';}
-
-  if(0 != count($other_organisers)){
-    $string .= 'In partnership with '. $event_organiser_other_1;
+  if(1 >= count($other_organisers)){
+    $string .= ' In partnership with: '. $other_organisers[0];
   }
 
-  if(2 == count($other_organisers)){
+  if(2 === count($other_organisers)){
       $string .= ' and '.$event_organiser_other_2.'.';
   }
 
-  if(3 == count($other_organisers)){
+  if(3 === count($other_organisers)){
       $string .= ', '.$event_organiser_other_2.' and '.$event_organiser_other_3.'.';
   }
 
@@ -184,37 +187,20 @@ function get_event_full_location($custom){
   	  <?php if(has_post_thumbnail()){src_project_post_thumbnail();} else {
         echo '<img src="'.get_stylesheet_directory_uri().'/images/default-event-image.png" alt="no event image available" />';
       } ?>
-
-      <div class="subcolumn-A">
-        <div class="event-type"> <?php echo $event_types;?> </div>
-        <div class="price"> <?php if('0.00' || '' == $event_price){
-                                      echo 'Free Event';}
-                                  elseif('-1.00' == $event_price){
-                                        echo 'Entry By Donation';}
-                                  else{
-                                        $event_price = money_format('%i', floatval($custom['_event_cpt_price_event'][0]));
-                                        echo '£'.$event_price;
-                                  };
-         ?>
-       </div>
-     </div><!--subcolumn-A -->
-
-      <div class="subcolumn-B">
-        <?php echo $event_organiser_links; ?>
-
-        <div class="date">
-          <?php
-          if($event_date){echo $event_date;}
-          if($event_start_time){ echo ' from '.$event_start_time; }
-          if($event_end_time){ echo ' to '. $event_end_time; }
-          ?>
-        </div>
-        <div class="location"><?php echo $event_location; ?></div>
-      </div><!-- subcolumn-B -->
+      <?php echo $event_organiser_links; ?>
+      <div class="event-type"> <?php echo $event_types;?> </div>
+      <div class="date">
+        <?php
+        if($event_date){echo $event_date;}
+        if($event_start_time){ echo ' from '.$event_start_time.' to '. $event_end_time; }
+        ?></div>
+      <div class="price"> <?php if('0.00' == $event_price){ echo 'FREE';}elseif('-1.00' == $event_price){ echo 'ENTRY BY DONATION';}else{ echo '£'.$event_price;};
+       ?> </div>
+      <div class="location"><?php echo $event_location; ?></div>
    </div><!-- right-column -->
 
-   <div class="organiser-info">
-     <div class="organiser-names">
+   <div id="organiser-info">
+     <div class="organisers">
        <?php echo $event_organisers; ?>
      </div>
 
