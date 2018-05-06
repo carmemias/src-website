@@ -32,6 +32,7 @@
 
   .widget-title {
     color: $color__text-main;
+    margin-bottom:0;
   }
 
   .es_textbox {
@@ -45,6 +46,7 @@
     align-self: end;
     width: 100%;
     color: $color__text-subscribers;
+    font-size:1.5em;
   }
 
   #es_txt_button {
