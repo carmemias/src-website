@@ -40,6 +40,22 @@
 		} );
 	} );
 
+  //TODO Second Logo (SRC)
+	wp.customize( 'second_logo', function(value){
+		value.bind( function( newVal ){
+			//use the image id to find its source and alt attrib
+
+		});
+	});
+
+	//TODO Homepage Hero image
+	wp.customize( 'current_festival_hero_image', function(value){
+		value.bind( function( newVal ){
+			//use the image id to find its source and alt attrib
+
+		});
+	});
+
 	//Festival dates
 	//See https://codex.wordpress.org/Theme_Customization_API#Part_3:_Configure_Live_Preview_.28Optional.29
 	wp.customize( 'current_festival_dates', function( value ) {
