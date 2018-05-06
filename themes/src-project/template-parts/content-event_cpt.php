@@ -22,7 +22,7 @@ $event_organiser_links = get_event_organiser_links($custom);
 $event_location = get_event_full_location($custom);
 //$event_price = get_post_meta($event_id, '_event_cpt_price_event', true);
 
-if(array_key_exists( '_event_cpt_price_event', $custom )){$event_price = $custom['_event_cpt_price_event'][0];}
+if(array_key_exists( '_event_cpt_price_event', $custom )){$event_price = money_format('%i', floatval($custom['_event_cpt_price_event'][0]));}
 if(array_key_exists( '_event_cpt_key_event', $custom )){$is_key_event = $custom['_event_cpt_key_event'][0];}
 
 if($is_key_event){
@@ -187,7 +187,7 @@ function get_event_full_location($custom){
 
       <div class="subcolumn-A">
         <div class="event-type"> <?php echo $event_types;?> </div>
-        <div class="price"> <?php if('0.00' || '' == $event_price){
+        <div class="price"> <?php if(('0.00' == $event_price) || ('' == $event_price)){
                                       echo 'Free Event';}
                                   elseif('-1.00' == $event_price){
                                         echo 'Entry By Donation';}
