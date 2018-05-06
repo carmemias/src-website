@@ -13,20 +13,40 @@ $custom = get_post_custom($event_id);
 
 if(array_key_exists( '_event_cpt_main_organizer', $custom )){$event_by = sanitize_text_field($custom['_event_cpt_main_organizer'][0]);}
 $event_types = get_event_types($event_id);
-//$event_date = get_post_meta($event_id, '_event_cpt_date_event', true);
+
 if(array_key_exists( '_event_cpt_date_event', $custom )){$event_date = date('l j F', strtotime($custom['_event_cpt_date_event'][0]));}
 if(array_key_exists( '_event_cpt_startTime_event', $custom )){$event_start_time = $custom['_event_cpt_startTime_event'][0];}
 if(array_key_exists( '_event_cpt_endTime_event', $custom )){$event_end_time = $custom['_event_cpt_endTime_event'][0];}
 $event_organisers = get_event_organisers($custom);
 $event_organiser_links = get_event_organiser_links($custom);
 $event_location = get_event_full_location($custom);
-//$event_price = get_post_meta($event_id, '_event_cpt_price_event', true);
 
-if(array_key_exists( '_event_cpt_price_event', $custom )){$event_price = money_format('%i', floatval($custom['_event_cpt_price_event'][0]));}
+$event_price = get_price($custom);
 if(array_key_exists( '_event_cpt_key_event', $custom )){$is_key_event = $custom['_event_cpt_key_event'][0];}
 
 if($is_key_event){
   $organiser_logos = get_organiser_logos($custom);
+}
+
+/*
+* Get event price
+*/
+function get_price($custom){
+  if(array_key_exists( '_event_cpt_price_event', $custom )){
+    $price = money_format('%i', floatval($custom['_event_cpt_price_event'][0]));
+
+    if('0.00' == $price){
+      $price = 'Free Event';
+    } elseif('-1.00' == $price) {
+      $price ='Entry By Donation';
+    } else { $price = '£'.$price;
+    };
+
+  } else {
+    $price = 'Free Event';
+  }
+
+  return $price;
 }
 
 /*
@@ -211,16 +231,7 @@ function get_event_full_location($custom){
 
       <div class="subcolumn-A">
         <div class="event-type"> <?php echo $event_types;?> </div>
-        <div class="price"> <?php if(('0.00' == $event_price) || ('' == $event_price)){
-                                      echo 'Free Event';}
-                                  elseif('-1.00' == $event_price){
-                                        echo 'Entry By Donation';}
-                                  else{
-                                        $event_price = money_format('%i', floatval($custom['_event_cpt_price_event'][0]));
-                                        echo '£'.$event_price;
-                                  };
-         ?>
-       </div>
+        <div class="price"> <?php echo $event_price; ?> </div>
      </div><!--subcolumn-A -->
 
       <div class="subcolumn-B">
