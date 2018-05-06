@@ -176,6 +176,7 @@ function submitButton(data) {
 
   //check in which programme page we are
   let currentURL = window.location.pathname;
+  //TODO double check currentYear 
   let currentYear = currentURL.substring(
       currentURL.length - 5,
       currentURL.length - 1
