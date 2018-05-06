@@ -123,7 +123,7 @@ function events_cpt_shortcode_handler( $atts ){
     $event_organiser_links = get_event_organiser_links($single_event);
 
     $event_name = get_the_title($event_id);
-    $event_organiser_main = $single_event->_event_cpt_main_organizer;
+    $event_organiser_main = sanitize_text_field($single_event->_event_cpt_main_organizer);
 
     $event_types = get_event_types($event_id);
     $event_types_string = '';
@@ -154,7 +154,7 @@ function events_cpt_shortcode_handler( $atts ){
     if(!$event_date){$output_string .= '<span style="color: #f00;">No date set yet</span>';}else{$output_string .= ' <p class="date">'.$event_date.' from '.$event_start_time.' to '.$event_end_time.'</p>';}
     $output_string .= ' <p class="location">'.$event_location.'</p>';
     $output_string .= ' <p class="price">';
-    if('0.00' == $event_price){$output_string .= 'Free';}elseif('-1.00' == $event_price){$output_string .= 'Entry by Donation';}else{$output_string .= '£'.$event_price;};
+    if('0.00' == $event_price){$output_string .= __('Free', 'events-functionality');}elseif('-1.00' == $event_price){$output_string .= __('Entry by Donation', 'events-functionality');}else{$output_string .= '£'.sprintf('%0.2f',floatval($event_price));};
     $output_string .= '</p>';
     $output_string .= '</div><!-- right-column -->';
     $output_string .= '</section>';
@@ -170,21 +170,6 @@ function events_cpt_shortcode_handler( $atts ){
 add_shortcode( 'events', __NAMESPACE__ . '\events_cpt_shortcode_handler');
 
 /*
-* remove [...] from the end of the excerpt
-*/
-function custom_excerpt_more( $more ) {
-	return '';
-}
-add_filter( 'excerpt_more', __NAMESPACE__.'\custom_excerpt_more' );
-
-/*
-* Limit the excerpt to 20 words
-*/
-function custom_excerpt_length( $length ) {
-	return 18;
-}
-add_filter( 'excerpt_length',  __NAMESPACE__.'\custom_excerpt_length', 999 );
-/*
 * Get string listing event types
 */
 function get_event_types($id){
@@ -193,7 +178,7 @@ function get_event_types($id){
 
  if ( $types && !is_wp_error( $types ) ) {
     $types_array = array();
-    foreach ( $types as $type ) { $types_array[] = $type->name;}
+    foreach ( $types as $type ) { $types_array[] = sanitize_text_field($type->name);}
     $types_string = join( " | ", $types_array );
   }
 
@@ -218,28 +203,11 @@ function get_event_organiser_links($event){
 
 function get_event_short_location($event){
     $string ='';
-    $event_venue = $event->_event_cpt_venue;
-    $event_area = $event->_event_cpt_area;
+    $event_venue = sanitize_text_field($event->_event_cpt_venue);
+    $event_area = sanitize_text_field($event->_event_cpt_area);
 
     $string .= $event_venue.', '.$event_area;
 
     return $string;
-}
-
-function get_event_full_location($event){
-  $string ='';
-
-  $event_venue = $event->_event_cpt_venue;
-  $event_address_line_1 = $event->_event_cpt_address_line_1;
-  $event_address_line_2 = $event->_event_cpt_address_line_2;
-  $event_postcode = $event->_event_cpt_address_postcode;
-  $event_area = $event->_event_cpt_area;
-
-  $string .= ' <p class="location">'.$event_venue;
-  if($event_address_line_1){$string .= ', '.$event_address_line_1;}
-  if($event_address_line_2){$string .= ', '.$event_address_line_2;}
-  $string .= ', '.$event_area.' '.$event_postcode.'</p>';
-
-  return $string;
 }
 ?>
