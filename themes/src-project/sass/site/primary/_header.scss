@@ -1,7 +1,7 @@
 .site-header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   padding: 20px;
 
@@ -10,9 +10,17 @@
     width: auto;
   }
 
+  .site-branding {
+    width: 12%;
+  }
+
+  .site-branding.second-logo {
+    text-align: right;
+  }
+
   .site-branding img {
-      max-height: 80px;
-      width: auto;
+    max-height: 80px;
+    width: auto;
   }
 
   svg.icon {
@@ -35,14 +43,20 @@
 
   .widget {
     align-self: flex-end;
+    order:4;
     margin: 0;
-    display: none;
+    height:0;
+    opacity:0;
     width: 100%;
     text-align: right;
-    padding-top: 20px;
+    padding-top: 0;
+    transition: opacity 0.3s ease, height 0.15s ease, padding 0.15s ease;
 
     &.widget-show {
       display: block !important;
+      padding-top: 20px;
+      height: 50px;
+      opacity: 1;
     }
 
     .search-field {
@@ -69,7 +83,7 @@
   }
 }
 
-@media only screen and (max-width: 890px) {
+@media only screen and (max-width: 891px) {
   .site-header {
     .widget {
       .search-field {
@@ -95,6 +109,8 @@
     justify-content: flex-end;
     flex-wrap: nowrap;
     padding: 20px 0px 20px 0px;
+    order: 3;
+    width: 20%;
 
     a {
       text-align: center;
@@ -105,19 +121,19 @@
   }
 }
 
-@media (max-width: 660px) {
-  .main-navigation {
-    width: 50%;
+@media (max-width: 640px) {
+  .site-header .site-branding img {
+    height:80px;
+    max-width:none;
   }
 }
 
 @media (max-width: 400px) {
   .site-header {
-    flex-direction: column;
-    justify-content: center;
-
+    justify-content: space-between;
     .site-branding {
-      text-align: center;
+      width:30%;
+      //text-align: center;
     }
 
     .widget {

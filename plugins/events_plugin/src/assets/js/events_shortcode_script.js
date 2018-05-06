@@ -5,7 +5,8 @@
 var data = {};
 let app = {},
   areas = [],
-  types = [];
+  types = [],
+  dates = [];
 
 app.init = function() {
   let container = document.getElementsByClassName("entry-content")[0];
@@ -19,34 +20,84 @@ app.init = function() {
     .done(data => {
       data["events"] = events;
       data.forEach(event => {
-        if (event._embedded != undefined &&event._embedded["wp:term"] != undefined) {
-          let slug = event._embedded["wp:term"][0][0].slug;
-          types[slug] = event._embedded["wp:term"][0][0].name;
+        if (event._embedded != undefined && event._embedded["wp:term"] != undefined) {
+          let allTypes = event._embedded["wp:term"][0];
+          allTypes.forEach(function(singleType){
+            let slug = singleType.slug;
+            types[slug] = singleType.name;
+          });
         }
+        types.sort(function (a, b) {
+          return a.value.toUpperCase() - b.value.toUpperCase();
+        });
 
         let areaName = event.extra_meta["_event_cpt_area"]
           ? event.extra_meta["_event_cpt_area"][0]
           : "No area name set yet";
 
-        let date = event.extra_meta["_event_cpt_date_event"]
-          ? event.extra_meta["_event_cpt_date_event"][0]
-          : "No date set yet";
         if (areas.indexOf(areaName) == -1) {
           areas.push(areaName);
         }
         areas.sort();
+
+
+        let date = event.extra_meta["_event_cpt_date_event"]
+                  ? event.extra_meta["_event_cpt_date_event"][0]
+                  : "No date set yet";
+        if (dates.indexOf(date) == -1) {
+            dates.push(date);
+        }
+        dates.sort();
       });
     })
     .then(function(data) {
-      renderDropDown(types);
+      renderDropDownType(types);
       renderDropDownArea(areas);
-      renderDropDownDate();
+      renderDropDownDate(dates);
       submitButton(data);
     });
 };
 
-//add event_type filter html to the top of the page
-function renderDropDown(types) {
+/*
+* transform YYYY-MM-DD into a long format date
+*/
+function getLongDate(date){
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      d = new Date(date),
+      longDate = '';
+
+  longDate += days[d.getDay()] + ' ' + d.getDate() + ' ' + months[d.getMonth()];
+
+  return longDate;
+}
+
+/*
+* get all the types an event has been given
+*/
+function getAllItsTypes(event){
+  let typesArray = [];
+
+  if (event._embedded == undefined && event._embedded["wp:term"] == undefined) {
+    return typesArray;
+  } else {
+    let allTypes = event._embedded["wp:term"][0];
+    allTypes.forEach(function(singleType){
+      let slug = singleType.slug;
+      typesArray[slug] = singleType.name;
+    });
+  }
+  typesArray.sort(function (a, b) {
+    return a.value.toUpperCase() - b.value.toUpperCase();
+  });
+
+  return typesArray;
+}
+
+/*
+* add event_type filter html to the top of the page
+*/
+function renderDropDownType(types) {
   let formElement = document.getElementsByClassName("filters")[0];
 
   let selectElement = document.createElement("select");
@@ -65,6 +116,9 @@ function renderDropDown(types) {
   formElement.appendChild(selectElement);
 }
 
+/*
+* add event_area filter html to the top of the page
+*/
 function renderDropDownArea(areas) {
   let formElement = document.getElementsByClassName("filters")[0];
 
@@ -84,23 +138,33 @@ function renderDropDownArea(areas) {
   formElement.appendChild(selectAreaElement);
 }
 
-function renderDropDownDate() {
+/*
+* add event_date filter html to the top of the page
+*/
+function renderDropDownDate(dates) {
   let formElement = document.getElementsByClassName("filters")[0];
 
-  let inputDateElement = document.createElement("input");
-  inputDateElement.classList.add("filterElement");
-  inputDateElement.setAttribute("type", "date");
-  inputDateElement.setAttribute("data-date-inline-picker", true);
-  inputDateElement.setAttribute("pattern", "[0-9]{4}-[0-9]{2}-[0-9]{2}");
-  formElement.appendChild(inputDateElement);
+  let selectDateElement = document.createElement("select");
+  selectDateElement.setAttribute("name", "select-date");
+  selectDateElement.classList.add("filterElement");
+  let defaultElement = document.createElement("option");
+  defaultElement.setAttribute("value", "");
+  defaultElement.innerHTML = "All Dates";
+  selectDateElement.appendChild(defaultElement);
+  Object.keys(dates).forEach(date => {
+    let optionElement = document.createElement("option"),
+        longDate = getLongDate(dates[date]);
+
+    optionElement.setAttribute("value", dates[date]);
+    optionElement.innerHTML = longDate;
+    selectDateElement.appendChild(optionElement);
+  });
+  formElement.appendChild(selectDateElement);
 }
-let currentURL = window.location.pathname;
-let currentYear = currentURL.substring(
-  currentURL.length - 5,
-  currentURL.length - 1
-);
 
-
+/*
+* add a Submit button to the filter, form read input from all 3 filters and submit query
+*/
 function submitButton(data) {
   var filteredValues = { type: "", area: "", date: "" };
   let formElement = document.getElementsByClassName("filters")[0];
@@ -109,26 +173,37 @@ function submitButton(data) {
   var t = document.createTextNode("Find Event");
   btn.appendChild(t);
   formElement.appendChild(btn);
+
+  //check in which programme page we are
+  let currentURL = window.location.pathname;
+  //TODO double check currentYear 
+  let currentYear = currentURL.substring(
+      currentURL.length - 5,
+      currentURL.length - 1
+    );
+
   document
     .getElementById("submitFilterButton")
     .addEventListener("click", function(x) {
       x.preventDefault();
       var elems = document.querySelectorAll(".filterElement");
       elems.forEach(function(el) {
-        if (el.type == "date") {
-          filteredValues.date = el.value;
+        if (el.name == "select-date") {
+          filteredValues.date = el.options[el.selectedIndex].value;
         } else if (el.name == "select-area") {
           filteredValues.area = el.options[el.selectedIndex].value;
         } else {
           filteredValues.type = el.options[el.selectedIndex].value;
         }
       });
+
       var newArray = data.filter(function(dataItem) {
         return (
           (filteredValues.type == "" ||
             (dataItem._embedded != undefined &&
               dataItem._embedded["wp:term"] != undefined &&
-              dataItem._embedded["wp:term"][0][0].slug == filteredValues.type)) &&
+              //dataItem._embedded["wp:term"][0][0].slug == filteredValues.type)) &&
+              Object.keys(getAllItsTypes(dataItem)).includes(filteredValues.type) )) &&
           (filteredValues.area == "" ||
             (dataItem.extra_meta != undefined &&
               dataItem.extra_meta["_event_cpt_area"] != undefined &&
@@ -136,7 +211,7 @@ function submitButton(data) {
           (filteredValues.date == "" ||
             (dataItem.extra_meta != undefined &&
               dataItem.extra_meta["_event_cpt_date_event"] != undefined &&
-              dataItem.extra_meta["_event_cpt_date_event"][0].substring(0, 4) === currentYear &&
+              dataItem.extra_meta["_event_cpt_date_event"][0].substring(0, 4) == currentYear &&
               dataItem.extra_meta["_event_cpt_date_event"][0] == filteredValues.date))
         );
       });
@@ -144,6 +219,9 @@ function submitButton(data) {
     });
 }
 
+/*
+* render the list of events resulting from the filter query
+*/
 function renderNewEventsView(newArray) {
   let programDiv = document.getElementById("programme");
   programDiv.innerHTML = "";
@@ -153,7 +231,9 @@ function renderNewEventsView(newArray) {
     errorDiv.innerHTML = "Oops! Nothing to show";
     programDiv.appendChild(errorDiv);
   }
+
   newArray.forEach(event => {
+
     let sectionElement = document.createElement("section");
     sectionElement.classList.add("event-entry");
     sectionElement.setAttribute("id", "event-" + event.id);
@@ -164,6 +244,7 @@ function renderNewEventsView(newArray) {
     sectionElement.appendChild(leftColumn);
     sectionElement.appendChild(rightColumn);
     programDiv.appendChild(sectionElement);
+
     //start of left column
     let aElement = document.createElement("a");
     aElement.setAttribute("href", event.link);
@@ -193,6 +274,7 @@ function renderNewEventsView(newArray) {
 
     let links = document.createElement("div");
     links.classList.add("links");
+    //website
     if (event.extra_meta._event_cpt_organizer_website) {
       let website = document.createElement("a");
       website.setAttribute(
@@ -221,34 +303,38 @@ function renderNewEventsView(newArray) {
       website.appendChild(svgEl);
       links.appendChild(website);
     }
+    //facebook
     if (event.extra_meta._event_cpt_organizer_facebook) {
-      let facebook = document.createElement("a");
+      let facebook = document.createElement('a');
       facebook.setAttribute(
-        "href",
+        'href',
         event.extra_meta._event_cpt_organizer_facebook[0]
       );
-      facebook.setAttribute("target", "_blank");
-      facebook.setAttribute("rel", "noopener");
+      facebook.setAttribute('target', '_blank');
+      facebook.setAttribute('rel', 'noopener');
+      facebook.setAttribute('alt', 'Facebook link');
 
       let span = document.createElement("span");
       span.classList.add("screen-reader-text");
       span.innerHTML = "facebook";
 
-      let svgEl = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      let useEl = document.createElementNS("http://www.w3.org/2000/svg", "use");
+      let svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      let useEl = document.createElementNS('http://www.w3.org/2000/svg', 'use');
 
-      useEl.setAttribute("href", "#icon-facebook");
-      useEl.setAttribute("xlink:href", "#icon-facebook");
+      useEl.setAttribute('href', '#icon-facebook');
+      useEl.setAttribute('xlink:href', '#icon-facebook');
 
-      svgEl.setAttribute("class", "icon icon-facebook");
-      svgEl.setAttribute("role", "img");
-      svgEl.setAttribute("aria-hidden", "true");
+      svgEl.setAttribute('aria-hidden', 'true');
+      svgEl.classList.add('icon');
+      svgEl.classList.add('icon-facebook');
+      svgEl.setAttribute('role', 'img');
 
       svgEl.appendChild(useEl);
       facebook.appendChild(span);
       facebook.appendChild(svgEl);
       links.appendChild(facebook);
     }
+    //twitter
     if (event.extra_meta._event_cpt_organizer_twitter) {
       let twitter = document.createElement("a");
       twitter.setAttribute(
@@ -277,6 +363,7 @@ function renderNewEventsView(newArray) {
       twitter.appendChild(svgEl);
       links.appendChild(twitter);
     }
+    //instagram
     if (event.extra_meta._event_cpt_organizer_instagram) {
       let instagram = document.createElement("a");
       instagram.setAttribute(
@@ -306,9 +393,15 @@ function renderNewEventsView(newArray) {
       links.appendChild(instagram);
     }
     leftColumn.appendChild(links);
+
     //start of right column
-    let headerTwo = document.createElement("h2");
-    headerTwo.classList.add("type-title");
+    //header
+    let headerEl = document.createElement('header'),
+        headerTwo = document.createElement("h2"),
+        divEl = document.createElement('div');
+
+    headerEl.classList.add('event-header');
+    headerTwo.classList.add("event-title");
 
     let aRightElement = document.createElement("a");
     aRightElement.setAttribute("href", event.link);
@@ -319,35 +412,37 @@ function renderNewEventsView(newArray) {
     aRightElement.innerHTML = event.title.rendered;
 
     headerTwo.appendChild(aRightElement);
-    rightColumn.appendChild(headerTwo);
+    headerEl.appendChild(headerTwo);
 
-    let titleDivElement = document.createElement("div");
-    titleDivElement.classList.add("entry-meta");
+    if (event.extra_meta._event_cpt_main_organizer) {
+      let mainOrganiser = event.extra_meta._event_cpt_main_organizer[0];
+      divEl.classList.add('event-by');
+      divEl.innerHTML = mainOrganiser;
+      headerEl.appendChild(divEl);
+    }
+
+    rightColumn.appendChild(headerEl);
+
+    //event_types
+    let typeDivElement = document.createElement("div");
+    typeDivElement.classList.add("entry-meta");
     if (
       event._embedded != undefined &&
       event._embedded["wp:term"] != undefined
     ) {
-      titleDivElement.innerHTML = event._embedded["wp:term"][0][0].name;
+      let typesArray = event._embedded["wp:term"][0],
+          typesList = '';
+      typesArray.forEach(function(t){
+        typesList += t.name + ' | ';
+      })
+      typesList = typesList.substring(0, typesList.length - 3);
+      typeDivElement.innerHTML = typesList;
     } else {
-      titleDivElement.innerHTML = "";
+      typeDivElement.innerHTML = "";
     }
 
     // headerTwo.appendChild(titleDivElement);
-    rightColumn.appendChild(titleDivElement);
-
-    let contentDivElement = document.createElement("div");
-    contentDivElement.classList.add("event-excerpt");
-    contentDivElement.innerHTML = event.excerpt.rendered;
-    rightColumn.appendChild(contentDivElement);
-
-    let organizerParagraph = document.createElement("p");
-    organizerParagraph.classList.add("organisers");
-    if (event.extra_meta._event_cpt_main_organizer) {
-      organizerParagraph.innerHTML = event.extra_meta._event_cpt_main_organizer;
-    }
-
-    rightColumn.appendChild(organizerParagraph);
-    // organizerParagraph.classList.add("organisers");
+    rightColumn.appendChild(typeDivElement);
 
     let eventDate = document.createElement("p");
     eventDate.classList.add("date");
@@ -363,33 +458,39 @@ function renderNewEventsView(newArray) {
       eventDate.appendChild(span);
     } else {
       eventDate.innerHTML =
-        event.extra_meta._event_cpt_date_event +
-        " From " +
+        getLongDate(event.extra_meta._event_cpt_date_event) +
+        " from " +
         event.extra_meta._event_cpt_startTime_event +
-        " To " +
+        " to " +
         event.extra_meta._event_cpt_endTime_event;
     }
     rightColumn.appendChild(eventDate);
 
-    let eventLocation = document.createElement("p");
+    let eventLocation = document.createElement("p"),
+        locationTxt = '';
+
     eventLocation.classList.add("location");
 
-    if (event.extra_meta._event_cpt_area) {
-      eventLocation.innerHTML = event.extra_meta._event_cpt_area + ", ";
+    if (event.extra_meta._event_cpt_venue) {
+      locationTxt += event.extra_meta._event_cpt_venue;
     }
 
-    if (event.extra_meta._event_cpt_address_town_city) {
-      eventLocation.innerHTML = event.extra_meta._event_cpt_address_town_city;
+    if (event.extra_meta._event_cpt_area) {
+      locationTxt += ", " + event.extra_meta._event_cpt_area;
     }
+
+    eventLocation.innerHTML = locationTxt;
 
     rightColumn.appendChild(eventLocation);
 
     let eventPrice = document.createElement("p");
     eventPrice.classList.add("price");
-    if (event.extra_meta._event_cpt_price_event == undefined) {
+    if ((event.extra_meta._event_cpt_price_event == undefined) || event.extra_meta._event_cpt_price_event == '0.00') {
       eventPrice.innerHTML = "Free ";
+    } else if (event.extra_meta._event_cpt_price_event == '-1') {
+      eventPrice.innerHTML = "Entry by Donation";
     } else {
-      eventPrice.innerHTML = "£ " + event.extra_meta._event_cpt_price_event;
+      eventPrice.innerHTML = "£" + parseFloat(event.extra_meta._event_cpt_price_event).toFixed(2);
     }
     rightColumn.appendChild(eventPrice);
   });
