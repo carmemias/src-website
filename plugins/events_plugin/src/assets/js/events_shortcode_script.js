@@ -176,7 +176,7 @@ function submitButton(data) {
 
   //check in which programme page we are
   let currentURL = window.location.pathname;
-  //TODO double check currentYear 
+  //TODO double check currentYear
   let currentYear = currentURL.substring(
       currentURL.length - 5,
       currentURL.length - 1
@@ -417,7 +417,7 @@ function renderNewEventsView(newArray) {
     if (event.extra_meta._event_cpt_main_organizer) {
       let mainOrganiser = event.extra_meta._event_cpt_main_organizer[0];
       divEl.classList.add('event-by');
-      divEl.innerHTML = mainOrganiser;
+      divEl.innerHTML = 'by ' + mainOrganiser;
       headerEl.appendChild(divEl);
     }
 
