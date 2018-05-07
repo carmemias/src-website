@@ -32,7 +32,8 @@
 
   .widget-title {
     color: $color__text-main;
-    margin-bottom:0;
+    margin-bottom: 0;
+    font-size: 1.5em;
   }
 
   .es_textbox {
@@ -46,7 +47,7 @@
     align-self: end;
     width: 100%;
     color: $color__text-subscribers;
-    font-size:1.5em;
+    font-size: 1.5em;
   }
 
   #es_txt_button {
@@ -80,5 +81,10 @@
   form.es_widget_form {
     flex-direction: column;
     align-items: center !important;
+  }
+
+  .es_caption,
+  .widget-title {
+    font-size: 18px !important;
   }
 }

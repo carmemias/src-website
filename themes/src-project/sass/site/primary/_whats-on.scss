@@ -1,17 +1,19 @@
 body[class*="page-whats-"] {
-  .entry-header { display: none;}
+  .entry-header {
+    display: none;
+  }
   .event-header {
     border-bottom: 2px solid $color__border-aqua;
   }
   .event-title {
-    line-height:1.1em;
+    line-height: 1.1em;
     text-transform: capitalize;
     a {
       text-decoration: none !important;
     }
   }
-  .price{
-    font-weight:bold;
+  .price {
+    font-weight: bold;
   }
 }
 
@@ -46,7 +48,7 @@ body[class*="page-whats-"] {
 
       .subcolumn-A {
         width: 47%;
-        margin-bottom:10px;
+        margin-bottom: 10px;
         font-size: 1.1em;
         line-height: 2em;
         font-weight: bold;
@@ -58,7 +60,7 @@ body[class*="page-whats-"] {
 
       .subcolumn-B {
         width: 47%;
-        margin-bottom:10px;
+        margin-bottom: 10px;
         color: $color__single-event-right-content;
 
         @media (max-width: 450px) {
