@@ -49,7 +49,7 @@ body[class*="page-whats-"] {
       .subcolumn-A {
         width: 47%;
         margin-bottom: 10px;
-        font-size: 1.1em;
+        //font-size: 1.1em;
         line-height: 2em;
         font-weight: bold;
 
@@ -61,6 +61,7 @@ body[class*="page-whats-"] {
       .subcolumn-B {
         width: 47%;
         margin-bottom: 10px;
+        font-weight: bold;
         color: $color__single-event-right-content;
 
         @media (max-width: 450px) {
@@ -72,8 +73,9 @@ body[class*="page-whats-"] {
     .organiser-info {
       width: 100%;
       display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
+      flex-direction: column;
+    //  flex-wrap: wrap;
+    //  align-items: flex-end;
     }
   }
 
@@ -89,6 +91,10 @@ body[class*="page-whats-"] {
   .event-by {
     font-size: 1.3em;
     padding-bottom: 10px;
+  }
+
+  .date {
+    margin-top: 1em;
   }
 
   .entry-content {
