@@ -68,7 +68,7 @@
 	wp.customize( 'current_festival_text_color', function( value ) {
 		value.bind( function( newVal ) {
 			if ( 'blank' != newVal ) {
-				$( 'body, input, select, optgroup, a, .site-footer, .site-footer a, .site-footer label, .site-footer .es_caption, .widget-title' ).css( {
+				$( 'body, input, select, optgroup, .site-footer, .site-footer a, .site-footer label, .widget-title' ).css( {
 					'color': newVal,
 				} );
 				$( '.site-footer #es_txt_button' ).css( {
@@ -88,7 +88,11 @@
 				$( '.search-bttn svg.icon' ).css( {
 					'fill': newVal,
 				} );
-				$('input[type="submit"], .site-footer #es_txt_button, #programme .links a, .single-event_cpt .links a').css( {
+				$('input[type="submit"], .site-footer #es_txt_button, button').css( {
+					'border-color':newVal,
+					'background-color': newVal,
+				} );
+				$('#programme .links a, .single-event_cpt .links a').css( {
 					'background-color': newVal,
 				} );
 			}

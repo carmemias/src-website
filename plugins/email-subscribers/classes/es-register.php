@@ -256,17 +256,13 @@ class es_cls_registerhook {
 		wp_enqueue_script( 'es-widget' );
 		$es_select_params = array(
 			'es_email_notice'       => _x( 'Please enter email address', 'widget-enhanced-select', ES_TDOMAIN ),
-			'es_incorrect_email'    => _x( 'Please provide a valid email address', 'widget-enhanced-select', ES_TDOMAIN ),
-			'es_load_more'          => _x( 'loading...', 'widget-enhanced-select', ES_TDOMAIN ),
-			'es_ajax_error'         => _x( 'Cannot create XMLHTTP instance', 'widget-enhanced-select', ES_TDOMAIN ),
 			'es_success_message'    => _x( 'Successfully Subscribed.', 'widget-enhanced-select', ES_TDOMAIN ),
-			'es_success_notice'     => _x( 'Your subscription was successful! Kindly check your mailbox and confirm your subscription. If you can\'t see the email within a few minutes, check the spam folder.', 'widget-enhanced-select', ES_TDOMAIN ),
+			'es_success_notice'     => _x( 'Your subscription was successful! Kindly check your mailbox and confirm your subscription. If you don\'t see the email within a few minutes, check the spam/junk folder.', 'widget-enhanced-select', ES_TDOMAIN ),
 			'es_email_exists'       => _x( 'Email Address already exists!', 'widget-enhanced-select', ES_TDOMAIN ),
 			'es_error'              => _x( 'Oops.. Unexpected error occurred.', 'widget-enhanced-select', ES_TDOMAIN ),
 			'es_invalid_email'      => _x( 'Invalid email address', 'widget-enhanced-select', ES_TDOMAIN ),
 			'es_try_later'          => _x( 'Please try after some time', 'widget-enhanced-select', ES_TDOMAIN ),
-			'es_problem_request'    => _x( 'There was a problem with the request', 'widget-enhanced-select', ES_TDOMAIN ),
-			'es_ajax_url'           => admin_url( 'admin-ajax.php' )
+			'es_ajax_url'           => admin_url( 'admin-ajax.php' ),
 		);
 		wp_localize_script( 'es-widget', 'es_widget_notices', $es_select_params );
 
@@ -274,17 +270,13 @@ class es_cls_registerhook {
 		wp_enqueue_script( 'es-widget-page' );
 		$es_select_params = array(
 			'es_email_notice'       => _x( 'Please enter email address', 'widget-page-enhanced-select', ES_TDOMAIN ),
-			'es_incorrect_email'    => _x( 'Please provide a valid email address', 'widget-page-enhanced-select', ES_TDOMAIN ),
-			'es_load_more'          => _x( 'loading...', 'widget-page-enhanced-select', ES_TDOMAIN ),
-			'es_ajax_error'         => _x( 'Cannot create XMLHTTP instance', 'widget-page-enhanced-select', ES_TDOMAIN ),
 			'es_success_message'    => _x( 'Successfully Subscribed.', 'widget-page-enhanced-select', ES_TDOMAIN ),
-			'es_success_notice'     => _x( 'Your subscription was successful! Kindly check your mailbox and confirm your subscription. If you can\'t see the email within a few minutes, check the spam folder.', 'widget-page-enhanced-select', ES_TDOMAIN ),
+			'es_success_notice'     => _x( 'Your subscription was successful! Kindly check your mailbox and confirm your subscription. If you don\'t see the email within a few minutes, check the spam/junk folder.', 'widget-page-enhanced-select', ES_TDOMAIN ),
 			'es_email_exists'       => _x( 'Email Address already exists!', 'widget-page-enhanced-select', ES_TDOMAIN ),
 			'es_error'              => _x( 'Oops.. Unexpected error occurred.', 'widget-page-enhanced-select', ES_TDOMAIN ),
 			'es_invalid_email'      => _x( 'Invalid email address', 'widget-page-enhanced-select', ES_TDOMAIN ),
 			'es_try_later'          => _x( 'Please try after some time', 'widget-page-enhanced-select', ES_TDOMAIN ),
-			'es_problem_request'    => _x( 'There was a problem with the request', 'widget-page-enhanced-select', ES_TDOMAIN ),
-			'es_ajax_url'           => admin_url( 'admin-ajax.php' )
+			'es_ajax_url'           => admin_url( 'admin-ajax.php' ),
 		);
 		wp_localize_script( 'es-widget-page', 'es_widget_page_notices', $es_select_params );
 
@@ -1065,7 +1057,7 @@ class es_widget_register extends WP_Widget {
 				<?php } ?>
 				<div class="es_lablebox"><label class="es_widget_form_email"><?php echo __( 'Email *', ES_TDOMAIN ); ?></label></div>
 				<div class="es_textbox">
-					<input type="email" id="es_txt_email" class="es_textbox_class" name="es_txt_email"  value="" maxlength="40">
+					<input type="email" id="es_txt_email" class="es_textbox_class" name="es_txt_email"  value="" maxlength="40" required>
 				</div>
 				<div class="es_button">
 					<input type="submit" id="es_txt_button" class="es_textbox_button es_submit_button" name="es_txt_button" value="<?php echo __( 'Subscribe', ES_TDOMAIN ); ?>">
