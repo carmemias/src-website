@@ -82,7 +82,7 @@
 	wp.customize( 'current_festival_menu_color', function( value ) {
 		value.bind( function( newVal ) {
 			if ( 'blank' != newVal ) {
-				$( '.main-navigation a, #hero .site-title' ).css( {
+				$( '.main-navigation a, #hero .site-title, .single-event_cpt .entry-content' ).css( {
 					'color': newVal,
 				} );
 				$( '.search-bttn svg.icon' ).css( {
@@ -102,7 +102,7 @@
 				$( '.main-navigation .current_page_item > a, body[class*="page-whats-"] .event-title, .single-event_cpt .entry-title' ).css( {
 					'border-color': newVal,
 				} );
-				$( '#hero .site-description, #hero .festival-dates' ).css( {
+				$( '#hero .site-description, #hero .festival-dates, .single-event_cpt article .right-column .subcolumn-B ').css( {
 					'color': newVal,
 				} );
 				$( 'input[type="text"], input[type="email"], input[type="search"]' ).css( {
