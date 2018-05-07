@@ -6,21 +6,12 @@
   padding: 20px;
 
   .site-branding img {
-    max-height: 80px;
-    width: auto;
-  }
-
-  .site-branding {
-    width: 15%;
+    height: 80px;
+    max-width: auto;
   }
 
   .site-branding.second-logo {
     text-align: right;
-  }
-
-  .site-branding img {
-    max-height: 80px;
-    width: auto;
   }
 
   svg.icon {
@@ -102,7 +93,8 @@
     margin: 5px auto;
   }
 
-  .main-navigation {
+  .main-navigation,
+  .main-navigation.toggled {
     flex-direction: column;
     justify-content: flex-end;
     flex-wrap: nowrap;
