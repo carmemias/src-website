@@ -3,8 +3,8 @@
  * Event Functionality Custom Post Type.
  *
  * @package     yohannes\EventsFunctionality
- * @author      yohannes
- * @copyright   2018 Code your future
+ * @author      Code Your Future graduates
+ * @copyright   2018 Code Your Future
  * @license     GPL-2.0+
  *
  * @wordpress-plugin
@@ -12,7 +12,7 @@
  * Plugin URI:  https://github.com/CodeYourFuture/src-website/tree/master/plugins
  * Description: Adds a new Events section and custom post type.
  * Version:     1.0
- * Author:      yohannes
+ * Author:      Code Your Future graduates
  * Author URI:  https://codeyourfuture.io
  * Text Domain: events-functionality
  * License:     GPL-2.0+

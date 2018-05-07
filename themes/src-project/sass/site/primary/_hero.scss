@@ -9,26 +9,32 @@
   & .site-title {
     color: $color__site-title;
     @include font-size(3);
+    text-transform: uppercase;
+    margin-bottom: 0;
+    letter-spacing: 5px;
   }
 
   & .site-description {
     color: $color__site-description;
     @include font-size(2);
     margin: 0;
+    letter-spacing: 3px;
   }
 
   & .festival-dates {
     color: $color__site-description;
     @include font-size(2);
     margin: 0;
+    letter-spacing: 3px;
   }
 }
 @media only screen and (max-width: 500px) {
   .site-title {
     font-size: 40px !important;
+    line-height: 1em;
+    margin-bottom: 0.3em;
   }
 
-  .site-description,
   .festival-dates {
     font-size: 24px !important;
   }
