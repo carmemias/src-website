@@ -175,6 +175,7 @@ function submitButton(data) {
   btn.appendChild(t);
   formElement.appendChild(btn);
 
+  //TODO this will need to be moved elsewhere as it is also needed when building the dropdown lists for the filter
   //check in which programme page we are
   let currentURL = window.location.pathname;
   let currentYear = currentURL.substring(
