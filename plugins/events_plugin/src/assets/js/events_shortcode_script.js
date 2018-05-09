@@ -20,6 +20,7 @@ app.init = function() {
     .done(data => {
       data["events"] = events;
       data.forEach(event => {
+        //TODO Before doing any of this, we need to check what year the event is from
         if (event._embedded != undefined && event._embedded["wp:term"] != undefined) {
           let allTypes = event._embedded["wp:term"][0];
           allTypes.forEach(function(singleType){
@@ -39,7 +40,6 @@ app.init = function() {
           areas.push(areaName);
         }
         areas.sort();
-
 
         let date = event.extra_meta["_event_cpt_date_event"]
                   ? event.extra_meta["_event_cpt_date_event"][0]
@@ -151,6 +151,7 @@ function renderDropDownDate(dates) {
   defaultElement.setAttribute("value", "");
   defaultElement.innerHTML = "All Dates";
   selectDateElement.appendChild(defaultElement);
+
   Object.keys(dates).forEach(date => {
     let optionElement = document.createElement("option"),
         longDate = getLongDate(dates[date]);
@@ -174,9 +175,9 @@ function submitButton(data) {
   btn.appendChild(t);
   formElement.appendChild(btn);
 
+  //TODO this will need to be moved elsewhere as it is also needed when building the dropdown lists for the filter
   //check in which programme page we are
   let currentURL = window.location.pathname;
-  //TODO double check currentYear 
   let currentYear = currentURL.substring(
       currentURL.length - 5,
       currentURL.length - 1
@@ -199,6 +200,7 @@ function submitButton(data) {
 
       var newArray = data.filter(function(dataItem) {
         return (
+          (dataItem.extra_meta["_event_cpt_date_event"][0].substring(0, 4) == currentYear) &&
           (filteredValues.type == "" ||
             (dataItem._embedded != undefined &&
               dataItem._embedded["wp:term"] != undefined &&
@@ -211,7 +213,6 @@ function submitButton(data) {
           (filteredValues.date == "" ||
             (dataItem.extra_meta != undefined &&
               dataItem.extra_meta["_event_cpt_date_event"] != undefined &&
-              dataItem.extra_meta["_event_cpt_date_event"][0].substring(0, 4) == currentYear &&
               dataItem.extra_meta["_event_cpt_date_event"][0] == filteredValues.date))
         );
       });
@@ -417,7 +418,7 @@ function renderNewEventsView(newArray) {
     if (event.extra_meta._event_cpt_main_organizer) {
       let mainOrganiser = event.extra_meta._event_cpt_main_organizer[0];
       divEl.classList.add('event-by');
-      divEl.innerHTML = mainOrganiser;
+      divEl.innerHTML = 'by ' + mainOrganiser;
       headerEl.appendChild(divEl);
     }
 

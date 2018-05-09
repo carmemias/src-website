@@ -11,8 +11,8 @@
 
   ul {
     //display: none;
-    opacity:0;
-    height:0;
+    opacity: 0;
+    height: 0;
     list-style: none;
     margin: 0;
     padding-left: 0;
@@ -86,8 +86,8 @@
 .menu-toggle,
 .main-navigation.toggled ul {
   //display: block;
-  height:auto;
-  opacity:1;
+  height: auto;
+  opacity: 1;
 }
 
 .menu-toggle {
@@ -120,9 +120,24 @@
 @media (max-width: 400px) {
   .menu-toggle {
     align-self: center;
+    margin-top: 20px;
   }
   .main-navigation a {
     text-align: center;
+  }
+
+  .main-navigation,
+  .main-navigation.toggled {
+    font-size: 25px !important;
+    padding-right: 20px !important;
+  }
+
+  .main-navigation {
+    line-height: 1;
+
+    ul {
+      padding-left: 0 !important;
+    }
   }
 }
 

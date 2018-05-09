@@ -24,7 +24,7 @@ body:not(.home) .content-area {
   padding: 0 1rem;
 
   @media only screen and (max-width: 640px) {
-    margin-bottom:8rem;
+    margin-bottom: 8rem;
   }
 }
 
@@ -104,6 +104,7 @@ body:not(.home) .site-main {
     h2,
     p {
       margin: 0;
+      text-align: left;
     }
   }
 
@@ -136,7 +137,7 @@ body:not(.home) .site-main {
     flex-direction: column !important;
 
     img {
-      width:100%;
+      width: 100%;
     }
   }
 
