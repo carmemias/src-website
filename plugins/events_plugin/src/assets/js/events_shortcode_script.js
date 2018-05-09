@@ -460,9 +460,9 @@ function renderNewEventsView(newArray) {
     } else {
       eventDate.innerHTML =
         getLongDate(event.extra_meta._event_cpt_date_event) +
-        " from " +
+        " - " +
         event.extra_meta._event_cpt_startTime_event +
-        " to " +
+        " - " +
         event.extra_meta._event_cpt_endTime_event;
     }
     rightColumn.appendChild(eventDate);
@@ -485,11 +485,11 @@ function renderNewEventsView(newArray) {
     rightColumn.appendChild(eventLocation);
 
     let eventPrice = document.createElement("p");
-    eventPrice.classList.add("price");
+    eventPrice.classList.add("Price");
     if ((event.extra_meta._event_cpt_price_event == undefined) || event.extra_meta._event_cpt_price_event == '0.00') {
       eventPrice.innerHTML = "Free ";
     } else if (event.extra_meta._event_cpt_price_event == '-1') {
-      eventPrice.innerHTML = "Entry by Donation";
+      eventPrice.innerHTML = "Entry by donation";
     } else {
       eventPrice.innerHTML = "£" + parseFloat(event.extra_meta._event_cpt_price_event).toFixed(2);
     }
