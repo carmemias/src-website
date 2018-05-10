@@ -46,3 +46,15 @@
     }
   }
 }
+
+@media only screen and (orientation: landscape) {
+  .site-title {
+    font-size: 32px !important;
+    margin-bottom: 0.3em;
+  }
+
+  .festival-dates,
+  .site-description {
+    font-size: 24px !important;
+  }
+}
