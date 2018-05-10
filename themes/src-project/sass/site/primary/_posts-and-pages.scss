@@ -90,7 +90,7 @@ body:not(.home) .site-main {
   .event-entry {
     display: flex;
     flex-direction: row;
-    max-width: 50%;
+    width: 50%;
     padding: 15px 10px 0 10px;
     padding-bottom: 3em;
 
@@ -174,7 +174,7 @@ body:not(.home) .site-main {
 
   .event-entry {
     flex-direction: column !important;
-    max-width: 100% !important;
+    width: 100% !important;
   }
 }
 

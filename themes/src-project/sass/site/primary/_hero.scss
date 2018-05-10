@@ -5,6 +5,7 @@
   background-color: $color__background-hero;
   min-height: $height__hero;
   text-align: center;
+  line-height: 1;
 
   & .site-title {
     color: $color__site-title;
@@ -31,13 +32,17 @@
   }
 }
 @media only screen and (max-width: 500px) {
-  .site-title {
-    font-size: 40px !important;
-    line-height: 1em;
-    margin-bottom: 0.3em;
-  }
+  #hero {
+    line-height: 1;
 
-  .festival-dates {
-    font-size: 24px !important;
+    .site-title {
+      font-size: 36px !important;
+      margin-bottom: 0.3em;
+    }
+
+    .festival-dates,
+    .site-description {
+      font-size: 24px !important;
+    }
   }
 }
