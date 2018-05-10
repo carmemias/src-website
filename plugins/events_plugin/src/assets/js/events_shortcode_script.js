@@ -25,7 +25,7 @@ app.init = function() {
 
   const events = new wp.api.collections.Events();
   events
-    .fetch({ data: { _embed: true } })
+    .fetch({ data: { _embed: true, per_page: 100 } })
     .done(data => {
       data["events"] = events;
       data.forEach(event => {
