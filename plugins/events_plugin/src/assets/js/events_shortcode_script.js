@@ -8,6 +8,15 @@ let app = {},
   types = [],
   dates = [];
 
+//TODO this will need to be moved elsewhere as it is also needed when building the dropdown lists for the filter
+//check in which programme page we are
+const currentURL = window.location.pathname;
+const currentHost = window.location.protocol + '//' + window.location.hostname;
+const currentYear = currentURL.substring(
+      currentURL.length - 5,
+      currentURL.length - 1
+    );
+
 app.init = function() {
   let container = document.getElementsByClassName("entry-content")[0];
   let formElement = document.createElement("form");
@@ -177,11 +186,11 @@ function submitButton(data) {
 
   //TODO this will need to be moved elsewhere as it is also needed when building the dropdown lists for the filter
   //check in which programme page we are
-  let currentURL = window.location.pathname;
+/*  let currentURL = window.location.pathname;
   let currentYear = currentURL.substring(
       currentURL.length - 5,
       currentURL.length - 1
-    );
+    ); */
 
   document
     .getElementById("submitFilterButton")
@@ -200,7 +209,7 @@ function submitButton(data) {
 
       var newArray = data.filter(function(dataItem) {
         return (
-          (dataItem.extra_meta["_event_cpt_date_event"][0].substring(0, 4) == currentYear) &&
+          (dataItem.extra_meta["_event_cpt_date_event"] == undefined || dataItem.extra_meta["_event_cpt_date_event"][0].substring(0, 4) == currentYear) &&
           (filteredValues.type == "" ||
             (dataItem._embedded != undefined &&
               dataItem._embedded["wp:term"] != undefined &&
@@ -273,126 +282,57 @@ function renderNewEventsView(newArray) {
       leftColumn.appendChild(aElement);
     }
 
-    let links = document.createElement("div");
+    let links = document.createElement("div"),
+        linksArray = [];
     links.classList.add("links");
+
     //website
     if (event.extra_meta._event_cpt_organizer_website) {
-      let website = document.createElement("a");
-      website.setAttribute(
-        "href",
-        event.extra_meta._event_cpt_organizer_website[0]
-      );
-      website.setAttribute("target", "_blank");
-      website.setAttribute("rel", "noopener");
-
-      let span = document.createElement("span");
-      span.classList.add("screen-reader-text");
-      span.innerHTML = "Website";
-
-      let svgEl = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      let useEl = document.createElementNS("http://www.w3.org/2000/svg", "use");
-
-      useEl.setAttribute("href", "#icon-website");
-      useEl.setAttribute("xlink:href", "#icon-website");
-
-      svgEl.setAttribute("class", "icon icon-website");
-      svgEl.setAttribute("role", "img");
-      svgEl.setAttribute("aria-hidden", "true");
-
-      svgEl.appendChild(useEl);
-      website.appendChild(span);
-      website.appendChild(svgEl);
-      links.appendChild(website);
+      linksArray['website'] = event.extra_meta._event_cpt_organizer_website;
     }
     //facebook
     if (event.extra_meta._event_cpt_organizer_facebook) {
-      let facebook = document.createElement('a');
-      facebook.setAttribute(
-        'href',
-        event.extra_meta._event_cpt_organizer_facebook[0]
-      );
-      facebook.setAttribute('target', '_blank');
-      facebook.setAttribute('rel', 'noopener');
-      facebook.setAttribute('alt', 'Facebook link');
-
-      let span = document.createElement("span");
-      span.classList.add("screen-reader-text");
-      span.innerHTML = "facebook";
-
-      let svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      let useEl = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-
-      useEl.setAttribute('href', '#icon-facebook');
-      useEl.setAttribute('xlink:href', '#icon-facebook');
-
-      svgEl.setAttribute('aria-hidden', 'true');
-      svgEl.classList.add('icon');
-      svgEl.classList.add('icon-facebook');
-      svgEl.setAttribute('role', 'img');
-
-      svgEl.appendChild(useEl);
-      facebook.appendChild(span);
-      facebook.appendChild(svgEl);
-      links.appendChild(facebook);
+      linksArray['facebook'] = event.extra_meta._event_cpt_organizer_facebook;
     }
     //twitter
     if (event.extra_meta._event_cpt_organizer_twitter) {
-      let twitter = document.createElement("a");
-      twitter.setAttribute(
-        "href",
-        event.extra_meta._event_cpt_organizer_twitter[0]
-      );
-      twitter.setAttribute("target", "_blank");
-      twitter.setAttribute("rel", "noopener");
-
-      let span = document.createElement("span");
-      span.classList.add("screen-reader-text");
-      span.innerHTML = "twitter";
-
-      let svgEl = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      let useEl = document.createElementNS("http://www.w3.org/2000/svg", "use");
-
-      useEl.setAttribute("href", "#icon-twitter");
-      useEl.setAttribute("xlink:href", "#icon-twitter");
-
-      svgEl.setAttribute("class", "icon icon-twitter");
-      svgEl.setAttribute("role", "img");
-      svgEl.setAttribute("aria-hidden", "true");
-
-      svgEl.appendChild(useEl);
-      twitter.appendChild(span);
-      twitter.appendChild(svgEl);
-      links.appendChild(twitter);
+      linksArray['twitter'] = event.extra_meta._event_cpt_organizer_twitter;
     }
     //instagram
     if (event.extra_meta._event_cpt_organizer_instagram) {
-      let instagram = document.createElement("a");
-      instagram.setAttribute(
-        "href",
-        event.extra_meta._event_cpt_organizer_instagram[0]
-      );
-      instagram.setAttribute("target", "_blank");
-      instagram.setAttribute("rel", "noopener");
-
-      let span = document.createElement("span");
-      span.classList.add("screen-reader-text");
-      span.innerHTML = "instagram";
-
-      let svgEl = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      let useEl = document.createElementNS("http://www.w3.org/2000/svg", "use");
-
-      useEl.setAttribute("href", "#icon-instagram");
-      useEl.setAttribute("xlink:href", "#icon-instagram");
-
-      svgEl.setAttribute("class", "icon icon-instagram");
-      svgEl.setAttribute("role", "img");
-      svgEl.setAttribute("aria-hidden", "true");
-
-      svgEl.appendChild(useEl);
-      instagram.appendChild(span);
-      instagram.appendChild(svgEl);
-      links.appendChild(instagram);
+      linksArray['instagram'] = event.extra_meta._event_cpt_organizer_instagram;
     }
+
+    Object.keys(linksArray).forEach(linkTitle => {
+      //console.log(linkTitle+' with url: '+linksArray[linkTitle]);
+      let aEl = document.createElement("a"),
+          spanEl = document.createElement("span"),
+          imgEl = document.createElement("img");
+
+        aEl.setAttribute(
+          "href",
+          linksArray[linkTitle]
+        );
+        aEl.setAttribute("target", "_blank");
+        aEl.setAttribute("rel", "noopener");
+
+        spanEl.classList.add("screen-reader-text");
+        spanEl.innerHTML = linkTitle;
+
+        aEl.appendChild(spanEl);
+        //New SVG icon format <img src="your.svg" onerror="this.src='your.png'">
+        imgEl.setAttribute('width', 22);
+        imgEl.setAttribute('height', 22);
+        imgEl.setAttribute('style', 'max-height:22px; margin-top:6px;');
+        imgEl.classList.add('icon');
+        imgEl.setAttribute('src', currentHost + '/wp-content/plugins/events_plugin/src/assets/img/' + linkTitle + '-icon.svg');
+        imgEl.setAttribute('onerror', 'this.src='+ currentHost + '/wp-content/plugins/events_plugin/src/assets/img/' + linkTitle + '-icon.png');
+        aEl.appendChild(imgEl);
+
+        links.appendChild(aEl);
+
+    });
+
     leftColumn.appendChild(links);
 
     //start of right column
@@ -460,9 +400,9 @@ function renderNewEventsView(newArray) {
     } else {
       eventDate.innerHTML =
         getLongDate(event.extra_meta._event_cpt_date_event) +
-        " from " +
+        " - " +
         event.extra_meta._event_cpt_startTime_event +
-        " to " +
+        " - " +
         event.extra_meta._event_cpt_endTime_event;
     }
     rightColumn.appendChild(eventDate);
@@ -485,11 +425,11 @@ function renderNewEventsView(newArray) {
     rightColumn.appendChild(eventLocation);
 
     let eventPrice = document.createElement("p");
-    eventPrice.classList.add("price");
+    eventPrice.classList.add("Price");
     if ((event.extra_meta._event_cpt_price_event == undefined) || event.extra_meta._event_cpt_price_event == '0.00') {
       eventPrice.innerHTML = "Free ";
     } else if (event.extra_meta._event_cpt_price_event == '-1') {
-      eventPrice.innerHTML = "Entry by Donation";
+      eventPrice.innerHTML = "Entry by donation";
     } else {
       eventPrice.innerHTML = "£" + parseFloat(event.extra_meta._event_cpt_price_event).toFixed(2);
     }

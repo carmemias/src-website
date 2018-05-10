@@ -1,11 +1,6 @@
 .es_caption {
-	padding-bottom:1em;
-	padding-right: 1rem;
-	align-self: end;
-	/* display:  flex; */
-	/* flex-direction:  column-reverse; */
-	justify-items:;
-	width:  100%;
+	padding-bottom: 1em;
+	padding-right: 0.5em;
 }
 .es_msg {
 	padding-top: 5px;
@@ -18,7 +13,6 @@
 .es_button {
 	padding-top: 10px;
 	padding-bottom: 5px;
-	/* width: 2%; */
 }
 .es_textbox_class {
 	width: 200px;

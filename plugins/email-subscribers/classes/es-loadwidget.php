@@ -32,7 +32,7 @@ class es_cls_widget {
 		}
 		$es .= '<div class="es_lablebox"><label class="es_shortcode_form_email">'.__( 'Email *', ES_TDOMAIN ).'</label></div>';
 		$es .= '<div class="es_textbox">';
-			$es .= '<input type="email" id="es_txt_email_pg" class="es_textbox_class" name="es_txt_email_pg" maxlength="40">';
+			$es .= '<input type="email" id="es_txt_email_pg" class="es_textbox_class" name="es_txt_email_pg" maxlength="40" required>';
 		$es .= '</div>';
 		$es .= '<div class="es_button">';
 			$es .= '<input type="submit" id="es_txt_button_pg" class="es_textbox_button es_submit_button" name="es_txt_button_pg" value="'.__( 'Subscribe', ES_TDOMAIN ).'">';
