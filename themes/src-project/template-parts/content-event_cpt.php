@@ -104,7 +104,12 @@ function get_event_types($id){
 * Get string listing all event organisers other than Main Organiser.
 */
 function get_event_organisers($custom){
-  $string = '';
+  $string ='';
+
+  if(array_key_exists( '_event_cpt_main_organizer', $custom )) {
+    $event_organiser_main = $custom['_event_cpt_main_organizer'][0];
+    $string .= 'Organised by: '.$event_organiser_main.'.';
+  }
 
   $other_organisers = array();
 
@@ -123,17 +128,15 @@ function get_event_organisers($custom){
     array_push($other_organisers,$event_organiser_other_3);
   }
 
-  if(0 == count($other_organisers)){ return '';}
-
-  if(0 != count($other_organisers)){
-    $string .= 'In partnership with '. $event_organiser_other_1;
+  if(1 >= count($other_organisers)){
+    $string .= ' In partnership with: '. $other_organisers[0];
   }
 
-  if(2 == count($other_organisers)){
+  if(2 === count($other_organisers)){
       $string .= ' and '.$event_organiser_other_2.'.';
   }
 
-  if(3 == count($other_organisers)){
+  if(3 === count($other_organisers)){
       $string .= ', '.$event_organiser_other_2.' and '.$event_organiser_other_3.'.';
   }
 
@@ -251,8 +254,8 @@ function get_event_full_location($custom){
       </div><!-- subcolumn-B -->
    </div><!-- right-column -->
 
-   <div class="organiser-info">
-     <div class="organiser-names">
+   <div id="organiser-info">
+     <div class="organisers">
        <?php echo $event_organisers; ?>
      </div>
 
