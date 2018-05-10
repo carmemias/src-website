@@ -109,12 +109,6 @@ function src_project_customize_register( $wp_customize ) {
   $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
   $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
   $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-	/*$wp_customize->get_setting( 'second_logo' )->transport      = 'postMessage';
-	$wp_customize->get_setting( 'current_festival_dates' )->transport 			 = 'postMessage';
-	$wp_customize->get_setting( 'current_festival_hero_image' )->transport   = 'postMessage';
-	$wp_customize->get_setting( 'current_festival_text_color' )->transport   = 'postMessage';
-	$wp_customize->get_setting( 'current_festival_menu_color' )->transport   = 'postMessage';
-	$wp_customize->get_setting( 'current_festival_accent_color' )->transport = 'postMessage';*/
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(

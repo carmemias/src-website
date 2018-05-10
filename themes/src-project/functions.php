@@ -208,26 +208,29 @@ function src_project_customizer_css(){
 										background-size: cover; }
 
 							/* menu and links text color */
-							.main-navigation a, #hero .site-title {
+							.main-navigation a, #hero .site-title, .site-footer .es_caption, .single-event_cpt .entry-content {
 										color: <?php echo $menu_links_color; ?>;
 							}
-							.site-header svg.icon,
-							.left-column svg.icon {
+							.site-header svg.icon {
 										fill:<?php echo $menu_links_color; ?>;
 							}
-							button, .site-footer #es_txt_button {
+							button, .site-footer #es_txt_button, input[type="submit"] {
 								border: <?php echo $menu_links_color; ?>;
+								background-color: <?php echo $menu_links_color; ?>;
+							}
+							#programme .links a, .single-event_cpt .links a {
 								background-color: <?php echo $menu_links_color; ?>;
 							}
 
 							/* main text color */
 							body, input, select, optgroup, a,
-							.site-footer, .site-footer a, .site-footer label, .widget-title {
+							.site-footer, .site-footer a, .site-footer label, .site-footer .widget-title {
 								color: <?php echo $text_color; ?>;
 							}
+							.site-footer #es_txt_button { color: #FFF; }
 
 							/* accent color */
-							#hero .site-description, #hero .festival-dates {
+							#hero .site-description, #hero .festival-dates, .single-event_cpt article .right-column .subcolumn-B  {
 								color: <?php echo $accent_color; ?>;
 							}
 							.social-navigation a {
@@ -238,8 +241,10 @@ function src_project_customizer_css(){
 							input[type="date"], input[type="month"], input[type="week"], input[type="time"],
 							input[type="datetime"], input[type="datetime-local"], input[type="color"],
 							textarea, select {
-								border-color:<?php echo $accent_color; ?>;
 								background-color: <?php echo $accent_color; ?>;
+							}
+							.main-navigation .current_page_item > a, body[class*="page-whats-"] .event-header, .single-event_cpt .entry-header, body:not(.home) .site-main #programme {
+								border-color:<?php echo $accent_color; ?>;
 							}
          </style>
     <?php

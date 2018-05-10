@@ -68,7 +68,7 @@
 	wp.customize( 'current_festival_text_color', function( value ) {
 		value.bind( function( newVal ) {
 			if ( 'blank' != newVal ) {
-				$( 'body, input, select, optgroup, a, .site-footer, .site-footer a, .site-footer label, .site-footer .es_caption, .widget-title' ).css( {
+				$( 'body, input, select, optgroup, .site-footer, .site-footer a, .site-footer label, .site-footer .widget-title' ).css( {
 					'color': newVal,
 				} );
 				$( '.site-footer #es_txt_button' ).css( {
@@ -82,13 +82,17 @@
 	wp.customize( 'current_festival_menu_color', function( value ) {
 		value.bind( function( newVal ) {
 			if ( 'blank' != newVal ) {
-				$( '.main-navigation a, #hero .site-title' ).css( {
+				$( '.main-navigation a, #hero .site-title, .single-event_cpt .entry-content, .site-footer .es_caption' ).css( {
 					'color': newVal,
 				} );
 				$( '.search-bttn svg.icon' ).css( {
 					'fill': newVal,
 				} );
-				$('input[type="submit"], .site-footer #es_txt_button, #programme .links a, .single-event_cpt .links a').css( {
+				$('input[type="submit"], .site-footer #es_txt_button, button').css( {
+					'border-color':newVal,
+					'background-color': newVal,
+				} );
+				$('#programme .links a, .single-event_cpt .links a').css( {
 					'background-color': newVal,
 				} );
 			}
@@ -99,13 +103,13 @@
 	wp.customize( 'current_festival_accent_color', function( value ) {
 		value.bind( function( newVal ) {
 			if ( 'blank' != newVal ) {
-				$( '.main-navigation .current_page_item > a, body[class*="page-whats-"] .event-title, .single-event_cpt .entry-title' ).css( {
+				$( '.main-navigation .current_page_item > a, body[class*="page-whats-"] .event-header, .single-event_cpt .entry-header, body:not(.home) .site-main #programme' ).css( {
 					'border-color': newVal,
 				} );
-				$( '#hero .site-description, #hero .festival-dates' ).css( {
+				$( '#hero .site-description, #hero .festival-dates, .single-event_cpt article .right-column .subcolumn-B ').css( {
 					'color': newVal,
 				} );
-				$( 'input[type="text"], input[type="email"], input[type="search"]' ).css( {
+				$( 'input[type="text"], input[type="email"], input[type="search"], .social-navigation a ' ).css( {
 					'background-color': newVal,
 					'border-color': newVal,
 				} );

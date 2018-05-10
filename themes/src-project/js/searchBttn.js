@@ -35,7 +35,7 @@
       spanEl.classList.add('screen-reader-text');
 
       imgEl.setAttribute('src', svgURL);
-      imgEl.setAttribute('onerror', "this.src=pngURL");
+      imgEl.setAttribute('onerror', 'this.src='+pngURL);
       imgEl.setAttribute('width', 25);
       imgEl.setAttribute('height', 25);
 
