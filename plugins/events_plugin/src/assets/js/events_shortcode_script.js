@@ -200,7 +200,7 @@ function submitButton(data) {
 
       var newArray = data.filter(function(dataItem) {
         return (
-          (dataItem.extra_meta["_event_cpt_date_event"][0].substring(0, 4) == currentYear) &&
+          (dataItem.extra_meta["_event_cpt_date_event"] == undefined || dataItem.extra_meta["_event_cpt_date_event"][0].substring(0, 4) == currentYear) &&
           (filteredValues.type == "" ||
             (dataItem._embedded != undefined &&
               dataItem._embedded["wp:term"] != undefined &&
