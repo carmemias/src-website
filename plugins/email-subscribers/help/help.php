@@ -324,6 +324,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<?php echo sprintf(__( 'Modify %s', ES_TDOMAIN ), '<a href="https://www.icegram.com/documentation/es-general-plugin-settings/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page" target="_blank">' . __( 'default text, email contents', ES_TDOMAIN ) . '</a>' . __( ' (like Confirmation, Welcome, Admin emails), Cron Settings and Assign User Roles', ES_TDOMAIN ) ); ?>
 					</li>
 					<li class="es_faq">
+						<?php echo sprintf(__( '%s', ES_TDOMAIN ), '<a href="https://www.icegram.com/documentation/es-how-does-sync-work/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page" target="_blank">' . __( 'How does Sync work?', ES_TDOMAIN ) . '</a>' ); ?>
+					</li>
+					<li class="es_faq">
 						<?php echo sprintf(__( '%s', ES_TDOMAIN ), '<a href="https://www.icegram.com/documentation/es-how-to-import-or-export-email-addresses/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page" target="_blank">' . __( 'How to Import or Export Email Addresses?', ES_TDOMAIN ) . '</a>' ); ?>
 					</li>
 					<li class="es_faq">

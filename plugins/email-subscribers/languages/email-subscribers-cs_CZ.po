@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Email Subscribers & Newsletters 3.4.11\n"
+"Project-Id-Version: Email Subscribers & Newsletters 3.4.12\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-26 12:00:36+00:00\n"
-"PO-Revision-Date: Thu Apr 05 2018 12:12:20 GMT+0530 (IST)\n"
+"PO-Revision-Date: Tue Apr 17 2018 15:50:00 GMT+0530 (IST)\n"
 "Last-Translator: admin <mansi.shah@appsmagnet.com>\n"
 "Language-Team: Icegram <hello@icegram.com>Language:\n"
 "Language: Czech\n"
@@ -23,6 +23,451 @@ msgstr ""
 "X-Loco-Target-Locale: cs_CZ\n"
 "X-Poedit-SearchPath-0: .."
 
+#: ../classes/es-register.php:168 ../classes/es-register.php:169 ../classes/es-
+#: register.php:789 ../classes/es-register.php:790 ../classes/es-register.php:795
+msgid "Templates"
+msgstr ""
+
+#: ../classes/es-register.php:177 ../classes/es-register.php:178 ..
+#: settings/settings-edit.php:42
+msgid "Settings"
+msgstr ""
+
+#: ../classes/es-register.php:184
+msgid "<span style=\"color:#f18500;font-weight:bolder;\">Help & Info</span>"
+msgstr ""
+
+#: ../classes/es-register.php:201
+msgctxt "view-subscriber-enhanced-select"
+msgid ""
+"Do you want to resend confirmation email? Also please note, this will update "
+"subscriber current status to 'Unconfirmed'."
+msgstr ""
+
+#: ../classes/es-register.php:215
+msgctxt "notification-enhanced-select"
+msgid "Please select notification mail subject. Use templates menu to create new."
+msgstr ""
+
+#: ../classes/es-register.php:260
+msgctxt "widget-enhanced-select"
+msgid ""
+"Your subscription was successful! Kindly check your mailbox and confirm your "
+"subscription. If you don't see the email within a few minutes, check the "
+"spam/junk folder."
+msgstr ""
+
+#: ../classes/es-register.php:274
+msgctxt "widget-page-enhanced-select"
+msgid ""
+"Your subscription was successful! Kindly check your mailbox and confirm your "
+"subscription. If you don't see the email within a few minutes, check the "
+"spam/junk folder."
+msgstr ""
+
+#: ../classes/es-register.php:739
+msgid ""
+"<b>Want readymade email templates?</b> Also want to <b>clean your "
+"subscribers list?</b> Come check our Pro plan."
+msgstr ""
+
+#: ../classes/es-register.php:740
+msgid "Check Pro plan&nbsp;&nbsp;"
+msgstr ""
+
+#: ../classes/es-register.php:740
+msgid "Not interested."
+msgstr ""
+
+#: ../classes/es-register.php:780
+#, php-format
+msgid "Email Subscribers version: <strong>%s</strong>"
+msgstr ""
+
+#: ../classes/es-register.php:791 ../classes/es-register.php:792
+msgid "Add new Template"
+msgstr ""
+
+#: ../classes/es-register.php:793
+msgid "Edit Templates"
+msgstr ""
+
+#: ../classes/es-register.php:794
+msgid "New Templates"
+msgstr ""
+
+#: ../classes/es-register.php:796
+msgid "View Templates"
+msgstr ""
+
+#: ../classes/es-register.php:797
+msgid "Search Templates"
+msgstr ""
+
+#: ../classes/es-register.php:798
+msgid "No Templates found"
+msgstr ""
+
+#: ../classes/es-register.php:799
+msgid "No Templates found in Trash"
+msgstr ""
+
+#: ../classes/es-register.php:802
+msgid "Thumbnail (For Visual Representation only)"
+msgstr ""
+
+#: ../classes/es-register.php:803
+msgid "Set thumbnail"
+msgstr ""
+
+#: ../classes/es-register.php:840
+msgid "Template Type"
+msgstr ""
+
+#: ../classes/es-register.php:906
+msgid "Available Keyword for Post Notification: {{POSTTITLE}}"
+msgstr ""
+
+#: ../classes/es-register.php:909
+msgid "Select your Email Template Type"
+msgstr ""
+
+#: ../classes/es-register.php:959
+msgid "Preview Template"
+msgstr ""
+
+#: ../classes/es-register.php:973
+#, php-format
+msgid ""
+"%s for Post Notification: {{NAME}}, {{EMAIL}}, {{DATE}}, {{POSTTITLE}}, "
+"{{POSTLINK}}, {{POSTIMAGE}}, {{POSTDESC}}, {{POSTAUTHOR}}, {{POSTLINK-"
+"WITHTITLE}}, {{POSTLINK-ONLY}}, {{POSTFULL}}"
+msgstr ""
+
+#: ../classes/es-register.php:974
+#, php-format
+msgid "<br/><br/>%s for Newsletter: {{NAME}}, {{EMAIL}}"
+msgstr ""
+
+#: ../export/export-email-address.php:50 ../export/export-email-address.php:54
+msgid "Unexpected url submit has been detected!"
+msgstr ""
+
+#: ../help/help.php:185
+msgid "Thanks for installing and we hope you will enjoy using this plugin."
+msgstr ""
+
+#: ../help/help.php:186
+msgid ""
+"By default, subscribers subscribed via Email Subscribers, will receive email "
+"updates when you post a new blog. You can turn these updates off like this:"
+msgstr ""
+
+#: ../help/help.php:187
+msgid ""
+"Email Subscribers -> Post Notification -> Edit -> Select Notification Status "
+"when a new post is published -> Disable -> Save."
+msgstr ""
+
+#: ../help/help.php:191
+msgid "Get more help and tips..."
+msgstr ""
+
+#: ../help/help.php:205
+#, php-format
+msgid "Version: %s"
+msgstr ""
+
+#: ../help/help.php:208
+msgid "Questions? Need Help?"
+msgstr ""
+
+#: ../help/help.php:209
+msgid "Contact Us"
+msgstr ""
+
+#: ../help/help.php:214
+#, php-format
+msgid ""
+"<b>Like Email Subscribers?</b> If yes, then consider %s to support further "
+"developments."
+msgstr ""
+
+#: ../help/help.php:214
+msgid "donating to us"
+msgstr ""
+
+#: ../help/help.php:249
+msgid "Description"
+msgstr ""
+
+#: ../help/help.php:251
+msgid ""
+"Email Subscribers is a complete newsletter plugin which lets you collect "
+"leads, send automated new blog post notification emails, create & send "
+"newsletters and manage all this in one single place."
+msgstr ""
+
+#: ../help/help.php:253
+msgid "Feature Overview"
+msgstr ""
+
+#: ../help/help.php:256
+msgid ""
+"Collect customer emails by adding a subscription box (Widget/Shortcode/PHP "
+"Code)."
+msgstr ""
+
+#: ../help/help.php:259
+msgid "Configure double Opt-In and Single Opt-In facility for subscribers."
+msgstr ""
+
+#: ../help/help.php:262
+msgid "Send automatic welcome email to subscribers."
+msgstr ""
+
+#: ../help/help.php:265
+msgid ""
+"Send new post notification emails to subscribers when new posts are "
+"published on your website."
+msgstr ""
+
+#: ../help/help.php:268
+msgid "Schedule email (Cron job) or send them manually."
+msgstr ""
+
+#: ../help/help.php:271
+msgid "Send email notification to admin when a new user signs up."
+msgstr ""
+
+#: ../help/help.php:274
+msgid "Automatically add Unsubscribe link in the email."
+msgstr ""
+
+#: ../help/help.php:277
+msgid "Easily migrate subscribers from another app using Import & Export."
+msgstr ""
+
+#: ../help/help.php:280
+msgid "Use HTML editor to create newsletters and post notifications."
+msgstr ""
+
+#: ../help/help.php:283
+msgid "Send newsletters to different groups."
+msgstr ""
+
+#: ../help/help.php:286
+msgid "Get detailed sent email reports."
+msgstr ""
+
+#: ../help/help.php:289
+msgid "Control user access (User Roles and Capabilities)."
+msgstr ""
+
+#: ../help/help.php:292
+msgid "Supports localization and internationalization."
+msgstr ""
+
+#: ../help/help.php:299
+msgid "Add Subscribe form"
+msgstr ""
+
+#: ../help/help.php:304
+#, php-format
+msgid ""
+"Use any of the following 3 methods :<br>\n"
+"								a) Shortcode in any page/post : <strong>[email-subscribers "
+"namefield=\"YES\" desc=\"\" group=\"Public\"]</strong> <i>Or</i><br>\n"
+"								b) Go to Appearance -> Widgets. Click on widget Email subscribers "
+"and drag it to the sidebar on the right <i>Or</i><br>\n"
+"								c) Copy and past this php code to your desired template location : "
+"<strong>%s</strong>"
+msgstr ""
+
+#: ../help/help.php:309
+msgid "Additional form settings"
+msgstr ""
+
+#: ../help/help.php:312
+msgid "How to Redirect Subscribers to a new page/url after successful sign up?"
+msgstr ""
+
+#: ../help/help.php:315
+msgid "How to add captcha in Subscribe form of Email Subscribers?"
+msgstr ""
+
+#: ../help/help.php:321
+msgid "General Plugin Configuration"
+msgstr ""
+
+#: ../help/help.php:324
+#, php-format
+msgid "Modify %s"
+msgstr ""
+
+#: ../help/help.php:324
+msgid "default text, email contents"
+msgstr ""
+
+#: ../help/help.php:324
+msgid ""
+" (like Confirmation, Welcome, Admin emails), Cron Settings and Assign User "
+"Roles"
+msgstr ""
+
+#: ../help/help.php:327
+msgid "How does Sync work?"
+msgstr ""
+
+#: ../help/help.php:333
+msgid "How to Add/Update Existing Subscribers Group & Status?"
+msgstr ""
+
+#: ../help/help.php:336
+msgid "How to change/update/translate any texts from the plugin?"
+msgstr ""
+
+#: ../help/help.php:342
+msgid "How to check sent emails?"
+msgstr ""
+
+#: ../help/help.php:354
+msgid "Create and Send Newsletter Emails"
+msgstr ""
+
+#: ../help/help.php:357
+msgid "Keywords in the Newsletters"
+msgstr ""
+
+#: ../help/help.php:364
+msgid "Create and Send Post Notification Emails when new posts are published"
+msgstr ""
+
+#: ../help/help.php:367
+msgid "Keywords in the Post Notifications"
+msgstr ""
+
+#: ../help/help.php:370
+msgid "Send a test post notification email to myself/testgroup"
+msgstr ""
+
+#: ../help/help.php:375
+msgid "Cron Job Setup"
+msgstr ""
+
+#: ../help/help.php:378
+msgid "What is Cron and how to Schedule Cron Emails?"
+msgstr ""
+
+#: ../help/help.php:381
+msgid "Schedule Cron Emails in cPanel"
+msgstr ""
+
+#: ../help/help.php:384
+msgid "Schedule Cron Emails in Parallels Plesk"
+msgstr ""
+
+#: ../help/help.php:387
+msgid "Hosting doesn’t support Cron Jobs?"
+msgstr ""
+
+#: ../help/help.php:390
+msgid "Troubleshooting Steps"
+msgstr ""
+
+#: ../help/help.php:398
+msgid "FAQ's"
+msgstr ""
+
+#: ../help/help.php:404
+msgid "Want to do more? Here's how.."
+msgstr ""
+
+#: ../help/help.php:407
+msgid "Allow Subscribers to get subscribed to any group"
+msgstr ""
+
+#: ../help/help.php:412
+msgid "Using our <b>free</b> "
+msgstr ""
+
+#: ../help/help.php:413
+msgid "Group Selector"
+msgstr ""
+
+#: ../help/help.php:414
+msgid ""
+"plugin, you can extend Email Subscribers Form functionality by providing an "
+"grouping option right next to the form."
+msgstr ""
+
+#: ../help/help.php:417
+msgid "The user can then subscribe to whichever group most appeals to them."
+msgstr ""
+
+#: ../help/help.php:420
+msgid "For example: Subscribe either to Updates or to Offers."
+msgstr ""
+
+#: ../help/help.php:424
+msgid "Show your subscribe form inside attractive popups"
+msgstr ""
+
+#: ../help/help.php:429
+msgid ""
+"Don't limit your subscriber form to a widget. Embed it within popups, hello "
+"bars, slide-ins, sidebars, full screen popups etc."
+msgstr ""
+
+#: ../help/help.php:432
+msgid ""
+"Using Email Subscribers you can achieve this easily with our <b>free</b> "
+"plugin "
+msgstr ""
+
+#: ../help/help.php:436
+msgid ""
+"Icegram's beautiful designs instantly capture user attention and help "
+"increase sign-ups to your WordPress website."
+msgstr ""
+
+#: ../help/help.php:439 ../help/help.php:459
+#, php-format
+msgid "How to %s"
+msgstr ""
+
+#: ../help/help.php:439
+msgid "show subscribe form inside a popup"
+msgstr ""
+
+#: ../help/help.php:443
+msgid "Get beautiful and elegant form styles"
+msgstr ""
+
+#: ../help/help.php:449
+msgid "Email subscribers easily integrates with another <b>free</b> plugin "
+msgstr ""
+
+#: ../help/help.php:450
+msgid "Rainmaker"
+msgstr ""
+
+#: ../help/help.php:453
+msgid ""
+"Rainmaker extends the core features of Email Subscribers and provides "
+"elegant form styles."
+msgstr ""
+
+#: ../help/help.php:456
+msgid ""
+"These styles are well designed and beautify your subscription form making it "
+"more appealing."
+msgstr ""
+
+#: ../help/help.php:459
+msgid "add Rainmaker’s form in Email Subscribers"
+msgstr ""
+
 #: ../notification/notification-add.php:45 ../notification/notification-edit.php:61
 msgid "Please select notification mail subject. Use templates menu to create new."
 msgstr ""
@@ -32,13 +477,19 @@ msgstr ""
 msgid "(Use templates menu to create new)"
 msgstr ""
 
-#. URI of the plugin
-msgid "https://www.icegram.com"
+#: ../sendmail/sendmail.php:59
+msgid "Email sent successfully. "
 msgstr ""
 
-#: ../email-subscribers.php:95
-msgctxt "timezone date format"
-msgid "Y-m-d H:i:s"
+#: ../sentmail/sentmail-preview.php:27
+msgid "Preview Email"
+msgstr ""
+
+#: ../sentmail/sentmail-preview.php:31
+msgid ""
+"This is how the email you sent may look. <br>Note: Different email services "
+"(like gmail, yahoo etc) display email content differently. So there could be "
+"a slight variation on how your customer will view the email content."
 msgstr ""
 
 #: ../settings/settings-edit.php:23
@@ -51,11 +502,6 @@ msgstr ""
 
 #: ../settings/settings-edit.php:25
 msgid "Cron"
-msgstr ""
-
-#: ../settings/settings-edit.php:42 ../classes/es-register.php:177 ../classes/es-
-#: register.php:178
-msgid "Settings"
 msgstr ""
 
 #: ../settings/settings-edit.php:89
@@ -262,26 +708,6 @@ msgid ""
 "does not support cron jobs?</a>"
 msgstr ""
 
-#: ../sentmail/sentmail-preview.php:27
-msgid "Preview Email"
-msgstr ""
-
-#: ../sentmail/sentmail-preview.php:31
-msgid ""
-"This is how the email you sent may look. <br>Note: Different email services "
-"(like gmail, yahoo etc) display email content differently. So there could be "
-"a slight variation on how your customer will view the email content."
-msgstr ""
-
-#: ../subscribers/view-subscriber-show.php:75 ../subscribers/view-subscriber-show.
-#: php:134
-msgid "Confirmation emails resent successfully."
-msgstr ""
-
-#: ../subscribers/view-subscriber-show.php:256
-msgid "Total Subscribers: "
-msgstr ""
-
 #: ../subscribers/view-subscriber-export.php:12
 msgid ""
 "Oops! Looks like you are not the site administrator.<br><br>Only the site "
@@ -292,8 +718,13 @@ msgstr ""
 msgid "Go back to Subscribers dashboard"
 msgstr ""
 
-#: ../export/export-email-address.php:50 ../export/export-email-address.php:54
-msgid "Unexpected url submit has been detected!"
+#: ../subscribers/view-subscriber-show.php:75 ../subscribers/view-subscriber-show.
+#: php:134
+msgid "Confirmation emails resent successfully."
+msgstr ""
+
+#: ../subscribers/view-subscriber-show.php:256
+msgid "Total Subscribers: "
 msgstr ""
 
 #: ../templates/template-preview.php:31
@@ -317,1516 +748,14 @@ msgid ""
 "customer will view the email content."
 msgstr ""
 
-#: ../help/help.php:185
-msgid "Thanks for installing and we hope you will enjoy using this plugin."
+#. URI of the plugin
+msgid "https://www.icegram.com"
 msgstr ""
 
-#: ../help/help.php:186
-msgid ""
-"By default, subscribers subscribed via Email Subscribers, will receive email "
-"updates when you post a new blog. You can turn these updates off like this:"
+#: ../email-subscribers.php:95
+msgctxt "timezone date format"
+msgid "Y-m-d H:i:s"
 msgstr ""
-
-#: ../help/help.php:187
-msgid ""
-"Email Subscribers -> Post Notification -> Edit -> Select Notification Status "
-"when a new post is published -> Disable -> Save."
-msgstr ""
-
-#: ../help/help.php:191
-msgid "Get more help and tips..."
-msgstr ""
-
-#: ../help/help.php:205
-#, php-format
-msgid "Version: %s"
-msgstr ""
-
-#: ../help/help.php:208
-msgid "Questions? Need Help?"
-msgstr ""
-
-#: ../help/help.php:209
-msgid "Contact Us"
-msgstr ""
-
-#: ../help/help.php:214
-#, php-format
-msgid ""
-"<b>Like Email Subscribers?</b> If yes, then consider %s to support further "
-"developments."
-msgstr ""
-
-#: ../help/help.php:214
-msgid "donating to us"
-msgstr ""
-
-#: ../help/help.php:249
-msgid "Description"
-msgstr ""
-
-#: ../help/help.php:251
-msgid ""
-"Email Subscribers is a complete newsletter plugin which lets you collect "
-"leads, send automated new blog post notification emails, create & send "
-"newsletters and manage all this in one single place."
-msgstr ""
-
-#: ../help/help.php:253
-msgid "Feature Overview"
-msgstr ""
-
-#: ../help/help.php:256
-msgid ""
-"Collect customer emails by adding a subscription box (Widget/Shortcode/PHP "
-"Code)."
-msgstr ""
-
-#: ../help/help.php:259
-msgid "Configure double Opt-In and Single Opt-In facility for subscribers."
-msgstr ""
-
-#: ../help/help.php:262
-msgid "Send automatic welcome email to subscribers."
-msgstr ""
-
-#: ../help/help.php:265
-msgid ""
-"Send new post notification emails to subscribers when new posts are "
-"published on your website."
-msgstr ""
-
-#: ../help/help.php:268
-msgid "Schedule email (Cron job) or send them manually."
-msgstr ""
-
-#: ../help/help.php:271
-msgid "Send email notification to admin when a new user signs up."
-msgstr ""
-
-#: ../help/help.php:274
-msgid "Automatically add Unsubscribe link in the email."
-msgstr ""
-
-#: ../help/help.php:277
-msgid "Easily migrate subscribers from another app using Import & Export."
-msgstr ""
-
-#: ../help/help.php:280
-msgid "Use HTML editor to create newsletters and post notifications."
-msgstr ""
-
-#: ../help/help.php:283
-msgid "Send newsletters to different groups."
-msgstr ""
-
-#: ../help/help.php:286
-msgid "Get detailed sent email reports."
-msgstr ""
-
-#: ../help/help.php:289
-msgid "Control user access (User Roles and Capabilities)."
-msgstr ""
-
-#: ../help/help.php:292
-msgid "Supports localization and internationalization."
-msgstr ""
-
-#: ../help/help.php:299
-msgid "Add Subscribe form"
-msgstr ""
-
-#: ../help/help.php:304
-#, php-format
-msgid ""
-"Use any of the following 3 methods :<br>\n"
-"								a) Shortcode in any page/post : <strong>[email-subscribers "
-"namefield=\"YES\" desc=\"\" group=\"Public\"]</strong> <i>Or</i><br>\n"
-"								b) Go to Appearance -> Widgets. Click on widget Email subscribers "
-"and drag it to the sidebar on the right <i>Or</i><br>\n"
-"								c) Copy and past this php code to your desired template location : "
-"<strong>%s</strong>"
-msgstr ""
-
-#: ../help/help.php:309
-msgid "Additional form settings"
-msgstr ""
-
-#: ../help/help.php:312
-msgid "How to Redirect Subscribers to a new page/url after successful sign up?"
-msgstr ""
-
-#: ../help/help.php:315
-msgid "How to add captcha in Subscribe form of Email Subscribers?"
-msgstr ""
-
-#: ../help/help.php:321
-msgid "General Plugin Configuration"
-msgstr ""
-
-#: ../help/help.php:324
-#, php-format
-msgid "Modify %s"
-msgstr ""
-
-#: ../help/help.php:324
-msgid "default text, email contents"
-msgstr ""
-
-#: ../help/help.php:324
-msgid ""
-" (like Confirmation, Welcome, Admin emails), Cron Settings and Assign User "
-"Roles"
-msgstr ""
-
-#: ../help/help.php:330
-msgid "How to Add/Update Existing Subscribers Group & Status?"
-msgstr ""
-
-#: ../help/help.php:333
-msgid "How to change/update/translate any texts from the plugin?"
-msgstr ""
-
-#: ../help/help.php:339
-msgid "How to check sent emails?"
-msgstr ""
-
-#: ../help/help.php:351
-msgid "Create and Send Newsletter Emails"
-msgstr ""
-
-#: ../help/help.php:354
-msgid "Keywords in the Newsletters"
-msgstr ""
-
-#: ../help/help.php:361
-msgid "Create and Send Post Notification Emails when new posts are published"
-msgstr ""
-
-#: ../help/help.php:364
-msgid "Keywords in the Post Notifications"
-msgstr ""
-
-#: ../help/help.php:367
-msgid "Send a test post notification email to myself/testgroup"
-msgstr ""
-
-#: ../help/help.php:372
-msgid "Cron Job Setup"
-msgstr ""
-
-#: ../help/help.php:375
-msgid "What is Cron and how to Schedule Cron Emails?"
-msgstr ""
-
-#: ../help/help.php:378
-msgid "Schedule Cron Emails in cPanel"
-msgstr ""
-
-#: ../help/help.php:381
-msgid "Schedule Cron Emails in Parallels Plesk"
-msgstr ""
-
-#: ../help/help.php:384
-msgid "Hosting doesn’t support Cron Jobs?"
-msgstr ""
-
-#: ../help/help.php:387
-msgid "Troubleshooting Steps"
-msgstr ""
-
-#: ../help/help.php:395
-msgid "FAQ's"
-msgstr ""
-
-#: ../help/help.php:401
-msgid "Want to do more? Here's how.."
-msgstr ""
-
-#: ../help/help.php:404
-msgid "Allow Subscribers to get subscribed to any group"
-msgstr ""
-
-#: ../help/help.php:409
-msgid "Using our <b>free</b> "
-msgstr ""
-
-#: ../help/help.php:410
-msgid "Group Selector"
-msgstr ""
-
-#: ../help/help.php:411
-msgid ""
-"plugin, you can extend Email Subscribers Form functionality by providing an "
-"grouping option right next to the form."
-msgstr ""
-
-#: ../help/help.php:414
-msgid "The user can then subscribe to whichever group most appeals to them."
-msgstr ""
-
-#: ../help/help.php:417
-msgid "For example: Subscribe either to Updates or to Offers."
-msgstr ""
-
-#: ../help/help.php:421
-msgid "Show your subscribe form inside attractive popups"
-msgstr ""
-
-#: ../help/help.php:426
-msgid ""
-"Don't limit your subscriber form to a widget. Embed it within popups, hello "
-"bars, slide-ins, sidebars, full screen popups etc."
-msgstr ""
-
-#: ../help/help.php:429
-msgid ""
-"Using Email Subscribers you can achieve this easily with our <b>free</b> "
-"plugin "
-msgstr ""
-
-#: ../help/help.php:433
-msgid ""
-"Icegram's beautiful designs instantly capture user attention and help "
-"increase sign-ups to your WordPress website."
-msgstr ""
-
-#: ../help/help.php:436 ../help/help.php:456
-#, php-format
-msgid "How to %s"
-msgstr ""
-
-#: ../help/help.php:436
-msgid "show subscribe form inside a popup"
-msgstr ""
-
-#: ../help/help.php:440
-msgid "Get beautiful and elegant form styles"
-msgstr ""
-
-#: ../help/help.php:446
-msgid "Email subscribers easily integrates with another <b>free</b> plugin "
-msgstr ""
-
-#: ../help/help.php:447
-msgid "Rainmaker"
-msgstr ""
-
-#: ../help/help.php:450
-msgid ""
-"Rainmaker extends the core features of Email Subscribers and provides "
-"elegant form styles."
-msgstr ""
-
-#: ../help/help.php:453
-msgid ""
-"These styles are well designed and beautify your subscription form making it "
-"more appealing."
-msgstr ""
-
-#: ../help/help.php:456
-msgid "add Rainmaker’s form in Email Subscribers"
-msgstr ""
-
-#: ../sendmail/sendmail.php:59
-msgid "Email sent successfully. "
-msgstr ""
-
-#: ../classes/es-register.php:168 ../classes/es-register.php:169 ../classes/es-
-#: register.php:797 ../classes/es-register.php:798 ../classes/es-register.php:803
-msgid "Templates"
-msgstr ""
-
-#: ../classes/es-register.php:184
-msgid "<span style=\"color:#f18500;font-weight:bolder;\">Help & Info</span>"
-msgstr ""
-
-#: ../classes/es-register.php:201
-msgctxt "view-subscriber-enhanced-select"
-msgid ""
-"Do you want to resend confirmation email? Also please note, this will update "
-"subscriber current status to 'Unconfirmed'."
-msgstr ""
-
-#: ../classes/es-register.php:215
-msgctxt "notification-enhanced-select"
-msgid "Please select notification mail subject. Use templates menu to create new."
-msgstr ""
-
-#: ../classes/es-register.php:263
-msgctxt "widget-enhanced-select"
-msgid ""
-"Your subscription was successful! Kindly check your mailbox and confirm your "
-"subscription. If you can't see the email within a few minutes, check the "
-"spam folder."
-msgstr ""
-
-#: ../classes/es-register.php:281
-msgctxt "widget-page-enhanced-select"
-msgid ""
-"Your subscription was successful! Kindly check your mailbox and confirm your "
-"subscription. If you can't see the email within a few minutes, check the "
-"spam folder."
-msgstr ""
-
-#: ../classes/es-register.php:747
-msgid ""
-"<b>Want readymade email templates?</b> Also want to <b>clean your "
-"subscribers list?</b> Come check our Pro plan."
-msgstr ""
-
-#: ../classes/es-register.php:748
-msgid "Check Pro plan&nbsp;&nbsp;"
-msgstr ""
-
-#: ../classes/es-register.php:748
-msgid "Not interested."
-msgstr ""
-
-#: ../classes/es-register.php:788
-#, php-format
-msgid "Email Subscribers version: <strong>%s</strong>"
-msgstr ""
-
-#: ../classes/es-register.php:799 ../classes/es-register.php:800
-msgid "Add new Template"
-msgstr ""
-
-#: ../classes/es-register.php:801
-msgid "Edit Templates"
-msgstr ""
-
-#: ../classes/es-register.php:802
-msgid "New Templates"
-msgstr ""
-
-#: ../classes/es-register.php:804
-msgid "View Templates"
-msgstr ""
-
-#: ../classes/es-register.php:805
-msgid "Search Templates"
-msgstr ""
-
-#: ../classes/es-register.php:806
-msgid "No Templates found"
-msgstr ""
-
-#: ../classes/es-register.php:807
-msgid "No Templates found in Trash"
-msgstr ""
-
-#: ../classes/es-register.php:810
-msgid "Thumbnail (For Visual Representation only)"
-msgstr ""
-
-#: ../classes/es-register.php:811
-msgid "Set thumbnail"
-msgstr ""
-
-#: ../classes/es-register.php:848
-msgid "Template Type"
-msgstr ""
-
-#: ../classes/es-register.php:914
-msgid "Available Keyword for Post Notification: {{POSTTITLE}}"
-msgstr ""
-
-#: ../classes/es-register.php:917
-msgid "Select your Email Template Type"
-msgstr ""
-
-#: ../classes/es-register.php:967
-msgid "Preview Template"
-msgstr ""
-
-#: ../classes/es-register.php:981
-#, php-format
-msgid ""
-"%s for Post Notification: {{NAME}}, {{EMAIL}}, {{DATE}}, {{POSTTITLE}}, "
-"{{POSTLINK}}, {{POSTIMAGE}}, {{POSTDESC}}, {{POSTAUTHOR}}, {{POSTLINK-"
-"WITHTITLE}}, {{POSTLINK-ONLY}}, {{POSTFULL}}"
-msgstr ""
-
-#: ../classes/es-register.php:982
-#, php-format
-msgid "<br/><br/>%s for Newsletter: {{NAME}}, {{EMAIL}}"
-msgstr ""
-
-#: ../notification/notification-add.php:33
-msgid "Please select subscribers group."
-msgstr "Vyberte skupinu odběratelů."
-
-#: ../notification/notification-add.php:39
-msgid "Please select notification status."
-msgstr "Vyberte stav oznámení."
-
-#: ../notification/notification-add.php:51 ../notification/notification-edit.php:67
-msgid "Please select post categories."
-msgstr "Vyberte rubriky příspěvků."
-
-#: ../notification/notification-add.php:71
-msgid "Notification successfully created. "
-msgstr "Oznámení bylo úspěšně vytvořeno. "
-
-#: ../notification/notification-add.php:112
-msgid "Add Notification"
-msgstr "Přidat oznámení"
-
-#: ../notification/notification-add.php:113 ../notification/notification-show.php:
-#: 54 ../notification/notification-edit.php:124 ../settings/settings-edit.php:43 .
-#: ./sentmail/sentmail-preview.php:28 ../sentmail/sentmail-show.php:94 ..
-#: sentmail/deliverreport-show.php:61 ../subscribers/view-subscriber-import.php:
-#: 149 ../subscribers/view-subscriber-show.php:247 ../subscribers/view-subscriber-
-#: export.php:51 ../subscribers/view-subscriber-add.php:118 ../subscribers/view-
-#: subscriber-edit.php:113 ../subscribers/view-subscriber-sync.php:92 ..
-#: templates/template-preview.php:32 ../sendmail/sendmail.php:94
-msgid "Help"
-msgstr "Nápověda"
-
-#: ../notification/notification-add.php:121
-msgid "Select Subscribers Group"
-msgstr "Vyberte skupinu odběratelů"
-
-#: ../notification/notification-add.php:125 ../notification/notification-add.php:
-#: 149 ../notification/notification-edit.php:136 ../notification/notification-
-#: edit.php:169 ../subscribers/view-subscriber-import.php:193 ../subscribers/view-
-#: subscriber-add.php:166 ../subscribers/view-subscriber-edit.php:162 ..
-#: subscribers/view-subscriber-sync.php:119 ../sendmail/sendmail.php:111 ..
-#: sendmail/sendmail.php:138 ../sendmail/sendmail.php:152
-msgid "Select"
-msgstr "Vybrat"
-
-#: ../notification/notification-add.php:143 ../notification/notification-edit.php:
-#: 163
-msgid "Select Notification Email Subject"
-msgstr "Vyberte předmět oznamovacího emailu"
-
-#: ../notification/notification-add.php:168 ../notification/notification-edit.php:
-#: 191
-msgid "Select Post Categories"
-msgstr "Vyberte rubriky příspěvků"
-
-#: ../notification/notification-add.php:196 ../notification/notification-edit.php:
-#: 226
-msgid "Check All"
-msgstr "Označit vše"
-
-#: ../notification/notification-add.php:197 ../notification/notification-edit.php:
-#: 227
-msgid "Uncheck All"
-msgstr "Odznačit vše"
-
-#: ../notification/notification-add.php:203 ../notification/notification-edit.php:
-#: 234
-msgid "Select your Custom Post Type"
-msgstr "Vyberte vlastní typ obsahu"
-
-#: ../notification/notification-add.php:204 ../notification/notification-edit.php:
-#: 235
-msgid "(Optional)"
-msgstr "(nepovinné)"
-
-#: ../notification/notification-add.php:233 ../notification/notification-edit.php:
-#: 269
-msgid "No Custom Post Types Available"
-msgstr "Vlastní typ obsahu není dostupný"
-
-#: ../notification/notification-add.php:240 ../notification/notification-edit.php:
-#: 276
-msgid "Select Notification Status when a new post is published"
-msgstr "Vybrat stav potvrzení pro nově publikovaný příspěvek"
-
-#: ../notification/notification-add.php:244 ../notification/notification-show.php:
-#: 130 ../notification/notification-edit.php:280 ../sendmail/sendmail.php:139
-msgid "Send email immediately"
-msgstr "Odeslat email okamžitě"
-
-#: ../notification/notification-add.php:245 ../notification/notification-show.php:
-#: 132 ../notification/notification-edit.php:281
-msgid "Add to cron and send email via cron job"
-msgstr "Přidat do cronu a odeslat cronem"
-
-#: ../notification/notification-add.php:246 ../notification/notification-edit.php:
-#: 282
-msgid "Disable email notification"
-msgstr "Zakázat oznamovací email"
-
-#: ../notification/notification-add.php:254 ../notification/notification-edit.php:
-#: 291 ../subscribers/view-subscriber-edit.php:191
-msgid "Save"
-msgstr "Uložit"
-
-#: ../notification/notification-show.php:21 ../notification/notification-edit.php:
-#: 20 ../sentmail/sentmail-preview.php:18 ../sentmail/sentmail-show.php:22 ..
-#: subscribers/view-subscriber-edit.php:22
-msgid "Oops, selected details does not exists."
-msgstr "Vybrané podrobnosti neexistují."
-
-#: ../notification/notification-show.php:35 ../sentmail/sentmail-show.php:36
-msgid "Selected record deleted."
-msgstr "Vybraný záznam byl smazán."
-
-#: ../notification/notification-show.php:52 ../help/help.php:358 ../classes/es-
-#: register.php:171 ../classes/es-register.php:172
-msgid "Post Notifications"
-msgstr "Oznámení o příspěvcích"
-
-#: ../notification/notification-show.php:53 ../notification/notification-edit.php:
-#: 123
-msgid "Add New"
-msgstr "Vytvoit"
-
-#: ../notification/notification-show.php:57
-msgid ""
-"Use this to setup and send notification emails to your subscribers when a "
-"new post is published in your blog."
-msgstr ""
-"Slouží k nastavení a odeslání oznamovacího emailu vašim odběratelům, když je "
-"nový příspěvek publikován na vašem webu."
-
-#: ../notification/notification-show.php:68 ../notification/notification-show.php:
-#: 76
-msgid "Email Subject"
-msgstr "Předmět emailu"
-
-#: ../notification/notification-show.php:69 ../notification/notification-show.php:
-#: 77
-msgid "Subscribers Group"
-msgstr "Skupina odběratelů"
-
-#: ../notification/notification-show.php:70 ../notification/notification-show.php:
-#: 78
-msgid "Post Categories / Custom Post Types"
-msgstr "Kategorie příspěvků / Vlastní typy příspěvků"
-
-#: ../notification/notification-show.php:71 ../notification/notification-show.php:
-#: 79
-msgid "Notification Status"
-msgstr "Stav oznámení"
-
-#: ../notification/notification-show.php:100 ../subscribers/view-subscriber-show.
-#: php:417 ../templates/template-preview.php:35
-msgid "Edit"
-msgstr "Upravit"
-
-#: ../notification/notification-show.php:103 ../subscribers/view-subscriber-show.
-#: php:301 ../subscribers/view-subscriber-show.php:422
-msgid "Delete"
-msgstr "Smazat"
-
-#: ../notification/notification-show.php:143 ../sentmail/sentmail-show.php:180 ..
-#: sentmail/deliverreport-show.php:128 ../subscribers/view-subscriber-show.php:456
-msgid "No records available."
-msgstr "Žádné záznamy nejsou k dispozici."
-
-#: ../notification/notification-edit.php:49
-msgid "Please select subscribers group"
-msgstr "Vyberte skupinu odběratelů"
-
-#: ../notification/notification-edit.php:55
-msgid "Please select notification status"
-msgstr "Vyberte stav oznámení"
-
-#: ../notification/notification-edit.php:89
-msgid "Notification successfully updated. "
-msgstr "Oznámení bylo úspěšně upraveno. "
-
-#: ../notification/notification-edit.php:122
-msgid "Edit Notification"
-msgstr "Upravit oznámení"
-
-#: ../notification/notification-edit.php:132 ../subscribers/view-subscriber-show.
-#: php:303
-msgid "Update Subscribers Group"
-msgstr "Upravit skupinu odběratelů"
-
-#. Plugin Name of the plugin/theme
-msgid "Email Subscribers & Newsletters"
-msgstr "Email Subscribers & Newsletters"
-
-#. Description of the plugin/theme
-msgid ""
-"Add subscription forms on website, send HTML newsletters & automatically "
-"notify subscribers about new blog posts once it is published."
-msgstr ""
-"Přidejte formulář přihlášení k zasílání zpravodajů na internetové stránky, "
-"posílejte HTML zpravodaje a automaticky informujte objednatele o nových "
-"příspěvcích, jakmile budou zveřejněny."
-
-#. Author of the plugin/theme
-msgid "Icegram"
-msgstr "Icegram"
-
-#: ../settings/settings-edit.php:26
-msgid "User Roles"
-msgstr "Uživatelské úrovně"
-
-#: ../settings/settings-edit.php:67
-msgid "Save Settings"
-msgstr "Uložit nastavení"
-
-#: ../settings/settings-edit.php:78
-msgid "Sender of Notifications"
-msgstr "Odesílatel oznámení"
-
-#: ../settings/settings-edit.php:79
-msgid ""
-"Choose a FROM name and FROM email address for all the emails to be sent from "
-"this plugin."
-msgstr ""
-"Vyberte jméno a emailovou adresu ODESÍLATELE pro všechny oznamovací emaily z "
-"tohoto pluginu."
-
-#: ../settings/settings-edit.php:94
-msgid "1. WP HTML MAIL"
-msgstr "1. WP HTML ZPRÁVA"
-
-#: ../settings/settings-edit.php:95
-msgid "2. WP PLAINTEXT MAIL"
-msgstr "2. WP PROSTÝ TEXT"
-
-#: ../settings/settings-edit.php:96
-msgid "3. PHP HTML MAIL"
-msgstr "3. PHP HTML ZPRÁVA"
-
-#: ../settings/settings-edit.php:97
-msgid "4. PHP PLAINTEXT MAIL"
-msgstr "4. PHP PROSTÝ TEXT"
-
-#: ../settings/settings-edit.php:109
-msgid "Double Opt In"
-msgstr "Dvojí potvrzení"
-
-#: ../settings/settings-edit.php:110 ../subscribers/view-subscriber-import.php:
-#: 181 ../subscribers/view-subscriber-show.php:326 ../subscribers/view-subscriber-
-#: show.php:356 ../subscribers/view-subscriber-add.php:155 ../subscribers/view-
-#: subscriber-edit.php:150
-msgid "Single Opt In"
-msgstr "Jednoduché potvrzení"
-
-#: ../settings/settings-edit.php:116
-msgid "Image Size"
-msgstr "Velikost obrázku"
-
-#: ../settings/settings-edit.php:121
-msgid "Full Size"
-msgstr "Plná velikost"
-
-#: ../settings/settings-edit.php:122
-msgid "Medium Size"
-msgstr "Střední velikost"
-
-#: ../settings/settings-edit.php:123 ../classes/es-register.php:849
-msgid "Thumbnail"
-msgstr "Náhled"
-
-#: ../settings/settings-edit.php:129
-msgid "Admin Email Addresses"
-msgstr "Emailová adresa administrátora"
-
-#: ../settings/settings-edit.php:130
-msgid ""
-"Enter the admin email addresses that should receive notifications (separated "
-"by comma)."
-msgstr ""
-"Zadejte emailové adresy administrátorů, kteří by měli přijímat oznámení "
-"(oddělené čárkou)."
-
-#: ../settings/settings-edit.php:137
-msgid ""
-"To send admin email notifications for the new subscriber. This option must "
-"be set to YES."
-msgstr ""
-"Pro odeslání oznámení administrátorovi o novém odběrateli, je nutné volbu "
-"nastavit na ANO."
-
-#: ../settings/settings-edit.php:142 ../settings/settings-edit.php:217 ..
-#: subscribers/view-subscriber-sync.php:107 ../classes/es-register.php:1121
-msgid "YES"
-msgstr "ANO"
-
-#: ../settings/settings-edit.php:143 ../settings/settings-edit.php:218 ..
-#: subscribers/view-subscriber-sync.php:106 ../classes/es-register.php:1122
-msgid "NO"
-msgstr "NE"
-
-#: ../settings/settings-edit.php:164
-msgid "Sent Report Subject"
-msgstr "Předmět emailu pro hlášení o odeslání"
-
-#: ../settings/settings-edit.php:171
-msgid "Sent Report Content"
-msgstr "Obsah hlášení o odeslání"
-
-#: ../settings/settings-edit.php:198
-msgid "It is a readonly field and you are advised not to modify it."
-msgstr "Toto je pole pouze pro čtení a doporučujeme hodnotu neupravovat."
-
-#: ../settings/settings-edit.php:205
-msgid ""
-"This text will be displayed once user clicks on email confirmation link from "
-"the Double Opt In (confirmation) Email."
-msgstr ""
-"Tento text bude zobrazen po kliknutí na odkaz v potvrzovacím emailu při "
-"dvojitém potvrzení."
-
-#: ../settings/settings-edit.php:213
-msgid ""
-"To send welcome email to subscriber after successful signup. This option "
-"must be set to YES."
-msgstr ""
-"Chcete-li odeslat uvítací email odběrateli po úspěšné registraci musí být "
-"tato volba nastavena na hodnotu ANO."
-
-#: ../settings/settings-edit.php:240
-msgid "Unsubscribe Link"
-msgstr "Odhlašovací odkaz"
-
-#: ../settings/settings-edit.php:247
-msgid "Unsubscribe Text in Email"
-msgstr "Text emailu pro odhlášení"
-
-#: ../settings/settings-edit.php:254
-msgid "Text to display after an email address is unsubscribed"
-msgstr "Text bude zobrazen po odhlášení emailu"
-
-#: ../settings/settings-edit.php:269
-msgid "Error in the Unsubscribe Link"
-msgstr "Chybové hlášení odhlašovacího odkazu"
-
-#: ../settings/settings-edit.php:282
-msgid "Select user roles who can access following menus. Only Admin can change this."
-msgstr ""
-"Vyberte uživatelské role, které mají mít přístup k následujícím menu. Pouze "
-"správce zde může provádět změny."
-
-#: ../settings/settings-edit.php:288
-msgid "Subscribers Menu"
-msgstr "Menu odběratelé"
-
-#: ../settings/settings-edit.php:292 ../settings/settings-edit.php:304 ..
-#: settings/settings-edit.php:316 ../settings/settings-edit.php:328 ..
-#: settings/settings-edit.php:340
-msgid "Administrator Only"
-msgstr "Pouze administrátor"
-
-#: ../settings/settings-edit.php:293 ../settings/settings-edit.php:305 ..
-#: settings/settings-edit.php:317 ../settings/settings-edit.php:329 ..
-#: settings/settings-edit.php:341
-msgid "Administrator/Editor"
-msgstr "Administrátor/Editor"
-
-#: ../settings/settings-edit.php:294 ../settings/settings-edit.php:306 ..
-#: settings/settings-edit.php:318 ../settings/settings-edit.php:330 ..
-#: settings/settings-edit.php:342
-msgid "Administrator/Editor/Author/Contributor"
-msgstr "Administrátor/Editor/Autor/Spolupracovník"
-
-#: ../settings/settings-edit.php:312
-msgid "Post Notifications Menu"
-msgstr "Oznámení o příspěvcích"
-
-#: ../settings/settings-edit.php:324 ../help/help.php:348 ../sendmail/sendmail.
-#: php:93 ../classes/es-register.php:174 ../classes/es-register.php:175
-msgid "Newsletters"
-msgstr "Zpravodaje"
-
-#: ../settings/settings-edit.php:336
-msgid "Reports Menu"
-msgstr "Menu přehledů"
-
-#: ../settings/settings-edit.php:353
-msgid "Cron job URL"
-msgstr "URL cronu"
-
-#: ../settings/settings-edit.php:354
-msgid ""
-"This is your Cron Job URL. It is a readonly field and you are advised not to "
-"modify it."
-msgstr ""
-"Toto je URL vašeho cronu. Pole je pouze pro čtení, nedoporučujeme vám jej "
-"upravovat."
-
-#: ../settings/settings-edit.php:363
-msgid "Email Count"
-msgstr "Počet emailů"
-
-#: ../settings/settings-edit.php:364
-msgid "Number of emails that you want to trigger per hour."
-msgstr "Zadejte počet emailů, které chcete poslat za hodinu pomocí trigeru."
-
-#: ../settings/settings-edit.php:385
-msgid "What is Cron (auto emails) and how to setup Cron Job?"
-msgstr "Co je to cron (automatický e-mail) a jak nastavit cron?"
-
-#: ../settings/settings-edit.php:504
-msgid "Please enter sender of notifications from name."
-msgstr "Zadejte jméno odesílatele oznámení."
-
-#: ../settings/settings-edit.php:509
-msgid "Please enter sender of notifications from email."
-msgstr "Zadejte email odesílatele oznámení."
-
-#: ../settings/settings-edit.php:553
-msgid "Please enter valid mail count."
-msgstr "Zadejte platný počet emailů."
-
-#: ../settings/settings-edit.php:566
-msgid "Settings Saved."
-msgstr "Nastavení bylo uloženo."
-
-#: ../settings/settings-edit.php:569
-msgid "Oops, unable to update."
-msgstr "Nelze aktualizovat."
-
-#: ../settings/setting-sync.php:16
-msgid "Table sync completed successfully."
-msgstr "Synchronizace tabulek byla úspěšná."
-
-#: ../settings/setting-sync.php:29
-msgid "Sync plugin tables"
-msgstr "Synchronizace tabulek pluginu"
-
-#: ../settings/setting-sync.php:33
-msgid "Click to sync tables"
-msgstr "Klikněte pro synchronizaci tabulek"
-
-#: ../sentmail/sentmail-preview.php:53
-msgid "Back"
-msgstr "Zpět"
-
-#: ../sentmail/sentmail-show.php:43
-msgid "Successfully deleted all reports except latest 10."
-msgstr "Úspěšně smazány všechny sestavy kromě posledních 10."
-
-#: ../sentmail/sentmail-show.php:83 ../sentmail/deliverreport-show.php:47
-msgid " &lt;&lt; "
-msgstr " &lt;&lt; "
-
-#: ../sentmail/sentmail-show.php:84 ../sentmail/deliverreport-show.php:48
-msgid " &gt;&gt; "
-msgstr " &gt;&gt; "
-
-#: ../sentmail/sentmail-show.php:93 ../classes/es-register.php:180 ../classes/es-
-#: register.php:181
-msgid "Reports"
-msgstr "Přehledy"
-
-#: ../sentmail/sentmail-show.php:97
-msgid "It will show reports for all Newsletters & Post Notification emails sent."
-msgstr "Zobrazí přehledy všech odeslaných zpravodajů a oznámení o příspěvcích."
-
-#: ../sentmail/sentmail-show.php:107 ../sentmail/sentmail-show.php:120
-msgid "View Reports"
-msgstr "Zobrazit hlášení"
-
-#: ../sentmail/sentmail-show.php:108 ../sentmail/sentmail-show.php:121 ..
-#: classes/es-register.php:897
-msgid "Preview"
-msgstr "Náhled"
-
-#: ../sentmail/sentmail-show.php:109 ../sentmail/sentmail-show.php:122
-msgid "Type"
-msgstr "Typ"
-
-#: ../sentmail/sentmail-show.php:110 ../sentmail/sentmail-show.php:123 ..
-#: sentmail/deliverreport-show.php:74 ../sentmail/deliverreport-show.php:85 ..
-#: subscribers/view-subscriber-show.php:290
-msgid "Status"
-msgstr "Stav"
-
-#: ../sentmail/sentmail-show.php:111 ../sentmail/sentmail-show.php:124 ..
-#: sentmail/deliverreport-show.php:75 ../sentmail/deliverreport-show.php:86
-msgid "Sent"
-msgstr "Odeslal"
-
-#: ../sentmail/sentmail-show.php:112 ../sentmail/sentmail-show.php:125
-msgid "Start Date"
-msgstr "Počáteční datum"
-
-#: ../sentmail/sentmail-show.php:113 ../sentmail/sentmail-show.php:126
-msgid "End Date"
-msgstr "Datum ukončení"
-
-#: ../sentmail/sentmail-show.php:114 ../sentmail/sentmail-show.php:127
-msgid "Total"
-msgstr "Celkem"
-
-#: ../sentmail/sentmail-show.php:115 ../sentmail/sentmail-show.php:128 ..
-#: subscribers/view-subscriber-show.php:293 ../subscribers/view-subscriber-
-#: export.php:61 ../subscribers/view-subscriber-export.php:69
-msgid "Action"
-msgstr "Akce"
-
-#: ../sentmail/sentmail-show.php:190
-msgid "Optimize Table & Delete Records"
-msgstr "Optimalizovat tabulku a smazat záznamy"
-
-#: ../sentmail/sentmail-show.php:199
-msgid ""
-"Note: Please click on <strong>Optimize Table & Delete Records</strong> "
-"button to delete all reports except latest 10."
-msgstr ""
-"Poznámka: Klikněte na tlačítko <strong>Optimalizace tabulek a Smazání "
-"záznamů</strong> pro vymazání všech zpráv kromě posledních 10."
-
-#: ../sentmail/deliverreport-show.php:14
-msgid "Oops.. Unexpected error occurred. Please try again."
-msgstr "Nastala neznámá chyba. Prosím opakujte akci."
-
-#: ../sentmail/deliverreport-show.php:60
-msgid "Delivery Report"
-msgstr "Hlášení o doručení"
-
-#: ../sentmail/deliverreport-show.php:72 ../sentmail/deliverreport-show.php:83 ..
-#: subscribers/view-subscriber-export.php:58 ../subscribers/view-subscriber-
-#: export.php:66
-msgid "Sno"
-msgstr "Číslo"
-
-#: ../sentmail/deliverreport-show.php:73 ../sentmail/deliverreport-show.php:84
-msgid "Email"
-msgstr "Email"
-
-#: ../sentmail/deliverreport-show.php:76 ../sentmail/deliverreport-show.php:87
-msgid "Sent Date"
-msgstr "Datum odeslání"
-
-#: ../sentmail/deliverreport-show.php:77 ../sentmail/deliverreport-show.php:88
-msgid "Viewed Status"
-msgstr "Stav zobrazení"
-
-#: ../sentmail/deliverreport-show.php:78 ../sentmail/deliverreport-show.php:89
-msgid "Viewed Date"
-msgstr "Datum zobrazení"
-
-#: ../subscribers/view-subscriber-import.php:45
-msgid ""
-"Error: Special characters (['^$%&*()}{@#~?><>,|=_+\\\"]) are not allowed in "
-"the Group name."
-msgstr ""
-"Chyba: Speciální znaky (['^$%&*()}{@#~?><>,|=_+\\\"]) v názvu skupiny nelze "
-"použít."
-
-#: ../subscribers/view-subscriber-import.php:95
-msgid "email imported."
-msgstr "email byl importován."
-
-#: ../subscribers/view-subscriber-import.php:96
-msgid "email already exists."
-msgstr "email již existuje."
-
-#: ../subscribers/view-subscriber-import.php:97
-msgid "email are invalid."
-msgstr "emaily jsou neplatné."
-
-#: ../subscribers/view-subscriber-import.php:100 ../subscribers/view-subscriber-
-#: import.php:129
-msgid "Click here"
-msgstr "Klikněte zde"
-
-#: ../subscribers/view-subscriber-import.php:100 ../subscribers/view-subscriber-
-#: import.php:129
-msgid " to view details."
-msgstr " pro zobrazení podrobností."
-
-#: ../subscribers/view-subscriber-import.php:108
-msgid "File Upload Failed."
-msgstr "Nahrávání souboru selhalo."
-
-#: ../subscribers/view-subscriber-import.php:145
-msgid "Import Email Addresses"
-msgstr "Import emailových adres"
-
-#: ../subscribers/view-subscriber-import.php:146 ../subscribers/view-subscriber-
-#: show.php:243 ../subscribers/view-subscriber-export.php:48 ../subscribers/view-
-#: subscriber-add.php:114 ../subscribers/view-subscriber-edit.php:109 ..
-#: subscribers/view-subscriber-sync.php:89
-msgid "Add New Subscriber"
-msgstr "Přidat nového odběratele"
-
-#: ../subscribers/view-subscriber-import.php:147 ../subscribers/view-subscriber-
-#: show.php:245 ../subscribers/view-subscriber-add.php:116 ../subscribers/view-
-#: subscriber-edit.php:111 ../subscribers/view-subscriber-sync.php:91
-msgid "Export"
-msgstr "Export"
-
-#: ../subscribers/view-subscriber-import.php:148 ../subscribers/view-subscriber-
-#: show.php:246 ../subscribers/view-subscriber-export.php:50 ../subscribers/view-
-#: subscriber-add.php:117 ../subscribers/view-subscriber-edit.php:112 ..
-#: subscribers/view-subscriber-sync.php:143
-msgid "Sync"
-msgstr "Synchronizovat"
-
-#: ../subscribers/view-subscriber-import.php:158
-msgid "Select CSV file"
-msgstr "Vyberte soubor CSV"
-
-#: ../subscribers/view-subscriber-import.php:160
-msgid "Check CSV structure "
-msgstr "Zkontrolujte CSV strukturu "
-
-#: ../subscribers/view-subscriber-import.php:161
-msgid "from here"
-msgstr "zde"
-
-#: ../subscribers/view-subscriber-import.php:172
-msgid "Select Subscribers Email Status"
-msgstr "Vybrat stav emailů odběratelů"
-
-#: ../subscribers/view-subscriber-import.php:178 ../subscribers/view-subscriber-
-#: show.php:323 ../subscribers/view-subscriber-show.php:353 ../subscribers/view-
-#: subscriber-add.php:152 ../subscribers/view-subscriber-edit.php:147
-msgid "Confirmed"
-msgstr "Potvrzeno"
-
-#: ../subscribers/view-subscriber-import.php:179 ../subscribers/view-subscriber-
-#: show.php:324 ../subscribers/view-subscriber-show.php:354 ../subscribers/view-
-#: subscriber-add.php:153 ../subscribers/view-subscriber-edit.php:148
-msgid "Unconfirmed"
-msgstr "Nepotvrzeno"
-
-#: ../subscribers/view-subscriber-import.php:180 ../subscribers/view-subscriber-
-#: show.php:325 ../subscribers/view-subscriber-show.php:355 ../subscribers/view-
-#: subscriber-add.php:154 ../subscribers/view-subscriber-edit.php:149
-msgid "Unsubscribed"
-msgstr "Zrušen odběr"
-
-#: ../subscribers/view-subscriber-import.php:188
-msgid "Select (or) Create Group for Subscribers"
-msgstr "Vyberte (nebo) vytvořte skupinu pro odběratele"
-
-#: ../subscribers/view-subscriber-import.php:205 ../subscribers/view-subscriber-
-#: add.php:178
-msgid "(or)"
-msgstr "(nebo)"
-
-#: ../subscribers/view-subscriber-import.php:213 ../subscribers/view-subscriber-
-#: show.php:244 ../subscribers/view-subscriber-export.php:49 ../subscribers/view-
-#: subscriber-add.php:115 ../subscribers/view-subscriber-edit.php:110 ..
-#: subscribers/view-subscriber-sync.php:90
-msgid "Import"
-msgstr "Import"
-
-#: ../subscribers/view-subscriber-show.php:17 ../sendmail/sendmail.php:18
-msgid "Click Here"
-msgstr "Klikněte zde"
-
-#: ../subscribers/view-subscriber-show.php:45
-msgid "Selected details does not exists."
-msgstr "Vybrané detaily neexistují."
-
-#: ../subscribers/view-subscriber-show.php:56 ../subscribers/view-subscriber-show.
-#: php:95
-msgid "Record deleted."
-msgstr "Záznam byl smazán."
-
-#: ../subscribers/view-subscriber-show.php:67
-msgid "To send confirmation email, please change the Opt-in option to Double Opt In."
-msgstr ""
-"Chcete-li odeslat potvrzovací email, změňte možnost potvrzení na dvojité "
-"potvrzení."
-
-#: ../subscribers/view-subscriber-show.php:100 ../subscribers/view-subscriber-
-#: show.php:139 ../subscribers/view-subscriber-show.php:178 ../subscribers/view-
-#: subscriber-show.php:217
-msgid "No record was selected."
-msgstr "Není vybrán žádný záznam."
-
-#: ../subscribers/view-subscriber-show.php:115
-msgid "To send confirmation mail, please change the Opt-in option to Double Opt In."
-msgstr ""
-"Chcete-li odeslat potvrzovací zprávu, změňte možnost potvrzení na dvojité "
-"potvrzení."
-
-#: ../subscribers/view-subscriber-show.php:164
-msgid "Subscribers Group updated."
-msgstr "Skupina odběratelů je upravena."
-
-#: ../subscribers/view-subscriber-show.php:169
-msgid "Please select New group to update."
-msgstr "Vyberte novou skupinu k úpravě."
-
-#: ../subscribers/view-subscriber-show.php:203
-msgid "Subscribers Status updated."
-msgstr "Stav odběratele upraven."
-
-#: ../subscribers/view-subscriber-show.php:208
-msgid "Please select New Status to update."
-msgstr "Vyberte nový stav ke změně."
-
-#: ../subscribers/view-subscriber-show.php:242 ../classes/es-register.php:165 ..
-#: classes/es-register.php:166
-msgid "Subscribers"
-msgstr "Odběratelé"
-
-#: ../subscribers/view-subscriber-show.php:258
-#, php-format
-msgid "Active Subscribers: %s"
-msgstr "Aktivní odběratelé: %s"
-
-#: ../subscribers/view-subscriber-show.php:288
-msgid "Email Address"
-msgstr "Emailová adresa"
-
-#: ../subscribers/view-subscriber-show.php:289 ../classes/es-register.php:1061 ..
-#: classes/es-loadwidget.php:28
-msgid "Name"
-msgstr "Jméno"
-
-#: ../subscribers/view-subscriber-show.php:291
-msgid "Group"
-msgstr "Skupina"
-
-#: ../subscribers/view-subscriber-show.php:292
-msgid "Signup Date & Time<br>(Y-M-D H:I:S)"
-msgstr "Datum a čas přihlášení<br>(Y-M-D H:I:S)"
-
-#: ../subscribers/view-subscriber-show.php:300
-msgid "Bulk Actions"
-msgstr "Hromadné úpravy"
-
-#: ../subscribers/view-subscriber-show.php:302 ../subscribers/view-subscriber-
-#: show.php:413
-msgid "Resend Confirmation"
-msgstr "Znovu odeslat povtrzení"
-
-#: ../subscribers/view-subscriber-show.php:304
-msgid "Update Subscribers Status"
-msgstr "Změna stavu odběratele"
-
-#: ../subscribers/view-subscriber-show.php:307
-msgid "Select Group"
-msgstr "Vyberte skupinu"
-
-#: ../subscribers/view-subscriber-show.php:322
-msgid "Select Status"
-msgstr "Vybrat status"
-
-#: ../subscribers/view-subscriber-show.php:328
-msgid "Apply"
-msgstr "Použít"
-
-#: ../subscribers/view-subscriber-show.php:335
-msgid "All Groups"
-msgstr "Všechny skupiny"
-
-#: ../subscribers/view-subscriber-show.php:352
-msgid "All Status"
-msgstr "Všechny stavy"
-
-#: ../subscribers/view-subscriber-show.php:359
-msgid "1 to 500 emails"
-msgstr "1 až 500 emailů"
-
-#: ../subscribers/view-subscriber-show.php:360
-msgid "501 to 1000"
-msgstr "501 až 1000"
-
-#: ../subscribers/view-subscriber-show.php:361
-msgid "1001 to 1500"
-msgstr "1001 až 1500"
-
-#: ../subscribers/view-subscriber-show.php:362
-msgid "1501 to 2000"
-msgstr "1501 až 2000"
-
-#: ../subscribers/view-subscriber-show.php:363
-msgid "2001 to 4000"
-msgstr "2001 až 4000"
-
-#: ../subscribers/view-subscriber-show.php:364
-msgid "4001 to 6000"
-msgstr "4001 až 6000"
-
-#: ../subscribers/view-subscriber-show.php:365
-msgid "6001 to 10000"
-msgstr "6001 až 10000"
-
-#: ../subscribers/view-subscriber-show.php:366
-msgid "Display All"
-msgstr "Zobrazit vše"
-
-#: ../subscribers/view-subscriber-export.php:47
-msgid "Export Email Addresses"
-msgstr "Exportovat emailové adresy"
-
-#: ../subscribers/view-subscriber-export.php:59 ../subscribers/view-subscriber-
-#: export.php:67
-msgid "Type of List to Export"
-msgstr "Typ seznamu pro export"
-
-#: ../subscribers/view-subscriber-export.php:60 ../subscribers/view-subscriber-
-#: export.php:68
-msgid "Total Emails Count"
-msgstr "Počet emailů celkem"
-
-#: ../subscribers/view-subscriber-export.php:74
-msgid "1"
-msgstr "1"
-
-#: ../subscribers/view-subscriber-export.php:75
-msgid "All Subscribers"
-msgstr "Všichni odběratelé"
-
-#: ../subscribers/view-subscriber-export.php:77 ../subscribers/view-subscriber-
-#: export.php:83 ../subscribers/view-subscriber-export.php:89 ../subscribers/view-
-#: subscriber-export.php:95 ../subscribers/view-subscriber-export.php:101
-msgid "Click to Export in CSV"
-msgstr "Klikněte pro export do CSV"
-
-#: ../subscribers/view-subscriber-export.php:80
-msgid "2"
-msgstr "2"
-
-#: ../subscribers/view-subscriber-export.php:81
-msgid "Active Subscribers (Status: Confirmed & Single Opt In)"
-msgstr "Aktivní odběratelé (Status: Potvrzen & Přihlášen)"
-
-#: ../subscribers/view-subscriber-export.php:86
-msgid "3"
-msgstr "3"
-
-#: ../subscribers/view-subscriber-export.php:87
-msgid "Inactive Subscribers (Status: Unconfirmed & Unsubscribed)"
-msgstr "Neaktivní odběratelé (Status: Nepotvrzen & Odhlášen)"
-
-#: ../subscribers/view-subscriber-export.php:92
-msgid "4"
-msgstr "4"
-
-#: ../subscribers/view-subscriber-export.php:93
-msgid "WordPress Registered Users"
-msgstr "WordPress registrovaní uživatelé"
-
-#: ../subscribers/view-subscriber-export.php:98
-msgid "5"
-msgstr "5"
-
-#: ../subscribers/view-subscriber-export.php:99
-msgid "Commented Authors"
-msgstr "Autoři komentářů"
-
-#: ../subscribers/view-subscriber-add.php:39 ../subscribers/view-subscriber-edit.
-#: php:54
-msgid "Please enter subscriber email address."
-msgstr "Zadejte emailovou adresu odběratele."
-
-#: ../subscribers/view-subscriber-add.php:52
-msgid "Please select or create your group for this email."
-msgstr "Vyberte nebo vytvořte skupinu pro tento email."
-
-#: ../subscribers/view-subscriber-add.php:59
-msgid ""
-"Error: Special characters (['^$%&*()}{@#~?><>,|=_+\\\"]) are not allowed in "
-"the group name."
-msgstr ""
-"Chyba: Speciální znaky (['^$%&*()}{@#~?><>,|=_+\\\"]) v názvu skupiny nelze "
-"použít."
-
-#: ../subscribers/view-subscriber-add.php:69
-msgid "Subscriber has been saved."
-msgstr "Odběratel byl uložen."
-
-#: ../subscribers/view-subscriber-add.php:71
-msgid "Subscriber already exists."
-msgstr "Odběratel již existuje."
-
-#: ../subscribers/view-subscriber-add.php:74
-msgid "Invalid Email."
-msgstr "Neplatný email."
-
-#: ../subscribers/view-subscriber-add.php:127
-msgid "Enter Subscriber's Full name"
-msgstr "Zadejte celé jméno odběratele"
-
-#: ../subscribers/view-subscriber-add.php:137
-msgid "Enter Subscriber's Email Address"
-msgstr "Zadejte emailovou adresu odběratele"
-
-#: ../subscribers/view-subscriber-add.php:147
-msgid "Select Subscriber's Status"
-msgstr "Vyberte stav odběratele"
-
-#: ../subscribers/view-subscriber-add.php:162
-msgid "Select (or) Create Group for Subscriber"
-msgstr "Vyberte (nebo) vytvořte skupinu pro odběratele"
-
-#: ../subscribers/view-subscriber-add.php:187
-msgid "Add Subscriber"
-msgstr "Přidat odběratele"
-
-#: ../subscribers/view-subscriber-edit.php:64
-msgid "Error: Special characters are not allowed in the group name."
-msgstr "Chyba: Speciální znaky v názvu skupiny nelze použít."
-
-#: ../subscribers/view-subscriber-edit.php:74
-msgid "Subscriber details updated."
-msgstr "Podrobnosti odběratele byly aktualizovány."
-
-#: ../subscribers/view-subscriber-edit.php:76
-msgid "Subscriber already exists for this group."
-msgstr "Odběratel již v této skupině existuje."
-
-#: ../subscribers/view-subscriber-edit.php:108
-msgid "Edit Subscriber"
-msgstr "Upravit odběratele"
-
-#: ../subscribers/view-subscriber-edit.php:122
-msgid "Subscriber's Full Name"
-msgstr "Celé jména odběratele"
-
-#: ../subscribers/view-subscriber-edit.php:132
-msgid "Subscriber's Email Address"
-msgstr "Emailová adresa odběratele"
-
-#: ../subscribers/view-subscriber-edit.php:142
-msgid "Update Subscriber's Status"
-msgstr "Změna stavu odběratele"
-
-#: ../subscribers/view-subscriber-edit.php:157
-msgid "Update Subscriber's Group"
-msgstr "Změna skupiny odběratele"
-
-#: ../subscribers/view-subscriber-sync.php:36
-msgid "Please select default group to newly registered user."
-msgstr "Vyberte výchozí skupinu pro nově registrované uživatele."
-
-#: ../subscribers/view-subscriber-sync.php:50
-msgid "Emails Successfully Synced."
-msgstr "Emaily byly úspěšně synchronizovány."
-
-#: ../subscribers/view-subscriber-sync.php:88
-msgid "Sync Email"
-msgstr "Synchronizace emailu"
-
-#: ../subscribers/view-subscriber-sync.php:101
-msgid "Sync newly registered users to subscribers list"
-msgstr "Synchronizovat nově registrované uživatele do seznamu"
-
-#: ../subscribers/view-subscriber-sync.php:114
-msgid "Select group to add newly registered users to"
-msgstr "Vybert skupinu do které se mají přidávat nově registrovaní uživatelé"
-
-#: ../job/es-unsubscribe.php:54 ../job/es-unsubscribe.php:61 ../job/es-optin.php:
-#: 58 ../job/es-optin.php:68
-msgid ""
-"Oops.. We are getting some technical error. Please try again or contact "
-"admin."
-msgstr ""
-"Nastala technická chyba. Zkuste to prosím znovu nebo se obraťte na "
-"administrátora."
-
-#: ../job/es-optin.php:61
-msgid "This email address has already been confirmed."
-msgstr "Tato emailová adresa již byla potvrzena."
-
-#: ../help/help.php:184
-msgid "Welcome to Email Subscribers!"
-msgstr "Vítá vás plugin Email Subscribers!"
-
-#: ../help/help.php:196 ../classes/es-register.php:1071 ../classes/es-loadwidget.
-#: php:38
-msgid "Subscribe"
-msgstr "Odebírat"
-
-#: ../help/help.php:301 ../help/help.php:312 ../help/help.php:315 ../help/help.
-#: php:327 ../help/help.php:330 ../help/help.php:333 ../help/help.php:336 ..
-#: help/help.php:339 ../help/help.php:351 ../help/help.php:354 ../help/help.php:
-#: 361 ../help/help.php:364 ../help/help.php:367 ../help/help.php:375 ..
-#: help/help.php:378 ../help/help.php:381 ../help/help.php:384 ../help/help.php:
-#: 390 ../help/help.php:393 ../help/help.php:395
-#, php-format
-msgid "%s"
-msgstr "%s"
-
-#: ../help/help.php:301
-msgid "How to Add Subscription box to website?"
-msgstr "Jak na web přidat přihlašovací formulář?"
-
-#: ../help/help.php:327
-msgid "How to Import or Export Email Addresses?"
-msgstr "Jak importovat nebo exportovat emailové adresy?"
-
-#: ../help/help.php:336
-msgid "How to add Unsubscribe link in emails?"
-msgstr "Jak do emailů přidat odkaz pro odhlášení?"
-
-#: ../help/help.php:390
-msgid "Subscribers are not receiving Emails?"
-msgstr "Odběratelé nepřijímají emaily?"
-
-#: ../help/help.php:393
-msgid "CSS Help"
-msgstr "CSS Nápověda"
-
-#: ../sendmail/sendmail.php:40
-msgid "Please select your mail subject."
-msgstr "Vyberte předmět zprávy."
-
-#: ../sendmail/sendmail.php:46
-msgid "Please select your mail type."
-msgstr "Vyberte typ zprávy."
-
-#: ../sendmail/sendmail.php:52
-msgid "Please select your group."
-msgstr "Vyberte skupinu."
-
-#: ../sendmail/sendmail.php:63
-msgid "Click here to check Statistics"
-msgstr "Klikněte zde pro kontrolu statistik"
-
-#: ../sendmail/sendmail.php:69
-msgid "Oops.. We are getting some error. mail not sending."
-msgstr "Nastala chyba. Zprávy se neodesílají."
-
-#: ../sendmail/sendmail.php:97
-msgid "Use this to send newsletter emails to your subscribers."
-msgstr "Použijete při odeslání emailů svým odběratelům."
-
-#: ../sendmail/sendmail.php:106
-msgid "Select Email Subject from available list"
-msgstr "Vyberte předmět emailu ze seznamu"
-
-#: ../sendmail/sendmail.php:133
-msgid "Select Email Type"
-msgstr "Vyberte typ emailu"
-
-#: ../sendmail/sendmail.php:140
-msgid "Send email via cron job"
-msgstr "Odeslat email cronem"
-
-#: ../sendmail/sendmail.php:147
-msgid "Select Subscribers group to Send Email"
-msgstr "Vyberte skupinu odběratelů pro odesílání emailů"
-
-#: ../sendmail/sendmail.php:179
-msgid "Recipients : 0 "
-msgstr "Příjemců: 0 "
-
-#: ../sendmail/sendmail.php:181
-#, php-format
-msgid "Recipients : %s"
-msgstr "Příjemců: %s"
-
-#: ../sendmail/sendmail.php:184
-msgid ""
-"<br><br><strong>Your Recipients count is above 100.<br>We strongly recommend "
-"that you change above Mail Type to Cron and Send Mail via Cron Job."
-"</strong><br>Click on Help for more information."
-msgstr ""
-"<br><br><strong>Váš počet příjemců je vyšší než 100.<br>Důrazně doporučujeme,"
-" abyste výše změnili typ emailu na cron a zprávy odeslali přes cron."
-"</strong><br>Pro více informací klikněte na nápovědu."
-
-#: ../sendmail/sendmail.php:196 ../sendmail/sendmail.php:198
-msgid "Send Email"
-msgstr "Odeslat email"
-
-#: ../sendmail/sendmail.php:201
-msgid "Reset"
-msgstr "Reset"
 
 #: ../classes/es-common.php:13
 msgid "<span style=\"color:#006600;font-weight:bold;\">Confirmed</span>"
@@ -1872,10 +801,44 @@ msgstr "<span style=\"color:#20b2aa;font-weight:bold;\">Cron email</span>"
 msgid "<span style=\"color:#993399;\">Immediately</span>"
 msgstr "<span style=\"color:#993399;\">Okamžitý email</span>"
 
+#: ../classes/es-loadwidget.php:28 ../classes/es-register.php:1053 ..
+#: subscribers/view-subscriber-show.php:289
+msgid "Name"
+msgstr "Jméno"
+
+#: ../classes/es-loadwidget.php:33 ../classes/es-register.php:1058
+msgid "Email *"
+msgstr "Email *"
+
+#: ../classes/es-loadwidget.php:38 ../classes/es-register.php:1063 ../help/help.
+#: php:196
+msgid "Subscribe"
+msgstr "Odebírat"
+
 #: ../classes/es-register.php:162 ../classes/es-register.php:163 ../classes/es-
-#: register.php:809
+#: register.php:801
 msgid "Email Subscribers"
 msgstr "Email Subscribers"
+
+#: ../classes/es-register.php:165 ../classes/es-register.php:166 ..
+#: subscribers/view-subscriber-show.php:242
+msgid "Subscribers"
+msgstr "Odběratelé"
+
+#: ../classes/es-register.php:171 ../classes/es-register.php:172 ../help/help.php:
+#: 361 ../notification/notification-show.php:52
+msgid "Post Notifications"
+msgstr "Oznámení o příspěvcích"
+
+#: ../classes/es-register.php:174 ../classes/es-register.php:175 ../help/help.php:
+#: 351 ../sendmail/sendmail.php:93 ../settings/settings-edit.php:324
+msgid "Newsletters"
+msgstr "Zpravodaje"
+
+#: ../classes/es-register.php:180 ../classes/es-register.php:181 ..
+#: sentmail/sentmail-show.php:93
+msgid "Reports"
+msgstr "Přehledy"
 
 #: ../classes/es-register.php:183
 msgid "Help & Info"
@@ -1999,100 +962,60 @@ msgstr "Zadejte emailovou adresu"
 
 #: ../classes/es-register.php:259
 msgctxt "widget-enhanced-select"
-msgid "Please provide a valid email address"
-msgstr "Zadejte platnou emailovou adresu"
-
-#: ../classes/es-register.php:260
-msgctxt "widget-enhanced-select"
-msgid "loading..."
-msgstr "načítání..."
-
-#: ../classes/es-register.php:261
-msgctxt "widget-enhanced-select"
-msgid "Cannot create XMLHTTP instance"
-msgstr "Nelze vytvořit instanci XMLHTTP"
-
-#: ../classes/es-register.php:262
-msgctxt "widget-enhanced-select"
 msgid "Successfully Subscribed."
 msgstr "Úspěšné přihlášení k odběru."
 
-#: ../classes/es-register.php:264
+#: ../classes/es-register.php:261
 msgctxt "widget-enhanced-select"
 msgid "Email Address already exists!"
 msgstr "Emailová adresa již existuje!"
 
-#: ../classes/es-register.php:265
+#: ../classes/es-register.php:262
 msgctxt "widget-enhanced-select"
 msgid "Oops.. Unexpected error occurred."
 msgstr "Nastala neočekávaná chyba."
 
-#: ../classes/es-register.php:266
+#: ../classes/es-register.php:263
 msgctxt "widget-enhanced-select"
 msgid "Invalid email address"
 msgstr "Neplatná emailová adresa"
 
-#: ../classes/es-register.php:267
+#: ../classes/es-register.php:264
 msgctxt "widget-enhanced-select"
 msgid "Please try after some time"
 msgstr "Prosím, zkuste to později"
 
-#: ../classes/es-register.php:268
-msgctxt "widget-enhanced-select"
-msgid "There was a problem with the request"
-msgstr "Došlo k potížím s požadavkem"
-
-#: ../classes/es-register.php:276
+#: ../classes/es-register.php:272
 msgctxt "widget-page-enhanced-select"
 msgid "Please enter email address"
 msgstr "Zadejte emailovou adresu"
 
-#: ../classes/es-register.php:277
-msgctxt "widget-page-enhanced-select"
-msgid "Please provide a valid email address"
-msgstr "Zadejte platnou emailovou adresu"
-
-#: ../classes/es-register.php:278
-msgctxt "widget-page-enhanced-select"
-msgid "loading..."
-msgstr "načítání..."
-
-#: ../classes/es-register.php:279
-msgctxt "widget-page-enhanced-select"
-msgid "Cannot create XMLHTTP instance"
-msgstr "Nelze vytvořit instanci XMLHTTP"
-
-#: ../classes/es-register.php:280
+#: ../classes/es-register.php:273
 msgctxt "widget-page-enhanced-select"
 msgid "Successfully Subscribed."
 msgstr "Úspěšné přihlášení k odběru."
 
-#: ../classes/es-register.php:282
+#: ../classes/es-register.php:275
 msgctxt "widget-page-enhanced-select"
 msgid "Email Address already exists!"
 msgstr "Emailová adresa již existuje!"
 
-#: ../classes/es-register.php:283
+#: ../classes/es-register.php:276
 msgctxt "widget-page-enhanced-select"
 msgid "Oops.. Unexpected error occurred."
 msgstr "Nastala neočekávaná chyba."
 
-#: ../classes/es-register.php:284
+#: ../classes/es-register.php:277
 msgctxt "widget-page-enhanced-select"
 msgid "Invalid email address"
 msgstr "Neplatná emailová adresa"
 
-#: ../classes/es-register.php:285
+#: ../classes/es-register.php:278
 msgctxt "widget-page-enhanced-select"
 msgid "Please try after some time"
 msgstr "Prosím, zkuste to později"
 
-#: ../classes/es-register.php:286
-msgctxt "widget-page-enhanced-select"
-msgid "There was a problem with the request"
-msgstr "Došlo k potížím s požadavkem"
-
-#: ../classes/es-register.php:774
+#: ../classes/es-register.php:766
 msgid ""
 "If you like <strong>Email Subscribers</strong>, please consider leaving us a "
 "<a target=\"_blank\" href=\"https://wordpress.org/support/plugin/email-"
@@ -2104,34 +1027,1077 @@ msgstr ""
 "org/support/plugin/email-subscribers/reviews/?filter=5#new-post\">&#9733;"
 "&#9733;&#9733;&#9733;&#9733;</a> hodnocení. Icegram předem mnohokrát děkuje!"
 
-#: ../classes/es-register.php:919
+#: ../classes/es-register.php:841 ../settings/settings-edit.php:123
+msgid "Thumbnail"
+msgstr "Náhled"
+
+#: ../classes/es-register.php:889 ../sentmail/sentmail-show.php:108 ..
+#: sentmail/sentmail-show.php:121
+msgid "Preview"
+msgstr "Náhled"
+
+#: ../classes/es-register.php:911
 msgid "Newsletter"
 msgstr "Zpravodaj"
 
-#: ../classes/es-register.php:920
+#: ../classes/es-register.php:912
 msgid "Post Notification"
 msgstr "Potvrzení příspěvku"
 
-#: ../classes/es-register.php:981 ../classes/es-register.php:982
+#: ../classes/es-register.php:973 ../classes/es-register.php:974
 msgid "Available Keywords"
 msgstr "Dostupná klíčová slova"
 
-#: ../classes/es-register.php:1066 ../classes/es-loadwidget.php:33
-msgid "Email *"
-msgstr "Email *"
-
-#: ../classes/es-register.php:1111
+#: ../classes/es-register.php:1103
 msgid "Widget Title"
 msgstr "Nadpis widgetu"
 
-#: ../classes/es-register.php:1115
+#: ../classes/es-register.php:1107
 msgid "Short description about subscription form"
 msgstr "Krátký popis k vašemu přihlašovacímu formuláři"
 
-#: ../classes/es-register.php:1119
+#: ../classes/es-register.php:1111
 msgid "Display Name Field"
 msgstr "Zobrazit pole „Jméno“"
 
-#: ../classes/es-register.php:1126
+#: ../classes/es-register.php:1113 ../settings/settings-edit.php:142 ..
+#: settings/settings-edit.php:217 ../subscribers/view-subscriber-sync.php:107
+msgid "YES"
+msgstr "ANO"
+
+#: ../classes/es-register.php:1114 ../settings/settings-edit.php:143 ..
+#: settings/settings-edit.php:218 ../subscribers/view-subscriber-sync.php:106
+msgid "NO"
+msgstr "NE"
+
+#: ../classes/es-register.php:1118
 msgid "Subscriber Group"
 msgstr "Skupina odběratelů"
+
+#: ../help/help.php:184
+msgid "Welcome to Email Subscribers!"
+msgstr "Vítá vás plugin Email Subscribers!"
+
+#: ../help/help.php:301 ../help/help.php:312 ../help/help.php:315 ../help/help.
+#: php:327 ../help/help.php:330 ../help/help.php:333 ../help/help.php:336 ..
+#: help/help.php:339 ../help/help.php:342 ../help/help.php:354 ../help/help.php:
+#: 357 ../help/help.php:364 ../help/help.php:367 ../help/help.php:370 ..
+#: help/help.php:378 ../help/help.php:381 ../help/help.php:384 ../help/help.php:
+#: 387 ../help/help.php:393 ../help/help.php:396 ../help/help.php:398
+#, php-format
+msgid "%s"
+msgstr "%s"
+
+#: ../help/help.php:301
+msgid "How to Add Subscription box to website?"
+msgstr "Jak na web přidat přihlašovací formulář?"
+
+#: ../help/help.php:330
+msgid "How to Import or Export Email Addresses?"
+msgstr "Jak importovat nebo exportovat emailové adresy?"
+
+#: ../help/help.php:339
+msgid "How to add Unsubscribe link in emails?"
+msgstr "Jak do emailů přidat odkaz pro odhlášení?"
+
+#: ../help/help.php:393
+msgid "Subscribers are not receiving Emails?"
+msgstr "Odběratelé nepřijímají emaily?"
+
+#: ../help/help.php:396
+msgid "CSS Help"
+msgstr "CSS Nápověda"
+
+#. Author of the plugin/theme
+#: ../help/help.php:433
+msgid "Icegram"
+msgstr "Icegram"
+
+#: ../job/es-optin.php:58 ../job/es-optin.php:68 ../job/es-unsubscribe.php:54 ..
+#: job/es-unsubscribe.php:61
+msgid ""
+"Oops.. We are getting some technical error. Please try again or contact "
+"admin."
+msgstr ""
+"Nastala technická chyba. Zkuste to prosím znovu nebo se obraťte na "
+"administrátora."
+
+#: ../job/es-optin.php:61
+msgid "This email address has already been confirmed."
+msgstr "Tato emailová adresa již byla potvrzena."
+
+#: ../notification/notification-add.php:33
+msgid "Please select subscribers group."
+msgstr "Vyberte skupinu odběratelů."
+
+#: ../notification/notification-add.php:39
+msgid "Please select notification status."
+msgstr "Vyberte stav oznámení."
+
+#: ../notification/notification-add.php:51 ../notification/notification-edit.php:67
+msgid "Please select post categories."
+msgstr "Vyberte rubriky příspěvků."
+
+#: ../notification/notification-add.php:71
+msgid "Notification successfully created. "
+msgstr "Oznámení bylo úspěšně vytvořeno. "
+
+#: ../notification/notification-add.php:112
+msgid "Add Notification"
+msgstr "Přidat oznámení"
+
+#: ../notification/notification-add.php:113 ../notification/notification-edit.php:
+#: 124 ../notification/notification-show.php:54 ../sendmail/sendmail.php:94 ..
+#: sentmail/deliverreport-show.php:61 ../sentmail/sentmail-preview.php:28 ..
+#: sentmail/sentmail-show.php:94 ../settings/settings-edit.php:43 ..
+#: subscribers/view-subscriber-add.php:118 ../subscribers/view-subscriber-edit.
+#: php:113 ../subscribers/view-subscriber-export.php:51 ../subscribers/view-
+#: subscriber-import.php:149 ../subscribers/view-subscriber-show.php:247 ..
+#: subscribers/view-subscriber-sync.php:92 ../templates/template-preview.php:32
+msgid "Help"
+msgstr "Nápověda"
+
+#: ../notification/notification-add.php:121
+msgid "Select Subscribers Group"
+msgstr "Vyberte skupinu odběratelů"
+
+#: ../notification/notification-add.php:125 ../notification/notification-add.php:
+#: 149 ../notification/notification-edit.php:136 ../notification/notification-
+#: edit.php:169 ../sendmail/sendmail.php:111 ../sendmail/sendmail.php:138 ..
+#: sendmail/sendmail.php:152 ../subscribers/view-subscriber-add.php:166 ..
+#: subscribers/view-subscriber-edit.php:162 ../subscribers/view-subscriber-
+#: import.php:193 ../subscribers/view-subscriber-sync.php:119
+msgid "Select"
+msgstr "Vybrat"
+
+#: ../notification/notification-add.php:143 ../notification/notification-edit.php:
+#: 163
+msgid "Select Notification Email Subject"
+msgstr "Vyberte předmět oznamovacího emailu"
+
+#: ../notification/notification-add.php:168 ../notification/notification-edit.php:
+#: 191
+msgid "Select Post Categories"
+msgstr "Vyberte rubriky příspěvků"
+
+#: ../notification/notification-add.php:196 ../notification/notification-edit.php:
+#: 226
+msgid "Check All"
+msgstr "Označit vše"
+
+#: ../notification/notification-add.php:197 ../notification/notification-edit.php:
+#: 227
+msgid "Uncheck All"
+msgstr "Odznačit vše"
+
+#: ../notification/notification-add.php:203 ../notification/notification-edit.php:
+#: 234
+msgid "Select your Custom Post Type"
+msgstr "Vyberte vlastní typ obsahu"
+
+#: ../notification/notification-add.php:204 ../notification/notification-edit.php:
+#: 235
+msgid "(Optional)"
+msgstr "(nepovinné)"
+
+#: ../notification/notification-add.php:233 ../notification/notification-edit.php:
+#: 269
+msgid "No Custom Post Types Available"
+msgstr "Vlastní typ obsahu není dostupný"
+
+#: ../notification/notification-add.php:240 ../notification/notification-edit.php:
+#: 276
+msgid "Select Notification Status when a new post is published"
+msgstr "Vybrat stav potvrzení pro nově publikovaný příspěvek"
+
+#: ../notification/notification-add.php:244 ../notification/notification-edit.php:
+#: 280 ../notification/notification-show.php:130 ../sendmail/sendmail.php:139
+msgid "Send email immediately"
+msgstr "Odeslat email okamžitě"
+
+#: ../notification/notification-add.php:245 ../notification/notification-edit.php:
+#: 281 ../notification/notification-show.php:132
+msgid "Add to cron and send email via cron job"
+msgstr "Přidat do cronu a odeslat cronem"
+
+#: ../notification/notification-add.php:246 ../notification/notification-edit.php:
+#: 282
+msgid "Disable email notification"
+msgstr "Zakázat oznamovací email"
+
+#: ../notification/notification-add.php:254 ../notification/notification-edit.php:
+#: 291 ../subscribers/view-subscriber-edit.php:191
+msgid "Save"
+msgstr "Uložit"
+
+#: ../notification/notification-edit.php:20 ../notification/notification-show.php:
+#: 21 ../sentmail/sentmail-preview.php:18 ../sentmail/sentmail-show.php:22 ..
+#: subscribers/view-subscriber-edit.php:22
+msgid "Oops, selected details does not exists."
+msgstr "Vybrané podrobnosti neexistují."
+
+#: ../notification/notification-edit.php:49
+msgid "Please select subscribers group"
+msgstr "Vyberte skupinu odběratelů"
+
+#: ../notification/notification-edit.php:55
+msgid "Please select notification status"
+msgstr "Vyberte stav oznámení"
+
+#: ../notification/notification-edit.php:89
+msgid "Notification successfully updated. "
+msgstr "Oznámení bylo úspěšně upraveno. "
+
+#: ../notification/notification-edit.php:122
+msgid "Edit Notification"
+msgstr "Upravit oznámení"
+
+#: ../notification/notification-edit.php:123 ../notification/notification-show.
+#: php:53
+msgid "Add New"
+msgstr "Vytvoit"
+
+#: ../notification/notification-edit.php:132 ../subscribers/view-subscriber-show.
+#: php:303
+msgid "Update Subscribers Group"
+msgstr "Upravit skupinu odběratelů"
+
+#: ../notification/notification-show.php:35 ../sentmail/sentmail-show.php:36
+msgid "Selected record deleted."
+msgstr "Vybraný záznam byl smazán."
+
+#: ../notification/notification-show.php:57
+msgid ""
+"Use this to setup and send notification emails to your subscribers when a "
+"new post is published in your blog."
+msgstr ""
+"Slouží k nastavení a odeslání oznamovacího emailu vašim odběratelům, když je "
+"nový příspěvek publikován na vašem webu."
+
+#: ../notification/notification-show.php:68 ../notification/notification-show.php:
+#: 76
+msgid "Email Subject"
+msgstr "Předmět emailu"
+
+#: ../notification/notification-show.php:69 ../notification/notification-show.php:
+#: 77
+msgid "Subscribers Group"
+msgstr "Skupina odběratelů"
+
+#: ../notification/notification-show.php:70 ../notification/notification-show.php:
+#: 78
+msgid "Post Categories / Custom Post Types"
+msgstr "Kategorie příspěvků / Vlastní typy příspěvků"
+
+#: ../notification/notification-show.php:71 ../notification/notification-show.php:
+#: 79
+msgid "Notification Status"
+msgstr "Stav oznámení"
+
+#: ../notification/notification-show.php:100 ../subscribers/view-subscriber-show.
+#: php:417 ../templates/template-preview.php:35
+msgid "Edit"
+msgstr "Upravit"
+
+#: ../notification/notification-show.php:103 ../subscribers/view-subscriber-show.
+#: php:301 ../subscribers/view-subscriber-show.php:422
+msgid "Delete"
+msgstr "Smazat"
+
+#: ../notification/notification-show.php:143 ../sentmail/deliverreport-show.php:
+#: 128 ../sentmail/sentmail-show.php:180 ../subscribers/view-subscriber-show.php:
+#: 456
+msgid "No records available."
+msgstr "Žádné záznamy nejsou k dispozici."
+
+#: ../sendmail/sendmail.php:18 ../subscribers/view-subscriber-show.php:17
+msgid "Click Here"
+msgstr "Klikněte zde"
+
+#: ../sendmail/sendmail.php:40
+msgid "Please select your mail subject."
+msgstr "Vyberte předmět zprávy."
+
+#: ../sendmail/sendmail.php:46
+msgid "Please select your mail type."
+msgstr "Vyberte typ zprávy."
+
+#: ../sendmail/sendmail.php:52
+msgid "Please select your group."
+msgstr "Vyberte skupinu."
+
+#: ../sendmail/sendmail.php:63
+msgid "Click here to check Statistics"
+msgstr "Klikněte zde pro kontrolu statistik"
+
+#: ../sendmail/sendmail.php:69
+msgid "Oops.. We are getting some error. mail not sending."
+msgstr "Nastala chyba. Zprávy se neodesílají."
+
+#: ../sendmail/sendmail.php:97
+msgid "Use this to send newsletter emails to your subscribers."
+msgstr "Použijete při odeslání emailů svým odběratelům."
+
+#: ../sendmail/sendmail.php:106
+msgid "Select Email Subject from available list"
+msgstr "Vyberte předmět emailu ze seznamu"
+
+#: ../sendmail/sendmail.php:133
+msgid "Select Email Type"
+msgstr "Vyberte typ emailu"
+
+#: ../sendmail/sendmail.php:140
+msgid "Send email via cron job"
+msgstr "Odeslat email cronem"
+
+#: ../sendmail/sendmail.php:147
+msgid "Select Subscribers group to Send Email"
+msgstr "Vyberte skupinu odběratelů pro odesílání emailů"
+
+#: ../sendmail/sendmail.php:179
+msgid "Recipients : 0 "
+msgstr "Příjemců: 0 "
+
+#: ../sendmail/sendmail.php:181
+#, php-format
+msgid "Recipients : %s"
+msgstr "Příjemců: %s"
+
+#: ../sendmail/sendmail.php:184
+msgid ""
+"<br><br><strong>Your Recipients count is above 100.<br>We strongly recommend "
+"that you change above Mail Type to Cron and Send Mail via Cron Job."
+"</strong><br>Click on Help for more information."
+msgstr ""
+"<br><br><strong>Váš počet příjemců je vyšší než 100.<br>Důrazně doporučujeme,"
+" abyste výše změnili typ emailu na cron a zprávy odeslali přes cron."
+"</strong><br>Pro více informací klikněte na nápovědu."
+
+#: ../sendmail/sendmail.php:196 ../sendmail/sendmail.php:198
+msgid "Send Email"
+msgstr "Odeslat email"
+
+#: ../sendmail/sendmail.php:201
+msgid "Reset"
+msgstr "Reset"
+
+#: ../sentmail/deliverreport-show.php:14
+msgid "Oops.. Unexpected error occurred. Please try again."
+msgstr "Nastala neznámá chyba. Prosím opakujte akci."
+
+#: ../sentmail/deliverreport-show.php:47 ../sentmail/sentmail-show.php:83
+msgid " &lt;&lt; "
+msgstr " &lt;&lt; "
+
+#: ../sentmail/deliverreport-show.php:48 ../sentmail/sentmail-show.php:84
+msgid " &gt;&gt; "
+msgstr " &gt;&gt; "
+
+#: ../sentmail/deliverreport-show.php:60
+msgid "Delivery Report"
+msgstr "Hlášení o doručení"
+
+#: ../sentmail/deliverreport-show.php:72 ../sentmail/deliverreport-show.php:83 ..
+#: subscribers/view-subscriber-export.php:58 ../subscribers/view-subscriber-
+#: export.php:66
+msgid "Sno"
+msgstr "Číslo"
+
+#: ../sentmail/deliverreport-show.php:73 ../sentmail/deliverreport-show.php:84
+msgid "Email"
+msgstr "Email"
+
+#: ../sentmail/deliverreport-show.php:74 ../sentmail/deliverreport-show.php:85 ..
+#: sentmail/sentmail-show.php:110 ../sentmail/sentmail-show.php:123 ..
+#: subscribers/view-subscriber-show.php:290
+msgid "Status"
+msgstr "Stav"
+
+#: ../sentmail/deliverreport-show.php:75 ../sentmail/deliverreport-show.php:86 ..
+#: sentmail/sentmail-show.php:111 ../sentmail/sentmail-show.php:124
+msgid "Sent"
+msgstr "Odeslal"
+
+#: ../sentmail/deliverreport-show.php:76 ../sentmail/deliverreport-show.php:87
+msgid "Sent Date"
+msgstr "Datum odeslání"
+
+#: ../sentmail/deliverreport-show.php:77 ../sentmail/deliverreport-show.php:88
+msgid "Viewed Status"
+msgstr "Stav zobrazení"
+
+#: ../sentmail/deliverreport-show.php:78 ../sentmail/deliverreport-show.php:89
+msgid "Viewed Date"
+msgstr "Datum zobrazení"
+
+#: ../sentmail/sentmail-preview.php:53
+msgid "Back"
+msgstr "Zpět"
+
+#: ../sentmail/sentmail-show.php:43
+msgid "Successfully deleted all reports except latest 10."
+msgstr "Úspěšně smazány všechny sestavy kromě posledních 10."
+
+#: ../sentmail/sentmail-show.php:97
+msgid "It will show reports for all Newsletters & Post Notification emails sent."
+msgstr "Zobrazí přehledy všech odeslaných zpravodajů a oznámení o příspěvcích."
+
+#: ../sentmail/sentmail-show.php:107 ../sentmail/sentmail-show.php:120
+msgid "View Reports"
+msgstr "Zobrazit hlášení"
+
+#: ../sentmail/sentmail-show.php:109 ../sentmail/sentmail-show.php:122
+msgid "Type"
+msgstr "Typ"
+
+#: ../sentmail/sentmail-show.php:112 ../sentmail/sentmail-show.php:125
+msgid "Start Date"
+msgstr "Počáteční datum"
+
+#: ../sentmail/sentmail-show.php:113 ../sentmail/sentmail-show.php:126
+msgid "End Date"
+msgstr "Datum ukončení"
+
+#: ../sentmail/sentmail-show.php:114 ../sentmail/sentmail-show.php:127
+msgid "Total"
+msgstr "Celkem"
+
+#: ../sentmail/sentmail-show.php:115 ../sentmail/sentmail-show.php:128 ..
+#: subscribers/view-subscriber-export.php:61 ../subscribers/view-subscriber-
+#: export.php:69 ../subscribers/view-subscriber-show.php:293
+msgid "Action"
+msgstr "Akce"
+
+#: ../sentmail/sentmail-show.php:190
+msgid "Optimize Table & Delete Records"
+msgstr "Optimalizovat tabulku a smazat záznamy"
+
+#: ../sentmail/sentmail-show.php:199
+msgid ""
+"Note: Please click on <strong>Optimize Table & Delete Records</strong> "
+"button to delete all reports except latest 10."
+msgstr ""
+"Poznámka: Klikněte na tlačítko <strong>Optimalizace tabulek a Smazání "
+"záznamů</strong> pro vymazání všech zpráv kromě posledních 10."
+
+#: ../settings/setting-sync.php:16
+msgid "Table sync completed successfully."
+msgstr "Synchronizace tabulek byla úspěšná."
+
+#: ../settings/setting-sync.php:29
+msgid "Sync plugin tables"
+msgstr "Synchronizace tabulek pluginu"
+
+#: ../settings/setting-sync.php:33
+msgid "Click to sync tables"
+msgstr "Klikněte pro synchronizaci tabulek"
+
+#: ../settings/settings-edit.php:26
+msgid "User Roles"
+msgstr "Uživatelské úrovně"
+
+#: ../settings/settings-edit.php:67
+msgid "Save Settings"
+msgstr "Uložit nastavení"
+
+#: ../settings/settings-edit.php:78
+msgid "Sender of Notifications"
+msgstr "Odesílatel oznámení"
+
+#: ../settings/settings-edit.php:79
+msgid ""
+"Choose a FROM name and FROM email address for all the emails to be sent from "
+"this plugin."
+msgstr ""
+"Vyberte jméno a emailovou adresu ODESÍLATELE pro všechny oznamovací emaily z "
+"tohoto pluginu."
+
+#: ../settings/settings-edit.php:94
+msgid "1. WP HTML MAIL"
+msgstr "1. WP HTML ZPRÁVA"
+
+#: ../settings/settings-edit.php:95
+msgid "2. WP PLAINTEXT MAIL"
+msgstr "2. WP PROSTÝ TEXT"
+
+#: ../settings/settings-edit.php:96
+msgid "3. PHP HTML MAIL"
+msgstr "3. PHP HTML ZPRÁVA"
+
+#: ../settings/settings-edit.php:97
+msgid "4. PHP PLAINTEXT MAIL"
+msgstr "4. PHP PROSTÝ TEXT"
+
+#: ../settings/settings-edit.php:109
+msgid "Double Opt In"
+msgstr "Dvojí potvrzení"
+
+#: ../settings/settings-edit.php:110 ../subscribers/view-subscriber-add.php:155 ..
+#: subscribers/view-subscriber-edit.php:150 ../subscribers/view-subscriber-
+#: import.php:181 ../subscribers/view-subscriber-show.php:326 ../subscribers/view-
+#: subscriber-show.php:356
+msgid "Single Opt In"
+msgstr "Jednoduché potvrzení"
+
+#: ../settings/settings-edit.php:116
+msgid "Image Size"
+msgstr "Velikost obrázku"
+
+#: ../settings/settings-edit.php:121
+msgid "Full Size"
+msgstr "Plná velikost"
+
+#: ../settings/settings-edit.php:122
+msgid "Medium Size"
+msgstr "Střední velikost"
+
+#: ../settings/settings-edit.php:129
+msgid "Admin Email Addresses"
+msgstr "Emailová adresa administrátora"
+
+#: ../settings/settings-edit.php:130
+msgid ""
+"Enter the admin email addresses that should receive notifications (separated "
+"by comma)."
+msgstr ""
+"Zadejte emailové adresy administrátorů, kteří by měli přijímat oznámení "
+"(oddělené čárkou)."
+
+#: ../settings/settings-edit.php:137
+msgid ""
+"To send admin email notifications for the new subscriber. This option must "
+"be set to YES."
+msgstr ""
+"Pro odeslání oznámení administrátorovi o novém odběrateli, je nutné volbu "
+"nastavit na ANO."
+
+#: ../settings/settings-edit.php:164
+msgid "Sent Report Subject"
+msgstr "Předmět emailu pro hlášení o odeslání"
+
+#: ../settings/settings-edit.php:171
+msgid "Sent Report Content"
+msgstr "Obsah hlášení o odeslání"
+
+#: ../settings/settings-edit.php:198
+msgid "It is a readonly field and you are advised not to modify it."
+msgstr "Toto je pole pouze pro čtení a doporučujeme hodnotu neupravovat."
+
+#: ../settings/settings-edit.php:205
+msgid ""
+"This text will be displayed once user clicks on email confirmation link from "
+"the Double Opt In (confirmation) Email."
+msgstr ""
+"Tento text bude zobrazen po kliknutí na odkaz v potvrzovacím emailu při "
+"dvojitém potvrzení."
+
+#: ../settings/settings-edit.php:213
+msgid ""
+"To send welcome email to subscriber after successful signup. This option "
+"must be set to YES."
+msgstr ""
+"Chcete-li odeslat uvítací email odběrateli po úspěšné registraci musí být "
+"tato volba nastavena na hodnotu ANO."
+
+#: ../settings/settings-edit.php:240
+msgid "Unsubscribe Link"
+msgstr "Odhlašovací odkaz"
+
+#: ../settings/settings-edit.php:247
+msgid "Unsubscribe Text in Email"
+msgstr "Text emailu pro odhlášení"
+
+#: ../settings/settings-edit.php:254
+msgid "Text to display after an email address is unsubscribed"
+msgstr "Text bude zobrazen po odhlášení emailu"
+
+#: ../settings/settings-edit.php:269
+msgid "Error in the Unsubscribe Link"
+msgstr "Chybové hlášení odhlašovacího odkazu"
+
+#: ../settings/settings-edit.php:282
+msgid "Select user roles who can access following menus. Only Admin can change this."
+msgstr ""
+"Vyberte uživatelské role, které mají mít přístup k následujícím menu. Pouze "
+"správce zde může provádět změny."
+
+#: ../settings/settings-edit.php:288
+msgid "Subscribers Menu"
+msgstr "Menu odběratelé"
+
+#: ../settings/settings-edit.php:292 ../settings/settings-edit.php:304 ..
+#: settings/settings-edit.php:316 ../settings/settings-edit.php:328 ..
+#: settings/settings-edit.php:340
+msgid "Administrator Only"
+msgstr "Pouze administrátor"
+
+#: ../settings/settings-edit.php:293 ../settings/settings-edit.php:305 ..
+#: settings/settings-edit.php:317 ../settings/settings-edit.php:329 ..
+#: settings/settings-edit.php:341
+msgid "Administrator/Editor"
+msgstr "Administrátor/Editor"
+
+#: ../settings/settings-edit.php:294 ../settings/settings-edit.php:306 ..
+#: settings/settings-edit.php:318 ../settings/settings-edit.php:330 ..
+#: settings/settings-edit.php:342
+msgid "Administrator/Editor/Author/Contributor"
+msgstr "Administrátor/Editor/Autor/Spolupracovník"
+
+#: ../settings/settings-edit.php:312
+msgid "Post Notifications Menu"
+msgstr "Oznámení o příspěvcích"
+
+#: ../settings/settings-edit.php:336
+msgid "Reports Menu"
+msgstr "Menu přehledů"
+
+#: ../settings/settings-edit.php:353
+msgid "Cron job URL"
+msgstr "URL cronu"
+
+#: ../settings/settings-edit.php:354
+msgid ""
+"This is your Cron Job URL. It is a readonly field and you are advised not to "
+"modify it."
+msgstr ""
+"Toto je URL vašeho cronu. Pole je pouze pro čtení, nedoporučujeme vám jej "
+"upravovat."
+
+#: ../settings/settings-edit.php:363
+msgid "Email Count"
+msgstr "Počet emailů"
+
+#: ../settings/settings-edit.php:364
+msgid "Number of emails that you want to trigger per hour."
+msgstr "Zadejte počet emailů, které chcete poslat za hodinu pomocí trigeru."
+
+#: ../settings/settings-edit.php:385
+msgid "What is Cron (auto emails) and how to setup Cron Job?"
+msgstr "Co je to cron (automatický e-mail) a jak nastavit cron?"
+
+#: ../settings/settings-edit.php:504
+msgid "Please enter sender of notifications from name."
+msgstr "Zadejte jméno odesílatele oznámení."
+
+#: ../settings/settings-edit.php:509
+msgid "Please enter sender of notifications from email."
+msgstr "Zadejte email odesílatele oznámení."
+
+#: ../settings/settings-edit.php:553
+msgid "Please enter valid mail count."
+msgstr "Zadejte platný počet emailů."
+
+#: ../settings/settings-edit.php:566
+msgid "Settings Saved."
+msgstr "Nastavení bylo uloženo."
+
+#: ../settings/settings-edit.php:569
+msgid "Oops, unable to update."
+msgstr "Nelze aktualizovat."
+
+#: ../subscribers/view-subscriber-add.php:39 ../subscribers/view-subscriber-edit.
+#: php:54
+msgid "Please enter subscriber email address."
+msgstr "Zadejte emailovou adresu odběratele."
+
+#: ../subscribers/view-subscriber-add.php:52
+msgid "Please select or create your group for this email."
+msgstr "Vyberte nebo vytvořte skupinu pro tento email."
+
+#: ../subscribers/view-subscriber-add.php:59
+msgid ""
+"Error: Special characters (['^$%&*()}{@#~?><>,|=_+\\\"]) are not allowed in "
+"the group name."
+msgstr ""
+"Chyba: Speciální znaky (['^$%&*()}{@#~?><>,|=_+\\\"]) v názvu skupiny nelze "
+"použít."
+
+#: ../subscribers/view-subscriber-add.php:69
+msgid "Subscriber has been saved."
+msgstr "Odběratel byl uložen."
+
+#: ../subscribers/view-subscriber-add.php:71
+msgid "Subscriber already exists."
+msgstr "Odběratel již existuje."
+
+#: ../subscribers/view-subscriber-add.php:74
+msgid "Invalid Email."
+msgstr "Neplatný email."
+
+#: ../subscribers/view-subscriber-add.php:114 ../subscribers/view-subscriber-edit.
+#: php:109 ../subscribers/view-subscriber-export.php:48 ../subscribers/view-
+#: subscriber-import.php:146 ../subscribers/view-subscriber-show.php:243 ..
+#: subscribers/view-subscriber-sync.php:89
+msgid "Add New Subscriber"
+msgstr "Přidat nového odběratele"
+
+#: ../subscribers/view-subscriber-add.php:115 ../subscribers/view-subscriber-edit.
+#: php:110 ../subscribers/view-subscriber-export.php:49 ../subscribers/view-
+#: subscriber-import.php:213 ../subscribers/view-subscriber-show.php:244 ..
+#: subscribers/view-subscriber-sync.php:90
+msgid "Import"
+msgstr "Import"
+
+#: ../subscribers/view-subscriber-add.php:116 ../subscribers/view-subscriber-edit.
+#: php:111 ../subscribers/view-subscriber-import.php:147 ../subscribers/view-
+#: subscriber-show.php:245 ../subscribers/view-subscriber-sync.php:91
+msgid "Export"
+msgstr "Export"
+
+#: ../subscribers/view-subscriber-add.php:117 ../subscribers/view-subscriber-edit.
+#: php:112 ../subscribers/view-subscriber-export.php:50 ../subscribers/view-
+#: subscriber-import.php:148 ../subscribers/view-subscriber-show.php:246 ..
+#: subscribers/view-subscriber-sync.php:143
+msgid "Sync"
+msgstr "Synchronizovat"
+
+#: ../subscribers/view-subscriber-add.php:127
+msgid "Enter Subscriber's Full name"
+msgstr "Zadejte celé jméno odběratele"
+
+#: ../subscribers/view-subscriber-add.php:137
+msgid "Enter Subscriber's Email Address"
+msgstr "Zadejte emailovou adresu odběratele"
+
+#: ../subscribers/view-subscriber-add.php:147
+msgid "Select Subscriber's Status"
+msgstr "Vyberte stav odběratele"
+
+#: ../subscribers/view-subscriber-add.php:152 ../subscribers/view-subscriber-edit.
+#: php:147 ../subscribers/view-subscriber-import.php:178 ../subscribers/view-
+#: subscriber-show.php:323 ../subscribers/view-subscriber-show.php:353
+msgid "Confirmed"
+msgstr "Potvrzeno"
+
+#: ../subscribers/view-subscriber-add.php:153 ../subscribers/view-subscriber-edit.
+#: php:148 ../subscribers/view-subscriber-import.php:179 ../subscribers/view-
+#: subscriber-show.php:324 ../subscribers/view-subscriber-show.php:354
+msgid "Unconfirmed"
+msgstr "Nepotvrzeno"
+
+#: ../subscribers/view-subscriber-add.php:154 ../subscribers/view-subscriber-edit.
+#: php:149 ../subscribers/view-subscriber-import.php:180 ../subscribers/view-
+#: subscriber-show.php:325 ../subscribers/view-subscriber-show.php:355
+msgid "Unsubscribed"
+msgstr "Zrušen odběr"
+
+#: ../subscribers/view-subscriber-add.php:162
+msgid "Select (or) Create Group for Subscriber"
+msgstr "Vyberte (nebo) vytvořte skupinu pro odběratele"
+
+#: ../subscribers/view-subscriber-add.php:178 ../subscribers/view-subscriber-
+#: import.php:205
+msgid "(or)"
+msgstr "(nebo)"
+
+#: ../subscribers/view-subscriber-add.php:187
+msgid "Add Subscriber"
+msgstr "Přidat odběratele"
+
+#: ../subscribers/view-subscriber-edit.php:64
+msgid "Error: Special characters are not allowed in the group name."
+msgstr "Chyba: Speciální znaky v názvu skupiny nelze použít."
+
+#: ../subscribers/view-subscriber-edit.php:74
+msgid "Subscriber details updated."
+msgstr "Podrobnosti odběratele byly aktualizovány."
+
+#: ../subscribers/view-subscriber-edit.php:76
+msgid "Subscriber already exists for this group."
+msgstr "Odběratel již v této skupině existuje."
+
+#: ../subscribers/view-subscriber-edit.php:108
+msgid "Edit Subscriber"
+msgstr "Upravit odběratele"
+
+#: ../subscribers/view-subscriber-edit.php:122
+msgid "Subscriber's Full Name"
+msgstr "Celé jména odběratele"
+
+#: ../subscribers/view-subscriber-edit.php:132
+msgid "Subscriber's Email Address"
+msgstr "Emailová adresa odběratele"
+
+#: ../subscribers/view-subscriber-edit.php:142
+msgid "Update Subscriber's Status"
+msgstr "Změna stavu odběratele"
+
+#: ../subscribers/view-subscriber-edit.php:157
+msgid "Update Subscriber's Group"
+msgstr "Změna skupiny odběratele"
+
+#: ../subscribers/view-subscriber-export.php:47
+msgid "Export Email Addresses"
+msgstr "Exportovat emailové adresy"
+
+#: ../subscribers/view-subscriber-export.php:59 ../subscribers/view-subscriber-
+#: export.php:67
+msgid "Type of List to Export"
+msgstr "Typ seznamu pro export"
+
+#: ../subscribers/view-subscriber-export.php:60 ../subscribers/view-subscriber-
+#: export.php:68
+msgid "Total Emails Count"
+msgstr "Počet emailů celkem"
+
+#: ../subscribers/view-subscriber-export.php:74
+msgid "1"
+msgstr "1"
+
+#: ../subscribers/view-subscriber-export.php:75
+msgid "All Subscribers"
+msgstr "Všichni odběratelé"
+
+#: ../subscribers/view-subscriber-export.php:77 ../subscribers/view-subscriber-
+#: export.php:83 ../subscribers/view-subscriber-export.php:89 ../subscribers/view-
+#: subscriber-export.php:95 ../subscribers/view-subscriber-export.php:101
+msgid "Click to Export in CSV"
+msgstr "Klikněte pro export do CSV"
+
+#: ../subscribers/view-subscriber-export.php:80
+msgid "2"
+msgstr "2"
+
+#: ../subscribers/view-subscriber-export.php:81
+msgid "Active Subscribers (Status: Confirmed & Single Opt In)"
+msgstr "Aktivní odběratelé (Status: Potvrzen & Přihlášen)"
+
+#: ../subscribers/view-subscriber-export.php:86
+msgid "3"
+msgstr "3"
+
+#: ../subscribers/view-subscriber-export.php:87
+msgid "Inactive Subscribers (Status: Unconfirmed & Unsubscribed)"
+msgstr "Neaktivní odběratelé (Status: Nepotvrzen & Odhlášen)"
+
+#: ../subscribers/view-subscriber-export.php:92
+msgid "4"
+msgstr "4"
+
+#: ../subscribers/view-subscriber-export.php:93
+msgid "WordPress Registered Users"
+msgstr "WordPress registrovaní uživatelé"
+
+#: ../subscribers/view-subscriber-export.php:98
+msgid "5"
+msgstr "5"
+
+#: ../subscribers/view-subscriber-export.php:99
+msgid "Commented Authors"
+msgstr "Autoři komentářů"
+
+#: ../subscribers/view-subscriber-import.php:45
+msgid ""
+"Error: Special characters (['^$%&*()}{@#~?><>,|=_+\\\"]) are not allowed in "
+"the Group name."
+msgstr ""
+"Chyba: Speciální znaky (['^$%&*()}{@#~?><>,|=_+\\\"]) v názvu skupiny nelze "
+"použít."
+
+#: ../subscribers/view-subscriber-import.php:95
+msgid "email imported."
+msgstr "email byl importován."
+
+#: ../subscribers/view-subscriber-import.php:96
+msgid "email already exists."
+msgstr "email již existuje."
+
+#: ../subscribers/view-subscriber-import.php:97
+msgid "email are invalid."
+msgstr "emaily jsou neplatné."
+
+#: ../subscribers/view-subscriber-import.php:100 ../subscribers/view-subscriber-
+#: import.php:129
+msgid "Click here"
+msgstr "Klikněte zde"
+
+#: ../subscribers/view-subscriber-import.php:100 ../subscribers/view-subscriber-
+#: import.php:129
+msgid " to view details."
+msgstr " pro zobrazení podrobností."
+
+#: ../subscribers/view-subscriber-import.php:108
+msgid "File Upload Failed."
+msgstr "Nahrávání souboru selhalo."
+
+#: ../subscribers/view-subscriber-import.php:145
+msgid "Import Email Addresses"
+msgstr "Import emailových adres"
+
+#: ../subscribers/view-subscriber-import.php:158
+msgid "Select CSV file"
+msgstr "Vyberte soubor CSV"
+
+#: ../subscribers/view-subscriber-import.php:160
+msgid "Check CSV structure "
+msgstr "Zkontrolujte CSV strukturu "
+
+#: ../subscribers/view-subscriber-import.php:161
+msgid "from here"
+msgstr "zde"
+
+#: ../subscribers/view-subscriber-import.php:172
+msgid "Select Subscribers Email Status"
+msgstr "Vybrat stav emailů odběratelů"
+
+#: ../subscribers/view-subscriber-import.php:188
+msgid "Select (or) Create Group for Subscribers"
+msgstr "Vyberte (nebo) vytvořte skupinu pro odběratele"
+
+#: ../subscribers/view-subscriber-show.php:45
+msgid "Selected details does not exists."
+msgstr "Vybrané detaily neexistují."
+
+#: ../subscribers/view-subscriber-show.php:56 ../subscribers/view-subscriber-show.
+#: php:95
+msgid "Record deleted."
+msgstr "Záznam byl smazán."
+
+#: ../subscribers/view-subscriber-show.php:67
+msgid "To send confirmation email, please change the Opt-in option to Double Opt In."
+msgstr ""
+"Chcete-li odeslat potvrzovací email, změňte možnost potvrzení na dvojité "
+"potvrzení."
+
+#: ../subscribers/view-subscriber-show.php:100 ../subscribers/view-subscriber-
+#: show.php:139 ../subscribers/view-subscriber-show.php:178 ../subscribers/view-
+#: subscriber-show.php:217
+msgid "No record was selected."
+msgstr "Není vybrán žádný záznam."
+
+#: ../subscribers/view-subscriber-show.php:115
+msgid "To send confirmation mail, please change the Opt-in option to Double Opt In."
+msgstr ""
+"Chcete-li odeslat potvrzovací zprávu, změňte možnost potvrzení na dvojité "
+"potvrzení."
+
+#: ../subscribers/view-subscriber-show.php:164
+msgid "Subscribers Group updated."
+msgstr "Skupina odběratelů je upravena."
+
+#: ../subscribers/view-subscriber-show.php:169
+msgid "Please select New group to update."
+msgstr "Vyberte novou skupinu k úpravě."
+
+#: ../subscribers/view-subscriber-show.php:203
+msgid "Subscribers Status updated."
+msgstr "Stav odběratele upraven."
+
+#: ../subscribers/view-subscriber-show.php:208
+msgid "Please select New Status to update."
+msgstr "Vyberte nový stav ke změně."
+
+#: ../subscribers/view-subscriber-show.php:258
+#, php-format
+msgid "Active Subscribers: %s"
+msgstr "Aktivní odběratelé: %s"
+
+#: ../subscribers/view-subscriber-show.php:288
+msgid "Email Address"
+msgstr "Emailová adresa"
+
+#: ../subscribers/view-subscriber-show.php:291
+msgid "Group"
+msgstr "Skupina"
+
+#: ../subscribers/view-subscriber-show.php:292
+msgid "Signup Date & Time<br>(Y-M-D H:I:S)"
+msgstr "Datum a čas přihlášení<br>(Y-M-D H:I:S)"
+
+#: ../subscribers/view-subscriber-show.php:300
+msgid "Bulk Actions"
+msgstr "Hromadné úpravy"
+
+#: ../subscribers/view-subscriber-show.php:302 ../subscribers/view-subscriber-
+#: show.php:413
+msgid "Resend Confirmation"
+msgstr "Znovu odeslat povtrzení"
+
+#: ../subscribers/view-subscriber-show.php:304
+msgid "Update Subscribers Status"
+msgstr "Změna stavu odběratele"
+
+#: ../subscribers/view-subscriber-show.php:307
+msgid "Select Group"
+msgstr "Vyberte skupinu"
+
+#: ../subscribers/view-subscriber-show.php:322
+msgid "Select Status"
+msgstr "Vybrat status"
+
+#: ../subscribers/view-subscriber-show.php:328
+msgid "Apply"
+msgstr "Použít"
+
+#: ../subscribers/view-subscriber-show.php:335
+msgid "All Groups"
+msgstr "Všechny skupiny"
+
+#: ../subscribers/view-subscriber-show.php:352
+msgid "All Status"
+msgstr "Všechny stavy"
+
+#: ../subscribers/view-subscriber-show.php:359
+msgid "1 to 500 emails"
+msgstr "1 až 500 emailů"
+
+#: ../subscribers/view-subscriber-show.php:360
+msgid "501 to 1000"
+msgstr "501 až 1000"
+
+#: ../subscribers/view-subscriber-show.php:361
+msgid "1001 to 1500"
+msgstr "1001 až 1500"
+
+#: ../subscribers/view-subscriber-show.php:362
+msgid "1501 to 2000"
+msgstr "1501 až 2000"
+
+#: ../subscribers/view-subscriber-show.php:363
+msgid "2001 to 4000"
+msgstr "2001 až 4000"
+
+#: ../subscribers/view-subscriber-show.php:364
+msgid "4001 to 6000"
+msgstr "4001 až 6000"
+
+#: ../subscribers/view-subscriber-show.php:365
+msgid "6001 to 10000"
+msgstr "6001 až 10000"
+
+#: ../subscribers/view-subscriber-show.php:366
+msgid "Display All"
+msgstr "Zobrazit vše"
+
+#: ../subscribers/view-subscriber-sync.php:36
+msgid "Please select default group to newly registered user."
+msgstr "Vyberte výchozí skupinu pro nově registrované uživatele."
+
+#: ../subscribers/view-subscriber-sync.php:50
+msgid "Emails Successfully Synced."
+msgstr "Emaily byly úspěšně synchronizovány."
+
+#: ../subscribers/view-subscriber-sync.php:88
+msgid "Sync Email"
+msgstr "Synchronizace emailu"
+
+#: ../subscribers/view-subscriber-sync.php:101
+msgid "Sync newly registered users to subscribers list"
+msgstr "Synchronizovat nově registrované uživatele do seznamu"
+
+#: ../subscribers/view-subscriber-sync.php:114
+msgid "Select group to add newly registered users to"
+msgstr "Vybert skupinu do které se mají přidávat nově registrovaní uživatelé"
+
+#. Plugin Name of the plugin/theme
+msgid "Email Subscribers & Newsletters"
+msgstr "Email Subscribers & Newsletters"
+
+#. Description of the plugin/theme
+msgid ""
+"Add subscription forms on website, send HTML newsletters & automatically "
+"notify subscribers about new blog posts once it is published."
+msgstr ""
+"Přidejte formulář přihlášení k zasílání zpravodajů na internetové stránky, "
+"posílejte HTML zpravodaje a automaticky informujte objednatele o nových "
+"příspěvcích, jakmile budou zveřejněny."

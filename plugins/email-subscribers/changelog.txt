@@ -4,7 +4,17 @@ Author		: Icegram
 Author URI	: https://www.icegram.com/
 License		: GPLv3
 
-************************************************************Version 3.4.11************************************************************
+***********************************************************Version 3.4.12************************************************************
+
+* Fix: Some users getting 'Invalid email address' for valid email address during form submission
+* Fix: Empty email field not showing validation errors during form submission
+* Update: Make email field required in the subscribe form
+* Update: Remove extra error notices
+* Update: POT file
+* Localization: Translation for German Deutsch (de_DE) language updated (Thanks to Markus Buschmann)
+* Localization: Made all translation files up-to-date with latest POT file
+
+***********************************************************Version 3.4.11************************************************************
 
 * Fix: Special characters in the post title showing as html entities when using {{POSTTITLE}} keyword [due to `get_the_title($post)`]
 * Fix: 'Oops.. Unexpected error occurred 0.' in Email Subscribers - Group Selector form when subscriber status is unconfirmed or unsubscribed

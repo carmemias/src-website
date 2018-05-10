@@ -38,12 +38,12 @@ function get_price($custom){
     if('0.00' == $price){
       $price = 'Free Event';
     } elseif('-1.00' == $price) {
-      $price ='Entry By Donation';
+      $price ='Entry by donation';
     } else { $price = '£'.$price;
     };
 
   } else {
-    $price = 'Free Event';
+    $price = 'Free event';
   }
 
   return $price;
@@ -206,6 +206,14 @@ function get_event_full_location($custom){
        <?php if(!empty($event_by)){  echo '<div class="event-by">by ' . $event_by .'</div>';  } ?>
 	    </header><!-- .entry-header -->
 
+      <div class="date">
+        <?php
+        if($event_date){echo $event_date;}
+        if($event_start_time){ echo ' '.$event_start_time; }
+        if($event_end_time){ echo ' - '. $event_end_time; }
+        ?>
+      </div>
+
 	    <div class="entry-content">
         <?php
     		the_content( sprintf(
@@ -239,13 +247,6 @@ function get_event_full_location($custom){
           <?php echo $event_organiser_links; ?>
         </div><!-- links -->
 
-        <div class="date">
-          <?php
-          if($event_date){echo $event_date;}
-          if($event_start_time){ echo ' from '.$event_start_time; }
-          if($event_end_time){ echo ' to '. $event_end_time; }
-          ?>
-        </div>
         <div class="location"><?php echo $event_location; ?></div>
       </div><!-- subcolumn-B -->
    </div><!-- right-column -->
