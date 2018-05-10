@@ -10,7 +10,7 @@
     color: $color__site-title;
     @include font-size(3);
     text-transform: uppercase;
-    margin-bottom: 0;
+    margin: 0;
     letter-spacing: 5px;
   }
 
@@ -19,6 +19,7 @@
     @include font-size(2);
     margin: 0;
     letter-spacing: 3px;
+    font-weight: bold;
   }
 
   & .festival-dates {
@@ -26,6 +27,7 @@
     @include font-size(2);
     margin: 0;
     letter-spacing: 3px;
+    font-weight: bold;
   }
 }
 @media only screen and (max-width: 500px) {
