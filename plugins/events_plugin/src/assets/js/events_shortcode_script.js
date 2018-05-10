@@ -116,7 +116,7 @@ function renderDropDownType(types) {
   defaultElement.setAttribute("value", "");
   defaultElement.innerHTML = "All Event Types";
   selectElement.appendChild(defaultElement);
-  Object.keys(types).forEach(slug => {
+  Object.keys(types).sort().forEach(slug => {
     let optionElement = document.createElement("option");
     optionElement.setAttribute("value", slug);
     optionElement.innerHTML = types[slug];
@@ -138,7 +138,7 @@ function renderDropDownArea(areas) {
   defaultElement.setAttribute("value", "");
   defaultElement.innerHTML = "All Locations";
   selectAreaElement.appendChild(defaultElement);
-  Object.keys(areas).forEach(area => {
+  Object.keys(areas).sort().forEach(area => {
     let optionElement = document.createElement("option");
     optionElement.setAttribute("value", areas[area]);
     optionElement.innerHTML = areas[area];
@@ -161,7 +161,7 @@ function renderDropDownDate(dates) {
   defaultElement.innerHTML = "All Dates";
   selectDateElement.appendChild(defaultElement);
 
-  Object.keys(dates).forEach(date => {
+  Object.keys(dates).sort().forEach(date => {
     let optionElement = document.createElement("option"),
         longDate = getLongDate(dates[date]);
 
