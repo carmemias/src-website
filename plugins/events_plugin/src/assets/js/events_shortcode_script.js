@@ -34,11 +34,11 @@ app.init = function() {
           let allTypes = event._embedded["wp:term"][0];
           allTypes.forEach(function(singleType){
             let slug = singleType.slug;
-            types[slug] = singleType.name;
+            types[slug] = singleType.name.charAt(0).toUpperCase() + singleType.name.slice(1);
           });
         }
         types.sort(function (a, b) {
-          return a.value.toUpperCase() - b.value.toUpperCase();
+          return a.value - b.value;
         });
 
         let areaName = event.extra_meta["_event_cpt_area"]
@@ -97,7 +97,7 @@ function getAllItsTypes(event){
     });
   }
   typesArray.sort(function (a, b) {
-    return a.value.toUpperCase() - b.value.toUpperCase();
+    return a.value - b.value;
   });
 
   return typesArray;
@@ -116,7 +116,7 @@ function renderDropDownType(types) {
   defaultElement.setAttribute("value", "");
   defaultElement.innerHTML = "All Event Types";
   selectElement.appendChild(defaultElement);
-  Object.keys(types).forEach(slug => {
+  Object.keys(types).sort().forEach(slug => {
     let optionElement = document.createElement("option");
     optionElement.setAttribute("value", slug);
     optionElement.innerHTML = types[slug];
@@ -138,7 +138,7 @@ function renderDropDownArea(areas) {
   defaultElement.setAttribute("value", "");
   defaultElement.innerHTML = "All Locations";
   selectAreaElement.appendChild(defaultElement);
-  Object.keys(areas).forEach(area => {
+  Object.keys(areas).sort().forEach(area => {
     let optionElement = document.createElement("option");
     optionElement.setAttribute("value", areas[area]);
     optionElement.innerHTML = areas[area];
@@ -161,7 +161,7 @@ function renderDropDownDate(dates) {
   defaultElement.innerHTML = "All Dates";
   selectDateElement.appendChild(defaultElement);
 
-  Object.keys(dates).forEach(date => {
+  Object.keys(dates).sort().forEach(date => {
     let optionElement = document.createElement("option"),
         longDate = getLongDate(dates[date]);
 
@@ -183,14 +183,6 @@ function submitButton(data) {
   var t = document.createTextNode("Find Event");
   btn.appendChild(t);
   formElement.appendChild(btn);
-
-  //TODO this will need to be moved elsewhere as it is also needed when building the dropdown lists for the filter
-  //check in which programme page we are
-/*  let currentURL = window.location.pathname;
-  let currentYear = currentURL.substring(
-      currentURL.length - 5,
-      currentURL.length - 1
-    ); */
 
   document
     .getElementById("submitFilterButton")
@@ -267,7 +259,11 @@ function renderNewEventsView(newArray) {
         "size-medium",
         "wp-post-image"
       );
-      if (event._embedded["wp:featuredmedia"][0].media_details.sizes.medium != undefined) {
+      if (event._embedded == undefined || event._embedded["wp:featuredmedia"] == undefined){
+        imgElement.setAttribute(
+          "src", " ");
+      }
+      else if (event._embedded["wp:featuredmedia"][0].media_details.sizes.medium != undefined) {
         imgElement.setAttribute(
           "src",
           event._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
