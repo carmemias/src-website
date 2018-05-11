@@ -151,10 +151,10 @@ function events_cpt_shortcode_handler( $atts ){
     $output_string .= ' </header>';
 
     $output_string .= ' <div class="entry-meta">'.$event_types.'</div>';
-    if(!$event_date){$output_string .= '<span style="color: #f00;">No date set yet</span>';}else{$output_string .= ' <p class="date">'.$event_date.' from '.$event_start_time.' to '.$event_end_time.'</p>';}
+    if(!$event_date){$output_string .= '<span style="color: #f00;">No date set yet</span>';}else{$output_string .= ' <p class="date">'.$event_date.' '.$event_start_time.' - '.$event_end_time.'</p>';}
     $output_string .= ' <p class="location">'.$event_location.'</p>';
     $output_string .= ' <p class="price">';
-    if('0.00' == $event_price){$output_string .= __('Free', 'events-functionality');}elseif('-1.00' == $event_price){$output_string .= __('Entry by Donation', 'events-functionality');}else{$output_string .= '£'.$event_price;};
+    if('0.00' == $event_price){$output_string .= __('Free', 'events-functionality');}elseif('-1.00' == $event_price){$output_string .= __('Entry by donation', 'events-functionality');}else{$output_string .= '£'.$event_price;};
     $output_string .= '</p>';
     $output_string .= '</div><!-- right-column -->';
     $output_string .= '</section>';
