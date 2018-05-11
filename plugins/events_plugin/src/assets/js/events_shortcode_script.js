@@ -23,10 +23,9 @@ app.init = function() {
   container.insertBefore(formElement, container.firstChild);
 
 
-
   const events = new wp.api.collections.Events();
   events
-    .fetch({ data: { _embed: true, per_page: 100, filter: {'orderby': 'title'} } })
+    .fetch({ data: { _embed: true, per_page: 100, filter: {'orderby': 'title', 'order': 'ASC'} } })
     .done(data => {
       data["events"] = events;
 
@@ -131,7 +130,6 @@ function renderDropDownType(types) {
 * add event_area filter html to the top of the page
 */
 function renderDropDownArea(areas) {
-  console.log(areas);
   let formElement = document.getElementsByClassName("filters")[0];
 
   let selectAreaElement = document.createElement("select");
@@ -204,7 +202,7 @@ function submitButton(data) {
 
       var newArray = data.filter(function(dataItem) {
         return (
-          (dataItem.extra_meta["_event_cpt_date_event"] == undefined || dataItem.extra_meta["_event_cpt_date_event"][0].substring(0, 4) == currentYear) &&
+          (dataItem.extra_meta["_event_cpt_date_event"] != undefined && dataItem.extra_meta["_event_cpt_startTime_event"] != undefined && dataItem.extra_meta["_event_cpt_date_event"][0].substring(0, 4) == currentYear) &&
           (filteredValues.type == "" ||
             (dataItem._embedded != undefined &&
               dataItem._embedded["wp:term"] != undefined &&
@@ -274,7 +272,7 @@ function renderNewEventsView(newArray) {
       } else {
         imgElement.setAttribute(
           "src",
-          event._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url
+          event._embedded["wp:featuredmedia"][0].source_url
         );
       }
       aElement.appendChild(imgElement);

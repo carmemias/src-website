@@ -50,7 +50,7 @@ function events_cpt_shortcode_handler( $atts ){
 			'event_area' => array(
 				'key' => '_event_cpt_area',
 				'compare' => 'EXISTS'
-		),
+		  ),
 			'event_start_time' => array(
 				'key' => '_event_cpt_startTime_event',
 				'compare' => 'EXISTS'
