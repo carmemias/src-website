@@ -4,7 +4,7 @@
  *
  * @package     yohannes\EventsFunctionality\src
  * @author      yohannes
- * @copyright   2018 Yjohn
+ * @copyright   2018 Code Yor Future
  * @license     GPL-2.0+
  *
  */
@@ -215,7 +215,7 @@ function event_cpt_custom_columns( $column, $post_id ) {
 		case 'event_cpt_area':
 			echo '<div id="event_cpt_area-' . $post_id . '">' . get_post_meta( $post_id, '_event_cpt_area', true ) . '</div>';
 			break;
-		
+
 		case 'event_cpt_type':
 			$terms = get_the_terms( $post_id, 'event-type' );
 			$terms_list = '';

@@ -4,7 +4,7 @@
  *
  * @package     yohannes\EventsFunctionality\src
  * @author      yohannes
- * @copyright   2018 Carme Mias Studio
+ * @copyright   2018 Code Your Future
  * @license     GPL-2.0+
  *
  */
@@ -17,15 +17,28 @@ namespace yohannes\EventsFunctionality\src;
  function events_cpt_shortcode_enqueue_scripts(){
    global $post;
    if( is_a( $post, 'WP_Post' ) && has_shortcode($post->post_content, 'events')){
-	    wp_enqueue_script( 'shortcodescript' , EVENT_FUNCTIONALITY_URL .'/src/assets/js/events_shortcode_script.js', array('wp-api'), null, true );
-	    wp_enqueue_style( 'shortcodestyle' , EVENT_FUNCTIONALITY_URL .'/src/assets/css/events_shortcode_style.css');
+    //  wp_enqueue_script( 'shortcodescript' , EVENT_FUNCTIONALITY_URL .'/src/assets/js/events_shortcode_script.js', array('wp-api'), null, true );
+   wp_enqueue_style( 'shortcodestyle' , EVENT_FUNCTIONALITY_URL .'src/assets/css/events_shortcode_style.css');
    }
  }
  add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\events_cpt_shortcode_enqueue_scripts');
 
+/*
+* Register the query variables for the filter
+*/
+function events_cpt_shortcode_query_variables($vars){
+  $vars[] = 'select-type';
+  $vars[] = 'select-area';
+  $vars[] = 'select-date';
+  return $vars;
+}
+add_filter( 'query_vars', __NAMESPACE__ . '\events_cpt_shortcode_query_variables');
 
-//[events type='type-slug' area='town name' date=''] type attrib value not case sensitive
+//[events type='type-slug' area='town name' date='YYYY-MM-DD' year='YYYY'] type attrib value not case sensitive
 function events_cpt_shortcode_handler( $atts ){
+  /***********************************************/
+  /** Read the shortcode to get the initial view */
+  /***********************************************/
 	$output_string = '';
 	//the default values for type, area, date and year
 	$a = shortcode_atts( array(
@@ -63,7 +76,7 @@ function events_cpt_shortcode_handler( $atts ){
 		)
 	);
 
-	//find type (custom taxonomy)
+	//find type (from shortcode)
 	if( ('' != $a['type']) ){
 		$event_type = $a['type'];
 
@@ -87,37 +100,232 @@ function events_cpt_shortcode_handler( $atts ){
 			);
 		}
 
-	}//by type
+	}//by type from shortcode
 
-	//find area (venue town/city)
+	//find area (from shortcode)
 	if( ('' != $a['area']) ){
 		$event_area = $a['area'];
 		$event_cpt_args['meta_query']['event_area']['value'] = $event_area;
-	} //by area
+	} //by area from shortcode
+
+  //find year (event year)
+  if( ('' != $a['year']) ){
+    $event_year = $a['year'];
+    $event_cpt_args['meta_query']['event_date']['value'] = array($event_year.'-01-01', $event_year.'-12-31');
+  } //by year
 
 	//find date (event date)
-	if( ('' != $a['date']) || ('undefined' !== $a['date']) ){
+	if( ('' != $a['date']) ){
 		$event_date = $a['date'];
 		$event_cpt_args['meta_query']['event_date']['value'] = array($event_date, $event_date);
 	}//by date
 
-	//find year (event year)
-	if( ('' != $a['year']) ){
-		$event_year = $a['year'];
-		$event_cpt_args['meta_query']['event_date']['value'] = array($event_year.'-01-01', $event_year.'-12-31');
-	} //by year
+  /****************************************/
+  /* first query used to generate filters */
+  /****************************************/
+  //all types dropdown
+  $all_types = get_terms( array('taxonomy' => 'event-type' ) );
+  $types_filter_dropdown = render_types_filter($all_types);
 
-	$events_cpt = get_posts( $event_cpt_args ); //returns an array
-		if(count($events_cpt)==0){
-			return __('<p>There are no events to display.</p>', 'events-functionality' );
-		}
+  $initial_events_cpt = get_posts( $event_cpt_args ); //returns an array
+
+  //get data needed to build the areas and dates dropdowns
+  $filter = get_filter_data($initial_events_cpt);
+
+  //all areas dropdown
+  $all_areas = $filter['areas'];
+  $areas_filter_dropdown = render_areas_filter($all_areas);
+
+  //all dates dropdown
+  $all_dates = $filter['dates'];
+  $dates_filter_dropdown = render_dates_filter($all_dates);
+
+  //build filters
+  $output_string .= '<form class="filters">';
+  $output_string .= $types_filter_dropdown;
+  $output_string .= $areas_filter_dropdown;
+  $output_string .= $dates_filter_dropdown;
+  $output_string .= '<button id="submitFilterButton">Find Event</button>';
+
+  $output_string .= '</form>';
+
+  /************************/
+  /* filter functionality */
+  /************************/
+  //get filter selection
+  $filter_selection = get_filter_selection();
+  $selected_type = '';
+  $selected_area = '';
+  $selected_date = '';
+  if(!empty($filter_selection)){
+    $selected_type = $filter_selection['type'];
+    $selected_area = $filter_selection['area'];
+    $selected_date = $filter_selection['date'];
+  }
+
+  //find type (from filter)
+  if( '' != $selected_type ){
+    $event_cpt_args['tax_query'] = array(
+      array(
+        'taxonomy' => 'event-type',
+        'field' => 'slug',
+        'terms' => $selected_type
+      )
+    );
+  }//by type (from filter)
+
+  //find area (from filter)
+  if( '' != $selected_area ){
+    $event_cpt_args['meta_query']['event_area']['value'] = $selected_area;
+  }//by area (from filter)
+
+  //find date (from filter)
+  if( '' != $selected_date ){
+    $event_cpt_args['meta_query']['event_date']['value'] = array($selected_date, $selected_date);
+  }//by date (from filter)
+
+  if($selected_area || $selected_date || $selected_type){
+    $output_string .= '<div class="your-selection">Your selection: '.$selected_type;
+    if($selected_area){
+      $output_string .= ' '.ucfirst($selected_area);
+    }
+    if($selected_date){
+      $output_string .= ' '.date('l j F', strtotime($selected_date));
+    }
+    $output_string .= '</div>';
+  }
+
+  /*********************************/
+  /* the events list gets rendered */
+  /*********************************/
+  //render the programme page
+  $events_cpt = get_posts( $event_cpt_args ); //returns an array
+
+  $result = render_programme_page($events_cpt);
+
+  if(0 == count($initial_events_cpt)){
+      return __('<div class="notice">There are no events to display.</div>', 'events-functionality' );
+  }
 
   $output_string .= '<div id="programme">';
-	//now we have the data, we can build the view
-    foreach ( $events_cpt as $single_event ) {
+  $output_string .= $result['view'];
+  $output_string .= '</div><!-- programme -->';
+
+  return $output_string;
+
+  }
+
+add_shortcode( 'events', __NAMESPACE__ . '\events_cpt_shortcode_handler');
+
+/*
+* Pass the filter query variables to the shortcode
+*/
+function get_filter_selection(){
+  global $query;
+
+  $selection = array();
+
+  // get area meta_query
+  if( !empty( get_query_var( 'select-area' ) ) ){
+    $selection['area'] = str_replace('-', ' ', get_query_var( 'select-area' ));
+  }
+
+  // get date meta_query
+  if( !empty( get_query_var( 'select-date' ) ) ){
+    $selection['date'] = get_query_var( 'select-date' );
+  }
+
+  //get type tax_query
+  if( !empty( get_query_var( 'select-type' ) ) ){
+    $selection['type'] = get_query_var( 'select-type' );
+  }
+
+  return $selection;
+}
+
+
+function get_filter_data($initial_events_cpt){
+  $result = array();
+  $output_areas = array();
+  $output_dates = array();
+
+  foreach ( $initial_events_cpt as $single_event ) {
+    setup_postdata($single_event);
+
+    $event_date_raw = $single_event->_event_cpt_date_event;
+    $event_date = date('l j F', strtotime($event_date_raw));
+
+    if( !array_key_exists($event_date_raw, $output_dates) ){ $output_dates[$event_date_raw] = $event_date; }
+
+    $event_area = ucfirst(sanitize_text_field($single_event->_event_cpt_area));
+    $event_area_key = str_replace(' ', '-', strtolower($event_area));
+    if( ( ''!=$event_area ) && ( !array_key_exists($event_area_key, $output_areas) ) ){ $output_areas[$event_area_key] = $event_area;}
+  }
+
+  $output = array('areas'=> $output_areas, 'dates' => $output_dates);
+
+  wp_reset_postdata();
+
+  return $output;
+
+}
+
+/*
+* renders the event-area filter dropdown
+*/
+function render_areas_filter($all_areas){
+  $output = '';
+  $output .= '<select class="filterElement" name="select-area">';
+  $output .= '<option value="">All Locations</option>';
+  foreach($all_areas as $key => $value){
+    $output .= '<option value="'.$key.'">'.$value.'</option>';
+  }
+  $output .= '</select>';
+
+  return $output;
+}
+
+/*
+* renders the event-area filter dropdown
+*/
+function render_dates_filter($all_dates){
+  $output = '';
+  $output .= '<select class="filterElement" name="select-date">';
+  $output .= '<option value="">All Dates</option>';
+  foreach($all_dates as $key => $value){
+    $output .= '<option value="'.$key.'">'.$value.'</option>';
+  }
+  $output .= '</select>';
+
+  return $output;
+}
+
+/*
+* renders the event-type filter dropdown
+*/
+function render_types_filter($all_types){
+  $output = '';
+  $output .= '<select class="filterElement" name="select-type">';
+  $output .= '<option value="">All Event Types</option>';
+  foreach($all_types as $single_type){
+    $output .= '<option value="'.$single_type->slug.'">'.$single_type->name.'</option>';
+  }
+  $output .= '</select>';
+
+  return $output;
+}
+
+/*
+* Renders the programme section, listing all events
+*/
+function render_programme_page($events_cpt){
+  $output_view = '';
+
+  //now we have the data, we can build the view
+  foreach ( $events_cpt as $single_event ) {
     setup_postdata($single_event);
     //get the data
-    $event_id = $single_event->ID;
+    $event_id = absint($single_event->ID);
 
     $event_image = get_the_post_thumbnail( $event_id, 'medium' );
     $event_organiser_links = get_event_organiser_links($single_event);
@@ -125,8 +333,9 @@ function events_cpt_shortcode_handler( $atts ){
     $event_name = get_the_title($event_id);
     $event_organiser_main = sanitize_text_field($single_event->_event_cpt_main_organizer);
 
-    $event_types = get_event_types($event_id);
-    $event_types_string = '';
+    $event_types_result = get_event_types($event_id);
+    $event_types = $event_types_result['names'];
+    $event_types_data_attr = $event_types_result['slugs'];
 
     $event_date = date('l j F', strtotime($single_event->_event_cpt_date_event));
     $event_start_time = $single_event->_event_cpt_startTime_event;
@@ -138,51 +347,60 @@ function events_cpt_shortcode_handler( $atts ){
     $event_post_url = get_permalink($event_id);
 
     //output the event
-    $output_string .= '<section id="event-'.esc_attr($event_id).'" class="event-entry">';
-    $output_string .= '<div class="left-column">';
-    $output_string .= '<a href="'.esc_url_raw($event_post_url).'" alt="Read more about '.$event_name.'">'.$event_image.'</a>';
-    $output_string .= '<div class="links">'.$event_organiser_links.'</div><!-- links -->';
-    $output_string .= '</div><!-- left-column -->';
+    $output_view .= '<section id="event-'.esc_attr($event_id).'" class="event-entry">';
+    $output_view .= '<div class="left-column">';
+    $output_view .= '<a href="'.esc_url_raw($event_post_url).'" alt="Read more about '.$event_name.'">'.$event_image.'</a>';
+    $output_view .= '<div class="links">'.$event_organiser_links.'</div><!-- links -->';
+    $output_view .= '</div><!-- left-column -->';
 
-    $output_string .= '<div class="right-column">';
-    $output_string .= ' <header class="event-header">';
-    $output_string .= '  <h2 class="event-title"><a href="'.esc_url_raw($event_post_url).'" alt="Read more about '.$event_name.'">' . $event_name . '</a></h2>';
-    $output_string .= '  <div class="event-by">by '.$event_organiser_main.'</div>';
-    $output_string .= ' </header>';
+    $output_view .= '<div class="right-column">';
+    $output_view .= ' <header class="event-header">';
+    $output_view .= '  <h2 class="event-title"><a href="'.esc_url_raw($event_post_url).'" alt="Read more about '.$event_name.'">' . $event_name . '</a></h2>';
+    $output_view .= '  <div class="event-by">by '.$event_organiser_main.'</div>';
+    $output_view .= ' </header>';
 
-    $output_string .= ' <div class="entry-meta">'.$event_types.'</div>';
-    if(!$event_date){$output_string .= '<span style="color: #f00;">No date set yet</span>';}else{$output_string .= ' <p class="date">'.$event_date.' '.$event_start_time.' - '.$event_end_time.'</p>';}
-    $output_string .= ' <p class="location">'.$event_location.'</p>';
-    $output_string .= ' <p class="price">';
-    if('0.00' == $event_price){$output_string .= __('Free', 'events-functionality');}elseif('-1.00' == $event_price){$output_string .= __('Entry by donation', 'events-functionality');}else{$output_string .= '£'.$event_price;};
-    $output_string .= '</p>';
-    $output_string .= '</div><!-- right-column -->';
-    $output_string .= '</section>';
+    $output_view .= ' <div class="entry-meta">'.$event_types.'</div>';
+    if(!$event_date){$output_view .= '<span style="color: #f00;">No date set yet</span>';}else{$output_view .= ' <p class="date">'.$event_date.' '.$event_start_time.' - '.$event_end_time.'</p>';}
+    $output_view .= ' <p class="location">'.$event_location.'</p>';
+    $output_view .= ' <p class="price">';
+    if('0.00' == $event_price){$output_view .= __('Free', 'events-functionality');}elseif('-1.00' == $event_price){$output_view .= __('Entry by donation', 'events-functionality');}else{$output_view .= '£'.$event_price;};
+    $output_view .= '</p>';
+    $output_view .= '</div><!-- right-column -->';
+    $output_view .= '</section>';
      } //foreach
 
-  $output_string .= '</div><!-- programme -->';
-	return $output_string;
+  $output = array('view'=> $output_view);
 
-	 wp_reset_postdata();
+  wp_reset_postdata();
 
-  }
-
-add_shortcode( 'events', __NAMESPACE__ . '\events_cpt_shortcode_handler');
+  return $output;
+}
 
 /*
 * Get string listing event types
 */
 function get_event_types($id){
  $types = get_the_terms( $id, 'event-type' );
- $types_string = '';
+ $type_names_string = ''; //displayed on page
+ $type_slugs_string = ''; //added to data-type <section> attribute
+ $result = array();
 
  if ( $types && !is_wp_error( $types ) ) {
-    $types_array = array();
-    foreach ( $types as $type ) { $types_array[] = sanitize_text_field($type->name);}
-    $types_string = join( " | ", $types_array );
+    $type_names_array = array();
+    $type_slugs_array = array();
+
+    foreach ( $types as $type ) {
+      $type_names_array[] = sanitize_text_field($type->name);
+      $type_slugs_array[] = sanitize_text_field($type->slug);
+    }
+    $type_names_string = join( " | ", $type_names_array );
+    $result['names'] = $type_names_string;
+
+    $type_slugs_string = join( " ", $type_slugs_array );
+    $result['slugs'] = $type_slugs_string;
   }
 
-  return $types_string;
+  return $result;
 }
 
 function get_event_organiser_links($event){

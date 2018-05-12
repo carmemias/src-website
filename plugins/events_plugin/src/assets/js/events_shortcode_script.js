@@ -22,10 +22,9 @@ app.init = function() {
   formElement.classList.add("filters");
   container.insertBefore(formElement, container.firstChild);
 
-
   const events = new wp.api.collections.Events();
   events
-    .fetch({ data: { _embed: true, per_page: 100, filter: {'orderby': 'title', 'order': 'ASC'} } })
+    .fetch({ data: { _embed: true, per_page: 100, 'filter': { 'orderby':'meta_value', 'meta_key':'_event_cpt_date_event', 'order':'ASC'} } })
     .done(data => {
       data["events"] = events;
 
