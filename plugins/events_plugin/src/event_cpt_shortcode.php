@@ -185,12 +185,15 @@ function events_cpt_shortcode_handler( $atts ){
   }//by date (from filter)
 
   if($selected_area || $selected_date || $selected_type){
-    $output_string .= '<div class="your-selection">Your selection: '.$selected_type;
+    $output_string .= '<div class="your-selection">Your selection: </br>';
+    if($selected_type){
+      $output_string .= $selected_type.'</br>';
+    }
     if($selected_area){
-      $output_string .= ' '.ucfirst($selected_area);
+      $output_string .= ucfirst($selected_area).'</br>';
     }
     if($selected_date){
-      $output_string .= ' '.date('l j F', strtotime($selected_date));
+      $output_string .= date('l j F', strtotime($selected_date)).'</br>';
     }
     $output_string .= '</div>';
   }
@@ -203,12 +206,13 @@ function events_cpt_shortcode_handler( $atts ){
 
   $result = render_programme_page($events_cpt);
 
-  if(0 == count($initial_events_cpt)){
-      return __('<div class="notice">There are no events to display.</div>', 'events-functionality' );
-  }
 
   $output_string .= '<div id="programme">';
-  $output_string .= $result['view'];
+  if(0 == count($events_cpt)){
+      $output_string .= '<p>There are no events to display.</p>';
+  } else {
+      $output_string .= $result['view'];
+  }
   $output_string .= '</div><!-- programme -->';
 
   return $output_string;
