@@ -9,6 +9,15 @@
 
 }
 
+body {
+  &.single-post,
+  &.single-event_cpt,
+  .blog,
+  .page-about{
+    font-size:20px;
+  }
+}
+
 #page,
 .site {
   position: relative;
