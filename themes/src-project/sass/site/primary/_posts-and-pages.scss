@@ -12,8 +12,8 @@
 body {
   &.single-post,
   &.single-event_cpt,
-  .blog,
-  .page-about{
+  &.blog,
+  &.page-about{
     font-size:20px;
   }
 }
