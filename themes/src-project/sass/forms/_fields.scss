@@ -30,6 +30,12 @@ input[type="search"] {
 
 select {
 	border: 1px solid $color__border-input;
+	-moz-appearance: none; //removes arrows, which missbehave in iOS phones
+	-webkit-appearance: none;
+}
+//removes arrows in IE, which missbehave in iOS phones
+select::-ms-expand {
+  display: none;
 }
 
 textarea {

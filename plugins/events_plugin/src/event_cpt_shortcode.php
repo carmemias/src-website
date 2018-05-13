@@ -185,19 +185,10 @@ function events_cpt_shortcode_handler( $atts ){
   }//by date (from filter)
 
   if($selected_area || $selected_date || $selected_type){
-    $output_string .= '<div class="your-selection">Your selection: </br>';
-    if($selected_type){
-      $output_string .= $selected_type.'</br>';
-    }
-    if($selected_area){
-      $output_string .= ucfirst($selected_area).'</br>';
-    }
-    if($selected_date){
-      $output_string .= date('l j F', strtotime($selected_date)).'</br>';
-    }
-    $output_string .= '</div>';
-  }
+    $your_selection = array_filter(array($selected_type, $selected_area, $selected_date));
 
+    $output_string .= '<div class="your-selection">Your selection: '.join(' | ', $your_selection).'</div>';
+  }
   /*********************************/
   /* the events list gets rendered */
   /*********************************/
@@ -231,7 +222,7 @@ function get_filter_selection(){
 
   // get area meta_query
   if( !empty( get_query_var( 'select-area' ) ) ){
-    $selection['area'] = str_replace('-', ' ', get_query_var( 'select-area' ));
+    $selection['area'] = str_replace('_', ' ', get_query_var( 'select-area' ));
   }
 
   // get date meta_query
@@ -262,7 +253,7 @@ function get_filter_data($initial_events_cpt){
     if( !array_key_exists($event_date_raw, $output_dates) ){ $output_dates[$event_date_raw] = $event_date; }
 
     $event_area = ucfirst(sanitize_text_field($single_event->_event_cpt_area));
-    $event_area_key = str_replace(' ', '-', strtolower($event_area));
+    $event_area_key = str_replace(' ', '_', strtolower($event_area));
     if( ( ''!=$event_area ) && ( !array_key_exists($event_area_key, $output_areas) ) ){ $output_areas[$event_area_key] = $event_area;}
   }
 
