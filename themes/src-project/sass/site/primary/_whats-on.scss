@@ -22,9 +22,27 @@ body[class*="page-whats-"] {
   font-size: 18px;
 
   article {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-orient: inline-axis;
+    -webkit-box-direction: normal;
+    -moz-box-orient: inline-axis;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
     justify-content: space-between;
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
 
     .left-column,
@@ -37,7 +55,15 @@ body[class*="page-whats-"] {
     }
 
     .right-column {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
       display: flex;
+      -webkit-box-lines: multiple;
+      -moz-box-lines: multiple;
+      -ms-flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
       flex-wrap: wrap;
       justify-content: space-between;
 
@@ -72,10 +98,24 @@ body[class*="page-whats-"] {
 
     .organiser-info {
       width: 100%;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
       display: flex;
+      -webkit-box-orient: block-axis;
+      -webkit-box-direction: normal;
+      -moz-box-orient: block-axis;
+      -moz-box-direction: normal;
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
       flex-direction: column;
 
       @media (max-width:890px){
+        -webkit-box-align: end;
+        -moz-box-align: end;
+        -ms-flex-align: end;
+        -webkit-align-items: flex-end;
         align-items: flex-end;
       }
     }
@@ -122,9 +162,17 @@ body[class*="page-whats-"] {
 
   .organiser-logos {
     margin-top: 15px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
 
     @media (max-width:890px){
+      -webkit-box-pack: end;
+      -moz-box-pack: end;
+      -ms-flex-pack: end;
+      -webkit-justify-content: flex-end;
       justify-content: flex-end;
     }
 
