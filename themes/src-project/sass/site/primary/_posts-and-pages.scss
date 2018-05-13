@@ -58,6 +58,10 @@ body:not(.home) .site-main {
   }
 
   .columns {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
   }
 
@@ -68,10 +72,28 @@ body:not(.home) .site-main {
   }
 
   #programme {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-orient: inline-axis;
+    -webkit-box-direction: normal;
+    -moz-box-orient: inline-axis;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
     flex-direction: row;
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    justify-content: space-around;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
     border-top: solid 15px $color__border-aqua;
   }
 
@@ -99,7 +121,17 @@ body:not(.home) .site-main {
   }
 
   .event-entry {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-orient: inline-axis;
+    -webkit-box-direction: normal;
+    -moz-box-orient: inline-axis;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
     flex-direction: row;
     width: 50%;
     padding: 15px 10px 0 10px;
@@ -145,6 +177,12 @@ body:not(.home) .site-main {
   }
 
   #programme {
+    -webkit-box-orient: block-axis;
+    -webkit-box-direction: normal;
+    -moz-box-orient: block-axis;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
     flex-direction: column !important;
 
     img {
@@ -154,12 +192,31 @@ body:not(.home) .site-main {
 
   .entry-content {
     margin: 1.5em 0 1.5em 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-orient: block-axis;
+    -webkit-box-direction: normal;
+    -moz-box-orient: block-axis;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
     flex-direction: column !important;
   }
 
   .filters {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-orient: block-axis;
+    -webkit-box-direction: normal;
+    -moz-box-orient: block-axis;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     justify-items: stretch;
     margin: 1rem !important;
@@ -206,11 +263,25 @@ body:not(.home) .site-main {
 
   .entry-content {
     margin: 1.5em 0 1.5em 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-orient: block-axis;
+    -webkit-box-direction: normal;
+    -moz-box-orient: block-axis;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
     flex-direction: column !important;
   }
 
   .filters {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     margin: 1rem !important;
   }
@@ -228,6 +299,12 @@ body:not(.home) .site-main {
   }
 
   .event-entry {
+    -webkit-box-orient: block-axis;
+    -webkit-box-direction: normal;
+    -moz-box-orient: block-axis;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
     flex-direction: column !important;
   }
 
