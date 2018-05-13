@@ -8,7 +8,6 @@ let app = {},
   types = [],
   dates = [];
 
-//TODO this will need to be moved elsewhere as it is also needed when building the dropdown lists for the filter
 //check in which programme page we are
 const currentURL = window.location.pathname;
 const currentHost = window.location.protocol + '//' + window.location.hostname;
@@ -25,9 +24,10 @@ app.init = function() {
 
   const events = new wp.api.collections.Events();
   events
-    .fetch({ data: { _embed: true } })
+    .fetch({ data: { _embed: true, per_page: 100, 'filter': { 'orderby':'meta_value', 'meta_key':'_event_cpt_date_event', 'order':'ASC'} } })
     .done(data => {
       data["events"] = events;
+
       data.forEach(event => {
         //TODO Before doing any of this, we need to check what year the event is from
         if (event._embedded != undefined && event._embedded["wp:term"] != undefined) {
@@ -42,7 +42,7 @@ app.init = function() {
         });
 
         let areaName = event.extra_meta["_event_cpt_area"]
-          ? event.extra_meta["_event_cpt_area"][0]
+          ? event.extra_meta["_event_cpt_area"][0].charAt(0).toUpperCase() + event.extra_meta["_event_cpt_area"][0].slice(1)
           : "No area name set yet";
 
         if (areas.indexOf(areaName) == -1) {
@@ -138,10 +138,10 @@ function renderDropDownArea(areas) {
   defaultElement.setAttribute("value", "");
   defaultElement.innerHTML = "All Locations";
   selectAreaElement.appendChild(defaultElement);
-  Object.keys(areas).sort().forEach(area => {
+  Object.keys(areas).forEach(areaKey => {
     let optionElement = document.createElement("option");
-    optionElement.setAttribute("value", areas[area]);
-    optionElement.innerHTML = areas[area];
+    optionElement.setAttribute("value", areas[areaKey].toLowerCase());
+    optionElement.innerHTML = areas[areaKey];
     selectAreaElement.appendChild(optionElement);
   });
   formElement.appendChild(selectAreaElement);
@@ -201,7 +201,7 @@ function submitButton(data) {
 
       var newArray = data.filter(function(dataItem) {
         return (
-          (dataItem.extra_meta["_event_cpt_date_event"] == undefined || dataItem.extra_meta["_event_cpt_date_event"][0].substring(0, 4) == currentYear) &&
+          (dataItem.extra_meta["_event_cpt_date_event"] != undefined && dataItem.extra_meta["_event_cpt_startTime_event"] != undefined && dataItem.extra_meta["_event_cpt_date_event"][0].substring(0, 4) == currentYear) &&
           (filteredValues.type == "" ||
             (dataItem._embedded != undefined &&
               dataItem._embedded["wp:term"] != undefined &&
@@ -210,7 +210,7 @@ function submitButton(data) {
           (filteredValues.area == "" ||
             (dataItem.extra_meta != undefined &&
               dataItem.extra_meta["_event_cpt_area"] != undefined &&
-              dataItem.extra_meta["_event_cpt_area"][0] == filteredValues.area)) &&
+              dataItem.extra_meta["_event_cpt_area"][0].toLowerCase() == filteredValues.area)) &&
           (filteredValues.date == "" ||
             (dataItem.extra_meta != undefined &&
               dataItem.extra_meta["_event_cpt_date_event"] != undefined &&
@@ -271,7 +271,7 @@ function renderNewEventsView(newArray) {
       } else {
         imgElement.setAttribute(
           "src",
-          event._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url
+          event._embedded["wp:featuredmedia"][0].source_url
         );
       }
       aElement.appendChild(imgElement);
@@ -391,12 +391,12 @@ function renderNewEventsView(newArray) {
     ) {
       var span = document.createElement("span");
       span.setAttribute("style", "color: #f00");
-      span.innerHTML = "No date set yet";
+      span.innerHTML = "Date and/or time not set yet";
       eventDate.appendChild(span);
     } else {
       eventDate.innerHTML =
         getLongDate(event.extra_meta._event_cpt_date_event) +
-        " - " +
+        " " +
         event.extra_meta._event_cpt_startTime_event +
         " - " +
         event.extra_meta._event_cpt_endTime_event;

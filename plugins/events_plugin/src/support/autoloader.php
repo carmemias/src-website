@@ -4,7 +4,7 @@
  *
  * @package     yohannes\EventsFunctionality\Support
  * @since       1.0.0
- * @author      yohannes
+ * @author      Code Your Future Graduates
  * @link        https://codeyourfuture.io
  * @license     GNU General Public License 2.0+
  */
@@ -25,7 +25,6 @@ function autoload_files( $src_root_dir ) {
 		 'event_cpt_definition',
 		 'event_cpt_meta_boxes',
 		 'event_cpt_shortcode'
-		//  'event_cpt_info_meta_box'
 	);
 
 	foreach( $filenames as $filename ) {

@@ -9,3 +9,6 @@ node_modules/**
 plugins/hello.php
 **/faqs_cpt
 **/ninja-forms
+**/query-monitor
+**/rest-filter-master
+**/wp-super-cache
