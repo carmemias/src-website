@@ -1,5 +1,15 @@
 .site-footer {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+  -webkit-box-orient: block-axis;
+  -webkit-box-direction: normal;
+  -moz-box-orient: block-axis;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
   flex-direction: column;
   justify-content: center;
   position: absolute;
@@ -19,14 +29,38 @@
   }
 
   #footer-secondary {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
     justify-content: center;
   }
 
   form.es_widget_form {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex !important;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
     justify-content: center;
+    -webkit-box-align: baseline;
+    -moz-box-align: baseline;
+    -ms-flex-align: baseline;
+    -webkit-align-items: baseline;
     align-items: baseline;
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    -ms-flex-wrap:wrap;
+    -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
   }
 
@@ -79,6 +113,12 @@
 
 @media only screen and (max-width: 640px) {
   form.es_widget_form {
+    -webkit-box-orient: block-axis;
+    -webkit-box-direction: normal;
+    -moz-box-orient: block-axis;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
     flex-direction: column;
     align-items: center !important;
   }
