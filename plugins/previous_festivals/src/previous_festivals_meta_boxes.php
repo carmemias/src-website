@@ -47,9 +47,8 @@ function save_previous_festivals_meta($post_id, $post){
 	$_POST['previous_festivals_noncename']
 	) ) { return; }
 	// verify this came from the our screen and with proper authorization, because save_post can be triggered at other times
-	if( ( 
-	plugin_basename(__FILE__) ) || !wp_verify_nonce( $_POST['previous_festivals_noncename']
-	 )) {
+	if( !wp_verify_nonce( $_POST['previous_festivals_noncename'], plugin_basename(__FILE__) ) 
+	) {
 						return $post->ID;}
 
 	// is the user allowed to edit the post or page?
