@@ -54,11 +54,11 @@
 				$second_logo = wp_get_attachment_image_src( $second_logo_id , 'full' );
 				$alt_attrib = get_post_meta( $second_logo_id, '_wp_attachment_image_alt', true);
 			} else {
-				$second_logo = esc_url('http://localhost/wp-content/themes/src-project/images/src-logo.png');
+				$second_logo = esc_url('https://www.refugeefestivalscotland.co.uk/wp-content/themes/src-project/images/src-logo.png');
 				$alt_attrib = esc_html('Scottish Refugee Council logo');
 			}
 			?>
-			<a href="http://www.scottishrefugeecouncil.org.uk/"><img src="<?php echo esc_url($second_logo[0]); ?>" class="second-logo" alt="<?php echo $alt_attrib; ?>" itemprop="logo" width="<?php echo absint($second_logo[1]);?>" height="<?php echo absint($second_logo[2]);?>"/></a>
+			<a href="https://www.scottishrefugeecouncil.org.uk/"><img src="<?php echo esc_url($second_logo[0]); ?>" class="second-logo" alt="<?php echo $alt_attrib; ?>" itemprop="logo" width="<?php echo absint($second_logo[1]);?>" height="<?php echo absint($second_logo[2]);?>"/></a>
 
 		</div>
 

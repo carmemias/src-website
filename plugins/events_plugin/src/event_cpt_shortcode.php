@@ -271,7 +271,7 @@ function get_filter_data($initial_events_cpt){
 function render_areas_filter($all_areas){
   $output = '';
   $output .= '<select class="filterElement" name="select-area">';
-  $output .= '<option value="">All Locations</option>';
+  $output .= '<option value="">Location</option>';
   foreach($all_areas as $key => $value){
     $output .= '<option value="'.$key.'">'.$value.'</option>';
   }
@@ -286,7 +286,7 @@ function render_areas_filter($all_areas){
 function render_dates_filter($all_dates){
   $output = '';
   $output .= '<select class="filterElement" name="select-date">';
-  $output .= '<option value="">All Dates</option>';
+  $output .= '<option value="">Date</option>';
   foreach($all_dates as $key => $value){
     $output .= '<option value="'.$key.'">'.$value.'</option>';
   }
@@ -301,7 +301,7 @@ function render_dates_filter($all_dates){
 function render_types_filter($all_types){
   $output = '';
   $output .= '<select class="filterElement" name="select-type">';
-  $output .= '<option value="">All Event Types</option>';
+  $output .= '<option value="">Event Type</option>';
   foreach($all_types as $single_type){
     $output .= '<option value="'.$single_type->slug.'">'.$single_type->name.'</option>';
   }

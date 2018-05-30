@@ -166,7 +166,7 @@ class es_cls_registerhook {
 			__( 'Subscribers', ES_TDOMAIN ), $es_roles_subscriber, 'es-view-subscribers', array( 'es_cls_intermediate', 'es_subscribers' ));
 
 		add_submenu_page('es-view-subscribers', __( 'Templates', ES_TDOMAIN ),
-			__( 'Templates', ES_TDOMAIN ), $es_roles_mail, 'edit.php?post_type=es_template', NULL);	
+			__( 'Templates', ES_TDOMAIN ), $es_roles_mail, 'edit.php?post_type=es_template', NULL);
 
 		add_submenu_page('es-view-subscribers', __( 'Post Notifications', ES_TDOMAIN ),
 			__( 'Post Notifications', ES_TDOMAIN ), $es_roles_notification, 'es-notification', array( 'es_cls_intermediate', 'es_notification' ));
@@ -549,7 +549,7 @@ class es_cls_registerhook {
 
 			$sSql = "SELECT es_tt.*,
 							 IFNULL(es_not.es_note_id, '') as es_note_id
-					FROM ".$wpdb->prefix."es_templatetable AS es_tt 
+					FROM ".$wpdb->prefix."es_templatetable AS es_tt
 					LEFT JOIN ".$wpdb->prefix."es_notification AS es_not
 						ON(es_not.es_note_templ = es_tt.es_templ_id)";
 			$arrRes = $wpdb->get_results($sSql, ARRAY_A);
@@ -583,7 +583,7 @@ class es_cls_registerhook {
 				}
 
 			}
-			
+
 			update_option( 'es_template_migration_done', 'yes' );
 		}
 		// END
@@ -693,7 +693,7 @@ class es_cls_registerhook {
 	public static function es_add_admin_notices() {
 
 		$screen = get_current_screen();
-		if ( !in_array( $screen->id, array( 'toplevel_page_es-view-subscribers', 'edit-es_template', 'email-subscribers_page_es-notification', 'email-subscribers_page_es-notification', 'email-subscribers_page_es-sendemail', 'email-subscribers_page_es-settings', 'email-subscribers_page_es-sentmail', 'email-subscribers_page_es-general-information' ), true ) ) return;
+		if ( !in_array( $screen->id, array( 'toplevel_page_es-view-subscribers', 'es_template', 'edit-es_template', 'email-subscribers_page_es-notification', 'email-subscribers_page_es-notification', 'email-subscribers_page_es-sendemail', 'email-subscribers_page_es-settings', 'email-subscribers_page_es-sentmail', 'email-subscribers_page_es-general-information' ), true ) ) return;
 
 		$active_plugins = (array) get_option('active_plugins', array());
 		if (is_multisite()) {
@@ -706,8 +706,8 @@ class es_cls_registerhook {
 			$total_subscribers = es_cls_dbquery::es_view_subscriber_count(0);
 			$es_pro_plan_upsell_notice_email_subscribers = get_option( 'es_pro_plan_upsell_notice_email_subscribers' );
 
-			// Show notice if number of subscribers is more than 10 & notice is not dismissed
-			if( $total_subscribers >= 10 && $es_pro_plan_upsell_notice_email_subscribers != 'no' ) {
+			// Show notice if number of subscribers is more than 50 & notice is not dismissed
+			if( $total_subscribers >= 50 && $es_pro_plan_upsell_notice_email_subscribers != 'no' ) {
 				?>
 				<style type="text/css">
 					a.es-admin-btn {
@@ -737,8 +737,46 @@ class es_cls_registerhook {
 
 					$url = 'https://www.icegram.com/email-subscribers-pricing/?utm_source=es&utm_medium=in_app_banner&utm_campaign=view_banner';
 					$admin_notice_text_for_pro_plan_upsell = __( '<b>Want readymade email templates?</b> Also want to <b>clean your subscribers list?</b> Come check our Pro plan.', ES_TDOMAIN );
-					echo '<div class="notice notice-warning" style="background-color: cornsilk;"><p style="letter-spacing: 0.6px;">'.$admin_notice_text_for_pro_plan_upsell.'<a target="_blank" style="display:inline-block" class="es-admin-btn" href="'.$url.'">'.__( 'Check Pro plan&nbsp;&nbsp;', ES_TDOMAIN ).'</a><a style="display:inline-block" class="es-admin-btn es-admin-btn-secondary" href="?dismiss_admin_notice=1&option_name=es_pro_plan_upsell_notice">'.__( 'Not interested.', ES_TDOMAIN ).'</a></p></div>';
+					echo '<div class="notice notice-warning" style="background-color: cornsilk;"><p style="letter-spacing: 0.6px;">'.$admin_notice_text_for_pro_plan_upsell.'<a target="_blank" style="display:inline-block" class="es-admin-btn" href="'.$url.'">'.__( 'Check Pro plan', ES_TDOMAIN ).'</a><a style="display:inline-block" class="es-admin-btn es-admin-btn-secondary" href="?dismiss_admin_notice=1&option_name=es_pro_plan_upsell_notice">'.__( 'Not interested.', ES_TDOMAIN ).'</a></p></div>';
 			}
+		}
+
+		// Notice to inform about GDPR
+		$es_gdpr_consent_notify = get_option( 'es_gdpr_consent_notify_email_subscribers' );
+		if( $es_gdpr_consent_notify != 'no' ) {
+			?>
+			<style type="text/css">
+				a.es-gdpr-admin-btn {
+				margin-left: 10px;
+				padding: 4px 8px;
+				position: relative;
+				text-decoration: none;
+				border: none;
+				-webkit-border-radius: 2px;
+				border-radius: 2px;
+				background: #e0e0e0;
+				text-shadow: none;
+				font-weight: 600;
+				font-size: 13px;
+				background-color: green;
+				color: white;
+			}
+			a.es-gdpr-admin-btn:hover {
+				color: #FFF;
+				background-color: #363b3f;
+			}
+			a.es-gdpr-admin-btn-secondary {
+				margin-left: 1em;
+				font-weight: 400;
+				background-color: #FFFFFF;
+				color: #000000;
+			}
+			</style>
+			<?php
+
+				$url = 'https://www.icegram.com/documentation/es-gdpr-how-to-enable-consent-checkbox-in-the-subscription-form/?utm_source=es&utm_medium=in_app_gdpr_banner&utm_campaign=view_banner';
+				$admin_notice_text_for_gdpr_consent = __( '<b style="letter-spacing:0.4px;">To honour GDPR, kindly enable the \'Consent Checkbox\' in the subscription form.</b>', ES_TDOMAIN );
+				echo '<div class="notice notice-warning"><p style="letter-spacing: 0.6px;">'.$admin_notice_text_for_gdpr_consent.'<a target="_blank" style="display:inline-block" class="es-gdpr-admin-btn" href="'.$url.'">'.__( 'Steps to enable', ES_TDOMAIN ).'</a><a style="display:inline-block" class="es-gdpr-admin-btn es-gdpr-admin-btn-secondary" href="?dismiss_admin_notice=1&option_name=es_gdpr_consent_notify">'.__( 'Ok, got it', ES_TDOMAIN ).'</a></p></div>';
 		}
 
 	}
@@ -855,13 +893,13 @@ class es_cls_registerhook {
 				echo get_post_meta($post->ID, 'es_template_type', true);
 			break;
 			case 'es_templ_thumbnail' :
-				echo $es_templ_thumbnail; 
+				echo $es_templ_thumbnail;
 			break;
 			default:
 			break;
 		}
 
-		return $column; 
+		return $column;
 	}
 
 	public static function es_add_admin_css() {
@@ -937,7 +975,7 @@ class es_cls_registerhook {
 		$data['content']  = $content;
 		$data['tmpl_id']  = $tmpl_id;
 		$data = apply_filters('es_after_process_template_body',$data);
-		$content = $data['content'];  
+		$content = $data['content'];
 		return $content;
 	}
 
@@ -973,7 +1011,7 @@ class es_cls_registerhook {
 				echo sprintf(__( '%s for Post Notification: {{NAME}}, {{EMAIL}}, {{DATE}}, {{POSTTITLE}}, {{POSTLINK}}, {{POSTIMAGE}}, {{POSTDESC}}, {{POSTAUTHOR}}, {{POSTLINK-WITHTITLE}}, {{POSTLINK-ONLY}}, {{POSTFULL}}', ES_TDOMAIN ), '<a href="https://www.icegram.com/documentation/es-what-are-the-available-keywords-in-the-post-notifications/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page" target="_blank">' . __( 'Available Keywords', ES_TDOMAIN ) . '</a>' );
 				echo sprintf(__( '<br/><br/>%s for Newsletter: {{NAME}}, {{EMAIL}}', ES_TDOMAIN ), '<a href="https://www.icegram.com/documentation/es-what-are-the-available-keywords-in-the-newsletters/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page" target="_blank">' . __( 'Available Keywords', ES_TDOMAIN ) . '</a>' );
 			?>
-		</p> 
+		</p>
 		<?php
 	}
 
@@ -1042,6 +1080,11 @@ class es_widget_register extends WP_Widget {
 		if (!isset($es_includes) || $es_includes !== true) {
 			$es_includes = true;
 		}
+		// Compatibility for GDPR
+		$active_plugins = (array) get_option('active_plugins', array());
+		if (is_multisite()) {
+			$active_plugins = array_merge($active_plugins, get_site_option('active_sitewide_plugins', array()));
+		}
 		?>
 
 		<div>
@@ -1059,6 +1102,9 @@ class es_widget_register extends WP_Widget {
 				<div class="es_textbox">
 					<input type="email" id="es_txt_email" class="es_textbox_class" name="es_txt_email"  value="" maxlength="40" required>
 				</div>
+				<?php if (( in_array('gdpr/gdpr.php', $active_plugins) || array_key_exists('gdpr/gdpr.php', $active_plugins) )) {
+					echo GDPR::consent_checkboxes();
+				} ?>
 				<div class="es_button">
 					<input type="submit" id="es_txt_button" class="es_textbox_button es_submit_button" name="es_txt_button" value="<?php echo __( 'Subscribe', ES_TDOMAIN ); ?>">
 				</div>
