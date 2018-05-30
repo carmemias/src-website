@@ -43,7 +43,17 @@ function render_previous_festivals_meta(){
 }
 
 function save_previous_festivals_meta($post_id, $post){
+<<<<<<< HEAD
 	if ( !isset($_POST['previous_festivals_noncename']) ) { return; }
+=======
+	if ( ! isset( 
+	$_POST['previous_festivals_noncename']
+	) ) { return; }
+	// verify this came from the our screen and with proper authorization, because save_post can be triggered at other times
+	if( !wp_verify_nonce( $_POST['previous_festivals_noncename'], plugin_basename(__FILE__) ) 
+	) {
+						return $post->ID;}
+>>>>>>> a59d5a811261236f4fa85a2aa0fd2ac01f42809d
 
 	// verify this came from the our screen and with proper authorization, because save_post can be triggered at other times
   if( !wp_verify_nonce( $_POST['previous_festivals_noncename'], plugin_basename(__FILE__) ) ){
