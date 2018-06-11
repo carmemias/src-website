@@ -17,7 +17,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
-	<?php wp_head(); ?>
+	<?php wp_head(); 
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		if ( is_plugin_active( 'previous_festivals/plugin.php' ) && is_page() ) {
+			global $post;
+			$is_programme = get_post_meta($post->ID, '_previous_festival_is_programme', true);
+			$is_current = get_post_meta($post->ID, '_previous_festival_is_current', true);
+
+			if ($is_programme == "yes" && $is_current == "no") {
+				$social_media_colour = get_post_meta($post->ID, '_previous_festival_social_media_buttons_colour', true);
+				$text_colour = get_post_meta($post->ID, '_previous_festival_text_colour', true);
+				$accent_colour = get_post_meta($post->ID, '_previous_festival_accent_colour', true);
+
+				$custom_css = "<style>";
+
+
+				$custom_css .= "</style>";
+				echo $custom_css;
+			}
+
+		} 	
+	?>
 
 </head>
 
