@@ -22,7 +22,8 @@ namespace etzali\PreviousFestivals\Support;
 function autoload_files( $src_root_dir ) {
 
 	$filenames = array(
-		 'previous_festivals_meta_boxes'		 
+		'previous_festivals_meta_boxes',	
+		'previous_festivals_frontend'
 	);
 
 	foreach( $filenames as $filename ) {
