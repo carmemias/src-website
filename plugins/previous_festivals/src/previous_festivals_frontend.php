@@ -36,10 +36,15 @@
 		?>
 							/* main text color */
 							body, input, select, optgroup, a,
-							.site-footer, .site-footer a, .site-footer label, .site-footer .widget-title {
+							.site-footer, .site-footer a, .site-footer label, .site-footer .widget-title, p  {
 								color: <?php echo $text_colour; ?>;
 							}
+
 							.site-footer #es_txt_button { color: #FFF; }
+
+							body:not(.home) .site-main .filterElement {
+								background-color: <?php echo $text_colour; ?>;
+							}
 
 		<?php } 
 		?>
@@ -57,7 +62,7 @@
 							input[type="search"], input[type="number"], input[type="tel"], input[type="range"],
 							input[type="date"], input[type="month"], input[type="week"], input[type="time"],
 							input[type="datetime"], input[type="datetime-local"], input[type="color"],
-							textarea, select {
+							textarea, select, .site-footer .es_textbox_class {
 								background-color: <?php echo $accent_colour; ?>;
 							}
 							.main-navigation .current_page_item > a, body[class*="page-whats-"] .event-header, .single-event_cpt .entry-header, body:not(.home) .site-main #programme {
