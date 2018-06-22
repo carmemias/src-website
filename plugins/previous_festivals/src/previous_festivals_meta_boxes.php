@@ -56,8 +56,8 @@ function save_previous_festivals_meta($post_id, $post){
 						return $post->ID;}
 
 	// ok, we're authenticated: we need to find and save the data. We'll put it into an array to make it easier to loop through
-	$previous_festival_meta['_previous_festival_is_programme'] = absint($_POST['_previous_festival_is_programme']);
-	$previous_festival_meta['_previous_festival_is_current'] = absint($_POST['_previous_festival_is_current']);
+	$previous_festival_meta['_previous_festival_is_programme'] = sanitize_text_field($_POST['_previous_festival_is_programme']);
+	$previous_festival_meta['_previous_festival_is_current'] = sanitize_text_field($_POST['_previous_festival_is_current']);
 	$previous_festival_meta['_previous_festival_start_date'] = $_POST['_previous_festival_start_date'];
 	$previous_festival_meta['_previous_festival_end_date'] = $_POST['_previous_festival_end_date'];
     $previous_festival_meta['_previous_festival_social_media_buttons_colour'] = sanitize_hex_color($_POST['_previous_festival_social_media_buttons_colour']);

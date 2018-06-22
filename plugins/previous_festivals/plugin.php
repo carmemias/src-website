@@ -34,9 +34,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function init_constants() {
 	$plugin_url = plugin_dir_url( __FILE__ );
-	if ( is_ssl() ) {
-		$plugin_url = str_replace( 'http://', 'https://', $plugin_url );
-	}
 
 	//OPTIMIZE using constants like these is not recommended by WP Theme review team
 	define( 'PREVIOUS_FESTIVAL_PLUGIN_URL', $plugin_url );
