@@ -37,7 +37,7 @@ if(empty($accent_colour)){$accent_colour = "#0ea2c7";}
 	</tr>
 	<tr>
 		<td>			
-			<div id="datesAndColours" class="<?php if($is_current == 1){echo 'hidden';} ?>">
+			<div id="datesAndColours" class="<?php if($is_current !== "yes"){echo 'hidden';} ?>">
 				<label><?php _e( 'What are the festival dates?', 'previous-festivals' ); ?></label><br>
 					<input type="date" name="_previous_festival_start_date" value="<?php echo $start_date; ?>" /> <br />
 					<input type="date" name="_previous_festival_end_date" value="<?php echo $end_date; ?>" /> 

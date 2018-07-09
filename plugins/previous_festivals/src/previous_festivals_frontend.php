@@ -76,7 +76,7 @@
 	}
 	
 	
-add_filter( 'the_title', 'getDates', 10, 2 );
+/* add_filter( 'the_title', 'getDates', 10, 2 ); */
 
 function getDates($title, $id) {
 	$start_date = get_post_meta($id, '_previous_festival_start_date', true);
