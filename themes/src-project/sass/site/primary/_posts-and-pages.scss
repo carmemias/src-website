@@ -1,4 +1,4 @@
-.single-post {
+.single-post, .blog {
 
   .entry-title {
     margin-bottom: 0.1em;
@@ -12,8 +12,8 @@
 body {
   &.single-post,
   &.single-event_cpt,
-  .blog,
-  .page-about{
+  &.blog,
+  &.page-about{
     font-size:20px;
   }
 }
