@@ -1,8 +1,12 @@
 <?php
+	
 
 	add_action( 'wp_head', 'src_project_previous_festivals_frontend_css', 100);
 	function src_project_previous_festivals_frontend_css(){
 		global $post;
+	$is_programme = get_post_meta($post->ID, '_previous_festival_is_programme', true);
+	$is_current = get_post_meta($post->ID, '_previous_festival_is_current', true);
+	if (($is_programme == "yes") && ($is_current == "no")) {
 		$social_media_colour = get_post_meta($post->ID, '_previous_festival_social_media_buttons_colour', true);
 		$text_colour = get_post_meta($post->ID, '_previous_festival_text_colour', true);
 		$accent_colour = get_post_meta($post->ID, '_previous_festival_accent_colour', true);
@@ -10,6 +14,9 @@
     <style type="text/css" id="previousFestivalsCss">
 		body[class*="page-whats-"] .entry-header {
 			display: block;
+		}
+		.previous-festivals-date {
+			margin-top: 0;
 		}
 		<?php 
 		if (!empty($social_media_colour)){
@@ -73,18 +80,28 @@
 	</style>
 
 		<?php
+						}
 	}
 	
 	
-/* add_filter( 'the_title', 'getDates', 10, 2 ); */
+ add_filter( 'the_content', 'getDates', 5, 1); 
 
-function getDates($title, $id) {
+function getDates($content) {
+	$id = $GLOBALS['post']->ID;
+	$is_programme = get_post_meta($id, '_previous_festival_is_programme', true);
+	$is_current = get_post_meta($id, '_previous_festival_is_current', true);
+	if (($is_programme == "yes") && ($is_current == "no")) {
+
 	$start_date = get_post_meta($id, '_previous_festival_start_date', true);
 	$end_date = get_post_meta($id, '_previous_festival_end_date', true);
 	
 	if(!empty($start_date) && !empty($end_date)){
-		$title = 'From '.$start_date .' To '.$end_date;
-	}
-	return $title;
-	}
+		$formated_start_date = date('l j F Y', strtotime($start_date));
+		$formated_end_date = date('l j F Y', strtotime($end_date));
 
+		$content = sprintf(	
+			'<h2 class="previous-festivals-date"> From %s to %s</h2> %s', $formated_start_date, $formated_end_date,$content
+        );
+	}}
+	return $content;
+	}
