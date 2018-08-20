@@ -36,11 +36,12 @@ function get_price($custom){
     $price = money_format('%i', floatval($custom['_event_cpt_price_event'][0]));
 
     if('0.00' == $price){
-      $price = 'Free Event';
+      $price = 'Free event';
     } elseif('-1.00' == $price) {
       $price ='Entry by donation';
-    } else { $price = '£'.$price;
-    };
+    } else {
+      $price = '£'.$price;
+    }
 
   } else {
     $price = 'Free event';
@@ -101,20 +102,20 @@ function get_event_types($id){
 }
 
 /*
-* Get string listing all event organisers other than Main Organiser.
+* Get string listing all event organisers.
 */
 function get_event_organisers($custom){
   $string ='';
 
-  if(array_key_exists( '_event_cpt_main_organizer', $custom )) {
-    $event_organiser_main = $custom['_event_cpt_main_organizer'][0];
+/*  if(array_key_exists( '_event_cpt_main_organizer', $custom )) {
+    $event_organiser_main = sanitize_text_field($custom['_event_cpt_main_organizer'][0]);
     $string .= 'Organised by: '.$event_organiser_main.'.';
-  }
+  } NO LONGER NEEDED AS THIS IS SHOWN BELOW TITLE */
 
   $other_organisers = array();
 
   if(array_key_exists( '_event_cpt_other_organizer_1', $custom )){
-    $event_organiser_other_1 = sanitize_text_field($custom['_event_cpt_other_organizer_1'][0]);
+    $event_organiser_other_1 = $custom['_event_cpt_other_organizer_1'][0];
     array_push($other_organisers,$event_organiser_other_1);
   }
 
@@ -128,15 +129,15 @@ function get_event_organisers($custom){
     array_push($other_organisers,$event_organiser_other_3);
   }
 
-  if(1 >= count($other_organisers)){
-    $string .= ' In partnership with: '. $other_organisers[0];
+  if(0 < count($other_organisers)){
+    $string .= 'In partnership with: '. $other_organisers[0];
   }
 
-  if(2 === count($other_organisers)){
+  if(2 == count($other_organisers)){
       $string .= ' and '.$event_organiser_other_2.'.';
   }
 
-  if(3 === count($other_organisers)){
+  if(3 == count($other_organisers)){
       $string .= ', '.$event_organiser_other_2.' and '.$event_organiser_other_3.'.';
   }
 

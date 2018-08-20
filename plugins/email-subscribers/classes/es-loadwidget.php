@@ -18,6 +18,12 @@ class es_cls_widget {
 			$es_includes = true;
 		}
 
+		// Compatibility for GDPR
+		$active_plugins = (array) get_option('active_plugins', array());
+		if (is_multisite()) {
+			$active_plugins = array_merge($active_plugins, get_site_option('active_sitewide_plugins', array()));
+		}
+
 		$es .= '<div>';
 		$es .= '<form class="es_shortcode_form" data-es_form_id="es_shortcode_form">';
 
@@ -34,6 +40,9 @@ class es_cls_widget {
 		$es .= '<div class="es_textbox">';
 			$es .= '<input type="email" id="es_txt_email_pg" class="es_textbox_class" name="es_txt_email_pg" maxlength="40" required>';
 		$es .= '</div>';
+		if (( in_array('gdpr/gdpr.php', $active_plugins) || array_key_exists('gdpr/gdpr.php', $active_plugins) )) {
+			$es .= GDPR::get_consent_checkboxes();
+		}
 		$es .= '<div class="es_button">';
 			$es .= '<input type="submit" id="es_txt_button_pg" class="es_textbox_button es_submit_button" name="es_txt_button_pg" value="'.__( 'Subscribe', ES_TDOMAIN ).'">';
 		$es .= '</div>';

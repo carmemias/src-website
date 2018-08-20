@@ -62,7 +62,11 @@
 							input[type="search"], input[type="number"], input[type="tel"], input[type="range"],
 							input[type="date"], input[type="month"], input[type="week"], input[type="time"],
 							input[type="datetime"], input[type="datetime-local"], input[type="color"],
+<<<<<<< HEAD
 							textarea, select, .site-footer .es_textbox_class {
+=======
+							textarea, select {
+>>>>>>> 0c052121f0455fd5f78522925eebbf468642ba13
 								background-color: <?php echo $accent_colour; ?>;
 							}
 							.main-navigation .current_page_item > a, body[class*="page-whats-"] .event-header, .single-event_cpt .entry-header, body:not(.home) .site-main #programme {
@@ -76,7 +80,11 @@
 	}
 	
 	
+<<<<<<< HEAD
 /* add_filter( 'the_title', 'getDates', 10, 2 ); */
+=======
+add_filter( 'the_title', 'getDates', 10, 2 );
+>>>>>>> 0c052121f0455fd5f78522925eebbf468642ba13
 
 function getDates($title, $id) {
 	$start_date = get_post_meta($id, '_previous_festival_start_date', true);

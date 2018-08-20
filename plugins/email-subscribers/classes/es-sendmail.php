@@ -277,7 +277,7 @@ class es_cls_sendmail {
 				$post_thumbnail  = "";
 				$post_thumbnail_link  = "";
 				$post = get_post($post_id);
-				$excerpt_length = 50;					//Change this value to change the {{POSTDESC}} content in the Post Notification. It also considers spaces as a character.
+				$post_description_length = 50;					//Change this value to change the {{POSTDESC}} content in the Post Notification. It also considers spaces as a character.
 
 				$post_title  = "";
 				$post_title = get_the_title( $post );
@@ -294,15 +294,18 @@ class es_cls_sendmail {
 				$post_full = $post->post_content;
 				$post_full = wpautop($post_full);
 
-				// Get post excerpt
-				$the_excerpt = $post->post_content;
-				$the_excerpt = strip_tags(strip_shortcodes($the_excerpt));
-				$words = explode(' ', $the_excerpt, $excerpt_length + 1);
-				if(count($words) > $excerpt_length) {
+				// Get post description
+				$post_description = $post->post_content;
+				$post_description = strip_tags(strip_shortcodes($post_description));
+				$words = explode(' ', $post_description, $post_description_length + 1);
+				if(count($words) > $post_description_length) {
 					array_pop($words);
 					array_push($words, '...');
-					$the_excerpt = implode(' ', $words);
+					$post_description = implode(' ', $words);
 				}
+
+				// Get post excerpt
+				$post_excerpt = get_the_excerpt($post);
 
 				// Size of {{POSTIMAGE}}
 				if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail($post_id)) ) {
@@ -341,7 +344,8 @@ class es_cls_sendmail {
 				$content = str_replace('{{POSTTITLE}}', $post_title, $content);
 				$content = str_replace('{{POSTLINK}}', $post_link, $content);
 				$content = str_replace('{{POSTIMAGE}}', $post_thumbnail_link, $content);
-				$content = str_replace('{{POSTDESC}}', $the_excerpt, $content);
+				$content = str_replace('{{POSTDESC}}', $post_description, $content);
+				$content = str_replace('{{POSTEXCERPT}}', $post_excerpt, $content);
 				$content = str_replace('{{POSTFULL}}', $post_full, $content);
 				$content = str_replace('{{DATE}}', $post_date, $content);
 				break;
