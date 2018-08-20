@@ -44,6 +44,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			margin: 1.3em 1.3em 0 0.1em;
 			border-top: 1px dotted #ddd;
 		}
+		.form-table th {
+			width: 350px !important;
+		}
 		.es-ltr {
 			width: 20em;
 			height: 2em;
@@ -173,6 +176,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			margin-bottom: 1em;
 			font-weight: 700;
 		}
+		#klawoo_response {
+			margin-left: -14em;
+		}
 	</style>
 
 	<?php
@@ -188,13 +194,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="wrap klawoo-form">
 			<table class="form-table">
 				<tr>
-					<th scope="row"><?php echo __( 'Get more help and tips...', ES_TDOMAIN ); ?></th>
+					<th scope="row es-subscribe-text"><?php echo __( 'Stay in touch with us. We send out plugin help, tips, periodic updates and even the occasional discounts.', ES_TDOMAIN ); ?></th>
 					<td>
 						<form name="klawoo_subscribe" action="#" method="POST" accept-charset="utf-8">
 							<input class="es-ltr" type="text" name="email" id="email" placeholder="Your Email" />
 							<input type="hidden" name="list" value="hN8OkYzujUlKgDgfCTEcIA"/>
 							<input type="submit" name="submit" id="submit" class="button button-hero" value="<?php echo __( 'Subscribe', ES_TDOMAIN ); ?>">
-							<br/>
+							<br><br>
+							<input type="checkbox" name="es-gdpr-agree" id ="es-gdpr-agree" value="1" required="required">
+							<label for="es-gdpr-agree"><?php echo sprintf(__( 'I have read and agreed to your %s.', ES_TDOMAIN ), '<a href="" target="_blank">' . __( 'Privacy Policy', ES_TDOMAIN ) . '</a>' ); ?></label>
+							<br>
 							<div id="klawoo_response"></div>
 						</form>
 					</td>
@@ -346,8 +355,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</div>
 	<hr />
-	<div class="feature-section col two-col">
-		<div class="col">
+	<div class="feature-section col three-col">
+		<div class="col-1">
 			<h3><?php echo __( 'Newsletters', ES_TDOMAIN ); ?></h3>
 			<ul class="es_faq_list">
 				<li class="es_faq">
@@ -357,7 +366,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php echo sprintf(__( '%s', ES_TDOMAIN ), '<a href="https://www.icegram.com/documentation/es-what-are-the-available-keywords-in-the-newsletters/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page" target="_blank">' . __( 'Keywords in the Newsletters', ES_TDOMAIN ) . '</a>' ); ?>
 				</li>
 			</ul>
-			<br><br>
+			<br><br><br>
 			<h3><?php echo __( 'Post Notifications', ES_TDOMAIN ); ?></h3>
 			<ul class="es_faq_list">
 				<li class="es_faq">
@@ -371,7 +380,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</li>
 			</ul>
 		</div>
-		<div class="col last-feature">
+		<div class="col-2">
 			<h3><?php echo __( 'Cron Job Setup', ES_TDOMAIN ); ?></h3>
 			<ul class="es_faq_list">
 				<li class="es_faq">
@@ -394,10 +403,43 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</li>
 				<li class="es_faq">
 					<?php echo sprintf(__( '%s', ES_TDOMAIN ), '<a href="https://www.icegram.com/documentation/es-css-help/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page" target="_blank">' . __( 'CSS Help', ES_TDOMAIN ) . '</a>' ); ?>
+				</li>
 				<li class="es_faq">
 					<?php echo sprintf(__( '%s', ES_TDOMAIN ), '<a href="https://www.icegram.com/documentation/es-faq/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page" target="_blank">' . __( 'FAQ\'s', ES_TDOMAIN ) . '</a>' ); ?>
 				</li>
 			</ul>
+		</div>
+		<div class="col-3 last-feature">
+			<h3><?php echo __( '[GDPR] Email Subscribers', ES_TDOMAIN ); ?></h3>
+			<ul class="es_faq_list">
+				<li class="es_faq">
+					<?php echo sprintf(__( '%s', ES_TDOMAIN ), '<a href="https://www.icegram.com/documentation/es-gdpr-how-to-enable-consent-checkbox-in-the-subscription-form/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page" target="_blank">' . __( 'How to enable consent checkbox in the subscribe form?', ES_TDOMAIN ) . '</a>' ); ?>
+				</li>
+				<li class="es_faq">
+					<?php echo sprintf(__( '%s', ES_TDOMAIN ), '<a href="https://www.icegram.com/documentation/es-gdpr-what-data-email-subscribers-stores-on-your-end/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page" target="_blank">' . __( 'What data Email Subscribers stores on your end?', ES_TDOMAIN ) . '</a>' ); ?>
+				</li>
+			</ul>
+			<?php
+				$active_plugins = (array) get_option('active_plugins', array());
+				if (is_multisite()) {
+					$active_plugins = array_merge($active_plugins, get_site_option('active_sitewide_plugins', array()));
+				}
+
+				if (( in_array('email-subscribers-advanced-form/email-subscribers-advanced-form.php', $active_plugins) || array_key_exists('email-subscribers-advanced-form/email-subscribers-advanced-form.php', $active_plugins) )) {
+					?>
+					<br><br><br>
+					<h3><?php echo __( '[GDPR] Email Subscribers - Group Selector', ES_TDOMAIN ); ?></h3>
+					<ul class="es_faq_list">
+						<li class="es_faq">
+							<?php echo sprintf(__( '%s', ES_TDOMAIN ), '<a href="https://www.icegram.com/documentation/esaf-gdpr-how-to-enable-consent-checkbox-in-the-subscription-form/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page" target="_blank">' . __( 'How to enable consent checkbox in the subscribe form?', ES_TDOMAIN ) . '</a>' ); ?>
+						</li>
+						<li class="es_faq">
+							<?php echo sprintf(__( '%s', ES_TDOMAIN ), '<a href="https://www.icegram.com/documentation/esaf-gdpr-what-data-email-subscribers-group-selector-stores-on-your-end/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page" target="_blank">' . __( 'What data Email Subscribers - Group Selector stores on your end?', ES_TDOMAIN ) . '</a>' ); ?>
+						</li>
+					</ul>
+					<?php
+				}
+			?>
 		</div>
 	</div>
 	<hr />

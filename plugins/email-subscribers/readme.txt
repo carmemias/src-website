@@ -3,9 +3,9 @@ Contributors: icegram, niravmehta, Mansi Shah, sandhyam, storeapps, akash123dhaw
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CPTHCDC382KVA
 Author URI: https://www.icegram.com/
 Tags: email marketing, email newsletter form, email signup, email widget, newsletter, newsletter signup, subscribe, subscription form, bulk emails, signup form, list builder, lead generation
-Requires at least: 3.4
+Requires at least: 3.9
 Tested up to: 4.9.5
-Stable tag: 3.4.12
+Stable tag: 3.5.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses
 
@@ -142,11 +142,11 @@ If you like Email Subscribers, please leave a [5 star](https://wordpress.org/sup
 Translations inside plugin :
 
 * Catalan (ca) - Jordi Jorda
-* Czech (cs_CZ) - Martin & Tomas
 * German (de_DE) - [Markus Buschmann](https://profiles.wordpress.org/spiderbuschi/)
 * Spanish (es_ES) - David Bravo (bohemme), Fernando Pérez
 * French (fr_FR) - [Serge](https://profiles.wordpress.org/kalyx)
 * Hungarian (hu_HU) - Zsolt Edelényi
+* Italian (it_IT) - Roberto Pavesi
 * Lithuanian (lt_LT) - Andrius
 * Norwegian (nb_NO) - Helge Rosseboe
 * Polish (pl_PL) - Witold
@@ -320,6 +320,21 @@ Use our free plugin [Email Subscribers - Group Selector](https://wordpress.org/p
 11. Admin page - Delivery Report of emails i.e. email sent, opened, viewed status, viewed date
 
 == Changelog ==
+
+= 3.5.0 (17.05.2018) =
+
+* New: [GDPR] Provision for consent checkbox in the subscription form [Steps to enable it](https://www.icegram.com/documentation/es-gdpr-how-to-enable-consent-checkbox-in-the-subscription-form/)
+* New: Keyword {{POSTEXCERPT}} for showing Post Excerpt in Post Notification emails
+* Fix: Missing santization in preview template (Thanks to Chris Liu)
+* Update: Doc links in plugin on Help & Info page
+* Update: POT file
+* Localization: Translation for German Deutsch (de_DE) language updated (Thanks to Markus Buschmann)
+* Localization: Translation for Italian (it_IT) language updated (Thanks to Roberto Pavesi)
+* Localization: Translation for Spanish (es_ES) language updated (Thanks to David Bravo)
+* Localization: Translation for Polish (pl_PL) language updated (Thanks to Witold)
+* Localization: Translation for Turkish (tr_TR) language updated (Thanks to Erkan ORUÇ)
+* Localization: Made all translation files up-to-date with latest POT file
+* Localization: Translation for Czech (cs_CZ) language removed
 
 = 3.4.12 (17.04.2018) =
 
@@ -763,6 +778,21 @@ Use our free plugin [Email Subscribers - Group Selector](https://wordpress.org/p
 For the changelog of earlier versions, please refer to the separate [changelog.txt](https://plugins.svn.wordpress.org/email-subscribers/trunk/changelog.txt) file.
 
 == Upgrade Notice ==
+
+= 3.5.0 (17.05.2018) =
+
+* New: [GDPR] Provision for consent checkbox in the subscription form [Steps to enable it](https://www.icegram.com/documentation/es-gdpr-how-to-enable-consent-checkbox-in-the-subscription-form/)
+* New: Keyword {{POSTEXCERPT}} for showing Post Excerpt in Post Notification emails
+* Fix: Missing santization in preview template (Thanks to Chris Liu)
+* Update: Doc links in plugin on Help & Info page
+* Update: POT file
+* Localization: Translation for German Deutsch (de_DE) language updated (Thanks to Markus Buschmann)
+* Localization: Translation for Italian (it_IT) language updated (Thanks to Roberto Pavesi)
+* Localization: Translation for Spanish (es_ES) language updated (Thanks to David Bravo)
+* Localization: Translation for Polish (pl_PL) language updated (Thanks to Witold)
+* Localization: Translation for Turkish (tr_TR) language updated (Thanks to Erkan ORUÇ)
+* Localization: Made all translation files up-to-date with latest POT file
+* Localization: Translation for Czech (cs_CZ) language removed
 
 = 3.4.12 (17.04.2018) =
 

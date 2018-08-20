@@ -38,7 +38,7 @@
       imgEl.setAttribute('onerror', 'this.src='+pngURL);
       imgEl.setAttribute('width', 25);
       imgEl.setAttribute('height', 25);
-      imgEl.classList.add('serach-icon');
+      imgEl.classList.add('search-icon');
 
       lastItem.innerHTML = '';
       lastItem.appendChild(spanEl);
