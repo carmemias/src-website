@@ -36,11 +36,12 @@ function get_price($custom){
     $price = money_format('%i', floatval($custom['_event_cpt_price_event'][0]));
 
     if('0.00' == $price){
-      $price = 'Free Event';
+      $price = 'Free event';
     } elseif('-1.00' == $price) {
       $price ='Entry by donation';
-    } else { $price = '£'.$price;
-    };
+    } else {
+      $price = '£'.$price;
+    }
 
   } else {
     $price = 'Free event';

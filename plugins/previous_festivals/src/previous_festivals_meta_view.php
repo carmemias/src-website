@@ -22,16 +22,16 @@ if(empty($accent_colour)){$accent_colour = "#0ea2c7";}
 	<tr>
 		<td>
 			<label><?php _e( 'Is this a festival programme page?', 'previous-festivals' ); ?></label><br>
-				<input type="radio" name="_previous_festival_is_programme" value="1" <?php checked( $is_programme, '1' ); ?> /> Yes<br />
-				<input type="radio" name="_previous_festival_is_programme" value="0" <?php checked( $is_programme, '' ); ?> /> No
+				<input type="radio" name="_previous_festival_is_programme" value="yes" <?php checked( $is_programme, 'yes' ); ?> /> Yes<br />
+				<input type="radio" name="_previous_festival_is_programme" value="no" <?php checked( $is_programme, 'no' ); ?> /> No
 		</td>
 	</tr>
     <tr>
 		<td>
-			<div id="isCurrent" class="<?php if($is_programme !== 1){echo 'hidden';} ?>">
+			<div id="isCurrent" class="<?php if($is_programme !== "yes"){echo 'hidden';} ?>">
 				<label><?php _e( 'Is this for the current year?', 'previous-festivals' ); ?></label><br>
-					<input type="radio" name="_previous_festival_is_current" value="1" <?php checked( $is_current, '1' ); ?> /> Yes<br />
-					<input type="radio" name="_previous_festival_is_current" value="0" <?php checked( $is_current, '' ); ?> /> No
+					<input type="radio" name="_previous_festival_is_current" value="yes" <?php checked( $is_current, 'yes' ); ?> /> Yes<br />
+					<input type="radio" name="_previous_festival_is_current" value="no" <?php checked( $is_current, 'no' ); ?> /> No
 			</div>
 		</td>
 	</tr>

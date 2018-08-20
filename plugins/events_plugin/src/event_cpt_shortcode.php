@@ -221,18 +221,27 @@ function get_filter_selection(){
   $selection = array();
 
   // get area meta_query
-  if( !empty( get_query_var( 'select-area' ) ) ){
-    $selection['area'] = str_replace('_', ' ', get_query_var( 'select-area' ));
+  $area_query_var = get_query_var( 'select-area' );
+  if( !empty( $area_query_var ) ){
+    $selection['area'] = str_replace('_', ' ', $area_query_var);
+  } else {
+    $selection['area'] = '';
   }
 
   // get date meta_query
-  if( !empty( get_query_var( 'select-date' ) ) ){
-    $selection['date'] = get_query_var( 'select-date' );
+  $date_query_var = get_query_var( 'select-date' );
+  if( !empty( $date_query_var ) ){
+    $selection['date'] = $date_query_var;
+  } else {
+    $selection['date'] = '';
   }
 
   //get type tax_query
-  if( !empty( get_query_var( 'select-type' ) ) ){
-    $selection['type'] = get_query_var( 'select-type' );
+  $type_query_var = get_query_var( 'select-type' );
+  if( !empty( $type_query_var ) ){
+    $selection['type'] = $type_query_var;
+  } else {
+    $selection['type'] = '';
   }
 
   return $selection;
@@ -329,8 +338,13 @@ function render_programme_page($events_cpt){
     $event_organiser_main = sanitize_text_field($single_event->_event_cpt_main_organizer);
 
     $event_types_result = get_event_types($event_id);
-    $event_types = $event_types_result['names'];
-    $event_types_data_attr = $event_types_result['slugs'];
+    $event_types = '';
+    $event_types_data_attr = '';
+    if($event_types_result){
+      $event_types = $event_types_result['names'];
+      $event_types_data_attr = $event_types_result['slugs'];
+    }
+
 
     $event_date = date('l j F', strtotime($single_event->_event_cpt_date_event));
     $event_start_time = $single_event->_event_cpt_startTime_event;
