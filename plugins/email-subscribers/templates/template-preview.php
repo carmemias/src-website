@@ -29,19 +29,19 @@ $template_type = get_post_meta( $did, 'es_template_type', true );
 		<div class="es-main" style="display:inline-flex;">
 			<div class="es-sidebar">
 				<h2 style="margin-bottom:1em;">
-					<?php echo __( 'Template Preview', ES_TDOMAIN ); ?>
-					<a class="add-new-h2" target="_blank" href="<?php echo ES_FAV; ?>"><?php echo __( 'Help', ES_TDOMAIN ); ?></a>
+					<?php echo __( 'Template Preview', 'email-subscribers' ); ?>
+					<a class="add-new-h2" target="_blank" href="<?php echo ES_FAV; ?>"><?php echo __( 'Help', 'email-subscribers' ); ?></a>
 				</h2>
 				<p>
-					<a class="button-primary" target="_blank" href="<?php echo admin_url(); ?>post.php?post=<?php echo $did; ?>&action=edit"><?php echo __( 'Edit', ES_TDOMAIN ); ?></a>
+					<a class="button-primary" target="_blank" href="<?php echo admin_url(); ?>post.php?post=<?php echo $did; ?>&action=edit"><?php echo __( 'Edit', 'email-subscribers' ); ?></a>
 				</p>
 				<p>
 					<?php
-						echo __( 'This is how your email may look.', ES_TDOMAIN );
+						echo __( 'This is how your email may look.', 'email-subscribers' );
 						if ( $template_type == 'Post Notification' ) {
-							echo __( '<br><br>This Post Notification preview has replaced keywords from your last published blog post.', ES_TDOMAIN );
+							echo __( '<br><br>This Post Notification preview has replaced keywords from your last published blog post.', 'email-subscribers' );
 						}
-						echo __( '<br><br>Note: Different email services (like gmail, yahoo etc) display email content differently. So there could be a slight variation on how your customer will view the email content.', ES_TDOMAIN );
+						echo __( '<br><br>Note: Different email services (like gmail, yahoo etc) display email content differently. So there could be a slight variation on how your customer will view the email content.', 'email-subscribers' );
 
 					?>
 				</p>
@@ -68,7 +68,7 @@ $template_type = get_post_meta( $did, 'es_template_type', true );
 							$es_templ_body = str_replace('{{POSTTITLE}}', $post_title, $es_templ_body);
 
 							$post_link = get_permalink($post_id);
-							$es_templ_body = str_replace('{{POSTLINK}}', $post_link, $es_templ_body);
+							
 
 							// Size of {{POSTIMAGE}}
 							$post_thumbnail  = "";
@@ -113,14 +113,14 @@ $template_type = get_post_meta( $did, 'es_template_type', true );
 							$post_author_id = $recent['post_author'];
 							$post_author = get_the_author_meta( 'display_name' , $post_author_id );
 							$es_templ_body = str_replace('{{POSTAUTHOR}}', $post_author, $es_templ_body);
+							$es_templ_body = str_replace('{{POSTLINK-ONLY}}', $post_link, $es_templ_body);
 
 							if($post_link != "") {
 								$post_link_with_title = "<a href='".$post_link."' target='_blank'>".$post_title."</a>";
 								$es_templ_body = str_replace('{{POSTLINK-WITHTITLE}}', $post_link_with_title, $es_templ_body);
-
 								$post_link = "<a href='".$post_link."' target='_blank'>".$post_link."</a>";
 							}
-							$es_templ_body = str_replace('{{POSTLINK-ONLY}}', $post_link, $es_templ_body);
+							$es_templ_body = str_replace('{{POSTLINK}}', $post_link, $es_templ_body);
 
 							// Get full post
 							$post_full = $recent['post_content'];

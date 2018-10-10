@@ -6,7 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if( (isset($_GET['es'])) && ($_GET['es'] == "unsubscribe") ) {
-
+	$es_page_request = $_GET['es'];
+	
 	$blogname = get_option('blogname');
 	$noerror = true;
 	$home_url = home_url('/');
@@ -51,17 +52,18 @@ if( (isset($_GET['es'])) && ($_GET['es'] == "unsubscribe") ) {
 					$message = esc_html(stripslashes($es_c_message2));
 				}
 				if($message == "") {
-					$message = __( 'Oops.. We are getting some technical error. Please try again or contact admin.', ES_TDOMAIN );
+					$message = __( 'Oops.. We are getting some technical error. Please try again or contact admin.', 'email-subscribers' );
 				}
 				echo $message;
 			} else {
 				$message = esc_html(stripslashes($es_c_message2));
 				$message = str_replace("\r\n", "<br />", $message);
 				if($message == "") {
-					$message = __( 'Oops.. We are getting some technical error. Please try again or contact admin.', ES_TDOMAIN );
+					$message = __( 'Oops.. We are getting some technical error. Please try again or contact admin.', 'email-subscribers' );
 				}
 				echo $message;
 			}
+			do_action('es_redirect_to_optin_page', $es_page_request);
 			?>
 		</div>
 	</body>

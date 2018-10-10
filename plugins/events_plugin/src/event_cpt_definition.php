@@ -30,9 +30,9 @@ add_action( 'init', __NAMESPACE__ . '\event_cpt_functionality' );
 
 	register_post_type( 'event_cpt', array(
 		'labels'  => array(
-			'name' => __( 'Events', 'Events CPT general name' , 'events-functionality'),
-			'singular_name' => __( 'Event', 'Events CPT singular name' , 'events-functionality'),
-			'all_items' => __('All Events'),
+			'name' => _x( 'Events', 'Events CPT general name' , 'events-functionality'),
+			'singular_name' => _x( 'Event', 'Events CPT singular name' , 'events-functionality'),
+			'all_items' => __('All Events', 'events-functionality'),
  		    'add_new_item' => __('Add New Event', 'events-functionality'),
  		    'edit_item' => __('Edit Event', 'events-functionality'),
  		    'new_item' => __('New Event', 'events-functionality'),
@@ -53,7 +53,7 @@ add_action( 'init', __NAMESPACE__ . '\event_cpt_functionality' );
 		'show_ui' => true,
 		'has_archive' => true, #this means it'll have an "index/loop" page
 		'rewrite' => array(
-			'slug' => __( 'events', 'CPT permalink slug', 'event_cpt'),
+			'slug' => _x( 'events', 'CPT permalink slug', 'event_cpt'),
 			'with_front' => false,
 		),
 		'menu_icon'   => 'dashicons-images-alt2',
@@ -135,8 +135,8 @@ function event_cpt_updated_messages( $messages ) {
 		7  => __( 'Event saved.', 'events-functionality' ),
 		8  => __( 'Event submitted.', 'events-functionality' ),
 		9  => sprintf(
-			__( 'Event scheduled for: <strong>%1$s</strong>.', 'events-functionality' ),
 			// translators: Publish box date format, see http://php.net/date
+			__( 'Event scheduled for: <strong>%1$s</strong>.', 'events-functionality' ),
 			date_i18n( __( 'M j, Y @ G:i', 'events-functionality' ), strtotime( $post->post_date ) )
 		),
 		10 => __( 'Event draft updated.', 'events-functionality' )
@@ -164,21 +164,22 @@ add_filter( 'bulk_post_updated_messages', __NAMESPACE__ . '\event_cpt_bulk_updat
 /**
  * Events bulk update messages.
  * See https://themeforest.net/forums/thread/custom-post-type-change-delete-message/114401
- * @param array $messages Existing post bulk update messages.
- *
+ * @param array $bulk_messages Existing post bulk update messages.
+ * @param array $bulk_counts
  * @return array Amended post update messages with new CPT update messages.
  */
 function event_cpt_bulk_updated_messages( $bulk_messages, $bulk_counts ) {
 
-    $bulk_messages['event_cpt'] = array(
-        'updated'   => __( '%s Event updated.', '%s Events updated.', $bulk_counts['updated'] ),
-        'locked'    => __( '%s Event not updated, somebody is editing it.', '%s Events not updated, somebody is editing them.', $bulk_counts['locked'] ),
-        'deleted'   => __( '%s Event permanently deleted.', '%s Events permanently deleted.', $bulk_counts['deleted'] ),
-        'trashed'   => __( '%s Event moved to the Bin.', '%s Events moved to the Bin.', $bulk_counts['trashed'] ),
-        'untrashed' => __( '%s Event restored from the Bin.', '%s Events restored from the Bin.', $bulk_counts['untrashed'] ),
-    );
+	$bulk_messages['event_cpt'] = array(
+		//translators: event name
+		'updated'   => _x( '%s Event updated.', '%s Events updated.', $bulk_counts['updated'] ),
+		'locked'    => _x( '%s Event not updated, somebody is editing it.', '%s Events not updated, somebody is editing them.', $bulk_counts['locked'] ),
+		'deleted'   => _x( '%s Event permanently deleted.', '%s Events permanently deleted.', $bulk_counts['deleted'] ),
+		'trashed'   => _x( '%s Event moved to the Bin.', '%s Events moved to the Bin.', $bulk_counts['trashed'] ),
+		'untrashed' => _x( '%s Event restored from the Bin.', '%s Events restored from the Bin.', $bulk_counts['untrashed'] ),
+	);
 
-    return $bulk_messages;
+	return $bulk_messages;
 
 }
 
@@ -213,7 +214,7 @@ add_action( 'manage_posts_custom_column' , __NAMESPACE__ .'\event_cpt_custom_col
 function event_cpt_custom_columns( $column, $post_id ) {
 	switch ( $column ) {
 		case 'event_cpt_area':
-			echo '<div id="event_cpt_area-' . $post_id . '">' . get_post_meta( $post_id, '_event_cpt_area', true ) . '</div>';
+			echo '<div id="event_cpt_area-' . absint( $post_id ) . '">' . esc_html( get_post_meta( $post_id, '_event_cpt_area', true ) ) . '</div>';
 			break;
 
 		case 'event_cpt_type':
@@ -224,7 +225,7 @@ function event_cpt_custom_columns( $column, $post_id ) {
 			} else {
 				$terms_list = 'not yet set </br>';
 			}
-			echo '<div id="event_cpt_type-' . $post_id . '">' . $terms_list . '</div>';
+			echo '<div id="event_cpt_type-' . absint( $post_id ) . '">' . esc_html( $terms_list ) . '</div>';
 			break;
 	}
 }
@@ -232,10 +233,10 @@ function event_cpt_custom_columns( $column, $post_id ) {
 
  add_filter( 'manage_edit-event_cpt_sortable_columns', __NAMESPACE__ .'\event_cpt_area_sortable_column' );
  add_filter( 'manage_edit-event_cpt_sortable_columns', __NAMESPACE__ .'\event_cpt_type_sortable_column' );
-// /*
-// * Make new Post Priority column sortable
-// */
 
+/*
+* Make new Event Area column sortable
+*/
 function event_cpt_area_sortable_column( $columns ) {
 
 	$columns['event_cpt_area'] = 'event_cpt_area';
@@ -243,6 +244,9 @@ function event_cpt_area_sortable_column( $columns ) {
     return $columns;
 }
 
+/*
+* Make new Event Type column sortable
+*/
 function event_cpt_type_sortable_column( $columns ) {
 
 	$columns['event_cpt_type'] = 'event_cpt_type';

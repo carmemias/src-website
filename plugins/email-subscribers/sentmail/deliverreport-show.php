@@ -11,7 +11,7 @@ es_cls_security::es_check_guid($sentguid);
 if ($sentguid == '') {
 	?><div class="error fade">
 		<p><strong>
-			<?php echo __( 'Oops.. Unexpected error occurred. Please try again.', ES_TDOMAIN ); ?>
+			<?php echo __( 'Oops.. Unexpected error occurred. Please try again.', 'email-subscribers' ); ?>
 		</strong></p>
 	</div><?php
 }
@@ -57,8 +57,8 @@ if ($sentguid == '') {
 
 <div class="wrap">
 	<h2>
-		<?php echo __( 'Delivery Report', ES_TDOMAIN ); ?>
-		<a class="add-new-h2" target="_blank" href="<?php echo ES_FAV; ?>"><?php echo __( 'Help', ES_TDOMAIN ); ?></a>
+		<?php echo __( 'Delivery Report', 'email-subscribers' ); ?>
+		<a class="add-new-h2" target="_blank" href="<?php echo ES_FAV; ?>"><?php echo __( 'Help', 'email-subscribers' ); ?></a>
 	</h2>
 	<div class="tablenav">
 		<div class="alignleft" style="padding-bottom:10px;"><?php echo 'Viewed ' . $email_viewed_count . '/' .$total_email_sent; ?></div>
@@ -69,24 +69,24 @@ if ($sentguid == '') {
 			<table width="100%" class="widefat" id="straymanage">
 				<thead>
 					<tr>
-						<th width="3%" scope="col"><?php echo __( 'Sno', ES_TDOMAIN ); ?></th>
-						<th scope="col"><?php echo __( 'Email', ES_TDOMAIN ); ?></th>
-						<th scope="col"><?php echo __( 'Status', ES_TDOMAIN ); ?></th>
-						<th scope="col"><?php echo __( 'Sent', ES_TDOMAIN ); ?></th>
-						<th scope="col"><?php echo __( 'Sent Date', ES_TDOMAIN ); ?></th>
-						<th scope="col"><?php echo __( 'Viewed Status', ES_TDOMAIN ); ?></th>
-						<th scope="col"><?php echo __( 'Viewed Date', ES_TDOMAIN ); ?></th>
+						<th width="3%" scope="col"><?php echo __( 'Sno', 'email-subscribers' ); ?></th>
+						<th scope="col"><?php echo __( 'Email', 'email-subscribers' ); ?></th>
+						<th scope="col"><?php echo __( 'Status', 'email-subscribers' ); ?></th>
+						<th scope="col"><?php echo __( 'Sent', 'email-subscribers' ); ?></th>
+						<th scope="col"><?php echo __( 'Sent Date', 'email-subscribers' ); ?></th>
+						<th scope="col"><?php echo __( 'Viewed Status', 'email-subscribers' ); ?></th>
+						<th scope="col"><?php echo __( 'Viewed Date', 'email-subscribers' ); ?></th>
 					</tr>
 				</thead>
 				<tfoot>
 					<tr>
-						<th width="3%" scope="col"><?php echo __( 'Sno', ES_TDOMAIN ); ?></th>
-						<th scope="col"><?php echo __( 'Email', ES_TDOMAIN ); ?></th>
-						<th scope="col"><?php echo __( 'Status', ES_TDOMAIN ); ?></th>
-						<th scope="col"><?php echo __( 'Sent', ES_TDOMAIN ); ?></th>
-						<th scope="col"><?php echo __( 'Sent Date', ES_TDOMAIN ); ?></th>
-						<th scope="col"><?php echo __( 'Viewed Status', ES_TDOMAIN ); ?></th>
-						<th scope="col"><?php echo __( 'Viewed Date', ES_TDOMAIN ); ?></th>
+						<th width="3%" scope="col"><?php echo __( 'Sno', 'email-subscribers' ); ?></th>
+						<th scope="col"><?php echo __( 'Email', 'email-subscribers' ); ?></th>
+						<th scope="col"><?php echo __( 'Status', 'email-subscribers' ); ?></th>
+						<th scope="col"><?php echo __( 'Sent', 'email-subscribers' ); ?></th>
+						<th scope="col"><?php echo __( 'Sent Date', 'email-subscribers' ); ?></th>
+						<th scope="col"><?php echo __( 'Viewed Status', 'email-subscribers' ); ?></th>
+						<th scope="col"><?php echo __( 'Viewed Date', 'email-subscribers' ); ?></th>
 					</tr>
 				</tfoot>
 				<tbody>
@@ -125,7 +125,7 @@ if ($sentguid == '') {
 									$i = $i+1;
 							}
 						} else {
-							?><tr><td colspan="8" align="center"><?php echo __( 'No records available.', ES_TDOMAIN ); ?></td></tr><?php 
+							?><tr><td colspan="8" align="center"><?php echo __( 'No records available.', 'email-subscribers' ); ?></td></tr><?php
 						}
 					?>
 				</tbody>

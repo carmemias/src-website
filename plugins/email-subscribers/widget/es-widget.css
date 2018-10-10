@@ -23,3 +23,6 @@
 .es_lablebox {
 	padding-bottom: 3px;
 }
+.es_form_success .es_msg{
+	color:#008600;
+}

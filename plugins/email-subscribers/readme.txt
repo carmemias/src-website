@@ -1,11 +1,11 @@
 === Email Subscribers & Newsletters ===
-Contributors: icegram, niravmehta, Mansi Shah, sandhyam, storeapps, akash123dhawade, Tarun.Parswani, ravioza
+Contributors: icegram, niravmehta, Mansi Shah, sandhyam, storeapps, akash123dhawade, Tarun.Parswani, malayladu
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CPTHCDC382KVA
 Author URI: https://www.icegram.com/
-Tags: email marketing, email newsletter form, email signup, email widget, newsletter, newsletter signup, subscribe, subscription form, bulk emails, signup form, list builder, lead generation
+Tags: subscription, newsletter, email marketing, post notification, email newsletter form, email signup, email widget, newsletter signup, subscribe, subscription form, bulk emails, signup form, list builder, lead generation
 Requires at least: 3.9
-Tested up to: 4.9.5
-Stable tag: 3.5.0
+Tested up to: 4.9.8
+Stable tag: 3.5.13
 License: GPLv3
 License URI: http://www.gnu.org/licenses
 
@@ -36,7 +36,7 @@ I am very satisfied with this easy and complete plugin/widget. In 5 minutes or l
 
 * Send **notification emails** to subscribers when new posts are published.
 * Option to **schedule email (Cron job option)** or **send them manually**.
-* **Collect customer emails by adding a subscription box (Widget/Shortcode/PHP Code)**.
+* **Collect customer emails by adding a subscription box (Widget/Shortcode/PHP Cod)**.
 * **Double Opt-in and Single Opt-in** facility for subscribers.
 * **Email notification** to admin when user **signs up** (Optional).
 * **Automatic welcome email** to subscribers (Optional).
@@ -60,17 +60,18 @@ Email subscribers lets you collect leads from anyplace on your website. You can 
 
 *   **Shortcode for any posts or pages**
 
-`[email-subscribers namefield="YES" desc="" group="Public"]`
+    ` [email-subscribers namefield="YES" desc="" group="Public"] `
 
 *   **Widget option**
 
-Go to Appearance -> Widgets. Drag and drop the Email Subscribers widget to your desired location.
+    Go to Appearance -> Widgets. Drag and drop the Email Subscribers widget to your desired location.
 
 *   **Add directly in the theme**
 
-Add following line of PHP code directly in your theme :
-`es_subbox( $namefield = "YES", $desc = "", $group = "" );`
+    Add following line of PHP code directly in your theme :
 
+    ` es_subbox( $namefield =  "YES", $desc = "", $group = "" ); `
+    
 > **Great Plugin** -
 > Works as expected. Great way to build an email list on your own site. It allows my clients to manage their own lists via login. I love the automatic notifications to subscribers when new posts are created. Looking forward to a “premium” paid version that includes email templates.
 > - [jj9617](https://wordpress.org/support/topic/great-plugin-10646/)
@@ -118,6 +119,26 @@ Don’t believe it? Have a look at the review section. The support guys are frie
 > **Lightning support** -
 > Had 3 questions about the plugin, got extensive support with each one. Continue doing what you’re doing! Thanks a lot! 5/5
 > - [DomLaurin](https://wordpress.org/support/topic/lightning-support/)
+
+**More Advanced Features**
+
+Check out [Email Subscribers Pro](https://www.icegram.com/email-subscribers-pricing/) to get these features :
+
+* **Protect your list from bot attacks** - Use captcha to protect your email list from bots. The simple maths captcha helps identifying bots from humans and eliminates spam signups.
+
+* **Newsletter email templates** - Elegant newsletter templates to keep your leads engaged with your content       
+
+* **Offer & promotional email templates** - High converting ready-to-use templates for any occasion, events or holiday season.       
+
+* **New blogpost notification email templates** - Awesome templates that will encourage subscribers to read your blog post       
+
+* **List cleanup** - Free your list from fraudulent, invalid email addresses to ensure maximum deliverability rate.
+
+* **Spam testing** - Get your email’s subject line and content scanned thoroughly so that it reaches your subscriber’s inbox and not elsewhere.  
+
+* **Easy utm tracking** - Track success of your email marketing campaigns easily 
+
+* **Customize confirmation and unsubscribe page** - Communicate with subscribers. Redirect them to beautifully designed confirmation and unsubscribe pages on your website.
 
 **Get more benefits by using Email Subscribers with these free plugins**
 
@@ -320,6 +341,86 @@ Use our free plugin [Email Subscribers - Group Selector](https://wordpress.org/p
 11. Admin page - Delivery Report of emails i.e. email sent, opened, viewed status, viewed date
 
 == Changelog ==
+
+= 3.5.13 (05.10.2018) =
+
+* Fix: “Oops, an unexpected error occurred” while subscribing 
+* Update: Added shortcode support in email templates [learn more](https://www.icegram.com/documentation/why-some-shortcodes-are-not-working-in-email-templates)
+
+= 3.5.12 (28.09.2018) =
+
+* Fix: Invalid unsubscribe link
+* Update: Use string instead of constant for Text Domain.
+
+= 3.5.11 (24.09.2018) =
+
+* Fix: Send test newsletter to "Test" group on update
+
+= 3.5.10 (17.09.2018) =
+
+* Fix: Prevent spam signups
+
+= 3.5.9 (11.09.2018) =
+
+* Fix: Opt-In Confirmation and Unsubscribe link not working after server migration.
+
+= 3.5.8 (05.09.2018) =
+
+* Update: Added "Test Email" functionality to confirm email deliverability.
+
+= 3.5.7 (30.08.2018) =
+
+* Fix: Post notification sent to multiple times.
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
+
+= 3.5.6 (09.08.2018) =
+
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
+
+= 3.5.5 (06.08.2018) =
+
+* Enhancement : Improved onboarding 
+* Fix: "Notice: get_currentuserinfo is deprecated"
+* Fix: Import CSV not working if list contains only one record
+
+= 3.5.4 (23.07.2018) =
+
+* New: Added option to disable cron email sent to Admin
+* Fix: 'Optimize Table & Delete Records' button not deleting any reports
+* Fix: 'In Queue' notice showing multiple times on Reports tab
+* Update: Sent Report email will be now sent only if sending email immediately
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
+
+= 3.5.3 (02.07.2018) =
+
+* Fix: Notices on Subscribers -> Sync page (Illegal string offset ‘es_registered’ & ‘es_registered_group’)
+* Update: Use of $wpdb->prepare for direct queries to the database
+* Update: Text improvements while creating/editing post notification
+* Update: POT file
+* Localization: Translation for Swedish (sv_SE) language updated (Thanks to Rune Svennelid)
+* Localization: Made all translation files up-to-date with latest POT file
+
+= 3.5.2 (18.06.2018) =
+
+* Update: Show list of available keywords based on template type while editing a template
+* Update: Increased 'maxlength' for name and email field in the subscription form
+* Update: Single subscription form for widget, shortcode and php code
+* Update: Added text domain for missing texts
+* Update: POT file
+* Localization: Translation for Polish (pl_PL) language updated (Thanks to Witold)
+* Localization: Translation for German Deutsch (de_DE) language updated (Thanks to Zero & Markus Buschmann)
+* Localization: Made all translation files up-to-date with latest POT file
+
+= 3.5.1 (23.05.2018) =
+
+* Update: Privacy Policy page link on Help & Info page
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
+* Localization: Translation for Lithuanian (lt_LT) language removed
+* Tweak: Notice for admin on Reports page if Cron job is 'In Queue'
 
 = 3.5.0 (17.05.2018) =
 
@@ -778,6 +879,54 @@ Use our free plugin [Email Subscribers - Group Selector](https://wordpress.org/p
 For the changelog of earlier versions, please refer to the separate [changelog.txt](https://plugins.svn.wordpress.org/email-subscribers/trunk/changelog.txt) file.
 
 == Upgrade Notice ==
+
+= 3.5.6 (09.08.2018) =
+
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
+
+= 3.5.5 (06.08.2018) =
+
+* Enhancment : Improved onboarding 
+* Fix: "Notice: get_currentuserinfo is deprecated"
+* Fix: Import CSV not working if list contains only one record
+
+= 3.5.4 (23.07.2018) =
+
+* New: Added option to disable cron email sent to Admin
+* Fix: 'Optimize Table & Delete Records' button not deleting any reports
+* Fix: 'In Queue' notice showing multiple times on Reports tab
+* Update: Sent Report email will be now sent only if sending email immediately
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
+
+= 3.5.3 (02.07.2018) =
+
+* Fix: Notices on Subscribers -> Sync page (Illegal string offset ‘es_registered’ & ‘es_registered_group’)
+* Update: Use of $wpdb->prepare for direct queries to the database
+* Update: Text improvements while creating/editing post notification
+* Update: POT file
+* Localization: Translation for Swedish (sv_SE) language updated (Thanks to Rune Svennelid)
+* Localization: Made all translation files up-to-date with latest POT file
+
+= 3.5.2 (18.06.2018) =
+
+* Update: Show list of available keywords based on template type while editing a template
+* Update: Increased 'maxlength' for name and email field in the subscription form
+* Update: Single subscription form for widget, shortcode and php code
+* Update: Added text domain for missing texts
+* Update: POT file
+* Localization: Translation for Polish (pl_PL) language updated (Thanks to Witold)
+* Localization: Translation for German Deutsch (de_DE) language updated (Thanks to Zero & Markus Buschmann)
+* Localization: Made all translation files up-to-date with latest POT file
+
+= 3.5.1 (23.05.2018) =
+
+* Update: Privacy Policy page link on Help & Info page
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
+* Localization: Translation for Lithuanian (lt_LT) language removed
+* Tweak: Notice for admin on Reports page if Cron job is 'In Queue'
 
 = 3.5.0 (17.05.2018) =
 

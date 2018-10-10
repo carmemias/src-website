@@ -4,6 +4,85 @@ Author		: Icegram
 Author URI	: https://www.icegram.com/
 License		: GPLv3
 
+***********************************************************Version 3.5.13***********************************************************
+
+* Fix: “Oops, an unexpected error occurred” while subscribing 
+* Update: Added shortcode support in email templates [learn more](https://www.icegram.com/documentation/why-some-shortcodes-are-not-working-in-email-templates)
+
+***********************************************************Version 3.5.12***********************************************************
+
+* Fix: Invalid unsubscribe link
+* Update: Use string instead of constant for Text Domain.
+
+***********************************************************Version 3.5.11***********************************************************
+
+* Fix: Send test newsletter to "Test" group on update
+
+***********************************************************Version 3.5.10***********************************************************
+
+* Fix: Prevent spam signups
+
+***********************************************************Version 3.5.9************************************************************
+
+* Fix: Opt-In Confirmation and Unsubscribe link not working after server migration.
+
+***********************************************************Version 3.5.8************************************************************
+
+* Update: Added "Test Email" functionality to confirm email deliverability.
+
+***********************************************************Version 3.5.7************************************************************
+
+* Fix: Post notification sent to multiple times.
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
+
+***********************************************************Version 3.5.6************************************************************
+
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
+
+***********************************************************Version 3.5.5************************************************************
+
+* Enhancement : Improved onboarding 
+* Fix: "Notice: get_currentuserinfo is deprecated"
+* Fix: Import CSV not working if list contains only one record
+
+***********************************************************Version 3.5.4************************************************************
+
+* New: Added option to disable cron email sent to Admin
+* Fix: 'Optimize Table & Delete Records' button not deleting any reports
+* Fix: 'In Queue' notice showing multiple times on Reports tab
+* Update: Sent Report email will be now sent only if sending email immediately
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
+
+***********************************************************Version 3.5.3************************************************************
+
+* Fix: Notices on Subscribers -> Sync page (Illegal string offset ‘es_registered’ & ‘es_registered_group’)
+* Update: Use of $wpdb->prepare for direct queries to the database
+* Update: Text improvements while creating/editing post notification
+* Update: POT file
+* Localization: Translation for Swedish (sv_SE) language updated (Thanks to Rune Svennelid)
+* Localization: Made all translation files up-to-date with latest POT file
+
+***********************************************************Version 3.5.2************************************************************
+
+* Update: Show list of available keywords based on template type while editing a template
+* Update: Increased 'maxlength' for name and email field in the subscription form
+* Update: Single subscription form for widget, shortcode and php code
+* Update: Added text domain for missing texts
+* Update: POT file
+* Localization: Translation for Polish (pl_PL) language updated (Thanks to Witold)
+* Localization: Translation for German Deutsch (de_DE) language updated (Thanks to Zero & Markus Buschmann)
+* Localization: Made all translation files up-to-date with latest POT file
+
+***********************************************************Version 3.5.1************************************************************
+
+* Update: Privacy Policy page link on Help & Info page
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
+* Localization: Translation for Lithuanian (lt_LT) language removed
+* Tweak: Notice for admin on Reports page if Cron job is 'In Queue'
 
 ***********************************************************Version 3.5.0************************************************************
 

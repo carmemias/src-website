@@ -17,7 +17,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
-	<?php wp_head(); 
+	<?php wp_head();
+
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		if ( is_plugin_active( 'previous_festivals/plugin.php' ) && is_page() ) {
 			global $post;
@@ -36,7 +37,7 @@
 				echo $custom_css;
 			}
 
-		} 	
+		}
 	?>
 
 </head>
@@ -78,7 +79,7 @@
 				$alt_attrib = esc_html('Scottish Refugee Council logo');
 			}
 			?>
-			<a href="https://www.scottishrefugeecouncil.org.uk/"><img src="<?php echo esc_url($second_logo[0]); ?>" class="second-logo" alt="<?php echo $alt_attrib; ?>" itemprop="logo" width="<?php echo absint($second_logo[1]);?>" height="<?php echo absint($second_logo[2]);?>"/></a>
+			<a href="https://www.scottishrefugeecouncil.org.uk/"><img src="<?php echo esc_url($second_logo[0]); ?>" class="second-logo" alt="<?php echo esc_attr($alt_attrib); ?>" itemprop="logo" width="<?php echo absint($second_logo[1]);?>" height="<?php echo absint($second_logo[2]);?>"/></a>
 
 		</div>
 
