@@ -20,8 +20,12 @@ function src_project_body_classes( $classes ) {
 	if (is_page() ) {
 		$slug = get_post_field( 'post_name', get_post() );
 		$classes[] = 'page-' . $slug;
-
 	}
+
+	if ( is_singular( 'event_cpt' ) ){
+        $year = date('Y', strtotime( get_post_meta( get_post()->ID, '_event_cpt_date_event', true) ) );
+        $classes[] = 'event-' . $year;
+    } 
 
 	return $classes;
 }
