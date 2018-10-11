@@ -94,8 +94,13 @@
   .current_page_ancestor > a,
   .current-menu-ancestor > a {
     border-bottom: solid 10px $color__border-aqua;
-  }
+  }  
 }
+
+.menu-item {
+  background-color: $color__background-menu;
+}
+
 
 /* Mobile menu. */
 .menu-toggle,
@@ -106,11 +111,12 @@
 }
 
 .menu-toggle {
-  background-color: $color__background-menu-toggle;
+  background-color: $color__background-menu;
   max-width: 50px;
   margin-top: 68px;
   align-self: flex-end;
 }
+
 
 @media screen and (min-width: 890px) {
   //37.5em = 600px
