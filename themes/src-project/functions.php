@@ -141,11 +141,11 @@ add_action( 'widgets_init', 'src_project_widgets_init' );
  */
 function src_project_scripts() {
 	wp_enqueue_style( 'src-project-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'ttcommons-style', get_template_directory_uri(). '/fonts/TTCOMMONS/Info/MyFontsWebfontsKit.css', array(), filemtime(get_template_directory_uri(). '/fonts/TTCOMMONS/Info/MyFontsWebfontsKit.css') );
+	wp_enqueue_style( 'ttcommons-style', get_template_directory_uri(). '/fonts/TTCOMMONS/Info/MyFontsWebfontsKit.css', array(), '1.0.0' );
 
 	wp_enqueue_script( 'src-project-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'src-project-search', get_template_directory_uri() . '/js/searchBttn.js', array('jquery'), filemtime(get_template_directory_uri() . '/js/searchBttn.js'), true );
+	wp_enqueue_script( 'src-project-search', get_template_directory_uri() . '/js/searchBttn.js', array('jquery'), '1.0.0', true );
 
 	wp_enqueue_script( 'src-project-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
