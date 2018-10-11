@@ -32,7 +32,7 @@ namespace yohannes\EventsFunctionality\src\views;
 			 <input type="text" size="50" name="_event_cpt_address_line_2" placeholder="Address line 2..." value="<?php echo $_event_cpt_address_line_2; ?>"><br>
 			 <label>Postcode: </label>
 			 <input type="text" name="_event_cpt_address_postcode" placeholder="Postcode..." value="<?php echo $_event_cpt_address_postcode; ?>"><br>
-			<label>Event Area:</label>
+			<label>Event Area (required):</label>
 			 <input type="text" name="_event_cpt_area" placeholder="City / Town ..." value="<?php echo $_event_cpt_area; ?>">
 		</td><!-- venue address -->
 	</tr>
