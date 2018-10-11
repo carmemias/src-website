@@ -36,11 +36,11 @@ if(empty($accent_colour)){$accent_colour = "#0ea2c7";}
 		</td>
 	</tr>
 	<tr>
-		<td>			
-			<div id="datesAndColours" class="<?php if($is_current !== "yes"){echo 'hidden';} ?>">
+		<td>
+			<div id="datesAndColours" class="<?php if ( 'yes' != $is_current ) { echo 'hidden'; } ?>">
 				<label><?php _e( 'What are the festival dates?', 'previous-festivals' ); ?></label><br>
 					<input type="date" name="_previous_festival_start_date" value="<?php echo $start_date; ?>" /> <br />
-					<input type="date" name="_previous_festival_end_date" value="<?php echo $end_date; ?>" /> 
+					<input type="date" name="_previous_festival_end_date" value="<?php echo $end_date; ?>" />
 					<br>
 					<label><?php _e( 'Festival Colour Scheme', 'previous-festivals' ); ?></label><br />
 					<label>Social Media Buttons </label> <input class="color-field" type="text" name="_previous_festival_social_media_buttons_colour" value="<?php esc_attr_e($social_media_colour); ?>" /> <br />
