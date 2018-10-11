@@ -14,3 +14,5 @@ plugins/hello.php
 **/wp-super-cache
 **/email-subscribers
 **/google-analytics-dashboard-for-wp
+**/wordpress-importer
+

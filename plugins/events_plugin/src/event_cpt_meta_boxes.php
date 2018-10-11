@@ -21,8 +21,8 @@ function event_cpt_enqueue_logo_script() {
         wp_enqueue_media();
     }
 
-		wp_enqueue_script( 'eventlogoscript', EVENT_FUNCTIONALITY_URL . '/src/assets/js/upload_event_logo.js', array( 'jquery' ), filemtime( EVENT_FUNCTIONALITY_URL . '/src/assets/js/upload_event_logo.js' ), true );
-		wp_enqueue_style( 'eventmetastyles', EVENT_FUNCTIONALITY_URL . '/src/assets/css/metaboxStyling.css', array(), filemtime( EVENT_FUNCTIONALITY_URL . '/src/assets/css/metaboxStyling.css' ) );
+		wp_enqueue_script( 'eventlogoscript', EVENT_FUNCTIONALITY_URL . '/src/assets/js/upload_event_logo.js', array( 'jquery' ), '1.0', true );
+		wp_enqueue_style( 'eventmetastyles', EVENT_FUNCTIONALITY_URL . '/src/assets/css/metaboxStyling.css', array(), '1.0' );
 }
 
 add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\event_cpt_enqueue_logo_script' );
