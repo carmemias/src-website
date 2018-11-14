@@ -5,7 +5,7 @@
 3. [How to create a new event](#how-to-create-a-new-event).
 4. [How to edit an existing event](#how-to-edit-an-existing-event).
 5. [How to create a new programme page](#how-to-create-a-new-programme-page).
-6. [How to move last year's festival programme page to the submenu](#how-to-move-last-year-s-festival-programme-page-to-the-submenu).
+6. [How to move last year's festival programme page to the submenu](#how-to-move-last-years-festival-programme-page-to-the-submenu).
 7. [View or edit the Subscribers list](#view-or-edit-the-subscribers-list).
 8. [Maintenance](#maintenance).
 
@@ -42,7 +42,7 @@ The main sections have been highlighted by a red number and are as follows:
 
 ## How to create a new programme page
 
-## How to move last year's programme page to the submenu
+## How to move last year's festival programme page to the submenu
 
 ## View or edit the Subscribers list
 
