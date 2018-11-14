@@ -12,7 +12,7 @@
 		$accent_colour = get_post_meta($post->ID, '_previous_festival_accent_colour', true);
 ?>
     <style type="text/css" id="previousFestivalsCss">
-		body[class*="page-whats-"] .entry-header {
+		body[class*="page-programme-"] .entry-header {
 			display: block;
 		}
 		.previous-festivals-date {
@@ -72,7 +72,7 @@
 							textarea, select, .site-footer .es_textbox_class {
 								background-color: <?php echo $accent_colour; ?>;
 							}
-							.main-navigation .current_page_item > a, body[class*="page-whats-"] .event-header, .single-event_cpt .entry-header, body:not(.home) .site-main #programme {
+							.main-navigation .current_page_item > a, body[class*="page-programme-"] .event-header, .single-event_cpt .entry-header, body:not(.home) .site-main #programme {
 								border-color:<?php echo $accent_colour; ?>;
 							}
 		<?php } 
@@ -100,7 +100,7 @@ function getDates($content) {
 		$formated_end_date = date('l j F Y', strtotime($end_date));
 
 		$content = sprintf(	
-			'<h2 class="previous-festivals-date"> From %s to %s</h2> %s', $formated_start_date, $formated_end_date,$content
+			'<h2 class="previous-festivals-date"> %s to %s</h2> %s', $formated_start_date, $formated_end_date,$content
         );
 	}}
 	return $content;
