@@ -27,6 +27,11 @@ function src_project_body_classes( $classes ) {
 		$classes[] = 'event-' . $year;
 	}
 
+	if ( is_singular( 'event_cpt' ) ){
+        $year = date('Y', strtotime( get_post_meta( get_post()->ID, '_event_cpt_date_event', true) ) );
+        $classes[] = 'event-' . $year;
+    } 
+
 	return $classes;
 }
 add_filter( 'body_class', 'src_project_body_classes' );
