@@ -131,7 +131,7 @@ function src_project_widgets_init() {
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'    => '<span class="screen-reader-text">',
-		'after_title'     => '</span>' . '<button id="searchIcon">'. src_project_get_svg( array( 'icon' => 'chain' ) ) . '</button>',
+		'after_title'     => '</span> <button id="searchIcon">'. src_project_get_svg( array( 'icon' => 'chain' ) ) . '</button>',
 	) );
 }
 add_action( 'widgets_init', 'src_project_widgets_init' );
@@ -141,11 +141,11 @@ add_action( 'widgets_init', 'src_project_widgets_init' );
  */
 function src_project_scripts() {
 	wp_enqueue_style( 'src-project-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'ttcommons-style', get_template_directory_uri(). '/fonts/TTCOMMONS/Info/MyFontsWebfontsKit.css' );
+	wp_enqueue_style( 'ttcommons-style', get_template_directory_uri(). '/fonts/TTCOMMONS/Info/MyFontsWebfontsKit.css', array(), '1.0.0' );
 
 	wp_enqueue_script( 'src-project-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'src-project-search', get_template_directory_uri() . '/js/searchBttn.js', array('jquery'), null, true );
+	wp_enqueue_script( 'src-project-search', get_template_directory_uri() . '/js/searchBttn.js', array('jquery'), '1.0.0', true );
 
 	wp_enqueue_script( 'src-project-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -209,42 +209,42 @@ function src_project_customizer_css(){
 
 							/* menu and links text color */
 							.main-navigation a, #hero .site-title, .site-footer .es_caption, .single-event_cpt .entry-content {
-										color: <?php echo $menu_links_color; ?>;
+										color: <?php echo sanitize_hex_color($menu_links_color); ?>;
 							}
 							.site-header svg.icon {
-										fill:<?php echo $menu_links_color; ?>;
+										fill:<?php echo sanitize_hex_color($menu_links_color); ?>;
 							}
 							button, .site-footer #es_txt_button, input[type="submit"] {
-								border: <?php echo $menu_links_color; ?>;
-								background-color: <?php echo $menu_links_color; ?>;
+								border: <?php echo sanitize_hex_color($menu_links_color); ?>;
+								background-color: <?php echo sanitize_hex_color($menu_links_color); ?>;
 							}
 							#programme .links a, .single-event_cpt .links a {
-								background-color: <?php echo $menu_links_color; ?>;
+								background-color: <?php echo sanitize_hex_color($menu_links_color); ?>;
 							}
 
 							/* main text color */
 							body, input, select, optgroup, a,
 							.site-footer, .site-footer a, .site-footer label, .site-footer .widget-title {
-								color: <?php echo $text_color; ?>;
+								color: <?php echo sanitize_hex_color($text_color); ?>;
 							}
 							.site-footer #es_txt_button { color: #FFF; }
 
 							/* accent color */
 							#hero .site-description, #hero .festival-dates, .single-event_cpt article .right-column .subcolumn-B  {
-								color: <?php echo $accent_color; ?>;
+								color: <?php echo sanitize_hex_color($accent_color); ?>;
 							}
 							.social-navigation a {
-								background-color: <?php echo $accent_color; ?>;
+								background-color: <?php echo sanitize_hex_color($accent_color); ?>;
 							}
 							input[type="text"], input[type="email"], input[type="url"], input[type="password"],
 							input[type="search"], input[type="number"], input[type="tel"], input[type="range"],
 							input[type="date"], input[type="month"], input[type="week"], input[type="time"],
 							input[type="datetime"], input[type="datetime-local"], input[type="color"],
 							textarea, select {
-								background-color: <?php echo $accent_color; ?>;
+								background-color: <?php echo sanitize_hex_color($accent_color); ?>;
 							}
 							.main-navigation .current_page_item > a, body[class*="page-whats-"] .event-header, .single-event_cpt .entry-header, body:not(.home) .site-main #programme {
-								border-color:<?php echo $accent_color; ?>;
+								border-color:<?php echo sanitize_hex_color($accent_color); ?>;
 							}
          </style>
     <?php

@@ -1,6 +1,6 @@
 <?php
 namespace yohannes\EventsFunctionality\src\views;
-	
+
 	//[events category="category-slug|category name"] category attrib value not case sensitive
 ?>
 

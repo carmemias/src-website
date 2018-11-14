@@ -17,7 +17,6 @@ namespace yohannes\EventsFunctionality\src;
  function events_cpt_shortcode_enqueue_scripts(){
    global $post;
    if( is_a( $post, 'WP_Post' ) && has_shortcode($post->post_content, 'events')){
-    //  wp_enqueue_script( 'shortcodescript' , EVENT_FUNCTIONALITY_URL .'/src/assets/js/events_shortcode_script.js', array('wp-api'), null, true );
    wp_enqueue_style( 'shortcodestyle' , EVENT_FUNCTIONALITY_URL .'src/assets/css/events_shortcode_style.css');
    }
  }
@@ -87,7 +86,7 @@ function events_cpt_shortcode_handler( $atts ){
 		//if the type doesn't exist, return error message
 		if( ( 0==$type_ID ) || ( null==$type_ID ) ) {
 
-			return __('<p>The selected event type '.$event_type.' does not exist.</p>', 'events-functionality' );
+			return __( "<p>The selected event type '$event_type' does not exist.</p>", 'events-functionality' );
 
 		} else {
 			//if it does, add it to query
@@ -346,9 +345,9 @@ function render_programme_page($events_cpt){
     }
 
 
-    $event_date = date('l j F', strtotime($single_event->_event_cpt_date_event));
+		$event_date   = date( 'l j F', strtotime( $single_event->_event_cpt_date_event ) );
     $event_start_time = $single_event->_event_cpt_startTime_event;
-    $event_end_time = $single_event->_event_cpt_endTime_event;
+    $event_end_time   = $single_event->_event_cpt_endTime_event;
 
     $event_location = get_event_short_location($single_event);
 
@@ -372,7 +371,13 @@ function render_programme_page($events_cpt){
     if(!$event_date){$output_view .= '<span style="color: #f00;">No date set yet</span>';}else{$output_view .= ' <p class="date">'.$event_date.' '.$event_start_time.' - '.$event_end_time.'</p>';}
     $output_view .= ' <p class="location">'.$event_location.'</p>';
     $output_view .= ' <p class="price">';
-    if('0.00' == $event_price){$output_view .= __('Free', 'events-functionality');}elseif('-1.00' == $event_price){$output_view .= __('Entry by donation', 'events-functionality');}else{$output_view .= '£'.$event_price;};
+		if ( '0.00' == $event_price ) {
+				$output_view .= __('Free', 'events-functionality');
+		} elseif ( '-1.00' == $event_price ) {
+				$output_view .= __('Entry by donation', 'events-functionality');
+			} else {
+				$output_view .= '£' . $event_price;
+			};
     $output_view .= '</p>';
     $output_view .= '</div><!-- right-column -->';
     $output_view .= '</section>';
@@ -437,4 +442,3 @@ function get_event_short_location($event){
 
     return $string;
 }
-?>

@@ -31,7 +31,7 @@ $you_have_img4 = is_array( $logo4_img_src );
 <table cellspacing="15">
 	<tr>
 		<td>
-			<label><?php _e( 'Key Event?', 'event_cpt' ); ?></label><br>
+			<label><?php _e( 'Is this a Key Event?', 'events-functionality' ); ?></label><br>
 				<input type="radio" name="_event_cpt_key_event" value="1" <?php checked( $_event_cpt_key_event, '1' ); ?> /> Yes<br />
 				<input type="radio" name="_event_cpt_key_event" value="0" <?php checked( $_event_cpt_key_event, '0' ); ?> /> No
 		</td>
@@ -57,7 +57,7 @@ $you_have_img4 = is_array( $logo4_img_src );
 	  <tr>
 		<td>
 			<div class="logo2 logoRow <?php if($_event_cpt_key_event!= '1'){echo "hidden";}?>">
-				
+
 				<div class="custom-img-container">
 				<?php if ( $you_have_img2 ) { ?>
 					<img src="<?php echo $logo2_img_src[0] ?>" alt="" style="max-width:100%;" />
@@ -77,7 +77,7 @@ $you_have_img4 = is_array( $logo4_img_src );
 	  <tr>
 		<td>
 			<div class="logo3 logoRow <?php if($_event_cpt_key_event!= '1'){echo "hidden";}?>">
-				
+
 				<div class="custom-img-container">
 				<?php if ( $you_have_img3 ) { ?>
 					<img src="<?php echo $logo3_img_src[0] ?>" alt="" style="max-width:100%;" />
@@ -96,7 +96,7 @@ $you_have_img4 = is_array( $logo4_img_src );
 	  <tr>
 		<td>
 			<div class="logo4 logoRow <?php if($_event_cpt_key_event!= '1'){echo "hidden";}?>">
-				
+
 				<div class="custom-img-container">
 				<?php if ( $you_have_img4 ) { ?>
 					<img src="<?php echo $logo4_img_src[0] ?>" alt="" style="max-width:100%;" />

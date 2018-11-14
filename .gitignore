@@ -12,3 +12,5 @@ plugins/hello.php
 **/query-monitor
 **/rest-filter-master
 **/wp-super-cache
+**/email-subscribers
+**/google-analytics-dashboard-for-wp

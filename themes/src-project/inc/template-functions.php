@@ -23,6 +23,11 @@ function src_project_body_classes( $classes ) {
 	}
 
 	if ( is_singular( 'event_cpt' ) ){
+		$year = date('Y', strtotime( get_post_meta( get_post()->ID, '_event_cpt_date_event', true) ) );
+		$classes[] = 'event-' . $year;
+	}
+
+	if ( is_singular( 'event_cpt' ) ){
         $year = date('Y', strtotime( get_post_meta( get_post()->ID, '_event_cpt_date_event', true) ) );
         $classes[] = 'event-' . $year;
     } 
