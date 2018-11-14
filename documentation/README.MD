@@ -5,7 +5,7 @@
 3. [How to create a new event](#how-to-create-a-new-event).
 4. [How to edit an existing event](#how-to-edit-an-existing-event).
 5. [How to create a new programme page](#how-to-create-a-new-programme-page).
-6. [How to move last year's festival programme page to the submenu](#how-to-move-last-years-festival-programme-page-to-the-submenu).
+6. [How to move last year's festival programme page to the submenu](#how-to-move-last-year-s-festival-programme-page-to-the-submenu).
 7. [View or edit the Subscribers list](#view-or-edit-the-subscribers-list).
 8. [Maintenance](#maintenance).
 
@@ -22,6 +22,20 @@ To access the login page, go to <https://refugeefestivalscotland.co.uk/wp-login.
 
 ## Dashboard
 
+![Illustration 1: Website dashboard](assets/dashboard.jpg)
+
+After login, you will see a screen similar to that shown in Illustration 1.
+
+The main sections have been highlighted by a red number and are as follows:
+
+	1. Posts – posts are listed in reverse chronological order on the Stories section.
+	2. Pages – the Festival programme pages all have the name “Programme YYYY” where YYYY indicates the full year. For further information, please refer to section 5 (how to create a new Programme page)
+	3. Events – the festival events, both for the current and the previous year's festivals. For further information, please refer to sections 3 and 4 (how to create a new or edit an existing Event)
+	4. Email Subscribers – details of all people who have signed up to the mailing list via the form in the website footer.
+	5. Appearance > Widgets > Footer widgets -
+	6. Settings > Privacy -
+	7. User Profile and Logout -
+
 ## How to create a new event
 
 ## How to edit an existing event
@@ -30,6 +44,6 @@ To access the login page, go to <https://refugeefestivalscotland.co.uk/wp-login.
 
 ## How to move last year's programme page to the submenu
 
-## View or edit Subscribers list
+## View or edit the Subscribers list
 
 ## Maintenance
