@@ -14,7 +14,7 @@ $custom = get_post_custom($event_id);
 if(array_key_exists( '_event_cpt_main_organizer', $custom )){$event_by = sanitize_text_field($custom['_event_cpt_main_organizer'][0]);}
 $event_types = get_event_types($event_id);
 
-if(array_key_exists( '_event_cpt_date_event', $custom )){$event_date = date('l j F', strtotime($custom['_event_cpt_date_event'][0]));}
+if(array_key_exists( '_event_cpt_date_event', $custom )){$event_date = date('l j F Y, ', strtotime($custom['_event_cpt_date_event'][0]));}
 if(array_key_exists( '_event_cpt_startTime_event', $custom )){$event_start_time = $custom['_event_cpt_startTime_event'][0];}
 if(array_key_exists( '_event_cpt_endTime_event', $custom )){$event_end_time = $custom['_event_cpt_endTime_event'][0];}
 $event_organisers = get_event_organisers($custom);
