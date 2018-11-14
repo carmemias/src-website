@@ -17,7 +17,12 @@
   },
   "homepage": "https://github.com/CodeYourFuture/src-website#readme",
   "devDependencies": {
+    "eslint": "^5.8.0",
+    "eslint-config-wordpress": "^2.0.0",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0"
-  }
+  },
+	"eslintConfig": {
+		"extends": "wordpress"
+	}
 }
