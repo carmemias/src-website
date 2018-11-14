@@ -29,7 +29,7 @@ After login, you will see a screen similar to that shown in Illustration 1.
 The main sections have been highlighted by a red number and are as follows:
 
 	1. Posts – posts are listed in reverse chronological order on the Stories section.
-	2. Pages – the Festival programme pages all have the name “Programme YYYY” where YYYY indicates the full year. For further information, please refer to section 5 (how to create a new Programme page)
+	2. Pages – the Festival programme pages all have the name “Programme YYYY” where YYYY indicates the full year. For further information, please refer to section 5: How to create a new Programme page
 	3. Events – the festival events, both for the current and the previous year's festivals. For further information, please refer to sections 3 and 4 (how to create a new or edit an existing Event)
 	4. Email Subscribers – details of all people who have signed up to the mailing list via the form in the website footer.
 	5. Appearance > Widgets > Footer widgets -
