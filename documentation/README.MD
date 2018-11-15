@@ -36,14 +36,3 @@ The main sections have been highlighted by a red number and are as follows:
 	6. Settings > Privacy -
 	7. User Profile and Logout -
 
-## How to create a new event
-
-## How to edit an existing event
-
-## How to create a new programme page
-
-## How to move last year's festival programme page to the submenu
-
-## View or edit the Subscribers list
-
-## Maintenance
