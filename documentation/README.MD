@@ -2,7 +2,7 @@
 
 1. [General Information](#general-information).
 2. [Dashboard](#dashboard).
-3. [How to create a new event](create-a-new-event.md).
+3. [How to create a new event](create-new-event.md).
 4. [How to edit an existing event](edit-existing-event.md).
 5. [How to create a new programme page](create-new-programme-page.md).
 6. [How to move a festival programme page to the submenu](archive-a-programme-page.md).
