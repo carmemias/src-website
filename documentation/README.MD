@@ -2,12 +2,12 @@
 
 1. [General Information](#general-information).
 2. [Dashboard](#dashboard).
-3. [How to create a new event](#how-to-create-a-new-event).
-4. [How to edit an existing event](#how-to-edit-an-existing-event).
-5. [How to create a new programme page](#how-to-create-a-new-programme-page).
-6. [How to move last year's festival programme page to the submenu](#how-to-move-last-years-festival-programme-page-to-the-submenu).
-7. [View or edit the Subscribers list](#view-or-edit-the-subscribers-list).
-8. [Maintenance](#maintenance).
+3. [How to create a new event](create-a-new-event.md).
+4. [How to edit an existing event](edit-existing-event.md).
+5. [How to create a new programme page](create-new-programme-page.md).
+6. [How to move last year's festival programme page to the submenu](archive-a-programme-page.md).
+7. [View or edit the Subscribers list](subscribers-list.md).
+8. [Maintenance](maintenance.md).
 
 ## General information
 
