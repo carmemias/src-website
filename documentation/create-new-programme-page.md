@@ -21,7 +21,7 @@ If you can't see the right-hand sidebar, click first the **Settings button** on 
 
 7. Then, as a reply to the question *"Is this for the current year?"*, choose *"Yes"* if it's for the forthcoming festival or *"No"* if it isn't.
 
-You will have something like this:
+You will end up with something like this:
 ![A Complete New Programme Page](assets/new-programme-page.jpg)
 *Illustration 2: a complete new Programme page.*
 
@@ -29,3 +29,6 @@ If the page isn't for a forthcoming festival, you will be asked to enter the cor
 
 8. Once this is done, you just need to click the **Publish** button to finish.
 If you would prefer to save the changes but not publish the page yet, you can do so by clicking the **Save Draft** link instead.
+
+
+[<< Back to main documentation page.](README.MD)
