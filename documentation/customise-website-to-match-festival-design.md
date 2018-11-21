@@ -34,6 +34,8 @@ Please be aware that the hero image will always keep its proportions and show ce
 ![Desktop vs Mobile view](assets/desktop-vs-mobile-view.jpg)
 *Illustration 2: Hero image comparison from a desktop and a mobile device.*
 
+Remember to click the **Publish** button, at the top of the screen, to save the changes.
+
 ## Change the colour scheme
 
 The 3 main colours used in the website can also be changed to match the current festival colour scheme.
@@ -75,6 +77,8 @@ The Accent Color is used to:
 * for the Refugee Festival Scotland social media links at the bottom of each page,
 * as the background colour of the "Subscribe to Newsletter" name and email fields, and
 * in the single event page, to display the event's address.
+
+Remember to click the **Publish** button, at the top of the screen, to save the changes.
 
 > These changes will apply to the whole website except the previous year's programme pages, if they have been given their own colour scheme. Please refer to [How to move a programme page to the submenu](archive-a-programme-page.md) for further information.
 
