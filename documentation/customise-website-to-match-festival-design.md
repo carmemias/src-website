@@ -2,9 +2,9 @@
 
 The Customizer allows us to change the website's colour scheme and homepage hero image to match those of the upcoming festival.
 
-To do so, you will need to login to the Dashboard and, from the left-hand side menu, click on **Appearance > Customizer**.
+To do so, you will need to login to the Dashboard and, from the left-hand side menu, click on **Appearance > Customizer** and choose **Current Festival** from the new screen.
 
-The following screen will show:
+The following sidebar will show:
 
 ![Customizer - Current Festival tab](assets/customizer-current-festival.jpg)
 *Illustration 1: Customizer - Current Festival tab.*
