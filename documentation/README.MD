@@ -1,4 +1,6 @@
-# Refugee Festival Scotland website
+# How-to Guide for the Refugee Festival Scotland website
+
+## Documentation content
 
 1. [General Information](#general-information).
 2. [Dashboard](#dashboard).
