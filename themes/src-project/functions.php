@@ -243,7 +243,7 @@ function src_project_customizer_css(){
 							textarea, select {
 								background-color: <?php echo sanitize_hex_color($accent_color); ?>;
 							}
-							.main-navigation .current_page_item > a, body[class*="page-whats-"] .event-header, .single-event_cpt .entry-header, body:not(.home) .site-main #programme {
+							.main-navigation .current_page_item > a, body[class*="page-programme-"] .event-header, .single-event_cpt .entry-header, body:not(.home) .site-main #programme {
 								border-color:<?php echo sanitize_hex_color($accent_color); ?>;
 							}
          </style>
