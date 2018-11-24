@@ -103,7 +103,7 @@
 	wp.customize( 'current_festival_accent_color', function( value ) {
 		value.bind( function( newVal ) {
 			if ( 'blank' != newVal ) {
-				$( '.main-navigation .current_page_item > a, body[class*="page-whats-"] .event-header, .single-event_cpt .entry-header, body:not(.home) .site-main #programme' ).css( {
+				$( '.main-navigation .current_page_item > a, body[class*="page-programme-"] .event-header, .single-event_cpt .entry-header, body:not(.home) .site-main #programme' ).css( {
 					'border-color': newVal,
 				} );
 				$( '#hero .site-description, #hero .festival-dates, .single-event_cpt article .right-column .subcolumn-B ').css( {
