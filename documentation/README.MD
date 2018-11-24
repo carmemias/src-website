@@ -16,7 +16,11 @@
 	* [Change the logos](other-customisations.md#change-the-logos).
 	* [Change the background image](other-customisations.md#change-the-background-image).
 9. [View or edit the Subscribers list](subscribers-list.md).
-10. [Maintenance](maintenance.md).
+10. [Maintenance](maintenance.md#).
+	* [How to create new or edit existing users](maintenance.md#how-to-create-new-or-edit-existing-users).
+	* [How to delete a user](maintenance#how-to-delete-a-user).
+	* [Backups](maintenance.md#backups).
+	* [Install the WordPress core, Plugin and Theme updates](maintenance.md#install-the-WordPress-core-plugin-and-theme-updates).
 
 ## General information
 
