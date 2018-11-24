@@ -39,6 +39,14 @@ If more than one username is to be deleted, you can do so by first selecting the
 
 ## Backups
 
+An automatic backup of the website and its database is run every day at 2:00am. The backup files are stored in Google Drive.
 
+The most important point regarding the backups is to keep an eye on them to make sure they do run smoothly.
+
+To do this, you will need to be logged in as the Administrator and go to **Dashboard** > **BackWPup Pro** > **Jobs**. This screen will tell you wen was the last backup run, how long it took and give you a link the log.
+
+If the automatic backup encounters a problem, a notification is sent to festival@refugeefestivalscotland.co.uk with some information as to what went wrong.
+
+Doing regular website backups is important because if the website ever got damaged for any reason, we would be able to minimise the disruption by it re-installing it from the last healthy backup.
 
 ## How to install the WordPress core, Plugin and Theme updates
