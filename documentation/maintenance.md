@@ -50,3 +50,16 @@ If the automatic backup encounters a problem, a notification is sent to festival
 Doing regular website backups is important because if the website ever got damaged for any reason, we would be able to minimise the disruption by it re-installing it from the last healthy backup.
 
 ## How to install the WordPress core, Plugin and Theme updates
+
+Every now and then there will be a software update for either WordPress, the website Theme or any of the plugins used by the site.
+
+It is good to run the updates as soon as we realise there are any to be installed. Most of the times a WordPress site has got hacked has been due to an out-of-date plugin!
+
+You can see if there are any pending updates from the Dashboard's top navigation bar or as an orange circle next to the Plugins menu option. See it on *Illustration 2* below:
+
+![WordPress pending updates, plugin and themes](assets/software-updates.jpg)
+*Illustration 2: WordPress, plugin and theme updates*
+
+> Please make sure you have a **recent website backup**  before updating WordPress core or any plugin or theme. It happens rarely, but sometimes two plugins may clash with each other or with the theme after updating them.
+
+To install the updates, click on the **Dashboard** > **Updates** menu option, select the items you wish to update from the list and click the **Update** button.
