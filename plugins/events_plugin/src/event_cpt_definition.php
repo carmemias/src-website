@@ -205,7 +205,7 @@ function event_cpt_bulk_updated_messages( $bulk_messages, $bulk_counts ) {
 */
 
 // see http://shibashake.com/wordpress-theme/expand-the-wordpress-quick-edit-menu .
- add_filter( 'manage_event_cpt_posts_columns', __NAMESPACE__ . '\event_cpt_add_custom_columns' );
+add_filter( 'manage_event_cpt_posts_columns', __NAMESPACE__ . '\event_cpt_add_custom_columns' );
 
 /**
  * Add a new column for Event order in the Events List table.
