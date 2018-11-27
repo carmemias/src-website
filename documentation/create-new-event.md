@@ -29,4 +29,8 @@ _Illustration 3: the New Event editor screen_
 8. Once this is done, you just need to click the **Publish** button to finish.
    If you would prefer to preview the changes before published the event, you can do so by clicking the **Priview** button instead.
 
+9. If an event type is not on the list you can Add a new Event type by clicking the **Add new Event Type** button
+
+10. when you create a new event, you have to make sure that you full fill all the fields. there are some fields that if left empty, the event does not show in the front end. for example **Event date and time** , **Event Price** and so on.
+
 [<< Back to main documentation page.](README.MD)
