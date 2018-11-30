@@ -201,7 +201,7 @@ function submitButton(data) {
 
       var newArray = data.filter(function(dataItem) {
         return (
-          (dataItem.extra_meta["_event_cpt_date_event"] != undefined && dataItem.extra_meta["_event_cpt_startTime_event"] != undefined && dataItem.extra_meta["_event_cpt_date_event"][0].substring(0, 4) == currentYear) &&
+          (dataItem.extra_meta["_event_cpt_date_event"] != undefined && dataItem.extra_meta["_event_cpt_start_time_event"] != undefined && dataItem.extra_meta["_event_cpt_date_event"][0].substring(0, 4) == currentYear) &&
           (filteredValues.type == "" ||
             (dataItem._embedded != undefined &&
               dataItem._embedded["wp:term"] != undefined &&
@@ -386,8 +386,8 @@ function renderNewEventsView(newArray) {
     // eventDate.innerHTML = date;
     if (
       event.extra_meta._event_cpt_date_event === undefined ||
-      event.extra_meta._event_cpt_startTime_event === undefined ||
-      event.extra_meta._event_cpt_endTime_event === undefined
+      event.extra_meta._event_cpt_start_time_event === undefined ||
+      event.extra_meta._event_cpt_end_time_event === undefined
     ) {
       var span = document.createElement("span");
       span.setAttribute("style", "color: #f00");
@@ -397,9 +397,9 @@ function renderNewEventsView(newArray) {
       eventDate.innerHTML =
         getLongDate(event.extra_meta._event_cpt_date_event) +
         " " +
-        event.extra_meta._event_cpt_startTime_event +
+        event.extra_meta._event_cpt_start_time_event +
         " - " +
-        event.extra_meta._event_cpt_endTime_event;
+        event.extra_meta._event_cpt_end_time_event;
     }
     rightColumn.appendChild(eventDate);
 

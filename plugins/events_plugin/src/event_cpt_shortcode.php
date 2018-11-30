@@ -16,10 +16,10 @@ namespace yohannes\EventsFunctionality\src;
 function events_cpt_shortcode_enqueue_scripts() {
 	global $post;
 	if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'events' ) ) {
-		wp_enqueue_style( 'shortcodestyle', EVENT_FUNCTIONALITY_URL . 'src/assets/css/events_shortcode_style.css' );
+		wp_enqueue_style( 'shortcodestyle', EVENT_FUNCTIONALITY_URL . 'src/assets/css/events_shortcode_style.css', array(), '1.0' );
 	}
 }
- add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\events_cpt_shortcode_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\events_cpt_shortcode_enqueue_scripts' );
 
 /**
  * Register the query variables for the filter
@@ -56,7 +56,7 @@ function events_cpt_shortcode_handler( $atts ) {
 		$atts
 	);
 
-	// No arguments have been set by the Editor, so all Events will be listed. Ordered by _event_cpt_date_event (ASC), _event_cpt_startTime_event (ASC) and post_title (ASC).
+	// No arguments have been set by the Editor, so all Events will be listed. Ordered by _event_cpt_date_event (ASC), _event_cpt_start_time_event (ASC) and post_title (ASC).
 	$event_cpt_args = array(
 		'post_type'      => 'event_cpt',
 		'post_status'    => 'publish',
@@ -73,7 +73,7 @@ function events_cpt_shortcode_handler( $atts ) {
 				'compare' => 'EXISTS',
 			),
 			'event_start_time' => array(
-				'key'     => '_event_cpt_startTime_event',
+				'key'     => '_event_cpt_start_time_event',
 				'compare' => 'EXISTS',
 			),
 		),
@@ -89,14 +89,14 @@ function events_cpt_shortcode_handler( $atts ) {
 		$event_type = $a['type'];
 
 		// the type attribute has been set. Does this type exist?
-		$type_ID = term_exists( $event_type, 'event-type' );
-		if ( is_array( $type_ID ) ) {
-			$type_ID = array_shift( $type_ID );}
+		$type_id = term_exists( $event_type, 'event-type' );
+		if ( is_array( $type_id ) ) {
+			$type_id = array_shift( $type_id );}
 
 		// if the type doesn't exist, return error message.
-		if ( ( 0 == $type_ID ) || ( null == $type_ID ) ) {
-
-			return __( "<p>The selected event type ' . $event_type . ' does not exist.</p>", 'events-functionality' );
+		if ( ( 0 === $type_id ) || ( null === $type_id ) ) {
+			// translators: event type.
+			sprintf( esc_html__( '<p>The selected event type %s does not exist.</p>', 'events-functionality' ), esc_attr( $event_type ) );
 
 		} else {
 			// if it does, add it to query.
@@ -200,7 +200,7 @@ function events_cpt_shortcode_handler( $atts ) {
 	$result = render_programme_page( $events_cpt );
 
 	$output_string .= '<div id="programme">';
-	if ( 0 == count( $events_cpt ) ) {
+	if ( 0 === count( $events_cpt ) ) {
 		$output_string .= '<p>There are no events to display.</p>';
 	} else {
 		$output_string .= $result['view'];
@@ -251,8 +251,8 @@ function get_filter_selection() {
 /**
  * Filter section at the top of a Programme page.
  *
- * @param  [type] $initial_events_cpt [description]
- * @return [type]                     [description]
+ * @param  [type] $initial_events_cpt [description].
+ * @return [type]                     [description].
  */
 function get_filter_data( $initial_events_cpt ) {
 	$result       = array();
@@ -365,8 +365,8 @@ function render_programme_page( $events_cpt ) {
 		}
 
 		$event_date       = date( 'l j F', strtotime( $single_event->_event_cpt_date_event ) );
-		$event_start_time = $single_event->_event_cpt_startTime_event;
-		$event_end_time   = $single_event->_event_cpt_endTime_event;
+		$event_start_time = $single_event->_event_cpt_start_time_event;
+		$event_end_time   = $single_event->_event_cpt_end_time_event;
 
 		$event_location = get_event_short_location( $single_event );
 

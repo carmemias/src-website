@@ -136,31 +136,53 @@ function save_event_cpt_meta( $post_id, $post ) {
 						return $post->ID;}
 
 	// ok, we're authenticated: we need to find and save the data. We'll put it into an array to make it easier to loop through.
-	$event_meta['_event_cpt_area']             = sanitize_text_field( wp_unslash( $_POST['_event_cpt_area'] ) );
-	$event_meta['_event_cpt_venue']            = sanitize_text_field( wp_unslash( $_POST['_event_cpt_venue'] ) );
-	$event_meta['_event_cpt_address_line_1']   = sanitize_text_field( wp_unslash( $_POST['_event_cpt_address_line_1'] ) );
-	$event_meta['_event_cpt_address_line_2']   = sanitize_text_field( wp_unslash( $_POST['_event_cpt_address_line_2'] ) );
-	$event_meta['_event_cpt_address_postcode'] = sanitize_text_field( wp_unslash( $_POST['_event_cpt_address_postcode'] ) );
+	if ( isset( $_POST['_event_cpt_area'] ) ) {
+		$event_meta['_event_cpt_area'] = sanitize_text_field( wp_unslash( $_POST['_event_cpt_area'] ) );}
+	if ( isset( $_POST['_event_cpt_venue'] ) ) {
+		$event_meta['_event_cpt_venue'] = sanitize_text_field( wp_unslash( $_POST['_event_cpt_venue'] ) );}
+	if ( isset( $_POST['_event_cpt_address_line_1'] ) ) {
+		$event_meta['_event_cpt_address_line_1'] = sanitize_text_field( wp_unslash( $_POST['_event_cpt_address_line_1'] ) );}
+	if ( isset( $_POST['_event_cpt_address_line_2'] ) ) {
+		$event_meta['_event_cpt_address_line_2'] = sanitize_text_field( wp_unslash( $_POST['_event_cpt_address_line_2'] ) );}
+	if ( isset( $_POST['_event_cpt_address_postcode'] ) ) {
+		$event_meta['_event_cpt_address_postcode'] = sanitize_text_field( wp_unslash( $_POST['_event_cpt_address_postcode'] ) );}
 
-	$event_meta['_event_cpt_price_event']     = floatval( wp_unslash( $_POST['_event_cpt_price_event'] ) );
-	$event_meta['_event_cpt_key_event']       = intval( wp_unslash( $_POST['_event_cpt_key_event'] ) );
-	$event_meta['_event_cpt_startTime_event'] = wp_unslash( $_POST['_event_cpt_startTime_event'] );
-	$event_meta['_event_cpt_endTime_event']   = wp_unslash( $_POST['_event_cpt_endTime_event'] );
-	$event_meta['_event_cpt_date_event']      = wp_unslash( $_POST['_event_cpt_date_event'] );
+	if ( isset( $_POST['_event_cpt_price_event'] ) ) {
+		$event_meta['_event_cpt_price_event'] = floatval( wp_unslash( $_POST['_event_cpt_price_event'] ) );}
+	if ( isset( $_POST['_event_cpt_key_event'] ) ) {
+		$event_meta['_event_cpt_key_event'] = intval( wp_unslash( $_POST['_event_cpt_key_event'] ) );}
+	if ( isset( $_POST['_event_cpt_start_time_event'] ) ) {
+		$event_meta['_event_cpt_start_time_event'] = wp_unslash( $_POST['_event_cpt_start_time_event'] );}
+	if ( isset( $_POST['_event_cpt_end_time_event'] ) ) {
+		$event_meta['_event_cpt_end_time_event'] = wp_unslash( $_POST['_event_cpt_end_time_event'] );}
+	if ( isset( $_POST['_event_cpt_date_event'] ) ) {
+		$event_meta['_event_cpt_date_event'] = wp_unslash( $_POST['_event_cpt_date_event'] );}
 
-	$event_meta['_event_cpt_logo1_event'] = wp_unslash( $_POST['_event_cpt_logo1_event'] );
-	$event_meta['_event_cpt_logo2_event'] = wp_unslash( $_POST['_event_cpt_logo2_event'] );
-	$event_meta['_event_cpt_logo3_event'] = wp_unslash( $_POST['_event_cpt_logo3_event'] );
-	$event_meta['_event_cpt_logo4_event'] = wp_unslash( $_POST['_event_cpt_logo4_event'] );
+	if ( isset( $_POST['_event_cpt_logo1_event'] ) ) {
+		$event_meta['_event_cpt_logo1_event'] = wp_unslash( $_POST['_event_cpt_logo1_event'] );}
+	if ( isset( $_POST['_event_cpt_logo2_event'] ) ) {
+		$event_meta['_event_cpt_logo2_event'] = wp_unslash( $_POST['_event_cpt_logo2_event'] );}
+	if ( isset( $_POST['_event_cpt_logo3_event'] ) ) {
+		$event_meta['_event_cpt_logo3_event'] = wp_unslash( $_POST['_event_cpt_logo3_event'] );}
+	if ( isset( $_POST['_event_cpt_logo4_event'] ) ) {
+		$event_meta['_event_cpt_logo4_event'] = wp_unslash( $_POST['_event_cpt_logo4_event'] );}
 
-	$event_meta['_event_cpt_main_organizer']      = sanitize_text_field( wp_unslash( $_POST['_event_cpt_main_organizer'] ) );
-	$event_meta['_event_cpt_other_organizer_1']   = sanitize_text_field( wp_unslash( $_POST['_event_cpt_other_organizer_1'] ) );
-	$event_meta['_event_cpt_other_organizer_2']   = sanitize_text_field( wp_unslash( $_POST['_event_cpt_other_organizer_2'] ) );
-	$event_meta['_event_cpt_other_organizer_3']   = sanitize_text_field( wp_unslash( $_POST['_event_cpt_other_organizer_3'] ) );
-	$event_meta['_event_cpt_organizer_website']   = sanitize_text_field( wp_unslash( $_POST['_event_cpt_organizer_website'] ) );
-	$event_meta['_event_cpt_organizer_facebook']  = esc_url_raw( wp_unslash( $_POST['_event_cpt_organizer_facebook'] ) );
-	$event_meta['_event_cpt_organizer_twitter']   = esc_url_raw( wp_unslash( $_POST['_event_cpt_organizer_twitter'] ) );
-	$event_meta['_event_cpt_organizer_instagram'] = esc_url_raw( wp_unslash( $_POST['_event_cpt_organizer_instagram'] ) );
+	if ( isset( $_POST['_event_cpt_main_organizer'] ) ) {
+		$event_meta['_event_cpt_main_organizer'] = sanitize_text_field( wp_unslash( $_POST['_event_cpt_main_organizer'] ) );}
+	if ( isset( $_POST['_event_cpt_other_organizer_1'] ) ) {
+		$event_meta['_event_cpt_other_organizer_1'] = sanitize_text_field( wp_unslash( $_POST['_event_cpt_other_organizer_1'] ) );}
+	if ( isset( $_POST['_event_cpt_other_organizer_2'] ) ) {
+		$event_meta['_event_cpt_other_organizer_2'] = sanitize_text_field( wp_unslash( $_POST['_event_cpt_other_organizer_2'] ) );}
+	if ( isset( $_POST['_event_cpt_other_organizer_3'] ) ) {
+		$event_meta['_event_cpt_other_organizer_3'] = sanitize_text_field( wp_unslash( $_POST['_event_cpt_other_organizer_3'] ) );}
+	if ( isset( $_POST['_event_cpt_organizer_website'] ) ) {
+		$event_meta['_event_cpt_organizer_website'] = sanitize_text_field( wp_unslash( $_POST['_event_cpt_organizer_website'] ) );}
+	if ( isset( $_POST['_event_cpt_organizer_facebook'] ) ) {
+		$event_meta['_event_cpt_organizer_facebook'] = esc_url_raw( wp_unslash( $_POST['_event_cpt_organizer_facebook'] ) );}
+	if ( isset( $_POST['_event_cpt_organizer_twitter'] ) ) {
+		$event_meta['_event_cpt_organizer_twitter'] = esc_url_raw( wp_unslash( $_POST['_event_cpt_organizer_twitter'] ) );}
+	if ( isset( $_POST['_event_cpt_organizer_instagram'] ) ) {
+		$event_meta['_event_cpt_organizer_instagram'] = esc_url_raw( wp_unslash( $_POST['_event_cpt_organizer_instagram'] ) );}
 
 	// Add values of $events_meta as custom fields.
 	foreach ( $event_meta as $key => $value ) { // Cycle through the $classes_meta array!
