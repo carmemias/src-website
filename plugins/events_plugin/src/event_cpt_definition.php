@@ -25,7 +25,6 @@ add_action( 'init', __NAMESPACE__ . '\event_cpt_functionality' );
 		'author',
 		'post-formats',
 		'comments',
-		//'excerpt'
 	));
 
 	register_post_type( 'event_cpt', array(
@@ -46,9 +45,6 @@ add_action( 'init', __NAMESPACE__ . '\event_cpt_functionality' );
  		    'not_found' => __( 'No Events found.', 'events-functionality' ),
 			'not_found_in_trash' => __( 'No Events found in Trash.', 'events-functionality' ),
 		),
-		'show_in_rest'    => true,
-		'rest_base'    => 'events',
-		'rest_controller_class' => 'WP_REST_Posts_Controller',
 		'public' => true,
 		'show_ui' => true,
 		'has_archive' => true, #this means it'll have an "index/loop" page
@@ -66,9 +62,6 @@ add_action( 'init', __NAMESPACE__ . '\event_cpt_functionality' );
 	register_taxonomy('event-type', 'event_cpt', array(
 		'hierarchical' => true,
 		'show_in_nav_menus' => false,
-		'show_in_rest' => true,
-		'rest_base' => 'eventtypes',
-		'rest_control_class' => 'WP_REST_Terms_Controller',
 		'labels' => array(
 			'name' => __('Event types'),
 			'singular_name' => __('Event type'),
@@ -225,14 +218,13 @@ function event_cpt_custom_columns( $column, $post_id ) {
 			} else {
 				$terms_list = 'not yet set </br>';
 			}
-			echo '<div id="event_cpt_type-' . absint( $post_id ) . '">' . esc_html( $terms_list ) . '</div>';
+			echo '<div id="event_cpt_type-' . absint( $post_id ) . '">' . wp_kses_post( $terms_list ) . '</div>';
 			break;
 	}
 }
 
 
  add_filter( 'manage_edit-event_cpt_sortable_columns', __NAMESPACE__ .'\event_cpt_area_sortable_column' );
- add_filter( 'manage_edit-event_cpt_sortable_columns', __NAMESPACE__ .'\event_cpt_type_sortable_column' );
 
 /*
 * Make new Event Area column sortable
@@ -244,18 +236,7 @@ function event_cpt_area_sortable_column( $columns ) {
     return $columns;
 }
 
-/*
-* Make new Event Type column sortable
-*/
-function event_cpt_type_sortable_column( $columns ) {
-
-	$columns['event_cpt_type'] = 'event_cpt_type';
-
-    return $columns;
-}
-
  add_action( 'pre_get_posts', __NAMESPACE__ .'\event_cpt_area_orderby_backend' );
- add_action( 'pre_get_posts', __NAMESPACE__ .'\event_cpt_type_orderby_backend' );
 /*
 * Priority sorting instructions for the backend only (front end is set in home.php)
 */
@@ -268,17 +249,5 @@ function event_cpt_area_orderby_backend( $query ) {
     if( 'event_cpt_area' == $orderby ) {
 		$query->set('meta_key','_event_cpt_area');
         $query->set('orderby','meta_value_num');
-    }
-}
-
-function event_cpt_type_orderby_backend( $query ) {
-    if( ! is_admin() )
-        return;
-
-    $orderby = $query->get( 'orderby');
-
-    if( 'event_cpt_type_event' == $orderby ) {
-		$query->set('meta_key','_event_cpt_type');
-        $query->set('orderby','meta_value');
     }
 }
