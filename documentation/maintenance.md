@@ -63,3 +63,5 @@ You can see if there are any pending updates from the Dashboard's top navigation
 > Please make sure you have a **recent website backup**  before updating WordPress core or any plugin or theme. It happens rarely, but sometimes two plugins may clash with each other or with the theme after updating them.
 
 To install the updates, click on the **Dashboard** > **Updates** menu option, select the items you wish to update from the list and click the **Update** button.
+
+[<< Back to main documentation page.](README.MD)

@@ -22,3 +22,5 @@ If you the only change you wish to make the **event title** or **event type**, y
 2. click **Quick Edit** from the little menu that appears below the event title,
 
 3. change the event title or type and click the **Update** button.
+
+[<< Back to main documentation page.](README.MD)
